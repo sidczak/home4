@@ -19,5 +19,19 @@
   "bugs": {
     "url": "https://github.com/sidczak/home4/issues"
   },
-  "homepage": "https://github.com/sidczak/home4#readme"
+  "homepage": "https://github.com/sidczak/home4#readme",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.23.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.6.7",
+    "vue-loader": "^15.6.4",
+    "vue-template-compiler": "^2.6.7"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0"
+  }
 }
