@@ -17,13 +17,16 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if you JavaScript imports CSS.
      */
-    .addEntry('app', './assets/js/app.js')
+    //.addEntry('app', './assets/js/app.js')
+    .addEntry('js/home4', './assets/js/home4.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
+    .addStyleEntry('css/home4', './assets/css/home4.scss')
 
     // will require an extra script tag for runtime.js
     // but, you probably want this, unless you're building a single-page app
-    .enableSingleRuntimeChunk()
+    //.enableSingleRuntimeChunk()
+    .disableSingleRuntimeChunk()
 
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
@@ -34,10 +37,11 @@ Encore
     //.enableTypeScriptLoader()
 
     // uncomment if you use Sass/SCSS files
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
+    .enableVueLoader()
 ;
 
 module.exports = Encore.getWebpackConfig();
