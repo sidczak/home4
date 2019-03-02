@@ -17,3 +17,11 @@ Vue.use(vueCustomElement);
 Vue.customElement('example-component', ExampleComponent);
 Vue.customElement('edu-counter', EduCounter);
 
+
+
+const $ = require('jquery');
+require('bootstrap');
+$(document).ready(function() {
+    $('[data-toggle="popover"]').popover();
+});
+
