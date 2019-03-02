@@ -23,7 +23,7 @@
 </template>
 <script>
     export default {
-        name: "Counter",
+        name: "EduCounter",
         //props: ["initValue"],
         props: {
             initValue: {

@@ -4,13 +4,6 @@ import vueCustomElement from 'vue-custom-element';
 
 import '../css/home.scss';
 
-// import App from './App';
-
-// new Vue({
-//     el: '#app',
-//     render: h => h(App)
-// });
-
 import ExampleComponent from './components/ExampleComponent.vue';
 import EduCounter from './components/EduCounter.vue';
 
