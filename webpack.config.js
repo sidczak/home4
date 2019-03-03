@@ -45,3 +45,5 @@ Encore
 ;
 
 module.exports = Encore.getWebpackConfig();
+
+const CopyWebpackPlugin = require('copy-webpack-plugin');
