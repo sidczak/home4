@@ -8,7 +8,18 @@
  	<div class="container">
         <div class="row">
             <div class="col-md-12">
-			    <h2>start/index</h2>
+			    <h2>start/index <i class="fa fa-home"></i> <i class="fas fa-home"></i></h2>
+
+<!-- Define the symbols, these are invisible on the page -->
+<i data-fa-symbol="delete" class="fas fa-trash fa-fw"></i>
+<i data-fa-symbol="edit" class="fas fa-pencil fa-fw"></i>
+<i data-fa-symbol="favorite" class="fas fa-star fa-fw"></i>
+
+<!-- Use the defined symbols -->
+<svg><use xlink:href="#edit"></use></svg>
+<svg><use xlink:href="#delete"></use></svg>
+<svg><use xlink:href="#favorite"></use></svg>
+
 			    <ol>
 			    	<li>Tworzenie projektu blog</li>
 			    	<li>Pisanie componentów vue</li>
