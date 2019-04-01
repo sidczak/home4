@@ -7,6 +7,9 @@
         <link rel="stylesheet" href="{{ asset('build/css/home.css') }}" />
     </head>
     <body>
+        {% block navigation %}
+            {{ include('_navbar.html.twig') }}
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
         {% block javascriptsvue %}
