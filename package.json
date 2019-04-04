@@ -34,6 +34,7 @@
     "vue-template-compiler": "^2.6.7"
   },
   "dependencies": {
+    "animate.css": "^3.7.0",
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
     "vue-custom-element": "^3.2.6",
