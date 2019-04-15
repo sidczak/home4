@@ -1,8 +1,20 @@
+//Google fonts
+@import "fonts/font-exo";
+@import "fonts/font-roboto";
+//@import "./fonts/webwingscz";
+
+//SOURCES BOOTSTRAP
 //$primary: darken(#428bca, 20%);
+$font-family-sans-serif: $font-roboto;
 @import "~bootstrap/scss/bootstrap";
+
+// Font Awesome
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 
 @import "~animate.css/animate";
+
+
+

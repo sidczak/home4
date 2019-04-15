@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=latin,latin-ext');
+
+//zmienne
+$font-exo:              'Exo', sans-serif; //domyślnie regular
+
+// $font-exo-thin:               normal 100 'Exo', sans-serif;
+// $font-exo-thin-italic:        italic 100 'Exo', sans-serif;
+// $font-exo-extra-light:        normal 200 'Exo', sans-serif;
+// $font-exo-extra-light-italic: italic 200 'Exo', sans-serif;
+// $font-exo-light:              normal 300 'Exo', sans-serif;
+// $font-exo-light-italic:       italic 300 'Exo', sans-serif;
+// $font-exo-regular:            normal 400 'Exo', sans-serif;
+// $font-exo-regular-italic:     italic 400 'Exo', sans-serif;
+// $font-exo-medium:             normal 500 'Exo', sans-serif;
+// $font-exo-medium-italic:      italic 500 'Exo', sans-serif;
+// $font-exo-semi-bold:          normal 600 'Exo', sans-serif;
+// $font-exo-semi-bold-italic:   italic 600 'Exo', sans-serif;
+// $font-exo-bold:               normal 700 'Exo', sans-serif;
+// $font-exo-bold-italic:        italic 700 'Exo', sans-serif;
+// $font-exo-extra-bold:         normal 800 'Exo', sans-serif;
+// $font-exo-extra-bold-italic:  italic 800 'Exo', sans-serif;
+// $font-exo-black:              normal 900 'Exo', sans-serif;
+// $font-exo-black-italic:       italic 900 'Exo', sans-serif;
+
+.font-exo-thin {
+    //font: $font-exo-thin;
+    font-family: 'Exo', sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+.font-exo-thin-italic {
+    //font: $font-exo-thin-italic;
+    font-family: 'Exo', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+.font-exo-extra-light {
+    font-family: 'Exo', sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+.font-exo-extra-light-italic {
+    font-family: 'Exo', sans-serif;
+    font-weight: 200;
+    font-style: italic;
+}
+.font-exo-light {
+    font-family: 'Exo', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+.font-exo-light-italic {
+    font-family: 'Exo', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+.font-exo-regular {
+    font-family: 'Exo', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.font-exo-regular-italic {
+    font-family: 'Exo', sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+.font-exo-medium {
+    font-family: 'Exo', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+.font-exo-medium-italic {
+    font-family: 'Exo', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+.font-exo-semi-bold {
+    font-family: 'Exo', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+.font-exo-semi-bold-italic {
+    font-family: 'Exo', sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+.font-exo-bold {
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.font-exo-bold-italic {
+    font-family: 'Exo', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+.font-exo-extra-bold {
+    font-family: 'Exo', sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+.font-exo-extra-bold-italic {
+    font-family: 'Exo', sans-serif;
+    font-weight: 800;
+    font-style: italic;
+}
+.font-exo-black {
+    font-family: 'Exo', sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+.font-exo-black-italic {
+    font-family: 'Exo', sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
