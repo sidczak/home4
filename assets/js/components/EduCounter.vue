@@ -16,9 +16,15 @@
             <div class="col-8 text-center">
                 <div class="alert alert-primary" v-show="!inProgress">Naciśnij <strong>Start</strong> aby rozpocząć odliczanie.</div>
                 <h4>{{ counter }}</h4>
-                <button class="btn btn-primary btn-counter" @click="start" :disabled="inProgress">Start</button>
+                <button class="btn btn-primary btn-counter" @click="start" :disabled="inProgress">
+                    <svg title="Camera" role="img" class="svg-fill align-baseline">
+                        <use xlink:href="../../static/svg/icon.svg#camera"></use>
+                    </svg>
+                    Start
+                </button>
             </div>
         </div>
+        <div class="row justify-content-center"></div>
     </div>
 </template>
 <script>
@@ -72,6 +78,11 @@
             font-size: 24px;
             //padding: rem(6px 30px);
             @include rem(padding, 6px 30px);
+
+            svg {
+                width: 20px;
+                height: 20px;
+            }
         }
     }
 </style>

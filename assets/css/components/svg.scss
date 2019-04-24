@@ -1,0 +1,13 @@
+.svg {
+    
+    &-fill {
+        fill: currentColor;
+    }
+    
+    &-stroke {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+    }
+    
+}

@@ -17,10 +17,13 @@ Vue.use(vueCustomElement);
 Vue.customElement('example-component', ExampleComponent);
 Vue.customElement('edu-counter', EduCounter);
 
-
-
 const $ = require('jquery');
 require('bootstrap');
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
+
+import svg4everybody from 'svg4everybody';
+svg4everybody();
+
+//import main from './main';
