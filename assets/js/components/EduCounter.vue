@@ -65,10 +65,13 @@
     };
 </script>
 <style lang="scss" scoped>
+    @import "~sass-rem";
+    $rem-fallback: true;
     .btn {
         &-counter {
             font-size: 24px;
-            padding: 0.375rem 30px;
+            //padding: rem(6px 30px);
+            @include rem(padding, 6px 30px);
         }
     }
 </style>

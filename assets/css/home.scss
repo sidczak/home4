@@ -4,9 +4,7 @@
 //@import "./fonts/webwingscz";
 
 //SOURCES BOOTSTRAP
-//$primary: darken(#428bca, 20%);
-$font-family-sans-serif: $font-roboto;
-@import "~bootstrap/scss/bootstrap";
+@import "bootstrap-home/bootstrap-home";
 
 // Font Awesome
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
@@ -17,5 +15,7 @@ $font-family-sans-serif: $font-roboto;
 @import "~animate.css/animate";
 
 @import "~sass-rem";
+$rem-fallback: true;
 
-
+//New Components
+//@import "components/svg";

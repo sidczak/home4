@@ -1,0 +1,15 @@
+//SOURCES BOOTSTRAP
+// bootstrap
+
+//$primary: darken(#428bca, 20%);
+$font-family-sans-serif: $font-roboto;
+@import "~bootstrap/scss/bootstrap";
+
+// Bootstrap Components
+// bootstrap/transitions
+@import "transitions";
+
+// Bootstrap Utility classes
+// bootstrap/utilities/background
+@include bg-variant('.bg-bootstrap', #6f5499);
+@include bg-variant('.bg-vue', #42b983);
