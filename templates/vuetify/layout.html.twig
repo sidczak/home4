@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="stylesheet" href="{{ asset('build/js/home.css') }}" />
+    </head>
+    <body>
+        <div id="app">
+            <v-app id="inspire">
+                {% block navigation %}
+                    {{ include('_navbar.html.twig') }}
+                {% endblock %}
+                {% block body %}{% endblock %}
+                {% block javascripts %}{% endblock %}
+                {% block javascriptsvue %}
+                    <script src="{{ asset('build/js/home.js') }}"></script>
+                {% endblock %}
+            </v-app>
+        </div>
+    </body>
+</html>

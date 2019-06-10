@@ -16,12 +16,4 @@ class AboutMeController extends AbstractController
             'controller_name' => 'AboutMeController',
         ]);
     }
-
-    /**
-     * @Route("/about-me-vuetify", name="about_me_vuetify")
-     */
-    public function vuetify()
-    {
-        return $this->render('about_me/vuetify.html.twig');
-    }
 }
