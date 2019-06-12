@@ -12,7 +12,16 @@
         <div id="app">
             <v-app id="inspire">
                 {% block navigation %}
-                    {{ include('_navbar.html.twig') }}
+                    {#{{ include('_navbar.html.twig') }}#}
+                    <v-toolbar>
+                        <v-toolbar-side-icon></v-toolbar-side-icon>
+                        <v-toolbar-title>Title</v-toolbar-title>
+                        <v-spacer></v-spacer>
+                        <v-toolbar-items class="hidden-sm-and-down">
+                            <v-btn flat append href="{{ path('homepage') }}">Start</v-btn>
+                            <v-btn flat color="success">Vuetify</v-btn>
+                        </v-toolbar-items>
+                    </v-toolbar>
                 {% endblock %}
                 {% block body %}{% endblock %}
                 {% block javascripts %}{% endblock %}

@@ -3,52 +3,51 @@
 {% block stylesheets %}{% endblock %}
 
 {% block body %}
-
-
- 	<div class="container">
+    <v-container grid-list-md text-xs-center>
+        <v-layout row wrap>
+            <v-flex xs12>
+                <v-card dark color="primary">
+                    <v-card-text class="px-0">
+                        <v-btn color="success">Success</v-btn>
+                        <v-btn color="error">Error</v-btn>
+                        <v-btn color="warning">Warning</v-btn>
+                        <v-btn color="info">Info</v-btn>
+                    </v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex v-for="i in 2" :key="`6${i}`" xs12 md6>
+                <v-card dark color="secondary">
+                    <v-card-text class="px-0">6</v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex v-for="i in 3" :key="`4${i}`" xs12 md4>
+                <v-card dark color="primary">
+                    <v-card-text class="px-0">4</v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex v-for="i in 4" :key="`3${i}`" xs3>
+                <v-card dark color="secondary">
+                    <v-card-text class="px-0">3</v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex v-for="i in 6" :key="`2${i}`" xs2>
+                <v-card dark color="primary">
+                    <v-card-text class="px-0">2</v-card-text>
+                </v-card>
+            </v-flex>
+            <v-flex v-for="i in 12" :key="`1${i}`" xs1>
+                <v-card dark color="secondary">
+                    <v-card-text class="px-0">1</v-card-text>
+                </v-card>
+            </v-flex>
+        </v-layout>
+    </v-container>
+                
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
-			    <h2>start/index <i class="fa fa-home"></i> <i class="fas fa-home"></i></h2>
-                <v-container grid-list-md text-xs-center>
-                    <v-layout row wrap>
-                      <v-flex xs12>
-                        <v-card dark color="primary">
-                          <v-card-text class="px-0">
-                            <v-btn color="success">Success</v-btn>
-                            <v-btn color="error">Error</v-btn>
-                            <v-btn color="warning">Warning</v-btn>
-                            <v-btn color="info">Info</v-btn>
-                          </v-card-text>
-                        </v-card>
-                      </v-flex>
-                      <v-flex v-for="i in 2" :key="`6${i}`" xs6>
-                        <v-card dark color="secondary">
-                          <v-card-text class="px-0">6</v-card-text>
-                        </v-card>
-                      </v-flex>
-                      <v-flex v-for="i in 3" :key="`4${i}`" xs4>
-                        <v-card dark color="primary">
-                          <v-card-text class="px-0">4</v-card-text>
-                        </v-card>
-                      </v-flex>
-                      <v-flex v-for="i in 4" :key="`3${i}`" xs3>
-                        <v-card dark color="secondary">
-                          <v-card-text class="px-0">3</v-card-text>
-                        </v-card>
-                      </v-flex>
-                      <v-flex v-for="i in 6" :key="`2${i}`" xs2>
-                        <v-card dark color="primary">
-                          <v-card-text class="px-0">2</v-card-text>
-                        </v-card>
-                      </v-flex>
-                      <v-flex v-for="i in 12" :key="`1${i}`" xs1>
-                        <v-card dark color="secondary">
-                          <v-card-text class="px-0">1</v-card-text>
-                        </v-card>
-                      </v-flex>
-                    </v-layout>
-                </v-container>
-                          
+                <h2>start/index <i class="fa fa-home"></i> <i class="fas fa-home"></i></h2>
+                <v-btn color="success">Success</v-btn>
                 <example-component myprop="I can pass props!" index=4></example-component>
                 <edu-counter></edu-counter>
             </div>
