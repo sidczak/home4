@@ -16,6 +16,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import EduCounter from './components/EduCounter.vue';
+import WebinarFlywheel from './cm-components/landing/webinar-flywheel/WebinarFlywheel.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -26,6 +27,7 @@ Vue.use(vueCustomElement);
 
 Vue.customElement('example-component', ExampleComponent);
 Vue.customElement('edu-counter', EduCounter);
+Vue.customElement('webinar-flywheel', WebinarFlywheel);
 
 const $ = require('jquery');
 require('bootstrap');
