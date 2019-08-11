@@ -1,9 +1,11 @@
 <template>
-    <section class="welcome">
+    <section class="welcome ring-multi">
+        <Ring isMulti></Ring>
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
                     <h2>{{ heading }}</h2>
+                    <h4>{{ description }}</h4>
                 </div>
             </div>
         </div>
@@ -11,20 +13,35 @@
 </template>
 
 <script>
-    export default {
-        name: "Welcome",
-        props: {
-
-        },
-	    data () {
-	        return {
-	            heading: "Welcome"
-	        }
-	    }
-    };
+import Ring from './Ring';
+export default {
+    name: "Welcome",
+    components: {
+        Ring
+    },
+    props: {
+    },
+    data () {
+        return {
+            heading: "Welcome",
+            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+    }
+};
 </script>
+
 <style lang="scss" scoped>
 .welcome {
-    border: 1px solid red;
+    position: relative;
+    padding: 150px 0 600px;
+    @media (max-width: 768px) {
+        padding: 50px 0 380px;
+    }
+    &.ring-multi {
+        padding-bottom: 700px;
+        @media (max-width: 768px) {
+            padding-bottom: 470px;
+        }
+    }
 }
 </style>

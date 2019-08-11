@@ -2,22 +2,21 @@
     <section class="features">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 text-center">
                     <h2>{{ heading }}</h2>
-                    <div class="row">
-                        <div class="col-md-3" v-for="(item, index) in items">
-                            <div class="feature">
-                                <div class="feature-tile" @click="open(item)">
-                                    {{ item.title }}
-                                </div>
-                                <div class="feature--info" :class="{ 'show': item.isOpen }">
-                                    {{ item.desc }}
-                                    <div class="btn-close" @click='close(item)'>Close</div>
-                                </div>
-                            </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-3" v-for="(item, index) in items">
+                    <div class="feature">
+                        <div class="feature-tile" @click="open(item)">
+                            {{ item.title }}
+                        </div>
+                        <div class="feature--info" :class="{ 'show': item.isOpen }">
+                            {{ item.desc }}
+                            <div class="btn-close" @click='close(item)'>Close</div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -30,20 +29,28 @@
         data () {
             return {
                 heading: "Features",
-                items: [{
-                    title: 'Competition law',
-                    desc: 'Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at',
-                    isOpen: false
-                }, {
-                    title: 'Constitutional, community and administrative law',
-                    desc: 'Civil law reg',
-                    isOpen: false
-                },
-                {
-                    title: 'Construction, planning and environmental law',
-                    desc: 'Our speci',
-                    isOpen: false
-                }]
+                items: [
+                    {
+                        title: 'Competition law',
+                        desc: 'Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at',
+                        isOpen: false
+                    }, 
+                    {
+                        title: 'Constitutional, community and administrative law',
+                        desc: 'Civil law reg',
+                        isOpen: false
+                    },
+                    {
+                        title: 'Constitutional, community and administrative law',
+                        desc: 'Civil law reg',
+                        isOpen: false
+                    },
+                    {
+                        title: 'Construction, planning and environmental law',
+                        desc: 'Our speci',
+                        isOpen: false
+                    }
+                ]
             }
         },
         methods:{
@@ -65,7 +72,7 @@
 
 <style lang="scss" scoped>
 .features {
-    border: 1px solid red;
+    padding: 200px 0;
 }
 .feature {
     border: 1px solid orange;

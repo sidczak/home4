@@ -26,6 +26,5 @@
 </script>
 <style lang="scss" scoped>
 .webinar-flywheel {
-    border: 1px solid red;
 }
 </style>
