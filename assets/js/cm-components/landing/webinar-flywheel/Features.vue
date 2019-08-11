@@ -8,11 +8,14 @@
             </div>
             <div class="row">
                 <div class="col-6 col-md-3" v-for="(item, index) in items">
-                    <div class="feature">
+                    <div class="feature" :class="{ 'odd': index % 2 == 0 }">
                         <div class="feature-tile" @click="open(item)">
                             {{ item.title }}
                         </div>
-                        <div class="feature--info" :class="{ 'show': item.isOpen }">
+                        <div class="feature--info" :class="{ 
+                            'show': item.isOpen, 
+                            'feature--info-left': index % 2 == 0, 
+                            'feature--info-right': index % 2 == 1 }">
                             {{ item.desc }}
                             <div class="btn-close" @click='close(item)'>Close</div>
                         </div>
@@ -30,6 +33,26 @@
             return {
                 heading: "Features",
                 items: [
+                    {
+                        title: 'Competition law',
+                        desc: 'Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at',
+                        isOpen: false
+                    }, 
+                    {
+                        title: 'Constitutional, community and administrative law',
+                        desc: 'Civil law reg',
+                        isOpen: false
+                    },
+                    {
+                        title: 'Constitutional, community and administrative law',
+                        desc: 'Civil law reg',
+                        isOpen: false
+                    },
+                    {
+                        title: 'Construction, planning and environmental law',
+                        desc: 'Our speci',
+                        isOpen: false
+                    },
                     {
                         title: 'Competition law',
                         desc: 'Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at',
@@ -92,12 +115,17 @@
         transition: all 0.5s ease;
         position: absolute;
         top: 0;
-        left: 0;
         overflow: hidden;
         z-index: 1;
         &.show {
-            width: 150%;
-            height: 150%;
+            width: 200%;
+            height: 200%;
+        }
+        &-left {
+            left: 0;
+        }
+        &-right {
+            right: 0;
         }
         .btn-close {
             border: 1px solid red;

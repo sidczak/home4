@@ -1,6 +1,6 @@
 <template>
     <div class="webinar-flywheel">
-        <Welcome></Welcome>
+        <!-- <Welcome></Welcome> -->
         <Features></Features>
     </div>
 </template>
