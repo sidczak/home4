@@ -4,7 +4,12 @@
         <div class="ring--bg ring--bg-3" :class="{'multi': isMulti}"></div>
         <div class="ring--bg ring--bg-2" :class="{'multi': isMulti}"></div>
         <div class="ring--bg ring--bg-1" :class="{'multi': isMulti}"></div>
-        <div class="ring--bg ring--bg-blue2" v-show="isMulti"></div>
+        <div class="ring--bg ring--bg-blue2" v-show="isMulti">
+            <!-- <div class="ring__arrow ring__arrow--top"></div>
+            <div class="ring__arrow ring__arrow--bottom"></div>
+            <div class="ring__arrow ring__arrow--right"></div>
+            <div class="ring__arrow ring__arrow--left"></div> -->
+        </div>
         <div class="ring--bg ring--bg-blue1" v-show="isMulti"></div>
         <div class="ring--rainbow"></div>
         <div class="ring--center">
@@ -189,6 +194,40 @@ $ringBg: rgba(207, 210, 221, .2);
             color: #fff;
             width: 100%;
             margin: 0;
+        }
+    }
+    &__arrow {
+        width: 0; 
+        height: 0;
+        border-style: solid;
+        position: absolute;
+        &--top {
+            border-width: 0 15px 15px 15px;
+            border-color: transparent transparent #fff transparent;
+            top: 15px;
+            right: 50%;
+            margin-right: -15px;
+        } 
+        &--bottom {
+            border-width: 15px 15px 0 15px;
+            border-color: #fff transparent transparent transparent;
+            bottom: 15px;
+            right: 50%;
+            margin-right: -15px;
+        }
+        &--right {
+            border-width: 15px 0 15px 15px;
+            border-color: transparent transparent transparent #fff;
+            right: 15px;
+            top: 50%;
+            margin-top: -15px;
+        }
+        &--left {
+            border-width: 15px 15px 15px 0;
+            border-color: transparent #fff transparent transparent;
+            left: 15px;
+            bottom: 50%;
+            margin-bottom: -15px;
         }
     }
 }

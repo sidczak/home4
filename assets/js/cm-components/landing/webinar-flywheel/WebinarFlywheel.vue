@@ -1,6 +1,6 @@
 <template>
     <div class="webinar-flywheel">
-        <!-- <Welcome></Welcome> -->
+        <Welcome></Welcome>
         <Features></Features>
     </div>
 </template>
@@ -26,5 +26,6 @@
 </script>
 <style lang="scss" scoped>
 .webinar-flywheel {
+    overflow: hidden;
 }
 </style>
