@@ -7,7 +7,9 @@
                     <p class="e-book__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est. </p>
                     <button class="btn btn-primary text-uppercase">Download e-book</button>
                 </div>
-                <div class="e-book__book" :style="{ color: activeColor, bottom: (scrolled*.15) + 'px' }"></div>
+                <div class="e-book__book" :style="{ color: activeColor, bottom: (scrolled*.15) + 'px' }">
+                    <a :href="'https://www.click.pl' + text.toUpperCase() + 'img/logo.png'">{{ text.toUpperCase() }}</a>
+                </div>
             </div>
         </div>
     </div>
@@ -19,7 +21,8 @@ export default {
     data() {
         return {
             activeColor: 'red',
-            scrolled: 0
+            scrolled: 0,
+            text: "Ala"
         }
     },
     methods: {
