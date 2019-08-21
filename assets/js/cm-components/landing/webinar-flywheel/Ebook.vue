@@ -12,13 +12,11 @@
                     <h4 class="e-book__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h4>
                     <p class="e-book__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus. Donec venenatis, turpis vel hendrerit interdum, dui ligula ultricies purus, sed posuere libero dui id orci. Nam congue, pede vitae dapibus aliquet, elit magna vulputate arcu, vel tempus metus leo non est.</p>
                 </div>
-                <div class="e-book__book" :style="{ color: activeColor, bottom: (scrolled*.15) + 'px' }">
-                    <a :href="'https://www.click.pl' + text.toUpperCase() + 'img/logo.png'">{{ text.toUpperCase() }}</a>
-                </div>
+                <div class="e-book__book" :style="[scrolled*.15 < 0 ? {bottom: (scrolled*.15) + 'px'} : {bottom: 0}]"></div>
             </div>
             <div class="row text-center mt-5">
                 <div class="col-12">
-                    <button class="btn btn-primary text-uppercase">Download e-book</button>
+                    <button class="btn btn-e-book text-uppercase">Download e-book</button>
                 </div>
             </div>
         </div>
@@ -30,14 +28,14 @@
 export default {
     data() {
         return {
-            activeColor: 'red',
-            scrolled: 0,
-            text: "Ala"
+            scrolled: 0
         }
     },
     methods: {
-        handleScroll () {
-            this.scrolled = -1500 + window.scrollY;
+        handleScroll() {
+            const box = this.$el
+            const scrollStart = box.offsetTop
+            this.scrolled = -1000 + window.scrollY - scrollStart
         }
     },
     created: function () {
