@@ -12,22 +12,6 @@
                     <h3 class="features__title">Lorem ipsum ...</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-6 col-md-3" v-for="(item, index) in items">
-                    <div class="feature" :class="{ 'odd': index % 2 == 0 }">
-                        <div class="feature-tile" @click="open(item)">
-                            {{ item.title }}
-                        </div>
-                        <div class="feature--info" :class="{ 
-                            'show': item.isOpen, 
-                            'feature--info-left': index % 2 == 0, 
-                            'feature--info-right': index % 2 == 1 }">
-                            {{ item.desc }}
-                            <div class="btn-close" @click='close(item)'>Close</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row features__wrapper">
                 <div class="col-6 col-lg-3 feature" v-for="(item, index) in items">
                     <div class="feature__tile align-items-end" @click="open(item)" :class="{ 'feature__tile--light': index % 3 == 0, 'feature__tile--blue': index % 3 == 2 }">
