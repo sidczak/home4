@@ -31,6 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// $welcomeBg: #edf0f7;
 .welcome {
     position: relative;
     padding: 150px 0 600px;
@@ -43,5 +44,30 @@ export default {
             padding-bottom: 470px;
         }
     }
+    // &__welcome {
+    //     position: relative;
+    //     padding: 185px 0 800px;
+    //     @include sm {
+    //         padding: 85px 0 580px;
+    //     }
+    //     &:before {
+    //         content: '';
+    //         background-color: $welcomeBg;
+    //         width: 1500px;
+    //         height: 725px;
+    //         position: absolute;
+    //         top: 0;
+    //         left: 50%;
+    //         transform: translateX(-50%);
+    //         border-bottom-right-radius: 100%;
+    //         border-bottom-left-radius: 100%;
+    //         @include lg-min {
+    //             width: 120%;
+    //         }
+    //         @include sm {
+    //             height: 465px;
+    //         }
+    //     }
+    // }
 }
 </style>
