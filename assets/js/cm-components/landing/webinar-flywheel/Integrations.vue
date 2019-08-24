@@ -29,6 +29,7 @@ import Facebook from '~/assets/images/landing/webinar-flywheel/facebook.svg?inli
 import YouTube from '~/assets/images/landing/webinar-flywheel/youtube.svg?inline'
 
 export default {
+    name: "Integrations",
     components: {
         GoogleAnalytics,
         GoogleTagManager,

@@ -2,16 +2,17 @@
     <section class="inspired">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-xl-6 inspired__contents">
-                    <h3 class="inspired__title">inspired__title</h3>
-                    <p class="inspired__desc">inspired__desc</p>
+                <div class="col-lg-7 inspired__contents">
+                    <h3 class="inspired__title">Title inspired</h3>
+                    <p class="inspired__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus.</p>
                     <div class="inspired__btn-wrapper">
                         <button class="btn btn-inspired text-uppercase">inspired</button>
-                        
                     </div>
                 </div>
-                <div class="col-xl-6 inspired__ring-wrapper">
-                    <Ring isMulti></Ring>
+                <div class="col-lg-5 inspired__ring-wrapper">
+                    <div class="inspired__ring-position">
+                        <Ring isMulti></Ring>
+                    </div>
                 </div>
             </div>
         </div>
@@ -22,12 +23,9 @@
 import Ring from './Ring.vue'
 
 export default {
+    name: "Inspired",
     components: {
         Ring
-    },
-    data() {
-        return {
-        }
     }
 }
 </script>
@@ -37,13 +35,14 @@ $inspiredBg: #edf0f7;
 .inspired {
     position: relative;
     padding: 80px 0;
+    z-index: 1;
     &:before {
         content: '';
         background-color: $inspiredBg;
         width: 1500px;
-        height: 725px;
+        height: 40%;
         position: absolute;
-        bottom: -300px;
+        bottom: 0;
         left: 50%;
         transform: translateX(-50%);
         border-top-right-radius: 100%;
@@ -51,16 +50,22 @@ $inspiredBg: #edf0f7;
         @media (min-width: 1200px) {
             width: 120%;
         }
-        @media (max-width: 767px) {
-            height: 465px;
-            bottom: -100px;
-        }
     }
     &__ring-wrapper {
         position: relative;
-        height: 820px;
+        height: 660px;
         @media (max-width: 767px) {
-            height: 540px;
+            height: 420px;
+        }
+    }
+    &__ring-position {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        left: 0;
+        @media (min-width: 992px) {
+            left: 260px;
         }
     }
     &__contents {
@@ -85,7 +90,13 @@ $inspiredBg: #edf0f7;
     &__btn-wrapper {
         position: relative;
         display: inline-block;
-        padding-bottom: 30px;
+        @media (max-width: 991px) {
+            margin-bottom: 40px;
+        }
+        @media (max-width: 767px) {
+            text-align: center;
+            width: 100%;
+        }
     }
     &__note {
         white-space: nowrap;

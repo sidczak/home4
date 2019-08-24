@@ -4,7 +4,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
                     <h2>{{ heading }}</h2>
-                    <h4>{{ description }}</h4>
+                    <p>{{ description }}</p>
                 </div>
             </div>
         </div>
@@ -53,9 +53,6 @@ $welcomeBg: #edf0f7;
         border-bottom-left-radius: 100%;
         @media (min-width: 1200px) {
             width: 120%;
-        }
-        @media (max-width: 767px) {
-            height: 80%;
         }
     }
     &__contents {

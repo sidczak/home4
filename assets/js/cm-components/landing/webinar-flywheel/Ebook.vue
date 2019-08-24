@@ -26,6 +26,7 @@
 <script>
 
 export default {
+    name: "Ebook",
     data() {
         return {
             scrolled: 0

@@ -2,40 +2,44 @@
     <section class="features">
         <div class="container features__container">
             <div class="row justify-content-center text-center">
-                <div class="col-lg-6">
+                <div class="col-8">
                     <h2 class="features__subject">{{ heading }}</h2>
                     <p class="features__desc">{{ desc }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col text-center">
-                    <h3 class="features__title">Lorem ipsum ...</h3>
+                    <h3 class="features__title">Features</h3>
                 </div>
             </div>
             <div class="row features__wrapper">
                 <div class="col-6 col-lg-3 feature" v-for="(item, index) in items">
                     <div class="feature__tile align-items-end" @click="open(item)" :class="{ 'feature__tile--light': index % 3 == 0, 'feature__tile--blue': index % 3 == 2 }">
                         <div class="feature__circle-bg" :class="[item.circleBg, {'feature__circle-bg--light': index % 3 == 0, 'feature__circle-bg--blue': index % 3 == 2 }]"></div>
-                        <div class="feature__icon-svg" v-if="item.icon" :is="item.icon" :class="{'feature__icon-svg--white': index % 3 == 2}"></div>
+                        <div class="feature__icon-svg" v-if="item.icon" :is="item.icon" :class="{'feature__icon-svg--white': index % 3 == 2}">SVG</div>
                         <div class="col">
                             <h4 class="feature__title" v-html="item.title" :class="{ 'feature__title--white': index % 3 == 2 }"></h4>
                             <div class="feature__see-more" :class="{'feature__see-more--white': index % 3 == 2}">
-                                feature_see_more
+                                see more
                                 <div class="feature__arrow" :class="{'feature__arrow--white': index % 3 == 2}">
-                                    SVG Arrow
+                                    <i class="fas fa-arrow-right"></i>
                                 </div>
                             </div>
                             
                         </div>
                     </div>
                     <div class="feature__info align-items-end" :class="{ 'show': item.isOpen, 'feature__info--left': index % 2 == 0, 'feature__info--right': index % 2 == 1 }">
-                        <div class="feature__icon-svg feature__icon-svg--info" v-if="item.icon" :is="item.icon">SVG</div>
+                        <div class="feature__icon-svg feature__icon-svg--info" v-if="item.icon" :is="item.icon">
+                            <i class="fas fa-times"></i>
+                        </div>
                         <div class="col">
-                            <h4 class="feature__title feature__title--info" v-html="item.title">SVG</h4>
+                            <h4 class="feature__title feature__title--info" v-html="item.title"></h4>
                             <p class="feature__desc" v-html="item.desc"></p>
                             <div class="feature__close" @click='close(item)'>
                                 Back
-                                <div class="feature__arrow feature__arrow--close">Arrow SVG</div>
+                                <div class="feature__arrow feature__arrow--close">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -46,7 +50,9 @@
                         <div class="col">
                             <div class="feature__all-features">
                                 vfwergre
-                                <div class="feature__arrow feature__arrow--white">SVG Arrow</div>
+                                <div class="feature__arrow feature__arrow--white">
+                                    <i class="fas fa-arrow-right"></i>
+                                </div>
                             </div>
                         </div>
                     </a>
@@ -58,11 +64,11 @@
 
 <script>
 export default {
-    name: "Features",
+    name: "Features:",
     data () {
         return {
-            heading: "Features",
-            desc: "Features",
+            heading: "Title features",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam. Quisque semper justo at risus.",
             items: [
                 {
                     icon: "AutomatedWebinars",
@@ -171,7 +177,7 @@ $circleSizeSm: 300px;
 
 .features {
     position: relative;
-    padding: 150px 0;
+    padding: 80px 0;
     &:before {
         content: '';
         background-color: $featuresBg;
@@ -179,7 +185,7 @@ $circleSizeSm: 300px;
         top: 0;
         left: 0;
         right: 0;
-        bottom: 300px;
+        bottom: 15%;
     }
     &__container {
         position: relative;
@@ -412,13 +418,14 @@ $circleSizeSm: 300px;
     &__arrow {
         position: absolute;
         width: 24px;
-        height: 24px;
+        height: 18px;
         right: 0;
         top: 50%;
-        margin-top: -12px;
+        margin-top: -9px;
         transform: translateX(-10%);
-        svg {
-            vertical-align: baseline;
+        font-size: 18px;
+        i {
+            vertical-align: top;
         }
         &--white {
             fill: #fff;
