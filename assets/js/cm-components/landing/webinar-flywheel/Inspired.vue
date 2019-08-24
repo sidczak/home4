@@ -1,24 +1,29 @@
-<template lang="pug">
-    .inspired
-        b-container
-            b-row.align-items-center
-                b-col(xl="7" lg="6")
-                    h3.inspired__title(v-html="$t('vhp.pages.tools_webinar_flywheel.inspired_title')")
-                    p.inspired__desc(v-html="$t('vhp.pages.tools_webinar_flywheel.inspired_desc')")
-                    .inspired__btn-wrapper
-                        b-button.text-uppercase(variant="inspired" :href="$resolveUrl('HOMEPAGE.free_signup')" target="_blank")
-                            | {{ $t('vhp.pages.tools_webinar_flywheel.inspired_btn_start_free') }}
-                        p.inspired__note(v-html="$t('vhp.pages.tools_webinar_flywheel.inspired_note')")
-                b-col.inspired__ring-wrapper(xl="5" lg="6")
-                    WebinarFlywheel(isMulti)
+<template>
+    <section class="inspired">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 inspired__contents">
+                    <h3 class="inspired__title">inspired__title</h3>
+                    <p class="inspired__desc">inspired__desc</p>
+                    <div class="inspired__btn-wrapper">
+                        <button class="btn btn-inspired text-uppercase">inspired</button>
+                        
+                    </div>
+                </div>
+                <div class="col-xl-6 inspired__ring-wrapper">
+                    <Ring isMulti></Ring>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 
 <script>
-import WebinarFlywheel from './WebinarFlywheel.vue'
+import Ring from './Ring.vue'
 
 export default {
     components: {
-        WebinarFlywheel
+        Ring
     },
     data() {
         return {
@@ -32,10 +37,6 @@ $inspiredBg: #edf0f7;
 .inspired {
     position: relative;
     padding: 80px 0;
-    overflow: hidden;
-    @include sm {
-        padding: 85px 0;
-    }
     &:before {
         content: '';
         background-color: $inspiredBg;
@@ -47,40 +48,38 @@ $inspiredBg: #edf0f7;
         transform: translateX(-50%);
         border-top-right-radius: 100%;
         border-top-left-radius: 100%;
-        @include lg-min {
+        @media (min-width: 1200px) {
             width: 120%;
         }
-        @include sm {
+        @media (max-width: 767px) {
             height: 465px;
             bottom: -100px;
         }
     }
     &__ring-wrapper {
         position: relative;
-        height: 490px;
-        @include md {
-            margin-top: 40px;
+        height: 820px;
+        @media (max-width: 767px) {
+            height: 540px;
         }
+    }
+    &__contents {
+        z-index: 1;
     }
     &__title {
         margin-bottom: 40px;
         line-height: 1;
         font-size: 3.875rem;
         font-weight: 700;
-        color: $dark-lighter-1;
-        @include sm {
+        @media (max-width: 767px) {
             font-size: 2.25rem;
         }
     }
     &__desc {
         margin-bottom: 40px;
         font-size: 1.125rem;
-        color: $ash-darker-1;
-        @include sm {
+        @media (max-width: 767px) {
             font-size: .875rem;
-        }
-        /deep/ strong {
-            color: $dark-lighter-1;
         }
     }
     &__btn-wrapper {
@@ -91,7 +90,6 @@ $inspiredBg: #edf0f7;
     &__note {
         white-space: nowrap;
         font-size: .6875rem;
-        color: $ash-darker-1;
         margin: 0;
         position: absolute;
         bottom: 0;

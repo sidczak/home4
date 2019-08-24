@@ -72,53 +72,73 @@ export default {
                     isOpen: false
                 }, 
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Constitutional, community and administrative law',
                     desc: 'Civil law reg',
+                    circleBg: 'feature__circle-bg--bottom-left',
                     isOpen: false
                 },
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Constitutional, community and administrative law',
                     desc: 'Civil law reg',
+                    circleBg: 'feature__circle-bg--top-right',
                     isOpen: false
                 },
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Construction, planning and environmental law',
                     desc: 'Our speci',
+                    circleBg: 'feature__circle-bg--top-left',
                     isOpen: false
                 },
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Competition law',
                     desc: 'Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at Schärer Attorneys at',
+                    circleBg: 'feature__circle-bg--top-right',
                     isOpen: false
                 }, 
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Constitutional, community and administrative law',
                     desc: 'Civil law reg',
+                    circleBg: 'feature__circle-bg--top-left',
                     isOpen: false
                 },
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Constitutional, community and administrative law',
                     desc: 'Civil law reg',
+                    circleBg: 'feature__circle-bg--bottom-right',
                     isOpen: false
                 },
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Construction, planning and environmental law',
                     desc: 'Our speci',
+                    circleBg: 'feature__circle-bg--bottom-left',
                     isOpen: false
                 },
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Constitutional, community and administrative law',
                     desc: 'Civil law reg',
+                    circleBg: 'feature__circle-bg--bottom-right',
                     isOpen: false
                 },
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Constitutional, community and administrative law',
                     desc: 'Civil law reg',
+                    circleBg: 'feature__circle-bg--bottom-left',
                     isOpen: false
                 },
                 {
+                    icon: "AutomatedWebinars",
                     title: 'Construction, planning and environmental law',
                     desc: 'Our speci',
+                    circleBg: 'feature__circle-bg--top-right',
                     isOpen: false
                 }
             ]

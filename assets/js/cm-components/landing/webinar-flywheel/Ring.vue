@@ -47,20 +47,14 @@ $ringBg: rgba(207, 210, 221, .2);
 
 .ring {
     position: absolute;
-    bottom: 40px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    height: $ring;
+    transform: translate(-50%, -50%);
+    height: calc(2 * #{$ring});
     width: calc(2 * #{$ring});
     @media (max-width: 768px) {
-        height: $ringSm;
-        bottom: 30px;
-    }
-    &.multi {
-        bottom: 80px;
-        @media (max-width: 768px) {
-            bottom: 60px;
-        }
+        height: calc(2 * #{$ringSm + 30});
+        width: calc(2 * #{$ringSm + 30});
     }
     &--bg {
         position: absolute;

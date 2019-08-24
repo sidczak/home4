@@ -2,6 +2,7 @@
     <div class="webinar-flywheel">
         <Welcome></Welcome>
         <Ebook></Ebook>
+        <Inspired></Inspired>
         <Features></Features>
     </div>
 </template>
@@ -9,6 +10,7 @@
 <script>
     import Welcome from './Welcome';
     import Ebook from './Ebook';
+    import Inspired from './Inspired';
     import Features from './Features';
     
     export default {
@@ -16,6 +18,7 @@
         components: {
             Welcome,
             Ebook,
+            Inspired,
             Features
         },
         props: {

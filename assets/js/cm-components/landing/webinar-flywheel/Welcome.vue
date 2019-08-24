@@ -1,13 +1,15 @@
 <template>
     <section class="welcome ring-multi">
-        <Ring isMulti></Ring>
-        <div class="container">
+        <div class="container welcome__contents">
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
                     <h2>{{ heading }}</h2>
                     <h4>{{ description }}</h4>
                 </div>
             </div>
+        </div>
+        <div class="welcome__ring-wrapper">
+            <Ring isMulti></Ring>
         </div>
     </section>
 </template>
@@ -31,43 +33,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// $welcomeBg: #edf0f7;
+$welcomeBg: #edf0f7;
 .welcome {
     position: relative;
     padding: 150px 0 600px;
     @media (max-width: 768px) {
         padding: 50px 0 380px;
     }
+    &:before {
+        background-color: $welcomeBg;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 1500px;
+        height: 70%;
+        transform: translateX(-50%);
+        border-bottom-right-radius: 100%;
+        border-bottom-left-radius: 100%;
+        @media (min-width: 1200px) {
+            width: 120%;
+        }
+        @media (max-width: 767px) {
+            height: 80%;
+        }
+    }
+    &__contents {
+        position: relative;
+        z-index: 1;
+    }
+    &__ring-wrapper {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 660px;
+        height: 660px;
+        @media (max-width: 768px) {
+            width: 420px;
+            height: 420px;
+        }
+    }
     &.ring-multi {
         padding-bottom: 700px;
         @media (max-width: 768px) {
-            padding-bottom: 470px;
+            padding-bottom: 450px;
         }
     }
-    // &__welcome {
-    //     position: relative;
-    //     padding: 185px 0 800px;
-    //     @include sm {
-    //         padding: 85px 0 580px;
-    //     }
-    //     &:before {
-    //         content: '';
-    //         background-color: $welcomeBg;
-    //         width: 1500px;
-    //         height: 725px;
-    //         position: absolute;
-    //         top: 0;
-    //         left: 50%;
-    //         transform: translateX(-50%);
-    //         border-bottom-right-radius: 100%;
-    //         border-bottom-left-radius: 100%;
-    //         @include lg-min {
-    //             width: 120%;
-    //         }
-    //         @include sm {
-    //             height: 465px;
-    //         }
-    //     }
-    // }
 }
 </style>
