@@ -2,6 +2,7 @@
     <div class="webinar-flywheel">
         <Welcome></Welcome>
         <Ebook></Ebook>
+        <Banner></Banner>
         <Inspired></Inspired>
         <Features></Features>
     </div>
@@ -10,6 +11,7 @@
 <script>
     import Welcome from './Welcome';
     import Ebook from './Ebook';
+    import Banner from './Banner';
     import Inspired from './Inspired';
     import Features from './Features';
     
@@ -18,6 +20,7 @@
         components: {
             Welcome,
             Ebook,
+            Banner,
             Inspired,
             Features
         },

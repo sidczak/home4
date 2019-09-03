@@ -1,24 +1,31 @@
-<template lang="pug">
-    .banner
-        b-container
-            .banner__wrapper-pulse
-                .banner__pulse-4
-                .banner__pulse-3
-                .banner__pulse-2
-                .banner__pulse-1
-                .banner__wrapper
-                    b-row.banner__content
-                        b-col(lg="6")
-                            h3.banner__title(v-html="$t('vhp.pages.index.banner.title')")
-                            p.banner__desc(v-html="$t('vhp.pages.index.banner.desc')")
-                            .text-center.text-md-left
-                                b-button.text-uppercase(variant="discover-scenario" :to="localePath('tools-webinar-flywheel')")
-                                    | {{ $t('vhp.pages.index.banner.btn_discover_scenario') }}
-                    .banner__ring-wrapper
-                        .banner__ring-pulse-3
-                        .banner__ring-pulse-2
-                        .banner__ring-pulse-1
-                        Ring(isMulti)
+<template>
+    <div class="banner">
+        <div class="container">
+            <div class="banner__wrapper-pulse">
+                <div class="banner__pulse-4"></div>
+                <div class="banner__pulse-3"></div>
+                <div class="banner__pulse-2"></div>
+                <div class="banner__pulse-1"></div>
+                <div class="banner__wrapper">
+                    <div class="row banner__content">
+                        <div class="col-lg-6">
+                            <h3 class="banner__title">banner__title</h3>
+                            <p class="banner__desc">banner__desc</p>
+                            <div class="text-center text-md-left">
+                                <button class="btn btn-discover-scenario text-uppercase">Button</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="banner__ring-wrapper">
+                        <div class="banner__ring-pulse-3"></div>
+                        <div class="banner__ring-pulse-2"></div>
+                        <div class="banner__ring-pulse-1"></div>
+                        <Ring isMulti></Ring>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -38,6 +45,7 @@ $pulseBorder: #e5e7f0;
 $pulseRingBorder: #203da8;
 $bannerDesc: #c2cceb;
 $btnDiscoverScenario: #3365ca;
+$white: #fff;
 
 .banner {
     padding: 150px 0;
@@ -53,14 +61,14 @@ $btnDiscoverScenario: #3365ca;
         top: 50%;
         transform: translateY(-50%);
         border-radius: 50%;
-        @include md {
+        @media (max-width: 992px) {
             top: auto;
             bottom: 0;
             transform: translateY(0);
             left: 50%;
             transform: translateX(-50%);
         }
-        @include sm {
+        @media (max-width: 768px) {
             display: none;
         }
     }
@@ -69,10 +77,10 @@ $btnDiscoverScenario: #3365ca;
         width: 440px;
         right: 25px;
         opacity: .6;
-        @include lg {
+        @media (max-width: 1200px) {
             right: -70px;
         }
-        @include md {
+        @media (max-width: 992px) {
             bottom: -20px;
         }
     }
@@ -81,10 +89,10 @@ $btnDiscoverScenario: #3365ca;
         width: 530px;
         right: -20px;
         opacity: .4;
-        @include lg {
+        @media (max-width: 1200px) {
             right: -115px;
         }
-        @include md {
+        @media (max-width: 992px) {
             bottom: -65px;
         }
     }
@@ -93,10 +101,10 @@ $btnDiscoverScenario: #3365ca;
         width: 620px;
         right: -65px;
         opacity: .25;
-        @include lg {
+        @media (max-width: 1200px) {
             right: -160px;
         }
-        @include md {
+        @media (max-width: 992px) {
             bottom: -110px;
         }
     }
@@ -105,10 +113,10 @@ $btnDiscoverScenario: #3365ca;
         width: 700px;
         right: -105px;
         opacity: .14;
-        @include lg {
+        @media (max-width: 1200px) {
             right: -200px;
         }
-        @include md {
+        @media (max-width: 992px) {
             bottom: -150px;
         }
     }
@@ -120,10 +128,10 @@ $btnDiscoverScenario: #3365ca;
         box-shadow: 0px 0px 106px 0px rgba(217, 221, 232, 0.4);
         position: relative;
         overflow: hidden;
-        @include md {
+        @media (max-width: 992px) {
             padding-bottom: 550px;
         }
-        @include sm {
+        @media (max-width: 768px) {
             padding: 30px 20px 415px;
         }
     }
@@ -136,7 +144,7 @@ $btnDiscoverScenario: #3365ca;
         font-weight: 700;
         font-size: 2.125rem;
         color: $white;
-        @include sm {
+        @media (max-width: 768px) {
             margin-bottom: 25px;
             font-size: 1.625rem;
         }
@@ -145,7 +153,7 @@ $btnDiscoverScenario: #3365ca;
         margin-bottom: 40px;
         font-size: 1.125rem;
         color: $bannerDesc;
-        @include sm {
+        @media (max-width: 768px) {
             margin-bottom: 25px;
             font-size: .875rem;
         }
@@ -160,14 +168,14 @@ $btnDiscoverScenario: #3365ca;
         transform: translateY(-50%);
         bottom: 0;
         border-radius: 50%;
-        @include md {
+        @media (max-width: 992px) {
             top: auto;
             transform: translateY(0);
             left: 50%;
             transform: translateX(-50%);
             bottom: -110px;
         }
-        @include sm {
+        @media (max-width: 768px) {
             bottom: -70px;
         }
     }
@@ -176,10 +184,10 @@ $btnDiscoverScenario: #3365ca;
         height: 620px;
         width: 620px;
         right: -65px;
-        @include lg {
+        @media (max-width: 1200px) {
             right: -160px;
         }
-        @include sm {
+        @media (max-width: 768px) {
             height: 450px;
             width: 450px;
         }
@@ -189,10 +197,10 @@ $btnDiscoverScenario: #3365ca;
         width: 700px;
         right: -40px;
         opacity: .4;
-        @include md {
+        @media (max-width: 992px) {
             bottom: -40px;
         }
-        @include sm {
+        @media (max-width: 768px) {
             height: 520px;
             width: 520px;
             bottom: -35px;
@@ -203,10 +211,10 @@ $btnDiscoverScenario: #3365ca;
         width: 900px;
         right: -140px;
         opacity: .4;
-        @include md {
+        @media (max-width: 992px) {
             bottom: -140px;
         }
-        @include sm {
+        @media (max-width: 768px) {
             height: 650px;
             width: 650px;
             bottom: -100px;
@@ -217,10 +225,10 @@ $btnDiscoverScenario: #3365ca;
         width: 1200px;
         right: -290px;
         opacity: .4;
-        @include md {
+        @media (max-width: 992px) {
             bottom: -290px;
         }
-        @include sm {
+        @media (max-width: 768px) {
             height: 850px;
             width: 850px;
             bottom: -200px;
