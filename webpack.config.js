@@ -42,6 +42,7 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
     .enableVueLoader()
+    .addLoader({ test: /\.pug$/, loader: 'pug-plain-loader'})
 ;
 
 module.exports = Encore.getWebpackConfig();

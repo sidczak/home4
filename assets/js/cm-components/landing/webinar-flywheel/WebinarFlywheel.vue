@@ -1,11 +1,10 @@
-<template>
-    <div class="webinar-flywheel">
-        <Welcome></Welcome>
-        <Ebook></Ebook>
-        <Banner></Banner>
-        <Inspired></Inspired>
-        <Features></Features>
-    </div>
+<template lang="pug">
+    .webinar-flywheel
+        Welcome
+        Ebook
+        Banner
+        Inspired
+        Features
 </template>
 
 <script>
