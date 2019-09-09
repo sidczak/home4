@@ -12,11 +12,20 @@
       <li class="nav-item {{ app.request.get('_route') ==  'about_me' ? 'active' }}">
         <a class="nav-link" href="{{ path('about_me') }}">About Me</a>
       </li>
+      {#
       <li class="nav-item {{ app.request.get('_route') ==  'vuetify_start_index' ? 'active' }}">
         <a class="nav-link" href="{{ path('vuetify_start_index') }}">Vuetify</a>
       </li>
-      <li class="nav-item {{ app.request.get('_route') ==  'webinar_flywheel' ? 'active' }}">
-        <a class="nav-link" href="{{ path('webinar_flywheel') }}">Webinar flywheel</a>
+      #}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle
+          {{ app.request.get('_route') in ['landing_homepage', 'webinar_flywheel'] ? 'active' }}" href="#" id="navbarDropdownLanding" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Landing
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownLanding">
+          <a class="dropdown-item" href="{{ path('landing_homepage') }}">Homepage</a>
+          <a class="dropdown-item" href="{{ path('webinar_flywheel') }}">Webinar flywheel</a>
+        </div>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

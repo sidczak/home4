@@ -9,8 +9,8 @@
                 <div class="banner__wrapper">
                     <div class="row banner__content">
                         <div class="col-lg-6">
-                            <h3 class="banner__title">banner__title</h3>
-                            <p class="banner__desc">banner__desc</p>
+                            <h3 class="banner__title">Title banner</h3>
+                            <p class="banner__desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem.</p>
                             <div class="text-center text-md-left">
                                 <button class="btn btn-discover-scenario text-uppercase">Button</button>
                             </div>

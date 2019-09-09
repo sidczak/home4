@@ -1,3 +1,9 @@
 <template lang="pug">
-    <div class="homepage">homepage</div>
+    .homepage
+        | homepage
 </template>
+<style lang="scss">
+.homepage {
+    border: 1px solid red;
+}
+</style>
