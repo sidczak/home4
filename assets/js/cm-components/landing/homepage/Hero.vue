@@ -30,13 +30,17 @@
     border: 1px solid red;
     padding: 350px 0;
     @media (max-width: 1200px) {
-        background-size: 100%;
         padding: 100px 0 100px;
         height: auto;
+        border: 1px solid blue;
+    }
+    @media (max-width: 991px) {
+        border: 1px solid orange;
     }
     @media (max-width: 768px) {
+        background-size: contain;
         background-position: bottom;
-        padding: 100px 0 550px;
+        padding: 50px 0 550px;
     }
     &.option1 {
         background-image: url('../../../images/landing/homepage/option1.png');
@@ -59,12 +63,24 @@
     }
     &__title {
         font-weight: 700;
-        font-size: 3.875rem;
+        font-size: 62px;
         margin: 0 0 60px;
+        @media (max-width: 1200px) {
+            font-size: 52px;
+        }
+        @media (max-width: 991px) {
+            font-size: 42px;
+        }
     }
     &__desc {
-        font-size: 1.5rem;
+        font-size: 24px;
         margin: 0 0 60px;
+        @media (max-width: 1200px) {
+            font-size: 20px;
+        }
+        @media (max-width: 991px) {
+            font-size: 16px;
+        }
     }
 }
 </style>
