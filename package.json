@@ -38,6 +38,7 @@
     "@webwingscz/googlefont-roboto": "^1.0.1",
     "animate.css": "^3.7.0",
     "axios": "^0.18.0",
+    "bootstrap-vue": "^2.0.0",
     "lodash": "^4.17.11",
     "pug": "^2.0.4",
     "pug-plain-loader": "^1.0.0",

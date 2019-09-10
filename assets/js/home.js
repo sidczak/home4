@@ -1,4 +1,8 @@
-import Vue from 'vue';
+import Vue from 'vue'
+
+import BootstrapVue from 'bootstrap-vue'
+Vue.use(BootstrapVue)
+
 import Vuetify from 'vuetify'
 // Vue.use(Vuetify)
 Vue.use(Vuetify, {
