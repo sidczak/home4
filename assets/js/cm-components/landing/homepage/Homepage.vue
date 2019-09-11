@@ -23,5 +23,6 @@
 </script>
 <style lang="scss">
 .homepage {
+    overflow: hidden;
 }
 </style>
