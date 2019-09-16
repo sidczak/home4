@@ -3,11 +3,11 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
-import Vuetify from 'vuetify'
+// import Vuetify from 'vuetify'
 // Vue.use(Vuetify)
-Vue.use(Vuetify, {
-  iconfont: 'md'
-})
+// Vue.use(Vuetify, {
+//   iconfont: 'md'
+// })
 new Vue({ el: '#app' });
 import VueRouter from 'vue-router';
 import vueCustomElement from 'vue-custom-element';
@@ -22,6 +22,7 @@ import ExampleComponent from './components/ExampleComponent.vue';
 import EduCounter from './components/EduCounter.vue';
 import WebinarFlywheel from './cm-components/landing/webinar-flywheel/WebinarFlywheel.vue';
 import Homepage from './cm-components/landing/homepage/Homepage.vue';
+import Album from './bs-components/examples/album/Album.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -34,6 +35,7 @@ Vue.customElement('example-component', ExampleComponent);
 Vue.customElement('edu-counter', EduCounter);
 Vue.customElement('cm-webinar-flywheel', WebinarFlywheel);
 Vue.customElement('cm-homepage', Homepage);
+Vue.customElement('bs-album', Album);
 
 const $ = require('jquery');
 require('bootstrap');
