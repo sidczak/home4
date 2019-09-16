@@ -1,14 +1,14 @@
 <template lang="pug">
     .album
-        //- Hero
+        Jumbotron
 </template>
 <script>
-    // import Hero from './Hero'
+    import Jumbotron from './Jumbotron'
     
     export default {
         name: "Album",
         components: {
-            // Hero
+            Jumbotron
         },
         props: {
         },
