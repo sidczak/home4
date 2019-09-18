@@ -8,6 +8,7 @@
             p
                 b-button(href="#" variant="primary" class="my-2")
                     | Main call to action
+                | 
                 b-button(href="#" variant="secondary" class="my-2")
                     | Secondary action
 </template>
