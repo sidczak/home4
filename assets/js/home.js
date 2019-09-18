@@ -23,6 +23,8 @@ import EduCounter from './components/EduCounter.vue';
 import WebinarFlywheel from './cm-components/landing/webinar-flywheel/WebinarFlywheel.vue';
 import Homepage from './cm-components/landing/homepage/Homepage.vue';
 import Album from './bs-components/examples/album/Album.vue';
+import Resize from './bs-components/Resize.vue';
+import Scroll from './bs-components/Scroll.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -36,6 +38,8 @@ Vue.customElement('edu-counter', EduCounter);
 Vue.customElement('cm-webinar-flywheel', WebinarFlywheel);
 Vue.customElement('cm-homepage', Homepage);
 Vue.customElement('bs-album', Album);
+Vue.customElement('bs-resize', Resize);
+Vue.customElement('bs-scroll', Scroll);
 
 const $ = require('jquery');
 require('bootstrap');
