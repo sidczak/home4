@@ -4,7 +4,7 @@
             b-row
                 b-col(md="4" v-for="n in 9" :key="n.id")
                     b-card.mb-4.shadow-sm
-                        b-card-text {{ n }}
+                        b-card-text
                             | {{ n }} This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
                         .d-flex.justify-content-between.align-items-center
                             b-button-group
