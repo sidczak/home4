@@ -19,3 +19,20 @@ $rem-fallback: true;
 
 //New Components
 @import "components/svg";
+
+.section {
+    &-py-80,
+    &-pt-80 {
+        padding-top: 5rem;
+    }
+    &-py-80,
+    &-pb-80 {
+        padding-bottom: 5rem;
+    }
+    &-mt-56 {
+        margin-top: 3.5rem;
+    }
+    &-min-h-100 {
+        min-height: 100%;
+    }
+}

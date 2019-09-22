@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -8,11 +8,14 @@
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="{{ asset('build/js/home.css') }}" />
     </head>
-    <body>
+    <body class="d-flex flex-column h-100">
         {% block navigation %}
             {{ include('_navbar.html.twig') }}
         {% endblock %}
         {% block body %}{% endblock %}
+        {% block footer %}
+            {{ include('_footer.html.twig') }}
+        {% endblock %}
         {% block javascripts %}{% endblock %}
         {% block javascriptsvue %}
             <script src="{{ asset('build/js/home.js') }}"></script>

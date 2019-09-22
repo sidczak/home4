@@ -12,13 +12,6 @@
 <script>
     export default {
         name: "Scroll",
-        props: {
-            myprop: String, 
-            index: {
-                type: Number,
-                default: 0
-            }
-        },
         data () {
             return {
                 window: {
@@ -45,6 +38,7 @@
 <style lang="scss" scoped>
 section.section {
   height: 100%;
+  border: 1px solid red;
 }
 
 section.section {

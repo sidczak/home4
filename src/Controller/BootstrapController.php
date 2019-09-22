@@ -25,4 +25,20 @@ class BootstrapController extends AbstractController
     {
         return $this->render('bootstrap/album.html.twig');
     }
+
+    /**
+     * @Route("/resize", name="examples_resize")
+     */
+    public function resize()
+    {
+        return $this->render('bootstrap/resize.html.twig');
+    }
+
+    /**
+     * @Route("/scroll", name="examples_scroll")
+     */
+    public function scroll()
+    {
+        return $this->render('bootstrap/scroll.html.twig');
+    }
 }

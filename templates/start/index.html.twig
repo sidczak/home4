@@ -4,8 +4,9 @@
 
 {% block body %}
 
-
+<section class="d-flex flex-shrink-0 align-items-center section-py-80 section-min-h-100 bg-light">
  	<div class="container">
+        {% for i in 1..5 %}
         <div class="row">
             <div class="col-md-12">
 			    <h2>start/index <i class="fa fa-home"></i> <i class="fas fa-home"></i></h2>
@@ -16,7 +17,23 @@
 			    </ol>
             </div>
         </div>
+        {% endfor %}
     </div>
+</section>
+<section class="d-flex flex-shrink-0 section-py-80 section-min-h-100 bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>start/index <i class="fa fa-home"></i> <i class="fas fa-home"></i></h2>
+                <ol>
+                    <li>Tworzenie projektu blog</li>
+                    <li>Pisanie componentów vue</li>
+                    <li>Wystartowanie projektu jobeet</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
 

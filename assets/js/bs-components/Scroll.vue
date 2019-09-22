@@ -11,13 +11,6 @@
 <script>
     export default {
         name: "Scroll",
-        props: {
-            myprop: String, 
-            index: {
-                type: Number,
-                default: 0
-            }
-        },
         data () {
             return {
                 scrolled: false
