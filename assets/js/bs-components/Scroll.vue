@@ -1,10 +1,12 @@
 <template lang="pug">
     .resize-x
-        | xxxxx
         .resize
+            b-container
+                b-row.text-center(v-for="n in 50" :key="n.id")
+                    b-col
+                        h1.mb-0 Your Window:<br/> Width: 
         .resize
         //- .d-flex.section-py-80.section-min-h-100(style="border: 2px solid orange;")
-        //-     | yyy
         //- .green
         //- .orange
         //-     h2(:class="{'bounceInLeft': scrolled}"  v-on="handleScroll" class="animated") {{scrolled}}
@@ -40,8 +42,7 @@
 <style lang="scss" scoped>
 .resize {
     border: 1px solid red;
-    min-height: 750px;
-    height: 100vh;
+    min-height: 100vh;
 }
 // div {
 //   // width: 100%;
