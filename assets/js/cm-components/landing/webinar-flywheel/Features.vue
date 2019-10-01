@@ -28,14 +28,14 @@
                             
                         </div>
                     </div>
-                    <div class="feature__info align-items-end" :class="{ 'show': item.isOpen, 'feature__info--left': index % 2 == 0, 'feature__info--right': index % 2 == 1 }">
+                    <div class="feature__info align-items-end" @click="close(item)" :class="{ 'show': item.isOpen, 'feature__info--left': index % 2 == 0, 'feature__info--right': index % 2 == 1 }">
                         <div class="feature__icon-svg feature__icon-svg--info" v-if="item.icon" :is="item.icon">
                             <i class="fas fa-times"></i>
                         </div>
                         <div class="col">
                             <h4 class="feature__title feature__title--info" v-html="item.title"></h4>
                             <p class="feature__desc" v-html="item.desc"></p>
-                            <div class="feature__close" @click='close(item)'>
+                            <div class="feature__close">
                                 Back
                                 <div class="feature__arrow feature__arrow--close">
                                     <i class="fas fa-arrow-right"></i>
@@ -451,9 +451,6 @@ $circleSizeSm: 300px;
         opacity: 0;
         .col {
             opacity: 0;
-            transition-property: opacity;
-            transition-duration: .5s;
-            transition-delay: .5s;
             visibility: hidden;
         }
         &.show {
@@ -464,6 +461,9 @@ $circleSizeSm: 300px;
             .col {
                 opacity: 1;
                 visibility: visible;
+                transition-property: opacity;
+                transition-duration: .5s;
+                transition-delay: .5s;
             }
             @media only screen and (max-width: 768px) {
                 padding: 100px 15px 30px;
