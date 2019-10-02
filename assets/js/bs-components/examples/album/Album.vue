@@ -1,5 +1,5 @@
 <template lang="pug">
-    .album
+    .album.section-mt-56
         Jumbotron
         Cards
 </template>
