@@ -1,11 +1,11 @@
 <template lang="pug">
-    .resize-x
-        .resize
+    .resize-x.section-min-h-100.flex-shrink-0
+        .resize.section-py-80.section-min-h-100
             b-container
-                b-row.text-center(v-for="n in 50" :key="n.id")
+                b-row.text-center(v-for="n in 5" :key="n.id")
                     b-col
                         h1.mb-0 Your Window:<br/> Width: 
-        .resize
+        .resize.section-min-h-100
         //- .d-flex.section-py-80.section-min-h-100(style="border: 2px solid orange;")
         //- .green
         //- .orange
@@ -42,7 +42,6 @@
 <style lang="scss" scoped>
 .resize {
     border: 1px solid red;
-    min-height: 100vh;
 }
 // div {
 //   // width: 100%;
