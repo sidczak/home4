@@ -2,16 +2,19 @@
     .resize-x.section-min-h-100.flex-shrink-0
         .resize.section-py-80.section-min-h-100
             b-container
-                b-row.text-center(v-for="n in 5" :key="n.id")
+                b-row.text-center.text-white(v-for="n in 5" :key="n.id")
                     b-col
-                        h1.mb-0 Your Window:<br/> Width: 
-        .resize.section-min-h-100
-        //- .d-flex.section-py-80.section-min-h-100(style="border: 2px solid orange;")
-        //- .green
-        //- .orange
-        //-     h2(:class="{'bounceInLeft': scrolled}"  v-on="handleScroll" class="animated") {{scrolled}}
-        //- .purple(:class="{boom: scrolled}")
-        //-     h2(:class="{'bounceInLeft': scrolled}"  v-on="handleScroll" class="animated") {{scrolled}}
+                        h1.mb-0 Screen 1 
+                            | - https://mycolor.space
+        .resize2.section-min-h-100
+            b-container
+                b-row.text-center.text-white
+                    b-col
+                        h1.mb-0 Screen 2
+        .orange.section-min-h-100
+            h2.xxx(:class="{'bounceInLeft': scrolled}" class="animated") {{scrolled}}
+        .purple.section-min-h-100(:class="{boom: scrolled}")
+            h2(:class="{'bounceInLeft': scrolled}" class="animated") {{scrolled}}
 </template>
 <script>
     export default {
@@ -29,41 +32,50 @@
         },
         methods: {
             handleScroll() {
-              let obj = document.querySelector('h2');
-              let {top,bottom} = obj.getBoundingClientRect();
-              let height = document.documentElement.clientHeight;
-              this.scrolled = top < height && bottom >0;
+                let obj = document.querySelector('.xxx');
+                let {top,bottom} = obj.getBoundingClientRect();
+                let height = document.documentElement.clientHeight;
+                this.scrolled = top < height && bottom > 0;
+                // console.log(this.scrolled + '=' + top + '<' + height + '&&' + bottom + '>' + 0);
+
+                // const box = document.querySelector('.xxx');
+                // const scrollStart = box.offsetTop
+                // console.log(window.scrollY + ' - ' + box.offsetTop)
+
+
               
-              // this.scrolled = window.scrollY > 100;
+                // this.scrolled = window.scrollY > 100;
+
+                // const box = this.$el
+                // const scrollStart = box.offsetTop
+                // this.scrolled = window.scrollY - scrollStart
+
+                // const box = this.$el
+                // const scrollStart = box.offsetTop - 200
+                // if (scrollStart <= window.scrollY) {
+                //     this.$refs.countStatistics.forEach((cnt) => cnt.start())
+                //     window.removeEventListener('scroll', this.handleScroll)
+                // }
+
             }
         }
     };
 </script>
 <style lang="scss" scoped>
 .resize {
+    background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
     border: 1px solid red;
 }
-// div {
-//   // width: 100%;
-//   // height: 100%;
-//   transition: all 1s;
-// }
-
-// .green {
-//   background: green;
-// }
-// .orange {
-//   background: orange;
-// }
-// .purple {
-//   background: purple;
-// }
-
-// .boom {
-//   background-color: red;
-// }
-
-// h2 {
-//   display: inline-block;
-// }
+.resize2 {
+    background-image: linear-gradient(to right bottom, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+}
+.orange {
+  background: orange;
+}
+.purple {
+  background: purple;
+}
+.boom {
+  background-color: red;
+}
 </style>
