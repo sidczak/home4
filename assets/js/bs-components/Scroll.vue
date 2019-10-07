@@ -6,6 +6,10 @@
                     b-col
                         h1.mb-0 Screen 1 
                             | - https://mycolor.space
+                b-row.text-center.text-white
+                    b-col
+                        #element.box
+                            | Box {{ box.width }} x {{ box.height }}
         .resize2.section-min-h-100
             b-container
                 b-row.text-center.text-white
@@ -21,7 +25,11 @@
         name: "Scroll",
         data () {
             return {
-                scrolled: false
+                scrolled: false,
+                box: {
+                    width: 0,
+                    height: 0
+                }
             }
         },
         created() {
@@ -56,7 +64,15 @@
                 //     this.$refs.countStatistics.forEach((cnt) => cnt.start())
                 //     window.removeEventListener('scroll', this.handleScroll)
                 // }
+                
+                // let el = document.getElementById('element');
+                // let el = document.querySelector('.box');
+                // this.box.width = el.offsetWidth;
+                // this.box.height = el.offsetHeight;
 
+                let el = document.querySelector('.box');
+                this.box.width = el.clientWidth;
+                this.box.height = el.clientHeight;
             }
         }
     };
@@ -77,5 +93,11 @@
 }
 .boom {
   background-color: red;
+}
+.box {
+    background: red;
+    border: 10px solid blue;
+    margin: 20px;
+    padding: 30px;
 }
 </style>
