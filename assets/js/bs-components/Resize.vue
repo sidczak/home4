@@ -1,28 +1,33 @@
 <template lang="pug">
-    section.d-flex.align-items-center.section-py-80.section-min-h-100
-        b-container
-            b-row.text-center(v-for="n in 1" :key="n.id")
-                b-col
-                    h1.mb-0 Your Window:<br/> Width: {{ window.width }}, Height: {{ window.height }}
-                    .box.text-center
-                        | boxOffset: {{ boxOffset.width }} x {{ boxOffset.height }}
-                        br
-                        | boxOffsetTop: {{ boxOffset.top }}
-                        br
-                        | boxOffsetLeft: {{ boxOffset.left }}
-                        br
-                        | boxClient: {{ boxClient.width }} x {{ boxClient.height }}
-                        br
-                        | boxClientTop: {{ boxClient.top }}
-                        br
-                        | boxClientLeft: {{ boxClient.left }}
-                        br
-                        | boxScroll: {{ boxScroll.width }} x {{ boxScroll.height }}
-                        br
-                        | boxScrollTop: {{ boxScroll.top }}
-                        br
-                        | boxScrollLeft: {{ boxScroll.left }}
-
+    .resize.section-min-h-100.flex-shrink-0
+        section.d-flex.align-items-center.section-py-80.section-min-h-100
+            b-container
+                b-row.text-center(v-for="n in 1" :key="n.id")
+                    b-col
+                        h1.mb-0 Your Window:<br/> Width: {{ window.width }}, Height: {{ window.height }}
+                        .box.text-center
+                            | boxOffset: {{ boxOffset.width }} x {{ boxOffset.height }}
+                            br
+                            | boxOffsetTop: {{ boxOffset.top }}
+                            br
+                            | boxOffsetLeft: {{ boxOffset.left }}
+                            br
+                            | boxClient: {{ boxClient.width }} x {{ boxClient.height }}
+                            br
+                            | boxClientTop: {{ boxClient.top }}
+                            br
+                            | boxClientLeft: {{ boxClient.left }}
+                            br
+                            | boxScroll: {{ boxScroll.width }} x {{ boxScroll.height }}
+                            br
+                            | boxScrollTop: {{ boxScroll.top }}
+                            br
+                            | boxScrollLeft: {{ boxScroll.left }}
+        section.d-flex.align-items-center.section-py-80.section-min-h-100
+            b-container
+                b-row.text-center(v-for="n in 1" :key="n.id")
+                    b-col
+                        h1.mb-0 Your Window:<br/> Width: {{ window.width }}, Height: {{ window.height }}
 </template>
 <script>
     export default {
@@ -87,6 +92,7 @@
     };
 </script>
 <style lang="scss" scoped>
+.resize {}
 .box {
     background: red;
     border: 10px solid blue;
