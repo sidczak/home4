@@ -28,6 +28,8 @@
                 b-row.text-center(v-for="n in 1" :key="n.id")
                     b-col
                         h1.mb-0 Your Window:<br/> Width: {{ window.width }}, Height: {{ window.height }}
+                            br
+                            | https://codepen.io/tahazsh/pen/ZwxeGx
 </template>
 <script>
     export default {
