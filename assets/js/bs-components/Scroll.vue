@@ -117,7 +117,7 @@
 
 
                 const scrollStart = obj.offsetTop
-                if(this.scrolled) {
+                if(top < height && bottom > 0) {
                     this.licznik = window.scrollY - scrollStart
                 }
 
