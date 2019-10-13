@@ -117,11 +117,14 @@
 
 
                 const scrollStart = obj.offsetTop
+                // if(top < 0 && bottom > 0) {
                 if(top < height && bottom > 0) {
                     this.licznik = window.scrollY - scrollStart
                 }
 
-                console.log(this.licznik);
+                console.log(this.licznik + ' ' + this.scrolled + '=' + top + '<' + height + '&&' + bottom + '>' + 0);
+
+                // console.log(this.licznik);
 
                 // const box = document.querySelector('.xxx');
                 // const scrollStart = box.offsetTop
