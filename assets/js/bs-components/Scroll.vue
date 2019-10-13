@@ -115,8 +115,8 @@
                 this.rect.right = rect.right;
 
 
-
                 const scrollStart = obj.offsetTop
+                // const scrollStart = obj.offsetTop - window.innerHeight
                 // if(top < 0 && bottom > 0) {
                 if(top < height && bottom > 0) {
                     this.licznik = window.scrollY - scrollStart
