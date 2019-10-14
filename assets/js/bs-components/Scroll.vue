@@ -35,6 +35,8 @@
                             br
                             | Window height: window.innerHeight: {{ window.height }}
         section.orange.d-flex.align-items-end.flex-column.section-min-h-100
+            .scroll-box(:style="{top: (licznik) + 'px'}")
+                h3 {{licznik}}
             b-container.xxx
                 b-row.text-center
                     b-col
@@ -118,9 +120,17 @@
                 const scrollStart = obj.offsetTop
                 // const scrollStart = obj.offsetTop - window.innerHeight
                 // if(top < 0 && bottom > 0) {
-                if(top < height && bottom > 0) {
-                    this.licznik = window.scrollY - scrollStart
+                // if(top < height && bottom > 0) {
+                //     // this.licznik = window.scrollY - scrollStart
+                //     // this.licznik = -(top - 300);
+                //     this.licznik = -(top);
+                // }
+
+
+                if(top < height && bottom > (height-300)) {
+                    this.licznik = -((top - window.innerHeight) + 200);
                 }
+
 
                 console.log(this.licznik + ' ' + this.scrolled + '=' + top + '<' + height + '&&' + bottom + '>' + 0);
 
@@ -174,6 +184,7 @@
 }
 .orange {
   background: orange;
+  position: relative;
 }
 .purple {
   background: purple;
@@ -189,5 +200,14 @@
 }
 .xxx {
     border: 1px solid red;
+}
+.scroll-box {
+    border: 1px solid red;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 </style>
