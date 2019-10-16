@@ -105,6 +105,12 @@
                 this.scrolled = top < height && bottom > 0;
                 
                 // https://www.mediaevent.de/javascript/dimension.html
+                // https://codepen.io/husamui/pen/IyrJk
+                // https://vuejs.org/v2/cookbook/creating-custom-scroll-directives.html
+                // https://codepen.io/Jayesh_v/pen/oMgwRO
+                // https://codepen.io/sdras/pen/NyQRXO
+                // https://codepen.io/eksch/pen/xwdOeK/
+                
                 // console.log(this.scrolled + '=' + top + '<' + height + '&&' + bottom + '>' + 0);
                 // let isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
                 // return isVisible;
