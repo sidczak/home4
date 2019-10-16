@@ -5,6 +5,7 @@
                 b-row.text-center.text-white(v-for="n in 5" :key="n.id")
                     b-col
                         h1.mb-0 Screen 1 
+                            | - https://lodash.com/docs/4.17.15#padStart
                             | - https://mycolor.space
                 b-row.text-center.text-white
                     b-col
