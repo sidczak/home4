@@ -25,6 +25,7 @@ import Homepage from './cm-components/landing/homepage/Homepage.vue';
 import Album from './bs-components/examples/album/Album.vue';
 import Resize from './bs-components/Resize.vue';
 import Scroll from './bs-components/Scroll.vue';
+import ScrollProgress from './bs-components/ScrollProgress.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -40,6 +41,7 @@ Vue.customElement('cm-homepage', Homepage);
 Vue.customElement('bs-album', Album);
 Vue.customElement('bs-resize', Resize);
 Vue.customElement('bs-scroll', Scroll);
+Vue.customElement('bs-scroll-progress', ScrollProgress);
 
 const $ = require('jquery');
 require('bootstrap');

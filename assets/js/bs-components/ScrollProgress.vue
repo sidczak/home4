@@ -1,85 +1,50 @@
-<div id="app">
-  <div class="card">
-    <progress-bar :value="progress"></progress-bar>
-    <div
-      class="text-section"
-      ref="text"
-      @scroll="onScroll">
-      https://codepen.io/tahazsh/pen/ZwxeGx<br/>
-      https://tahazsh.com/creating-scroll-based-progress-bar-in-vue<br/>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate architecto voluptatum, laboriosam quisquam quod minus molestias. Rem ut quidem, corrupti nihil molestiae deserunt, iusto velit unde atque mollitia, eum ad maiores exercitationem. Soluta harum sit cupiditate eos, commodi itaque nihil, beatae dolorem ducimus, repudiandae, vero quo corporis sed laborum at maxime dicta dolores perferendis! Possimus repellat velit iste quod recusandae suscipit vitae ex soluta nostrum animi saepe eius itaque, voluptas, sapiente minima quo culpa explicabo necessitatibus distinctio. Veritatis amet tempora, consectetur molestias optio eveniet laudantium, tenetur aspernatur nobis ratione sit hic in impedit quod deserunt recusandae atque, ipsam molestiae sequi!
-    </div>
-  </div>
-</div>
-
-<script type="text/x-template" id="progress-bar">
-  <div class="progress-bar">
-    <div
-      class="filled-bar"
-      :style="{ transform: `translate3d(-${(1 - value) * 100}%, 0, 0)` }"
-    ></div>
-    <span class="text">
-      Progress: {{ percentageText }}
-    </span>
-  </div>
-</script>
+<template>
+    <section class="section-py-80 flex-shrink-0">
+        <div class="card">
+            <div class="progress-bar">
+                <div class="filled-bar" :style="{ transform: `translate3d(-${(1 - progress) * 100}%, 0, 0)` }"></div>
+                <span class="text">
+                    Progress: {{ percentageText }}
+                </span>
+            </div>
+            <div class="text-section" ref="text" @scroll="onScroll">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate architecto voluptatum, laboriosam quisquam quod minus molestias. Rem ut quidem, corrupti nihil molestiae deserunt, iusto velit unde atque mollitia, eum ad maiores exercitationem. Soluta harum sit cupiditate eos, commodi itaque nihil, beatae dolorem ducimus, repudiandae, vero quo corporis sed laborum at maxime dicta dolores perferendis! Possimus repellat velit iste quod recusandae suscipit vitae ex soluta nostrum animi saepe eius itaque, voluptas, sapiente minima quo culpa explicabo necessitatibus distinctio. Veritatis amet tempora, consectetur molestias optio eveniet laudantium, tenetur aspernatur nobis ratione sit hic in impedit quod deserunt recusandae atque, ipsam molestiae sequi!
+            </div>
+        </div>
+    </section>
+</template>
 
 <script>
-Vue.component('progress-bar', {
-  template: '#progress-bar',
-    props: {
-    value: {
-      type: Number,
-      default: 0.3
-    }
-  },
-
-  computed: {
-    percentageText () {
-      return `${Math.round(this.value * 100)}%`
-    }
-  }
-})
-
-new Vue({
-  el: '#app',
-  data () {
-    return {
-      progress: 0
-    }
-  },
-
-  methods: {
-    onScroll () {
-      const progress = this.$refs.text.scrollTop / (this.$refs.text.scrollHeight - this.$refs.text.clientHeight)
-      if (progress > 1) {
-        this.progress = 1
-      } else if (progress < 0) {
-        this.progress = 0
-      } else {
-        this.progress = progress
-      }
-    }
-  }
-})
+    export default {
+        name: "ScrollProgress",
+        data () {
+            return {
+                progress: 0
+            }
+        },
+        computed: {
+            percentageText () {
+                return `${Math.round(this.progress * 100)}%`
+            }
+        },
+        methods: {
+            onScroll () {
+                const progress = this.$refs.text.scrollTop / (this.$refs.text.scrollHeight - this.$refs.text.clientHeight)
+                if (progress > 1) {
+                    this.progress = 1
+                } else if (progress < 0) {
+                    this.progress = 0
+                } else {
+                    this.progress = progress
+                }
+            }
+        }
+    };
 </script>
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 1px 0 0;
-  width: 100vw;
-  height: 100vh;
+<style lang="scss" scoped>
+section {
   background: #6B5CA5;
-}
-
-html {
-  padding: 0;
-  margin: 0;
 }
 
 .card {
