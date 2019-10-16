@@ -83,6 +83,8 @@ section {
   position: relative;
   overflow: hidden;
   border-radius: 3px 3px 0 0;
+  background: #fff;
+  color: #444;
 }
 
 .text {
