@@ -27,6 +27,14 @@ class BootstrapController extends AbstractController
     }
 
     /**
+     * @Route("/pricing", name="examples_pricing")
+     */
+    public function pricing()
+    {
+        return $this->render('bootstrap/pricing.html.twig');
+    }
+
+    /**
      * @Route("/resize", name="examples_resize")
      */
     public function resize()
