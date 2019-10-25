@@ -24,15 +24,9 @@
                 </button>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-8 text-center">
-                <example-component myprop="I can pass props!" index=8></example-component>
-            </div>
-        </div>
     </div>
 </template>
 <script>
-    import ExampleComponent from './ExampleComponent';
     export default {
         name: "EduCounter",
         //props: ["initValue"],
@@ -41,9 +35,6 @@
                 type: Number,
                 default: 10
             }
-        },
-        components: {
-            ExampleComponent
         },
         data: function() {
             return {
