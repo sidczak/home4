@@ -39,3 +39,17 @@ $rem-fallback: true;
         min-height: 100vh;
     }
 }
+
+.navbar {
+    transition: 
+        background .5s ease-in-out,
+        padding .5s ease-in-out;
+}
+.navbar.xxx{
+    padding-top: 35px;
+    padding-bottom: 35px;
+    &.bg-dark {
+        background-color: transparent !important;
+        background-color: rgba(52, 58, 64, 0.25) !important;
+    }
+}
