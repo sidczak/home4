@@ -19,6 +19,7 @@ $rem-fallback: true;
 
 //New Components
 @import "components/svg";
+@import "components/navbar";
 
 .section {
     &-py-80,
@@ -40,16 +41,6 @@ $rem-fallback: true;
     }
 }
 
-.navbar {
-    transition: 
-        background .5s ease-in-out,
-        padding .5s ease-in-out;
-}
-.navbar.xxx{
-    padding-top: 35px;
-    padding-bottom: 35px;
-    &.bg-dark {
-        background-color: transparent !important;
-        background-color: rgba(52, 58, 64, 0.25) !important;
-    }
-}
+// ::selection {
+//     background-color: #08c;
+// }

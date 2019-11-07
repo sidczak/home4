@@ -52,27 +52,4 @@ $(document).ready(function() {
 import svg4everybody from 'svg4everybody';
 svg4everybody();
 
-//import main from './main';
-
-
-var navbarHeader = '.navbar',
-    $navbarHeader = $(navbarHeader),
-    fixedClass = 'xxx';
-
-if ($navbarHeader.hasClass(fixedClass)) {
-    setFixedClass();
-
-    $(window).scroll(function() {
-        setFixedClass();
-    });
-}
-
-function setFixedClass() {
-    if($navbarHeader.length > 0) {
-        if ($navbarHeader.offset().top > 50) {
-            $navbarHeader.removeClass(fixedClass);
-        } else {
-            $navbarHeader.addClass(fixedClass);
-        }
-    }
-}
+import main from './main';
