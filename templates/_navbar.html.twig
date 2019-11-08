@@ -1,6 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark flex-wrap 
-{{ app.request.get('_route') in  ['homepage'] ? 'navbar-transparent' }}">
-  <div class="bg-primary text-white w-100 p-3">.bg-primary</div>
+{{ app.request.get('_route') in  ['homepage', 'examples_banner'] ? 'navbar-transparent' }} 
+{{ app.request.get('_route') in  ['examples_banner'] ? 'navbar-banner-show' }}">
+  {% if app.request.get('_route') in  ['examples_banner'] %}
+    <div class="navbar-banner bg-primary text-white p-3">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+  {% endif %}
   <a class="navbar-brand" href="{{ path('homepage') }}">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -10,6 +15,9 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item {{ app.request.get('_route') ==  'homepage' ? 'active' }}">
         <a class="nav-link" href="{{ path('homepage') }}">Start <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item {{ app.request.get('_route') ==  'examples_banner' ? 'active' }}">
+        <a class="nav-link" href="{{ path('examples_banner') }}">Banner</a>
       </li>
       <li class="nav-item {{ app.request.get('_route') ==  'about_me' ? 'active' }}">
         <a class="nav-link" href="{{ path('about_me') }}">About Me</a>

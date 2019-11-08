@@ -1,0 +1,19 @@
+.navbar-banner {
+    flex: 1;
+    min-width: 100%;
+    margin: 0 -1rem 8px;
+    transition: margin .5s ease-in-out;
+    &-show {
+        padding-top: 0;
+    }
+    &-space {
+        padding-top: 56px;
+    }
+}
+@media (min-width: 992px) {
+    .navbar-transparent {
+        .navbar-banner {
+            margin-bottom: 35px;
+        }
+    }
+}

@@ -8,7 +8,7 @@
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="{{ asset('build/js/home.css') }}" />
     </head>
-    <body class="d-flex flex-column h-100">
+    <body class="d-flex flex-column h-100 {{ app.request.get('_route') in  ['examples_banner'] ? 'navbar-banner-space' }}">
         <div id="app" class="d-none"></div>
         {% block navigation %}
             {{ include('_navbar.html.twig') }}

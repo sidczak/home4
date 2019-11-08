@@ -20,6 +20,7 @@ $rem-fallback: true;
 //New Components
 @import "components/svg";
 @import "components/navbar";
+@import "components/navbar-banner";
 
 .section {
     &-py-80,
@@ -37,7 +38,10 @@ $rem-fallback: true;
         margin-top: 3.5rem;
     }
     &-min-h-100 {
-        min-height: 100vh;
+        min-height: 100%;
+    }
+    &-pt-128 {
+        padding-top: 8rem;
     }
 }
 

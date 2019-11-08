@@ -35,6 +35,14 @@ class BootstrapController extends AbstractController
     }
 
     /**
+     * @Route("/banner", name="examples_banner")
+     */
+    public function banner()
+    {
+        return $this->render('bootstrap/banner.html.twig');
+    }
+
+    /**
      * @Route("/resize", name="examples_resize")
      */
     public function resize()
