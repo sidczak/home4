@@ -19,6 +19,7 @@ window.jQuery = $;
         return {
             init: function () {
                 this.navbarHeader();
+                this.navbarBanner();
             },
 
             /**
@@ -26,7 +27,6 @@ window.jQuery = $;
              * Wyswietlanie gornej belki z glownym menu
              */
             navbarHeader: function () {
-                const $ = require('jquery');
                 var navbarHeader = '.navbar',
                     $navbarHeader = $(navbarHeader),
                     fixedClass = 'navbar-transparent';
@@ -47,6 +47,24 @@ window.jQuery = $;
                             $navbarHeader.addClass(fixedClass);
                         }
                     }
+                }
+            },
+            navbarBanner: function () {
+                var navbarBanner = '.navbar-banner',
+                    $navbarBanner = $(navbarBanner),
+                    navbarBannerSpace = '.navbar-banner-space',
+                    $navbarBannerSpace = $(navbarBannerSpace);
+                    
+                if($navbarBanner.length > 0) {
+                    setNavbarBannerSpace();
+                
+                    $(window).resize(function() {
+                        setNavbarBannerSpace();
+                    });
+                }
+
+                function setNavbarBannerSpace() {
+                    $(navbarBannerSpace).css("padding-top", $navbarBanner.innerHeight());
                 }
             }
         };

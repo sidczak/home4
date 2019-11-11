@@ -2,9 +2,7 @@
 {{ app.request.get('_route') in  ['homepage', 'examples_banner'] ? 'navbar-transparent' }} 
 {{ app.request.get('_route') in  ['examples_banner'] ? 'navbar-banner-show' }}">
   {% if app.request.get('_route') in  ['examples_banner'] %}
-    <div class="navbar-banner bg-primary text-white p-3">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    </div>
+    {{ include('_navbarBanner.html.twig') }}
   {% endif %}
   <a class="navbar-brand" href="{{ path('homepage') }}">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
