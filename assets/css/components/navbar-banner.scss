@@ -2,12 +2,14 @@
     flex: 1;
     min-width: 100%;
     margin: 0 -1rem 8px;
-    transition: margin .5s ease-in-out;
+    transition: margin-bottom .5s ease-in-out;
     &-show {
         padding-top: 0;
+        // transition: top .3s ease-in-out;
     }
     &-space {
         padding-top: 56px;
+        // transition: padding-top .3s ease-in-out;
     }
 }
 @media (min-width: 992px) {
