@@ -37,7 +37,7 @@ window.jQuery = $;
 
                 function setFixedClass() {
                     if($navbarHeader.length > 0) {
-                        if ($navbarHeader.offset().top > 50) {
+                        if ($navbarHeader.offset().top >= 50) {
                             $navbarHeader.removeClass(fixedClass);
                         } else {
                             $navbarHeader.addClass(fixedClass);
@@ -49,32 +49,42 @@ window.jQuery = $;
                 var navbarBanner = '.navbar-banner',
                     $navbarBanner = $(navbarBanner),
                     navbarBannerSpace = '.navbar-banner-space',
-                    $navbarBannerSpace = $(navbarBannerSpace);
-                // var fixedTop = '.fixed-top',
-                //     $fixedTop = $(fixedTop);
+                    $navbarBannerSpace = $(navbarBannerSpace),
+                    browserWidth = $(window).width(),
+                    fixedTop = '.fixed-top',
+                    $fixedTop = $(fixedTop);
                     
                 if($navbarBanner.length > 0) {
                     setNavbarBannerSpace();
                 
                     $(window).resize(function() {
                         setNavbarBannerSpace();
+                        browserWidth = $(window).width();
                     });
-
-                    // $(window).scroll(function() {
-                    //     if($navbarBanner.length > 0) {
-                    //         if ($navbarBanner.offset().top > 50) {
-                    //             $(navbarBannerSpace).css("padding-top", 0);
-                    //             $fixedTop.css("top", -$navbarBanner.innerHeight());
-                    //         } else {
-                    //             $(navbarBannerSpace).css("padding-top", $navbarBanner.innerHeight());
-                    //             $fixedTop.css("top", 0);
-                    //         }
-                    //     }
-                    // });
                 }
 
                 function setNavbarBannerSpace() {
                     $(navbarBannerSpace).css("padding-top", $navbarBanner.innerHeight());
+                }
+
+                if($navbarBanner.length > 0) {
+                    hasNavbarBannerScrolled();
+                    
+                    $(window).scroll(function() {
+                        hasNavbarBannerScrolled();
+                    });
+                }
+                
+                function hasNavbarBannerScrolled() {
+                    // if(browserWidth < 992) {
+                        if ($navbarBanner.offset().top >= 50) {
+                            $(navbarBannerSpace).css("padding-top", 0);
+                            $fixedTop.css("top", -$navbarBanner.innerHeight());
+                        } else {
+                            $(navbarBannerSpace).css("padding-top", $navbarBanner.innerHeight());
+                            $fixedTop.css("top", 0);
+                        }
+                    // }
                 }
             }
         };
