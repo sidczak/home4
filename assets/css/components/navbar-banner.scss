@@ -5,11 +5,11 @@
     transition: margin-bottom .5s ease-in-out;
     &-show {
         padding-top: 0;
-        transition: top .3s ease-in-out;
+        transition: top .6s ease-in-out;
     }
     &-space {
         padding-top: 56px;
-        transition: padding-top .3s ease-in-out;
+        transition: padding-top .6s ease-in-out;
     }
 }
 @media (min-width: 992px) {
