@@ -37,7 +37,7 @@ window.jQuery = $;
 
                 function setFixedClass() {
                     if($navbarHeader.length > 0) {
-                        if ($navbarHeader.offset().top >= 50) {
+                        if ($navbarHeader.offset().top > 50) {
                             $navbarHeader.removeClass(fixedClass);
                         } else {
                             $navbarHeader.addClass(fixedClass);
@@ -77,7 +77,7 @@ window.jQuery = $;
                 
                 function hasNavbarBannerScrolled() {
                     // if(browserWidth < 992) {
-                        if ($navbarBanner.offset().top >= 50) {
+                        if ($navbarBanner.offset().top > 50) {
                             $(navbarBannerSpace).css("padding-top", 0);
                             $fixedTop.css("top", -$navbarBanner.innerHeight());
                         } else {
