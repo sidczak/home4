@@ -24,4 +24,11 @@ class LandingController extends AbstractController
     {
         return $this->render('landing/webinarFlywheel.html.twig');
     }
+    /**
+     * @Route("/new-webinar-room", name="new_webinar_room")
+     */
+    public function newWebinarRoom(Request $reques)
+    {
+        return $this->render('landing/newWebinarRoom.html.twig');
+    }
 }

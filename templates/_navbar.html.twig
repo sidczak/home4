@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark flex-wrap 
-{{ app.request.get('_route') in  ['homepage', 'examples_banner'] ? 'navbar-transparent' }} 
+{{ app.request.get('_route') in  ['homepage', 'examples_banner', 'new_webinar_room'] ? 'navbar-transparent' }} 
 {{ app.request.get('_route') in  ['examples_banner'] ? 'navbar-banner-show' }}">
   {% if app.request.get('_route') in  ['examples_banner'] %}
     {{ include('_navbarBanner.html.twig') }}
@@ -33,6 +33,8 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownLanding">
           <a class="dropdown-item" href="{{ path('landing_homepage') }}">Homepage</a>
           <a class="dropdown-item" href="{{ path('webinar_flywheel') }}">Webinar flywheel</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ path('new_webinar_room') }}">New webinar room</a>
         </div>
       </li>
       <li class="nav-item dropdown">

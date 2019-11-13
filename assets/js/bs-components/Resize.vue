@@ -1,6 +1,6 @@
 <template lang="pug">
-    .resize.section-min-h-100.flex-shrink-0
-        section.d-flex.align-items-center.section-py-80.section-min-h-100
+    .resize.section-min-vh-100.flex-shrink-0
+        section.d-flex.align-items-center.section-py-80.section-min-vh-100
             b-container
                 b-row.text-center(v-for="n in 1" :key="n.id")
                     b-col
@@ -23,7 +23,7 @@
                             | boxScrollTop: {{ boxScroll.top }}
                             br
                             | boxScrollLeft: {{ boxScroll.left }}
-        section.d-flex.align-items-center.section-py-80.section-min-h-100
+        section.d-flex.align-items-center.section-py-80.section-min-vh-100
             b-container
                 b-row.text-center(v-for="n in 1" :key="n.id")
                     b-col

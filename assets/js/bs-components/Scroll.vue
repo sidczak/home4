@@ -1,6 +1,6 @@
 <template lang="pug">
-    .resize-x.section-min-h-100.flex-shrink-0
-        section.resize.section-py-80.section-min-h-100
+    .resize-x.section-min-vh-100.flex-shrink-0
+        section.resize.section-py-80.section-min-vh-100
             b-container
                 b-row.text-center.text-white(v-for="n in 5" :key="n.id")
                     b-col
@@ -19,7 +19,7 @@
                         | Document height: document.body.scrollHeight: {{ document.scrollHeight }}
                         br
                         | Window height: window.innerHeight: {{ window.height }}
-        section.resize2.section-min-h-100
+        section.resize2.section-min-vh-100
             b-container
                 b-row.text-center.text-white
                     b-col
@@ -35,7 +35,7 @@
                             | Document height: document.body.scrollHeight: {{ document.scrollHeight }}
                             br
                             | Window height: window.innerHeight: {{ window.height }}
-        section.orange.d-flex.align-items-end.flex-column.section-min-h-100
+        section.orange.d-flex.align-items-end.flex-column.section-min-vh-100
             .scroll-box(:style="{top: (licznik) + 'px'}")
                 h3 {{licznik}}
             b-container.xxx
@@ -50,7 +50,7 @@
                 b-row.text-center
                     b-col
                         h2(:class="{'bounceInLeft': scrolled}" class="animated") {{scrolled}}
-        section.purple.d-flex.align-items-center.section-min-h-100(:class="{boom: scrolled}")
+        section.purple.d-flex.align-items-center.section-min-vh-100(:class="{boom: scrolled}")
             b-container
                 b-row.text-center
                     b-col
