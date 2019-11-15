@@ -45,6 +45,7 @@ Vue.customElement('bs-scroll-progress', ScrollProgress);
 
 const $ = require('jquery');
 require('bootstrap');
+import 'jquery.easing';
 $(document).ready(function() {
     $('[data-toggle="popover"]').popover();
 });
