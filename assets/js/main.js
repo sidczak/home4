@@ -89,7 +89,7 @@ window.jQuery = $;
                 }
             },
             navbarScrollSlide: function () {
-                $('.scroll-indicators a[href^="#"]').click(function (event) {
+                $('[data-selector="navbar-scroll-slide"]').click(function (event) {
                     event.preventDefault();
                     homepage.addAnimation(this, 1500);
                 });
