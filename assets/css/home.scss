@@ -25,6 +25,12 @@ $rem-fallback: true;
 @import "landing/new-webinar-room/scroll-indicators";
 
 .section {
+    &-pt-152 {
+        padding-top: 9.5rem;
+    }
+    &-pt-128 {
+        padding-top: 8rem;
+    }
     &-py-80,
     &-pt-80 {
         padding-top: 5rem;
@@ -44,9 +50,6 @@ $rem-fallback: true;
     }
     &-min-vh-100 {
         min-height: 100vh;
-    }
-    &-pt-128 {
-        padding-top: 8rem;
     }
 }
 
