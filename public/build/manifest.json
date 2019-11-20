@@ -14,6 +14,7 @@
   "build/fonts/fa-solid-900.woff": "/build/fonts/fa-solid-900.61969d43.woff",
   "build/fonts/fa-solid-900.eot": "/build/fonts/fa-solid-900.b5596f4d.eot",
   "build/fonts/fa-solid-900.ttf": "/build/fonts/fa-solid-900.b70cea03.ttf",
+  "build/images/bg.jpg": "/build/images/bg.91f966b5.jpg",
   "build/images/fa-brands-400.svg": "/build/images/fa-brands-400.80533988.svg",
   "build/images/fa-regular-400.svg": "/build/images/fa-regular-400.e7e957c8.svg",
   "build/images/fa-solid-900.svg": "/build/images/fa-solid-900.82905d8d.svg",
@@ -28,5 +29,7 @@
   "build/images/option4.png": "/build/images/option4.15ecb2b9.png",
   "build/images/option5-mobile.png": "/build/images/option5-mobile.86beb9cc.png",
   "build/images/option5.png": "/build/images/option5.01780992.png",
-  "build/images/bg.jpg": "/build/images/bg.91f966b5.jpg"
+  "build/images/start.jpg": "/build/images/start.91f966b5.jpg",
+  "build/images/about-me.jpg": "/build/images/about-me.e40fff84.jpg",
+  "build/images/start-blog.jpg": "/build/images/start-blog.a30f2306.jpg"
 }

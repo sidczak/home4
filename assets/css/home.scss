@@ -21,39 +21,8 @@ $rem-fallback: true;
 @import "components/svg";
 @import "components/navbar";
 @import "components/navbar-banner";
-@import "components/welcome";
+@import "components/section";
+
+// Landing
 @import "landing/new-webinar-room/frame";
 @import "landing/new-webinar-room/scroll-indicators";
-
-.section {
-    &-pt-152 {
-        padding-top: 9.5rem;
-    }
-    &-pt-128 {
-        padding-top: 8rem;
-    }
-    &-py-80,
-    &-pt-80 {
-        padding-top: 5rem;
-    }
-    &-py-80,
-    &-pb-80 {
-        padding-bottom: 5rem;
-    }
-    &-pt-56 {
-        padding-top: 3.5rem;
-    }
-    &-mt-56 {
-        margin-top: 3.5rem;
-    }
-    &-min-h-100 {
-        min-height: 100%;
-    }
-    &-min-vh-100 {
-        min-height: 100vh;
-    }
-}
-
-// ::selection {
-//     background-color: #08c;
-// }

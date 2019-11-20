@@ -12,7 +12,7 @@
         transition: padding-top .6s ease-in-out;
     }
 }
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
     .navbar-transparent {
         .navbar-banner {
             margin-bottom: 35px;

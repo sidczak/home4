@@ -1,0 +1,75 @@
+.section {
+    &-pt-152 {
+        padding-top: rem(152px);
+    }
+    &-pt-128 {
+        padding-top: rem(128px);
+    }
+    &-py-80,
+    &-pt-80 {
+        padding-top: rem(80px);
+    }
+    &-py-80,
+    &-pb-80 {
+        padding-bottom: rem(80px);
+    }
+    &-pt-56 {
+        padding-top: rem(56px);
+    }
+    &-mt-56 {
+        margin-top: rem(56px);
+    }
+    &-min-h-100 {
+        min-height: 100%;
+    }
+    &-min-vh-100 {
+        min-height: 100vh;
+    }
+    &--image {
+        position: relative;
+        background-image: url("../../images/welcome/start.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &::before {
+            content: '';
+            background-color: #000;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            opacity: .5;
+        }
+        &-start {
+            background-image: url("../../images/welcome/start.jpg");
+            &-blog {
+                background-image: url("../../images/welcome/start-blog.jpg");
+            }
+        }
+        &-about-me {
+            background-image: url("../../images/welcome/about-me.jpg");
+            &::before {
+                background-color: #000;
+                opacity: .75;
+            }
+        }
+    }
+    &--parallax {
+        background-attachment: fixed;
+    }
+    &--gradient {
+        &-basic {
+            &::before {
+                background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+                opacity: .75;
+            }
+        }
+        &-start {
+            &::before {
+                background-image: linear-gradient(to left, #7400de, #2969ff);
+                opacity: .75;
+            }
+        }
+    }
+}

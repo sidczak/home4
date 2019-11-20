@@ -5,7 +5,7 @@ $navLinkHover: #08c;
         background .5s ease-in-out,
         padding .5s ease-in-out;
         
-    @media (min-width: 992px) {
+    @include media-breakpoint-up(lg) {
         &-transparent {
             padding-top: 35px;
             padding-bottom: 35px;
