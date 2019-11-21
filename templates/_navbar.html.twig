@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark flex-wrap 
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top flex-wrap 
+{{ app.request.get('_project') in  ['bootstrap'] ? 'bg-' ~ app.request.get('_project') : 'bg-dark' }}
 {{ app.request.get('_route') in  ['homepage', 'examples_banner', 'new_webinar_room'] ? 'navbar-transparent' }} 
 {{ app.request.get('_route') in  ['examples_banner'] ? 'navbar-banner-show' }}">
   {% if app.request.get('_route') in  ['examples_banner'] %}
@@ -48,8 +49,9 @@
           <a class="dropdown-item" href="{{ path('examples_album') }}">Album</a>
           <a class="dropdown-item" href="{{ path('examples_pricing') }}">Pricing</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ path('examples_resize') }}">Resize</a>
-          <a class="dropdown-item" href="{{ path('examples_scroll') }}">Scroll</a>
+          <div class="dropdown-header">Vue</div>
+          <a class="dropdown-item" href="{{ path('examples_resize') }}">Resize <span class="badge badge-pill badge-success">Vue</span></a>
+          <a class="dropdown-item" href="{{ path('examples_scroll') }}">Scroll <span class="badge badge-pill badge-success">Vue</span></a>
         </div>
       </li>
       <li class="nav-item">

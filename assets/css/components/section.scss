@@ -46,6 +46,18 @@
             &-blog {
                 background-image: url("../../images/welcome/start-blog.jpg");
             }
+            &-space {
+                background-image: url("../../images/welcome/start-space.jpg");
+                &::before {
+                    background-color: transparent;
+                }
+            }
+            &-austronaut {
+                background-image: url("../../images/welcome/start-austronaut.jpg");
+                &::before {
+                    background-color: transparent;
+                }
+            }
         }
         &-about-me {
             background-image: url("../../images/welcome/about-me.jpg");

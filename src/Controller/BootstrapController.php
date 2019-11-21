@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/bootstrap/examples")
+ * @Route("/bootstrap/examples", defaults={"_project": "bootstrap"})
  */
 class BootstrapController extends AbstractController
 {
@@ -32,14 +32,6 @@ class BootstrapController extends AbstractController
     public function pricing()
     {
         return $this->render('bootstrap/pricing.html.twig');
-    }
-
-    /**
-     * @Route("/banner", name="examples_banner")
-     */
-    public function banner()
-    {
-        return $this->render('bootstrap/banner.html.twig');
     }
 
     /**

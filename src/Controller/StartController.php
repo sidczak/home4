@@ -14,4 +14,12 @@ class StartController extends AbstractController
     {
         return $this->render('start/index.html.twig');
     }
+
+    /**
+     * @Route("/banner", name="examples_banner")
+     */
+    public function banner()
+    {
+        return $this->render('start/banner.html.twig');
+    }
 }
