@@ -90,6 +90,9 @@
     "egulias/email-validator": {
         "version": "2.1.7"
     },
+    "fig/link-util": {
+        "version": "1.0.0"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
