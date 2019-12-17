@@ -2581,7 +2581,7 @@ es-to-primitive@^1.2.0:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
-escape-html@~1.0.3:
+escape-html@~1.0.1, escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
@@ -3260,6 +3260,13 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
+holderjs@^2.9.4:
+  version "2.9.6"
+  resolved "https://registry.yarnpkg.com/holderjs/-/holderjs-2.9.6.tgz#f6534486238642e3b8a9bba1201903a4cc993d78"
+  integrity sha512-Onb0GLcFDH6VT40dtBC5Zdjm+8R1xr2V3R9HSByBn1s5kFhX6XowWFFW/ACEYWR9KcyHjE92ebx67De/UwJ7+A==
+  dependencies:
+    shaven "^0.8.1"
+
 homedir-polyfill@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.3.tgz#743298cef4e5af3e194161fbadcc2151d3a058e8"
@@ -3814,6 +3821,11 @@ jquery.easing@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/jquery.easing/-/jquery.easing-1.4.1.tgz#47982c5836bd758fd48494923c4a101ef6e93e3b"
   integrity sha1-R5gsWDa9dY/UhJSSPEoQHvbpPjs=
+
+jquery@^3.2.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
+  integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
 
 jquery@^3.3.1:
   version "3.3.1"
@@ -6252,6 +6264,13 @@ shallow-clone@^1.0.0:
     kind-of "^5.0.0"
     mixin-object "^2.0.1"
 
+shaven@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/shaven/-/shaven-0.8.1.tgz#0f42d4fb32c4048349ff9ee9c296f5effb2dcaaf"
+  integrity sha1-D0LU+zLEBINJ/57pwpb17/styq8=
+  dependencies:
+    escape-html "~1.0.1"
+
 shebang-command@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-1.2.0.tgz#44aac65b695b03398968c39f363fee5deafdf1ea"
@@ -7072,6 +7091,14 @@ vue-functional-data-merge@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/vue-functional-data-merge/-/vue-functional-data-merge-3.1.0.tgz#08a7797583b7f35680587f8a1d51d729aa1dc657"
   integrity sha512-leT4kdJVQyeZNY1kmnS1xiUlQ9z1B/kdBFCILIjYYQDqZgLqCLa0UhjSSeRX6c3mUe6U5qYeM8LrEqkHJ1B4LA==
+
+vue-holderjs@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/vue-holderjs/-/vue-holderjs-1.0.2.tgz#1556a15da78f751ab7c0e6acbbe24a672e44770e"
+  integrity sha512-C65JakbAMv6QsOhmYiHjt7qIjpPlbr37kYsgS1MtNMTgK06tJbGhB1bq6ESDr/2dyzYtWZGelX3QW/O69TX69Q==
+  dependencies:
+    holderjs "^2.9.4"
+    jquery "^3.2.1"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.3"

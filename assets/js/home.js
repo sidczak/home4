@@ -53,4 +53,8 @@ $(document).ready(function() {
 import svg4everybody from 'svg4everybody';
 svg4everybody();
 
+// import holderjs from 'holderjs';
+import VueHolder from 'vue-holderjs';
+Vue.use(VueHolder);
+
 import main from './main';
