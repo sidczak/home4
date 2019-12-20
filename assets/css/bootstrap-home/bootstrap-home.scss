@@ -14,3 +14,39 @@ $font-family-sans-serif: $font-roboto;
 // bootstrap/utilities/background
 @include bg-variant('.bg-bootstrap', #6f5499);
 @include bg-variant('.bg-vue', #42b983);
+
+.btn {
+    border-width: 2px;
+}
+.btn-orange {
+    @include button-variant(#ff681d, #ff681d);
+}
+.btn-outline-orange {
+    @include button-outline-variant(#ff681d);
+    background-color: rgba(#ff681d, 0.1);
+}
+.btn-outline-orange:not(:disabled):not(.disabled):active,
+.btn-outline-orange:hover {
+    background-color: rgba(#ff681d, 0.2);
+    color: #ff681d;
+}
+
+.btn-blue {
+    @include button-variant(#01a9e0, #01a9e0);
+}
+.btn-outline-blue {
+    @include button-outline-variant(#01a9e0);
+}
+.btn-mint {
+    @include button-variant(#0cbfb3, #0cbfb3);
+}
+.btn-outline-mint {
+    @include button-outline-variant(#0cbfb3);
+}
+.btn-green {
+    @include button-variant(#7aaf3f, #7aaf3f);
+}
+.btn-outline-green {
+    @include button-outline-variant(#7aaf3f);
+}
+
