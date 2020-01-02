@@ -24,6 +24,9 @@ $rem-fallback: true;
 @import "components/section";
 @import "components/footer";
 
+@import "components/start-welcome";
+@import "components/start-about";
+
 // Landing
 @import "landing/new-webinar-room/frame";
 @import "landing/new-webinar-room/scroll-indicators";

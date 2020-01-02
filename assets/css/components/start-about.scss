@@ -1,0 +1,26 @@
+.start-about-us {
+    &-position {
+        font-weight: 400;
+    }
+    &-social {
+        li:not(:last-child) {
+            margin-right: 1rem;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background-color: #9ca4af;
+            border-radius: 50px;
+            height: 30px;
+            width: 30px;
+            text-decoration: none;
+            transition: all 0.25s cubic-bezier(0.5, 0, 0.5, 1);
+            font-size: 14px;
+            &:hover {
+                background-color: #88929f;
+            }
+        }
+    }
+}
