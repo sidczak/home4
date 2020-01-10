@@ -4,7 +4,44 @@
 
 {% block body %}
 <section class="d-flex flex-shrink-0 section-py-80 section-min-h-100 section--image section--image-about-me section--parallax"></section>
-<section class="section-py-80">
+
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 d-flex align-items-center bg-light">
+                <div class="bg-lg-absolute-left bg-light"></div>
+                <div class="text-center w-100 py-5" style="position: relative;">
+                    <img src="{{ asset('images/profiles/3.jpg')|imagine_filter('squared_thumbnail_small') }}" class="shadow-lg rounded-circle mx-auto d-block img-fluid img-thumbnail mb-3">
+                    <h2>David Doe</h2>
+                    <h6 class="text-uppercase text-muted start-about-us-position">PROGRAMMER, WEBDESIGNER</h6>
+                </div>
+            </div>
+            <div class="col-lg-6 py-5">
+                <h3>Good people, big projects.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et posuere neque, in sodales nulla. In efficitur vehicula felis, a pharetra velit sagittis et. Morbi a iaculis quam, a feugiat leo.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 py-5">
+                <h3>Good people, big projects.</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et posuere neque, in sodales nulla. In efficitur vehicula felis, a pharetra velit sagittis et. Morbi a iaculis quam, a feugiat leo.</p>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center bg-dark">
+                <div class="bg-lg-absolute-right bg-dark"></div>
+                <div class="text-center w-100 py-5 text-white" style="position: relative;">
+                    <img src="{{ asset('images/profiles/2.jpg')|imagine_filter('squared_thumbnail_small') }}" class="shadow-lg rounded-circle mx-auto d-block img-fluid img-thumbnail mb-3">
+                    <h2>Jane Doe</h2>
+                    <h6 class="text-uppercase text-muted start-about-us-position">photographer, SEO SPECIALIST</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-py-80 bg-light">
  	<div class="container">
         <div class="row">
             <div class="col-md-12">

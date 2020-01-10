@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+{% block title %}Sitemap{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+
+<header class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-h-100 
+section--image section--image-start section--parallax section--gradient-basic">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 text-center text-white start-welcome-title">
+                <h4>{{ 'We are digital agency.'|trans }}</h4>
+                <h1>{{ 'We make digital products and services.'|trans }}</h1>
+            </div>
+            <div class="col-md-10">
+                <ul class="d-flex flex-row justify-content-center list-unstyled start-welcome-social">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="d-flex flex-shrink-0 align-items-center section-py-80 section-min-h-100 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h2><a href="{{ path('homepage') }}">Start</a></h2>
+                <h4>Header</h4>
+                <ul>
+                    <li>Header - parallax</li>
+                    <li>Header - carusel</li>
+                    <li>Header - skyetheme</li>
+                </ul>
+                <h4><a href="{{ path('examples_banner') }}">Banner</a></h4>
+                <ul>
+                    <li>Banner1</li>
+                    <li>Banner2</li>
+                </ul>
+                <h4><a href="{{ path('start_sitemap') }}">Sitemap</a></h4>
+            </div>
+            <div class="col-lg-4">
+                <h2><a href="{{ path('about_me') }}">About</a></h2>
+                <ul>
+                    <li><a href="{{ path('about_ania') }}">about 1</li>
+                    <li><a href="{{ path('about_szymon') }}">about 2</li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h2><a href="{{ path('examples_bootstrap') }}">Bootstrap</a></h2>
+                <ul>
+                    <li><a href="{{ path('examples_album') }}">Album <span class="badge badge-pill badge-success">Vue</span></a></li>
+                    <li><a href="{{ path('examples_pricing') }}">Pricing <span class="badge badge-pill badge-warning">Html</span></a></li>
+                </ul>
+                <ul>
+                    <li><a href="{{ path('examples_resize') }}">Resize <span class="badge badge-pill badge-success">Vue</span></a></li>
+                    <li><a href="{{ path('examples_scroll') }}">Scroll <span class="badge badge-pill badge-success">Vue</span></a></li>
+                </ul>
+                <ul class="list-unstyled">
+                    <li>Layout - Grid System</li>
+                    <li>Content - Typography</li>
+                    <li>Content - Code</li>
+                    <li>Content - Lists</li>
+                    <li>Content - Fonts</li>
+                    <li>Content - Icons</li>
+                    <li>Components - Modal</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>Landing</h2>
+                <ul>
+                    <li><a href="{{ path('landing_homepage') }}">Homepage <span class="badge badge-pill badge-success">Vue</span></a></li>
+                    <li><a href="{{ path('webinar_flywheel') }}">Webinar flywheel <span class="badge badge-pill badge-success">Vue</span></a></li>
+                    <li><a href="{{ path('new_webinar_room') }}">New webinar room <span class="badge badge-pill badge-warning">Html</span></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h2>Tutorial</h2>
+                <ul class="list-unstyled">
+                    <li>Blog</li>
+                    <li>Shop</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

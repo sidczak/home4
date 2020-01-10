@@ -30,3 +30,24 @@ $rem-fallback: true;
 // Landing
 @import "landing/new-webinar-room/frame";
 @import "landing/new-webinar-room/scroll-indicators";
+
+.bg-lg-absolute {
+    &-left,
+    &-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 200%;
+        @media (max-width: 991px) {
+            left: -100%;
+            right: -100%;
+            width: auto;
+        }
+    }
+    &-left {
+        left: -200%;
+    }
+    &-right {
+        right: -200%;    
+    }
+}

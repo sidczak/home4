@@ -15,9 +15,11 @@
       <li class="nav-item {{ app.request.get('_route') ==  'homepage' ? 'active' }}">
         <a class="nav-link" href="{{ path('homepage') }}">Start <span class="sr-only">(current)</span></a>
       </li>
+      {#
       <li class="nav-item {{ app.request.get('_route') ==  'examples_banner' ? 'active' }}">
         <a class="nav-link" href="{{ path('examples_banner') }}">Banner</a>
       </li>
+      #}
       <li class="nav-item {{ app.request.get('_route') ==  'about_me' ? 'active' }}">
         <a class="nav-link" href="{{ path('about_me') }}">About Me</a>
       </li>
@@ -26,6 +28,7 @@
         <a class="nav-link" href="{{ path('vuetify_start_index') }}">Vuetify</a>
       </li>
       #}
+      {#
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle
           {{ app.request.get('_route') in ['landing_homepage', 'webinar_flywheel'] ? 'active' }}" href="#" id="navbarDropdownLanding" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -38,6 +41,8 @@
           <a class="dropdown-item" href="{{ path('new_webinar_room') }}">New webinar room</a>
         </div>
       </li>
+      #}
+      {#
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle
           {{ app.request.get('_route') in ['examples_bootstrap', 'examples_album'] ? 'active' }}" href="#" id="navbarDropdownBootstrap" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,14 +59,22 @@
           <a class="dropdown-item" href="{{ path('examples_scroll') }}">Scroll <span class="badge badge-pill badge-success">Vue</span></a>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <ul class="navbar-nav my-lg-0">
+      #}
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Contact</a>
       </li>
+      {#
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+      #}
+    </ul>
+    <ul class="navbar-nav my-lg-0">
+      {#
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Contact</a>
+      </li>
+      #}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="xnavbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang {{ app.request.locale|upper }}</a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="xnavbarDropdownMenuLink">

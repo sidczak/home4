@@ -22,4 +22,12 @@ class StartController extends AbstractController
     {
         return $this->render('start/banner.html.twig');
     }
+
+    /**
+     * @Route("/sitemap", name="start_sitemap")
+     */
+    public function sitemap()
+    {
+        return $this->render('start/sitemap.html.twig');
+    }
 }
