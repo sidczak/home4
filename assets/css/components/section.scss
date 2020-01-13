@@ -59,11 +59,32 @@
                 }
             }
         }
+        // &-about-me {
+        //     background-image: url("../../images/welcome/brain2.jpg");
+        //     filter: blur(3px);
+        //     &::before {            
+        //         background-color: #252521;
+        //         opacity: .55;
+        //     }
+        // }
         &-about-me {
-            background-image: url("../../images/welcome/about-me.jpg");
-            &::before {
+            background-image: none;
+            &::before {            
+                background-image: url("../../images/welcome/brain2.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                filter: blur(3px);
+            }
+            &::after {
+                content: '';
                 background-color: #000;
-                opacity: .75;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                opacity: .6;
             }
         }
     }
