@@ -87,6 +87,31 @@
                 opacity: .6;
             }
         }
+        &-contact {
+            &-top {
+                background-color: #3E69C3;
+                background-image: url("../../../images/welcome/codepen.svg");
+                background-position: center center;
+                background-size: 500px;  
+                animation: scrollBackground 10s linear infinite;
+            }
+            &-bottom {
+                background-color: #31CC70;
+                overflow: hidden;
+                &::before {
+                    content: '';
+                    background-image: url("../../../images/welcome/codepen.svg");
+                    background-position: center center;
+                    background-size: 500px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 400%;
+                    animation: scrollElement 10s linear infinite;
+                }
+            }
+        }
     }
     &--parallax {
         background-attachment: fixed;
@@ -104,5 +129,21 @@
                 opacity: .75;
             }
         }
+    }
+}
+@keyframes scrollBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 -320px;
+    }
+}
+@keyframes scrollElement {
+    0% {
+        transform: translate3d(0,0,0);
+    }
+    100% {
+        transform: translate3d(0,-320px,0);
     }
 }

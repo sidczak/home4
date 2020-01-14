@@ -14,7 +14,8 @@
   "build/fonts/fa-solid-900.eot": "/build/fonts/fa-solid-900.7fb1cdd9.eot",
   "build/fonts/fa-solid-900.woff": "/build/fonts/fa-solid-900.93f28454.woff",
   "build/fonts/fa-solid-900.woff2": "/build/fonts/fa-solid-900.f6121be5.woff2",
-  "build/images/brain.jpg": "/build/images/brain.aa160bd0.jpg",
+  "build/images/brain2.jpg": "/build/images/brain2.17b7caa0.jpg",
+  "build/images/codepen.svg": "/build/images/codepen.becacfe6.svg",
   "build/images/fa-brands-400.svg": "/build/images/fa-brands-400.d7229311.svg",
   "build/images/fa-regular-400.svg": "/build/images/fa-regular-400.d2e53334.svg",
   "build/images/fa-solid-900.svg": "/build/images/fa-solid-900.7a5de9b0.svg",
@@ -32,6 +33,5 @@
   "build/images/start-austronaut.jpg": "/build/images/start-austronaut.58946fde.jpg",
   "build/images/start-blog.jpg": "/build/images/start-blog.a30f2306.jpg",
   "build/images/start-space.jpg": "/build/images/start-space.c70b0131.jpg",
-  "build/images/start.jpg": "/build/images/start.91f966b5.jpg",
-  "build/images/brain2.jpg": "/build/images/brain2.17b7caa0.jpg"
+  "build/images/start.jpg": "/build/images/start.91f966b5.jpg"
 }
