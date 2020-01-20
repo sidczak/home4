@@ -3,6 +3,13 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 
+// import holderjs from 'holderjs';
+import VueHolder from 'vue-holderjs'
+Vue.use(VueHolder)
+
+import VueTypedJs from 'vue-typed-js'
+Vue.use(VueTypedJs)
+
 // import Vuetify from 'vuetify'
 // Vue.use(Vuetify)
 // Vue.use(Vuetify, {
@@ -52,9 +59,5 @@ $(document).ready(function() {
 
 import svg4everybody from 'svg4everybody';
 svg4everybody();
-
-// import holderjs from 'holderjs';
-import VueHolder from 'vue-holderjs';
-Vue.use(VueHolder);
 
 import main from './main';
