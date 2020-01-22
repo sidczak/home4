@@ -27,6 +27,7 @@ import '../css/home.scss';
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import EduCounter from './components/EduCounter.vue';
+import HomeAboutMe from './components/home/about/AboutMe.vue';
 import WebinarFlywheel from './cm-components/landing/webinar-flywheel/WebinarFlywheel.vue';
 import Homepage from './cm-components/landing/homepage/Homepage.vue';
 import Album from './bs-components/examples/album/Album.vue';
@@ -43,6 +44,7 @@ Vue.use(vueCustomElement);
 
 Vue.customElement('example-component', ExampleComponent);
 Vue.customElement('edu-counter', EduCounter);
+Vue.customElement('home-about-me', HomeAboutMe);
 Vue.customElement('cm-webinar-flywheel', WebinarFlywheel);
 Vue.customElement('cm-homepage', Homepage);
 Vue.customElement('bs-album', Album);
