@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top flex-wrap 
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top flex-wrap px-sm-4 
 {{ app.request.get('_project') in  ['bootstrap'] ? 'bg-' ~ app.request.get('_project') : 'bg-dark' }}
 {{ app.request.get('_route') in  ['homepage', 'examples_banner', 'new_webinar_room', 'about_me', 'about_ania'] ? 'navbar-transparent' }} 
 {{ app.request.get('_route') in  ['examples_banner'] ? 'navbar-banner-show' }}">

@@ -1,8 +1,12 @@
 .navbar-banner {
     flex: 1;
     min-width: 100%;
-    margin: 0 -1rem 8px;
+    margin: 0 -1.5rem 8px;
     transition: margin-bottom .5s ease-in-out;
+    @include media-breakpoint-down(xs) {
+        margin-left: -1rem;
+        margin-right: -1rem;
+    }
     &-show {
         padding-top: 0;
         transition: top .6s ease-in-out;
