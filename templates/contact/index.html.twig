@@ -73,6 +73,22 @@
                             <button type="button" class="btn btn-pill btn-outline-blue btn-sm">Button</button>
                         </div>
                         <div class="col-12">
+                            {% for val in [50, 100, 200, 300, 400, 500, 600, 700, 800, 900] %}
+                                <button type="button" class="btn btn-pill btn-midnight-blue-{{val}} btn-lg">Button {{val}}</button><br/>
+                                <!-- <button type="button" class="btn btn-pill btn-midnight-blue-{{val}} btn-sm">Button {{val}}</button> -->
+                            {% endfor %}
+                            <hr/>
+
+
+
+
+                            <button type="button" class="btn btn-pill btn-midnight-blue">Button</button>
+                            <button type="button" class="btn btn-pill btn-midnight-blue btn-sm">Button</button>
+                            <button type="button" class="btn btn-pill btn-outline-midnight-blue btn-lg btn-bw-1 btn-px-2">Button</button>
+                            <button type="button" class="btn btn-pill btn-outline-midnight-blue">Button</button>
+                            <button type="button" class="btn btn-pill btn-outline-midnight-blue btn-sm">Button</button>
+                        </div>
+                        <div class="col-12">
                             <button type="button" class="btn btn-mint btn-lg">Button</button>
                             <button type="button" class="btn btn-mint">Button</button>
                             <button type="button" class="btn btn-outline-mint btn-sm">Button</button>
