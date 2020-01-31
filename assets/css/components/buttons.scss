@@ -1,0 +1,199 @@
+.btn {
+    border-width: 2px;
+    &-pill {
+        border-radius: 50rem;
+    }
+    &-px-1 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    &-px-2 {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    &-bw-1 {
+        border-width: 1px;
+    }
+    &-bw-2 {
+        border-width: 2px;
+    }
+}
+
+@mixin button-shades-variant($shades) {
+    @each $name, $val in $shades {
+        .btn-#{$name} {
+            @include button-variant($val, $val);
+            // background-color: $val;
+            // border-color: $val;
+            // color: #fff;
+            // &:hover {
+            //     background-color: darken($val, 5%);
+            //     border-color: darken($val, 5%);
+            //     color: #fff;
+            // }
+        }
+        .btn-#{$name}:focus,
+        .btn-#{$name}.focus {
+            box-shadow: none;
+        }
+        .btn-#{$name}:not(:disabled):not(.disabled):active:focus,
+        .btn-#{$name}:not(:disabled):not(.disabled).active:focus {
+            box-shadow: inset 0 3px 5px 0 rgba(darken($val, 20%), 0.5);
+        }
+        .btn-outline-#{$name} {
+            @include button-outline-variant($val);
+        }
+        .btn-outline-#{$name}:focus, 
+        .btn-outline-#{$name}.focus {
+            box-shadow: none;
+        }
+        .btn-outline-#{$name}:not(:disabled):not(.disabled):active:focus,
+        .btn-outline-#{$name}:not(:disabled):not(.disabled).active:focus {
+            box-shadow: inset 0 3px 5px 0 rgba($val, 0.5);
+        }
+        .btn-outline-#{$name}:not(:disabled):not(.disabled):active,
+        .btn-outline-#{$name}:hover {
+            background-color: rgba($val, 0.1);
+            color: $val;
+        }
+    }
+}
+
+$alizarin-shades:
+    "alizarin" $alizarin,
+    "alizarin-50" $alizarin-50,
+    "alizarin-100" $alizarin-100,
+    "alizarin-200" $alizarin-200,
+    "alizarin-300" $alizarin-300,
+    "alizarin-400" $alizarin-400,
+    "alizarin-500" $alizarin-500,
+    "alizarin-600" $alizarin-600,
+    "alizarin-700" $alizarin-700,
+    "alizarin-800" $alizarin-800,
+    "alizarin-900" $alizarin-900;
+
+@include button-shades-variant($alizarin-shades);
+
+$peter-river-shades:
+    "peter-river" $peter-river,
+    "peter-river-50" $peter-river-50,
+    "peter-river-100" $peter-river-100,
+    "peter-river-200" $peter-river-200,
+    "peter-river-300" $peter-river-300,
+    "peter-river-400" $peter-river-400,
+    "peter-river-500" $peter-river-500,
+    "peter-river-600" $peter-river-600,
+    "peter-river-700" $peter-river-700,
+    "peter-river-800" $peter-river-800,
+    "peter-river-900" $peter-river-900;
+
+@include button-shades-variant($peter-river-shades);
+
+$emerald-shades:
+    "emerald" $emerald,
+    "emerald-50" $emerald-50,
+    "emerald-100" $emerald-100,
+    "emerald-200" $emerald-200,
+    "emerald-300" $emerald-300,
+    "emerald-400" $emerald-400,
+    "emerald-500" $emerald-500,
+    "emerald-600" $emerald-600,
+    "emerald-700" $emerald-700,
+    "emerald-800" $emerald-800,
+    "emerald-900" $emerald-900;
+
+@include button-shades-variant($emerald-shades);
+
+$orange-shades:
+    "orange" $orange,
+    "orange-50" $orange-50,
+    "orange-100" $orange-100,
+    "orange-200" $orange-200,
+    "orange-300" $orange-300,
+    "orange-400" $orange-400,
+    "orange-500" $orange-500,
+    "orange-600" $orange-600,
+    "orange-700" $orange-700,
+    "orange-800" $orange-800,
+    "orange-900" $orange-900;
+
+@include button-shades-variant($orange-shades);
+
+$wet-asphalt-shades:
+    "wet-asphalt" $wet-asphalt,
+    "wet-asphalt-50" $wet-asphalt-50,
+    "wet-asphalt-100" $wet-asphalt-100,
+    "wet-asphalt-200" $wet-asphalt-200,
+    "wet-asphalt-300" $wet-asphalt-300,
+    "wet-asphalt-400" $wet-asphalt-400,
+    "wet-asphalt-500" $wet-asphalt-500,
+    "wet-asphalt-600" $wet-asphalt-600,
+    "wet-asphalt-700" $wet-asphalt-700,
+    "wet-asphalt-800" $wet-asphalt-800,
+    "wet-asphalt-900" $wet-asphalt-900;
+
+@include button-shades-variant($wet-asphalt-shades);
+
+$midnight-blue-shades: 
+    "midnight-blue" $midnight-blue,
+    "midnight-blue-50" $midnight-blue-50, 
+    "midnight-blue-100" $midnight-blue-100,
+    "midnight-blue-200" $midnight-blue-200,
+    "midnight-blue-300" $midnight-blue-300,
+    "midnight-blue-400" $midnight-blue-400,
+    "midnight-blue-500" $midnight-blue-500,
+    "midnight-blue-600" $midnight-blue-600, 
+    "midnight-blue-700" $midnight-blue-700,
+    "midnight-blue-800" $midnight-blue-800, 
+    "midnight-blue-900" $midnight-blue-900;
+
+@include button-shades-variant($midnight-blue-shades);
+
+.btn-mint {
+    @include button-variant(#0cbfb3, #0cbfb3);
+}
+.btn-outline-mint {
+    @include button-outline-variant(#0cbfb3);
+}
+.btn-green {
+    @include button-variant(#7aaf3f, #7aaf3f);
+}
+.btn-outline-green {
+    @include button-outline-variant(#7aaf3f);
+}
+
+// .btn-blue {
+//     @include button-variant($peter-river, $peter-river);
+//     // background-color: $peter-river;
+//     // border-color: $peter-river;
+//     // color: #fff;
+//     // &:hover {
+//     //     background-color: darken($peter-river, 5%);
+//     //     border-color: darken($peter-river, 5%);
+//     //     color: #fff;
+//     // }
+// }
+// .btn-blue:focus,
+// .btn-blue.focus {
+//     box-shadow: none;
+// }
+// .btn-blue:not(:disabled):not(.disabled):active:focus,
+// .btn-blue:not(:disabled):not(.disabled).active:focus {
+//     box-shadow: inset 0 3px 5px 0 rgba(darken($peter-river, 20%), 0.5);
+// }
+// .btn-outline-blue {
+//     @include button-outline-variant($peter-river);
+// }
+// .btn-outline-blue:focus, 
+// .btn-outline-blue.focus {
+//     box-shadow: none;
+// }
+// .btn-outline-blue:not(:disabled):not(.disabled):active:focus,
+// .btn-outline-blue:not(:disabled):not(.disabled).active:focus {
+//     box-shadow: inset 0 3px 5px 0 rgba($peter-river, 0.5);
+// }
+// .btn-outline-blue:not(:disabled):not(.disabled):active,
+// .btn-outline-blue:hover {
+//     background-color: rgba($peter-river, 0.1);
+//     color: $peter-river;
+// }

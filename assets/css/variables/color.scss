@@ -21,7 +21,7 @@
  *  @import "flat_colors_full";
  *  
  *  and use the color variables in your stylesheets:
- *	
+ *  
  *  .class {
  *    color: $turquoise-500;
  *  }
@@ -98,18 +98,7 @@ $peter-river-700: #2874a6;
 $peter-river-800: #21618c;
 $peter-river-900: #1b4f72;
 
-/* Belize Hole */
-$belize-hole: #2980b9;
-$belize-hole-50: #eaf2f8;
-$belize-hole-100: #d4e6f1;
-$belize-hole-200: #a9cce3;
-$belize-hole-300: #7fb3d5;
-$belize-hole-400: #5499c7;
-$belize-hole-500: #2980b9;
-$belize-hole-600: #2471a3;
-$belize-hole-700: #1f618d;
-$belize-hole-800: #1a5276;
-$belize-hole-900: #154360;
+
 
 /* Amethyst */
 $amethyst: #9b59b6;
@@ -296,3 +285,57 @@ $asbestos-900: #424949;
 /*  Want more? Check our our other color palettes at
  *  http://htmlcolorcodes.com/color-charts/
  */
+
+$colorPalette: (
+    "red": #f44336,
+    "pink": #e91e63
+);
+$color-variants: (
+    100: 32%,
+    200: 24%,
+    300: 16%,
+    400: 8%,
+    500: 0%,
+    600: 9%,
+    700: 16%,
+    800: 24%,
+    900: 32%
+);
+
+@each $color-name, $color in $colorPalette {
+    @each $variant-name, $percent in $color-variants {
+        .x-#{$color-name+'-'+$variant-name} {
+            background-color: lighten($color, $percent);
+        }
+        $xxx: lighten($color, $percent);
+        // $($color-name+'-'+$variant-name): lighten($color, $percent);
+    }
+}
+// .xxx{
+//     background: $xxx;
+// }
+.x-red-500{}
+
+// $emerald: #3498db;
+// $emerald-50:  mix($emerald, white, abs(-25%));
+// $emerald-100: mix($emerald, white, abs(-40%));
+// $emerald-200: mix($emerald, white, abs(-55%));
+// $emerald-300: mix($emerald, white, abs(-70%));
+// $emerald-400: mix($emerald, white, abs(-85%));
+// $emerald-500: mix($emerald, black, abs(100%));
+// $emerald-600: mix($emerald, black, abs(85%));
+// $emerald-700: mix($emerald, black, abs(70%));
+// $emerald-800: mix($emerald, black, abs(55%));
+// $emerald-900: mix($emerald, black, abs(40%));
+
+// $alizarin: #3498db;
+// $alizarin-50: lighten($alizarin, 40%);
+// $alizarin-100: lighten($alizarin, 32%);
+// $alizarin-200: lighten($alizarin, 24%);
+// $alizarin-300: lighten($alizarin, 16%);
+// $alizarin-400: lighten($alizarin, 8%);
+// $alizarin-500: $alizarin;
+// $alizarin-600: darken($alizarin, 8%);
+// $alizarin-700: darken($alizarin, 16%);
+// $alizarin-800: darken($alizarin, 24%);
+// $alizarin-900: darken($alizarin, 32%);
