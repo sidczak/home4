@@ -59,6 +59,20 @@
     }
 }
 
+$turquoise-shades:
+    "turquoise" $turquoise,
+    "turquoise-50" $turquoise-50,
+    "turquoise-100" $turquoise-100,
+    "turquoise-200" $turquoise-200,
+    "turquoise-300" $turquoise-300,
+    "turquoise-400" $turquoise-400,
+    "turquoise-500" $turquoise-500,
+    "turquoise-600" $turquoise-600,
+    "turquoise-700" $turquoise-700,
+    "turquoise-800" $turquoise-800,
+    "turquoise-900" $turquoise-900;
+@include button-shades-variant($turquoise-shades);
+
 $alizarin-shades:
     "alizarin" $alizarin,
     "alizarin-50" $alizarin-50,
@@ -71,7 +85,6 @@ $alizarin-shades:
     "alizarin-700" $alizarin-700,
     "alizarin-800" $alizarin-800,
     "alizarin-900" $alizarin-900;
-
 @include button-shades-variant($alizarin-shades);
 
 $peter-river-shades:
@@ -86,7 +99,6 @@ $peter-river-shades:
     "peter-river-700" $peter-river-700,
     "peter-river-800" $peter-river-800,
     "peter-river-900" $peter-river-900;
-
 @include button-shades-variant($peter-river-shades);
 
 $emerald-shades:
@@ -101,23 +113,7 @@ $emerald-shades:
     "emerald-700" $emerald-700,
     "emerald-800" $emerald-800,
     "emerald-900" $emerald-900;
-
 @include button-shades-variant($emerald-shades);
-
-$orange-shades:
-    "orange" $orange,
-    "orange-50" $orange-50,
-    "orange-100" $orange-100,
-    "orange-200" $orange-200,
-    "orange-300" $orange-300,
-    "orange-400" $orange-400,
-    "orange-500" $orange-500,
-    "orange-600" $orange-600,
-    "orange-700" $orange-700,
-    "orange-800" $orange-800,
-    "orange-900" $orange-900;
-
-@include button-shades-variant($orange-shades);
 
 $wet-asphalt-shades:
     "wet-asphalt" $wet-asphalt,
@@ -131,7 +127,6 @@ $wet-asphalt-shades:
     "wet-asphalt-700" $wet-asphalt-700,
     "wet-asphalt-800" $wet-asphalt-800,
     "wet-asphalt-900" $wet-asphalt-900;
-
 @include button-shades-variant($wet-asphalt-shades);
 
 $midnight-blue-shades: 
@@ -146,21 +141,35 @@ $midnight-blue-shades:
     "midnight-blue-700" $midnight-blue-700,
     "midnight-blue-800" $midnight-blue-800, 
     "midnight-blue-900" $midnight-blue-900;
-
 @include button-shades-variant($midnight-blue-shades);
 
-.btn-mint {
-    @include button-variant(#0cbfb3, #0cbfb3);
-}
-.btn-outline-mint {
-    @include button-outline-variant(#0cbfb3);
-}
-.btn-green {
-    @include button-variant(#7aaf3f, #7aaf3f);
-}
-.btn-outline-green {
-    @include button-outline-variant(#7aaf3f);
-}
+$red-shades: 
+    "red" $red,
+    "red-50" $red-50, 
+    "red-100" $red-100,
+    "red-200" $red-200,
+    "red-300" $red-300,
+    "red-400" $red-400,
+    "red-500" $red-500,
+    "red-600" $red-600, 
+    "red-700" $red-700,
+    "red-800" $red-800, 
+    "red-900" $red-900;
+@include button-shades-variant($red-shades);
+
+$pink-shades: 
+    "pink" $pink,
+    "pink-50" $pink-50, 
+    "pink-100" $pink-100,
+    "pink-200" $pink-200,
+    "pink-300" $pink-300,
+    "pink-400" $pink-400,
+    "pink-500" $pink-500,
+    "pink-600" $pink-600, 
+    "pink-700" $pink-700,
+    "pink-800" $pink-800, 
+    "pink-900" $pink-900;
+@include button-shades-variant($pink-shades);
 
 // .btn-blue {
 //     @include button-variant($peter-river, $peter-river);

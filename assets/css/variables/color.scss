@@ -98,8 +98,6 @@ $peter-river-700: #2874a6;
 $peter-river-800: #21618c;
 $peter-river-900: #1b4f72;
 
-
-
 /* Amethyst */
 $amethyst: #9b59b6;
 $amethyst-50: #f5eef8;
@@ -286,56 +284,82 @@ $asbestos-900: #424949;
  *  http://htmlcolorcodes.com/color-charts/
  */
 
-$colorPalette: (
-    "red": #f44336,
-    "pink": #e91e63
-);
-$color-variants: (
-    100: 32%,
-    200: 24%,
-    300: 16%,
-    400: 8%,
-    500: 0%,
-    600: 9%,
-    700: 16%,
-    800: 24%,
-    900: 32%
-);
+$red: #f44336;
+$pink: #e91e63;
+// $purple: #9c27b0;
+// $purpleDeep: #673ab7;
+// $indigo: #3f51b5;
+// $blue: #2196f3;
+// $blueLight: #03a9f4;
+// $cyan: #00bcd4;
+// $teal: #009688;
+// $green: #4caf50;
+// $greenLight: #4caf50;
+// $lime: #cddc39;
+// $yellow: #ffeb3b;
+// $amber: #ffc107;
+// $orange: #ff9800;
+// $orangeDeep: #ff5722;
+// $brown: #795548;
+// $gray: #9e9e9e;
+// $grayBlue: #607d8b;
 
-@each $color-name, $color in $colorPalette {
-    @each $variant-name, $percent in $color-variants {
-        .x-#{$color-name+'-'+$variant-name} {
-            background-color: lighten($color, $percent);
-        }
-        $xxx: lighten($color, $percent);
-        // $($color-name+'-'+$variant-name): lighten($color, $percent);
-    }
-}
-// .xxx{
-//     background: $xxx;
+$red-50:  mix($red, white, abs(-25%));
+$red-100: mix($red, white, abs(-40%));
+$red-200: mix($red, white, abs(-55%));
+$red-300: mix($red, white, abs(-70%));
+$red-400: mix($red, white, abs(-85%));
+$red-500: mix($red, black, abs(100%));
+$red-600: mix($red, black, abs(85%));
+$red-700: mix($red, black, abs(70%));
+$red-800: mix($red, black, abs(55%));
+$red-900: mix($red, black, abs(40%));
+
+// $red: #f44336;
+// $red-50: lighten($red, 40%);
+// $red-100: lighten($red, 32%);
+// $red-200: lighten($red, 24%);
+// $red-300: lighten($red, 16%);
+// $red-400: lighten($red, 8%);
+// $red-500: $red;
+// $red-600: darken($red, 8%);
+// $red-700: darken($red, 16%);
+// $red-800: darken($red, 24%);
+// $red-900: darken($red, 32%);
+
+$pink-50:  mix($pink, white, abs(-25%));
+$pink-100: mix($pink, white, abs(-40%));
+$pink-200: mix($pink, white, abs(-55%));
+$pink-300: mix($pink, white, abs(-70%));
+$pink-400: mix($pink, white, abs(-85%));
+$pink-500: mix($pink, black, abs(100%));
+$pink-600: mix($pink, black, abs(85%));
+$pink-700: mix($pink, black, abs(70%));
+$pink-800: mix($pink, black, abs(55%));
+$pink-900: mix($pink, black, abs(40%));
+
+// $colorPalette: (
+//     "red": #f44336,
+//     "pink": #e91e63
+// );
+// $color-variants: (
+//     100: 32%,
+//     200: 24%,
+//     300: 16%,
+//     400: 8%,
+//     500: 0%,
+//     600: 9%,
+//     700: 16%,
+//     800: 24%,
+//     900: 32%
+// );
+
+// @each $color-name, $color in $colorPalette {
+//     @each $variant-name, $percent in $color-variants {
+//         .x-#{$color-name+'-'+$variant-name} {
+//             background-color: lighten($color, $percent);
+//         }
+//         //$color-name+'-'+$variant-name: lighten($color, $percent);
+//     }
 // }
-.x-red-500{}
-
-// $emerald: #3498db;
-// $emerald-50:  mix($emerald, white, abs(-25%));
-// $emerald-100: mix($emerald, white, abs(-40%));
-// $emerald-200: mix($emerald, white, abs(-55%));
-// $emerald-300: mix($emerald, white, abs(-70%));
-// $emerald-400: mix($emerald, white, abs(-85%));
-// $emerald-500: mix($emerald, black, abs(100%));
-// $emerald-600: mix($emerald, black, abs(85%));
-// $emerald-700: mix($emerald, black, abs(70%));
-// $emerald-800: mix($emerald, black, abs(55%));
-// $emerald-900: mix($emerald, black, abs(40%));
-
-// $alizarin: #3498db;
-// $alizarin-50: lighten($alizarin, 40%);
-// $alizarin-100: lighten($alizarin, 32%);
-// $alizarin-200: lighten($alizarin, 24%);
-// $alizarin-300: lighten($alizarin, 16%);
-// $alizarin-400: lighten($alizarin, 8%);
-// $alizarin-500: $alizarin;
-// $alizarin-600: darken($alizarin, 8%);
-// $alizarin-700: darken($alizarin, 16%);
-// $alizarin-800: darken($alizarin, 24%);
-// $alizarin-900: darken($alizarin, 32%);
+// .x-red-500{}
