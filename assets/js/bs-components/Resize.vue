@@ -5,6 +5,7 @@
                 b-row.text-center(v-for="n in 1" :key="n.id")
                     b-col
                         h1.mb-0 Your Window:<br/> Width: {{ window.width }}, Height: {{ window.height }}
+                        h1 {{ osName }} {{ browserName }}
                         .box.text-center
                             | boxOffset: {{ boxOffset.width }} x {{ boxOffset.height }}
                             br
@@ -57,17 +58,55 @@
                     height: 0,
                     top: 0,
                     left: 0
+                },
+                osName: {
+                    type: String,
+                    default: null
+                },
+                browserName: {
+                    type: String,
+                    default: null
                 }
             }
         },
         mounted() {
             window.addEventListener('resize', this.handleResize)
             this.handleResize();
+            this.operatingSystemName();
+            this.browserSystemName();
         },
         destroyed() {
             window.removeEventListener('resize', this.handleResize)
         },
         methods: {
+            browserSystemName() {
+                var ua = navigator.userAgent.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
+                var browser;
+                if (navigator.userAgent.match(/Edge/i) || navigator.userAgent.match(/Trident.*rv[ :]*11\./i)) {
+                    browser = "msie"
+                } else {
+                    browser = ua[1].toLowerCase();
+                }
+                // $('div.icon.' + browser).addClass("active");
+                this.browserName = browser
+            },
+            operatingSystemName() {
+                // if (navigator.appVersion.indexOf("Win")!=-1) this.osName="Windows";
+                // if (navigator.appVersion.indexOf("Mac")!=-1) this.osName="MacOS";
+                // if (navigator.appVersion.indexOf("X11")!=-1) this.osName="UNIX";
+                // if (navigator.appVersion.indexOf("Linux")!=-1) this.osName="Linux";
+                if (navigator.appVersion.indexOf("Win")!=-1) {
+                    this.osName="Windows"
+                } else if (navigator.appVersion.indexOf("Mac")!=-1) {
+                    this.osName="MacOS"
+                } else if (navigator.appVersion.indexOf("X11")!=-1) {
+                    this.osName="UNIX"
+                } else if (navigator.appVersion.indexOf("Linux")!=-1) {
+                    this.osName="Linux"
+                } else {
+                    this.osName="Unknown OS"
+                }
+            },
             handleResize() {
                 this.window.width = window.innerWidth;
                 this.window.height = window.innerHeight;

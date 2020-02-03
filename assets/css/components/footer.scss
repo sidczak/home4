@@ -1,9 +1,9 @@
 .footer {
     &__main {
-        background-color: $midnight-blue-800;
+        background-color: $midnight-blue-500;
     }
     &__copyright {
-        background-color: $midnight-blue-900;
+        background-color: darken($midnight-blue-500, 1%);
     }
     .fas {
         color: #8dc153;

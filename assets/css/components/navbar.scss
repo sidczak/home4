@@ -21,6 +21,10 @@ $navLinkHover: #08c;
                 background-color: transparent !important;
                 background-color: rgba(52, 58, 64, 0.5) !important;
             }
+            &.bg-midnight-blue {
+                background-color: transparent !important;
+                background-color: rgba($midnight-blue, 0.5) !important;
+            }
             .navbar-brand {
                 font-size: 2rem;
             }
