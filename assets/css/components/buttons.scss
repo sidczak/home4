@@ -143,6 +143,20 @@ $midnight-blue-shades:
     "midnight-blue-900" $midnight-blue-900;
 @include button-shades-variant($midnight-blue-shades);
 
+$silver-shades:
+    "silver" $silver,
+    "silver-50" $silver-50,
+    "silver-100" $silver-100,
+    "silver-200" $silver-200,
+    "silver-300" $silver-300,
+    "silver-400" $silver-400,
+    "silver-500" $silver-500,
+    "silver-600" $silver-600,
+    "silver-700" $silver-700,
+    "silver-800" $silver-800,
+    "silver-900" $silver-900;
+@include button-shades-variant($silver-shades);
+
 $red-shades: 
     "red" $red,
     "red-50" $red-50, 

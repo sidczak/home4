@@ -34,6 +34,7 @@ import Album from './bs-components/examples/album/Album.vue';
 import Resize from './bs-components/Resize.vue';
 import Scroll from './bs-components/Scroll.vue';
 import ScrollProgress from './bs-components/ScrollProgress.vue';
+import ConnectionTester from './bs-components/ConnectionTester.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -51,6 +52,7 @@ Vue.customElement('bs-album', Album);
 Vue.customElement('bs-resize', Resize);
 Vue.customElement('bs-scroll', Scroll);
 Vue.customElement('bs-scroll-progress', ScrollProgress);
+Vue.customElement('bs-connection-tester', ConnectionTester);
 
 const $ = require('jquery');
 require('bootstrap');
