@@ -1,6 +1,6 @@
 <template lang="pug">
     .resize.section-min-vh-100.flex-shrink-0
-        section.d-flex.align-items-center.section-py-80.section-min-vh-100
+        section.d-flex.align-items-center.section-py-80.section-min-vh-100.your-window
             b-container
                 b-row.text-center(v-for="n in 1" :key="n.id")
                     b-col
@@ -23,6 +23,12 @@
                             | boxScrollTop: {{ boxScroll.top }}
                             br
                             | boxScrollLeft: {{ boxScroll.left }}
+        section.d-flex.align-items-center.section-py-80.section-min-vh-100.player
+            b-container
+                b-row.text-center(v-for="n in 1" :key="n.id")
+                    b-col
+                        .box.text-center
+                            h1.mb-0 Play Sound
         section.d-flex.align-items-center.section-py-80.section-min-vh-100
             b-container
                 b-row.text-center(v-for="n in 1" :key="n.id")
@@ -94,11 +100,26 @@
     };
 </script>
 <style lang="scss" scoped>
-.resize {}
-.box {
-    background: red;
-    border: 10px solid blue;
-    margin: 20px;
-    padding: 30px;
+@import '../../css/variables/color.scss';
+.your-window {
+    background-color: $wet-asphalt-100;
+    .box {
+        background-color: $wet-asphalt-50;
+        margin: 20px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 15px 35px -5px rgba($wet-asphalt-500, 0.3);
+    }
+}
+
+.player {
+    background-color: $silver-100;
+    .box {
+        background-color: $silver-50;
+        margin: 20px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 15px 35px -5px rgba($silver-500, 0.3);
+    }
 }
 </style>
