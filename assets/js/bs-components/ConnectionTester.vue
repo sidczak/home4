@@ -1,10 +1,11 @@
 <template lang="pug">
-    .resize.section-min-vh-100.flex-shrink-0
+    .section-min-vh-100.flex-shrink-0.bg-light
         section.d-flex.align-items-center.section-py-80.section-min-vh-100
             b-container
                 b-row.text-center(v-for="n in 1" :key="n.id")
                     b-col
-                        h1(:class="browserName") {{ osName }} {{ browserName }}: 
+                        h3 {{ osName }} {{ browserName }}:
+                        h4.browser(:class="browserName")
                             i.fab.fa-chrome(:class="{ 'animated-arrow': browserName === 'chrome' }")
                             i.fab.fa-safari(:class="{ 'animated-arrow': browserName === 'safari' }")
                             i.fab.fa-firefox-browser(:class="{ 'animated-arrow': browserName === 'firefox' }")
@@ -42,10 +43,6 @@
                 this.browserName = browser
             },
             operatingSystemName() {
-                // if (navigator.appVersion.indexOf("Win")!=-1) this.osName="Windows";
-                // if (navigator.appVersion.indexOf("Mac")!=-1) this.osName="MacOS";
-                // if (navigator.appVersion.indexOf("X11")!=-1) this.osName="UNIX";
-                // if (navigator.appVersion.indexOf("Linux")!=-1) this.osName="Linux";
                 if (navigator.appVersion.indexOf("Win")!=-1) {
                     this.osName="Windows"
                 } else if (navigator.appVersion.indexOf("Mac")!=-1) {
@@ -62,11 +59,53 @@
     };
 </script>
 <style lang="scss" scoped>
-.resize {}
-.box {
-    background: red;
-    border: 10px solid blue;
-    margin: 20px;
-    padding: 30px;
+.browser {
+    font-size: 3rem;
+    i {
+        width: 50px;
+        height: 50px;
+        margin: 0 10px;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 8px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            box-shadow: 0 35px 8px 0 rgba(34, 34, 34, 0.4);
+        }
+        &.animated-arrow:after {
+            animation-name: animatedShadow;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+    }
 }
+@keyframes animatedShadow {
+    from {
+        box-shadow: 0 35px 8px 0 rgba(34, 34, 34, 0.4);
+        width: 70%;
+        top: 50%;
+    }
+    to {
+        box-shadow: 0 33px 8px 0 rgba(34, 34, 34, .2);
+        width: 60%;
+        top: 75%;
+    }
+}
+// @keyframes hover {
+//   from {
+//     top: 0;
+//     // transform: scaleX(1) scaleY(1);
+//   }
+//   to {
+//     top: -1.6rem;
+//     // transform: scaleX(.9) scaleY(1.05);
+//   }
+// }
 </style>
