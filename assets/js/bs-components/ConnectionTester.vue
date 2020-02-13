@@ -64,7 +64,7 @@
     i {
         width: 50px;
         height: 50px;
-        margin: 0 10px;
+        margin: 25px 10px;
         position: relative;
         &:after {
             content: '';
@@ -77,12 +77,16 @@
             border-radius: 50%;
             box-shadow: 0 35px 8px 0 rgba(34, 34, 34, 0.4);
         }
+        // &.animated-arrow {
+        //     animation: hover 1s linear infinite alternate;
+        // }
         &.animated-arrow:after {
-            animation-name: animatedShadow;
-            animation-duration: 1s;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-            animation-direction: alternate;
+            animation: animatedShadow 1s linear infinite alternate;
+            // animation-name: animatedShadow;
+            // animation-duration: 1s;
+            // animation-timing-function: linear;
+            // animation-iteration-count: infinite;
+            // animation-direction: alternate;
         }
     }
 }
@@ -101,11 +105,11 @@
 // @keyframes hover {
 //   from {
 //     top: 0;
-//     // transform: scaleX(1) scaleY(1);
+//     transform: scaleX(1) scaleY(1);
 //   }
 //   to {
-//     top: -1.6rem;
-//     // transform: scaleX(.9) scaleY(1.05);
+//     top: -12px;
+//     transform: scaleX(.9) scaleY(1.05);
 //   }
 // }
 </style>
