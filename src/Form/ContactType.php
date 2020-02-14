@@ -30,7 +30,8 @@ class ContactType extends AbstractType
                 'constraints' => [
                     new NotBlank(),
                     new Email()
-                ]
+                ],
+                'help' => 'Make sure to add a valid email',
             ])
             ->add('subject', TextType::class, [
                 'constraints' => [
