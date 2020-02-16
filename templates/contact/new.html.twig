@@ -7,11 +7,11 @@
 
     
 
-<section class="d-flex flex-shrink-0 section-min-h-100">
+<section class="contact d-flex flex-shrink-0 section-min-h-100">
     <div class="container-fluid">
         <div class="row section-min-h-100">
-            <div class="col-lg-6 d-flex justify-content-center align-items-center bg-secondary">
-                <div class="text-center text-white">
+            <div class="col-lg-4 d-flex justify-content-center align-items-center bg-secondary">
+                <div class="contact-info text-white section-py-80">
                     <h2>Contact info</h2>
                     <h3><i class="fas fa-fw fa-map-marker-alt"></i> Address</h3>
                     <p>4567/15 Street name<br/> 012 34 City name<br/> Country name</p>
@@ -32,15 +32,18 @@
 
                 </div>
             </div>
-            <div class="col-lg-6 d-flex align-items-center">
-                <div class="w-100 text-center">
-                    <h2>Contact form</h2>
+            <div class="col-lg-8 d-flex justify-content-center align-items-center">
+                <div class="contact-form section-py-80">
+                    <h2 class="text-center">Contact form</h2>
                     {{ include('contact/_form.html.twig') }}
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+
+
 <section class="d-flex flex-shrink-0 section-min-h-100">
     <div class="container-fluid">
         <div class="row section-min-h-100">
