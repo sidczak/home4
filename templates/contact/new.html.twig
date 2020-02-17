@@ -5,8 +5,6 @@
 
 {% block body %}
 
-    
-
 <section class="contact d-flex flex-shrink-0 section-min-h-100">
     <div class="container-fluid">
         <div class="row section-min-h-100">
@@ -35,14 +33,20 @@
             <div class="col-lg-8 d-flex justify-content-center align-items-center">
                 <div class="contact-form section-py-80">
                     <h2 class="text-center">Contact form</h2>
-                    {{ include('contact/_form.html.twig') }}
+                    {% if app.session.flashbag.peek('message-sent')|length > 0 %}
+                        {% for message in app.flashes('message-sent') %}
+                            <div class="alert alert-success">
+                                {{ message|trans }}
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        {{ include('contact/_form.html.twig') }}
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
 
 <section class="d-flex flex-shrink-0 section-min-h-100">
     <div class="container-fluid">
