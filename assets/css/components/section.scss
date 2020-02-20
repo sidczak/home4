@@ -116,20 +116,24 @@
                     height: 400%;
                     animation: scrollElement 10s linear infinite;
                 }
-                // &::before {
-                //     content: '';
-                //     background-image: url("../../../images/welcome/codepen.svg");
-                //     background-position: center center;
-                //     background-size: 500px;
-                //     position: absolute;
-                //     top: 0;
-                //     left: 0;
-                //     right: 0;
-                //     bottom: 0;
-                //     animation: scaleBackground 20s linear;
-                //     // animation: scalePulseBackground 20s linear infinite;
-                //     transform: scale(1.2);
-                // }
+            }
+            &-scale {
+                background-color: darken($midnight-blue-500, 1%);
+                overflow: hidden;
+                &::before {
+                    content: '';
+                    background-image: url("../../../images/welcome/codepen.svg");
+                    background-position: center center;
+                    background-size: 500px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    // animation: scaleBackground 20s linear;
+                    animation: scalePulseBackground 20s linear infinite;
+                    transform: scale(1.2);
+                }
             }
         }
     }
