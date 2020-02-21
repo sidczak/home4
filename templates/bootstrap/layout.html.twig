@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block title %}Start{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block body_bs %}
+<section class="d-flex flex-shrink-0 section-min-h-100">
+    <div class="container-fluid">
+        <div class="row section-min-h-100">
+            <div class="col-3 d-flex justify-content-center align-items-center bg-secondary">
+                <div class="text-white section-py-80 text-center">
+                    <i class="fab fa-bootstrap fa-5x mb-3"></i>
+                    <h2>Bootstrap</h2>
+                    {% block sidebar_bs %}
+                        {{ include('bootstrap/_sidebar.html.twig') }}
+                    {% endblock %}
+                </div>
+            </div>
+            {% block content_bs %}{% endblock %}
+            {#
+            <div class="col-2 d-flex justify-content-center align-items-center bg-secondary">
+                <div class="text-white section-py-80 text-center">
+                    <h2>Scrollspy</h2>
+                </div>
+            </div>
+            #}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block body %}{% endblock %}
+
+{% block javascripts %}{% endblock %}

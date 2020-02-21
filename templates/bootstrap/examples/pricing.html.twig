@@ -1,9 +1,10 @@
-{% extends 'base.html.twig' %}
-{% block title %}Start{% endblock %}
+{% extends 'bootstrap/layout.html.twig' %}
+{% block title %}Pricing{% endblock %}
 {% block stylesheets %}{% endblock %}
 
-{% block body %}
-    <section class="section-py-80">
+{% block content_bs %}
+<div class="col d-flex justify-content-center align-items-center p-0">
+    <section class="section-py-80 w-100">
         <div class="container">
             <div class="pt-3 pb-3 pt-md-5 pb-md-4 mx-auto text-center">
                 <h1 class="display-4">Pricing</h1>
@@ -30,6 +31,9 @@
             </div>
         </div>
     </section>
+</div>
 {% endblock %}
+
+
 
 {% block javascripts %}{% endblock %}
