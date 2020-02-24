@@ -1,22 +1,65 @@
-<ul class="nav flex-column">
-    <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </li>
-</ul>
+{#<div class="col-3 d-flex justify-content-center align-items-center bg-secondary">#}
+<div class="col-3 bg-secondary">
+    <div class="text-white section-py-80 w-100">
+        <div class="text-center">
+            <i class="fab fa-bootstrap fa-5x mb-3"></i>
+            <h2>Bootstrap</h2>
+        </div>
+        <ul id="accordionBootstrap">
+            <li>
+                <a href="{{ path('examples_bootstrap') }}"><i class="fas fa-fw fa-home"></i> Start</a>
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#components" aria-expanded="false" aria-controls="components">
+                    <i class="fas fa-fw fa-tools"></i> Components
+                </a>
+                <ul id="components" class="collapse {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'show' }}" aria-labelledby="headingComponents" data-parent="#accordionBootstrap">
+                    <li>
+                        <a href="{{ path('components_buttons') }}" class="{{ app.request.get('_route') ==  'components_buttons' ? 'active' }}">Buttons</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('components_section') }}" class="{{ app.request.get('_route') ==  'components_section' ? 'active' }}">Section</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#examples" aria-expanded="false" aria-controls="examples">
+                    <i class="far fa-fw fa-file-alt"></i> Examples
+                </a>
+                <ul id="examples" class="collapse {{ app.request.get('_route') in  ['examples_album', 'examples_pricing'] ? 'show' }}" aria-labelledby="headingExamples" data-parent="#accordionBootstrap">
+                    <li>
+                        <a href="{{ path('examples_album') }}" class="{{ app.request.get('_route') ==  'examples_album' ? 'active' }}">Album</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('examples_pricing') }}" class="{{ app.request.get('_route') ==  'examples_pricing' ? 'active' }}">Pricing</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
+                    <i class="fas fa-fw fa-sitemap"></i> Dropdown
+                </a>
+                <ul id="dropdown" class="collapse" aria-labelledby="headingDropdown" data-parent="#accordionBootstrap">
+                    <li>
+                        <a href="#">Dropdown Second</a>
+                    </li>
+                    <li>
+                        <a href="#">Dropdown Second</a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#dropdownThird" aria-expanded="false" aria-controls="dropdownThird">Dropdown Third</a>
+                        <ul id="dropdownThird" class="collapse" aria-labelledby="headingDropdownThird">
+                            <li>
+                                <a href="{{ path('examples_album') }}">Album</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('examples_pricing') }}">Pricing</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
 
-<a href="{{ path('examples_bootstrap') }}">Start</a>
-<a href="{{ path('components_buttons') }}">Buttons</a>
-<a href="{{ path('components_section') }}">Section</a>
-
-
-<a href="{{ path('examples_album') }}">Album</a>
-<a href="{{ path('examples_pricing') }}">Pricing</a>
