@@ -17,6 +17,7 @@ $font-family-sans-serif: $font-roboto;
 @include bg-variant('.bg-midnight-blue', $midnight-blue);
 @include bg-variant('.bg-bootstrap', #6f5499);
 @include bg-variant('.bg-vue', #42b983);
+@include bg-variant('.bg-symfony', $wet-asphalt);
 
 
 .btn-orange {

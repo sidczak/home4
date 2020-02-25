@@ -1,0 +1,40 @@
+{% extends 'vue/layout.html.twig' %}
+{% block title %}Start{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block sidebar_vue %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content_vue %}
+    <div class="col d-flex justify-content-center align-items-center p-0">
+        <section class="section-py-80 w-100">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Examples</h1>
+                        <p>Quickly get a project started with any of our examples ranging from using parts of the framework to custom components and layouts.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Custom components</h2>
+                        <p>Brand new components and templates to help folks quickly get started with Bootstrap and demonstrate best practices for adding onto the framework.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Framework</h2>
+                        <p>Examples that focus on implementing uses of built-in components provided by Bootstrap.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

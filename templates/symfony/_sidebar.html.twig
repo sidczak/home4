@@ -1,0 +1,38 @@
+<div class="col-3 d-flex justify-content-center align-items-center bg-symfony sidebar-symfony">
+    <div class="text-white section-py-80 w-100">
+        <div class="text-center">
+            <i class="fab fa-symfony fa-5x mb-3"></i>
+            <h2>Symfony</h2>
+        </div>
+        <ul id="accordionSymfony">
+            <li>
+                <a href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-home"></i> Start</a>
+            </li>
+            <li>
+                <a href="#" data-toggle="collapse" data-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
+                    <i class="fas fa-fw fa-sitemap"></i> Dropdown
+                </a>
+                <ul id="dropdown" class="collapse" aria-labelledby="headingDropdown" data-parent="#accordionSymfony">
+                    <li>
+                        <a href="#">Dropdown Second</a>
+                    </li>
+                    <li>
+                        <a href="#">Dropdown Second</a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#dropdownThird" aria-expanded="false" aria-controls="dropdownThird">Dropdown Third</a>
+                        <ul id="dropdownThird" class="collapse" aria-labelledby="headingDropdownThird">
+                            <li>
+                                <a href="{{ path('examples_album') }}">Album</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('examples_pricing') }}">Pricing</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
