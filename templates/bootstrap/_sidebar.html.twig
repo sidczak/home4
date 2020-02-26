@@ -5,39 +5,43 @@
             <i class="fab fa-bootstrap fa-5x mb-3"></i>
             <h2>Bootstrap</h2>
         </div>
-        <ul id="accordionBootstrap">
-            <li>
-                <a href="{{ path('examples_bootstrap') }}"><i class="fas fa-fw fa-home"></i> Start</a>
+        <ul id="accordionBootstrap" class="nav nav-sidebar flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('examples_bootstrap') }}"><i class="fas fa-fw fa-home"></i> Start</a>
             </li>
-            <li>
-                <a href="#" data-toggle="collapse" data-target="#components" aria-expanded="false" aria-controls="components">
-                    <i class="fas fa-fw fa-tools"></i> Components
+            <li class="nav-item">
+                <a class="nav-link {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#components" aria-expanded="false" aria-controls="components">
+                    <i class="fas fa-fw fa-tools"></i> Components <i class="fas fa-fw fa-angle-left"></i>
                 </a>
-                <ul id="components" class="collapse {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'show' }}" aria-labelledby="headingComponents" data-parent="#accordionBootstrap">
-                    <li>
-                        <a href="{{ path('components_buttons') }}" class="{{ app.request.get('_route') ==  'components_buttons' ? 'active' }}">Buttons</a>
+                <ul id="components" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'show' }}" aria-labelledby="headingComponents" data-parent="#accordionBootstrap">
+                    <li class="nav-item">
+                        <a href="{{ path('components_buttons') }}" class="nav-link {{ app.request.get('_route') ==  'components_buttons' ? 'active' }}">
+                            <i class="fas fa-fw fa-caret-right"></i> Buttons
+                        </a>
                     </li>
-                    <li>
-                        <a href="{{ path('components_section') }}" class="{{ app.request.get('_route') ==  'components_section' ? 'active' }}">Section</a>
+                    <li class="nav-item">
+                        <a href="{{ path('components_section') }}" class="nav-link {{ app.request.get('_route') ==  'components_section' ? 'active' }}">
+                            <i class="fas fa-fw fa-caret-right"></i> Section
+                        </a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#" data-toggle="collapse" data-target="#examples" aria-expanded="false" aria-controls="examples">
-                    <i class="far fa-fw fa-file-alt"></i> Examples
+            <li class="nav-item">
+                <a class="nav-link {{ app.request.get('_route') in  ['examples_album', 'examples_pricing'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#examples" aria-expanded="false" aria-controls="examples">
+                    <i class="far fa-fw fa-file-alt"></i> Examples <i class="fas fa-fw fa-angle-left"></i>
                 </a>
-                <ul id="examples" class="collapse {{ app.request.get('_route') in  ['examples_album', 'examples_pricing'] ? 'show' }}" aria-labelledby="headingExamples" data-parent="#accordionBootstrap">
-                    <li>
-                        <a href="{{ path('examples_album') }}" class="{{ app.request.get('_route') ==  'examples_album' ? 'active' }}">Album</a>
+                <ul id="examples" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['examples_album', 'examples_pricing'] ? 'show' }}" aria-labelledby="headingExamples" data-parent="#accordionBootstrap">
+                    <li class="nav-item">
+                        <a href="{{ path('examples_album') }}" class="nav-link {{ app.request.get('_route') ==  'examples_album' ? 'active' }}">Album</a>
                     </li>
-                    <li>
-                        <a href="{{ path('examples_pricing') }}" class="{{ app.request.get('_route') ==  'examples_pricing' ? 'active' }}">Pricing</a>
+                    <li class="nav-item">
+                        <a href="{{ path('examples_pricing') }}" class="nav-link {{ app.request.get('_route') ==  'examples_pricing' ? 'active' }}">Pricing</a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#" data-toggle="collapse" data-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
-                    <i class="fas fa-fw fa-sitemap"></i> Dropdown
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
+                    <i class="fas fa-fw fa-sitemap"></i> Dropdown <i class="fas fa-fw fa-angle-left"></i>
                 </a>
                 <ul id="dropdown" class="collapse" aria-labelledby="headingDropdown" data-parent="#accordionBootstrap">
                     <li>
