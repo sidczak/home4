@@ -9,6 +9,15 @@
 .nav-sidebar {
     margin: 0 -15px;
     &-dark {
+        > .nav-item {
+            &:hover,
+            &:focus {
+                > .nav-link{
+                    background-color: rgba(255, 255, 255, 0.04);
+                    color: rgba(255, 255, 255, 0.75);
+                }
+            }
+        }
         .nav-link {
             color: rgba(255, 255, 255, 0.5);
             transition: background-color .3s ease-in-out;
@@ -39,15 +48,10 @@
             transform: translateY(-50%) rotate(0deg);
             transition: transform .3s ease-in-out;
         }
-        &.active .fa-angle-left {
-            transform: translateY(-50%) rotate(-90deg);
+        &[aria-expanded=false] .fa-angle-left,
+        &[data-toggle=collapse] .fa-angle-left {
+            transform: translateY(-50%) rotate(0deg);
         }
-        // &[data-toggle=collapse] .fa-angle-left {
-        //     transform: translateY(-50%) rotate(0deg);
-        // }
-        // &[aria-expanded=false] .fa-angle-left {
-        //     transform: translateY(-50%) rotate(0deg);
-        // }
         &[aria-expanded=true] .fa-angle-left,
         &[data-toggle=collapse]:not(.collapsed) .fa-angle-left {
             transform: translateY(-50%) rotate(-90deg) !important;
@@ -56,5 +60,7 @@
     > .nav-item .nav-item > .nav-link {
         padding-left: 2.25rem;
     }
-    > .nav-item .nav-item .nav-item > .nav-link {}
+    > .nav-item .nav-item .nav-item > .nav-link {
+        padding-left: 3.5rem;
+    }
 }

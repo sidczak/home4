@@ -10,7 +10,7 @@
                 <a class="nav-link {{ app.request.get('_route') ==  'examples_bootstrap' ? 'active' }}" href="{{ path('examples_bootstrap') }}"><i class="fas fa-fw fa-home"></i> Start</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#components" aria-expanded="false" aria-controls="components">
+                <a class="nav-link collapsed {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#components" aria-expanded="{{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'true' : 'false' }}" aria-controls="components">
                     <i class="fas fa-fw fa-tools"></i> Components <i class="fas fa-fw fa-angle-left"></i>
                 </a>
                 <ul id="components" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'show' }}" aria-labelledby="headingComponents" data-parent="#accordionBootstrap">
@@ -27,7 +27,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed {{ app.request.get('_route') in  ['examples_album', 'examples_pricing'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#examples" aria-expanded="false" aria-controls="examples">
+                <a class="nav-link collapsed {{ app.request.get('_route') in  ['examples_album', 'examples_pricing'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#examples" aria-expanded="{{ app.request.get('_route') in  ['examples_album', 'examples_pricing'] ? 'true' : 'false' }}" aria-controls="examples">
                     <i class="far fa-fw fa-file-alt"></i> Examples <i class="fas fa-fw fa-angle-left"></i>
                 </a>
                 <ul id="examples" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['examples_album', 'examples_pricing'] ? 'show' }}" aria-labelledby="headingExamples" data-parent="#accordionBootstrap">
@@ -54,9 +54,9 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Dropdown Second</a>
                     </li>
-                    <li>
+                    <li class="nav-item">
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dropdownThird" aria-expanded="false" aria-controls="dropdownThird">
-                            Dropdown Third <i class="fas fa-fw fa-angle-left"></i>
+                            <i class="fas fa-fw fa-sitemap"></i> Dropdown Third <i class="fas fa-fw fa-angle-left"></i>
                         </a>
                         <ul id="dropdownThird" class="nav flex-column flex-nowrap collapse" aria-labelledby="headingDropdownThird">
                             <li class="nav-item">
