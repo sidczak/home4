@@ -1,13 +1,27 @@
-<div class="col-3 d-flex justify-content-center align-items-center bg-vue sidebar-vue">
+<div class="col-3 bg-vue sidebar-vue">
     <div class="text-white section-py-80 w-100">
         <div class="text-center">
             <i class="fab fa-vuejs fa-5x mb-3"></i>
             <h2>Vue</h2>
         </div>
-        <ul id="accordionVue">
-            <li>
-                <a href="{{ path('vue_start_index') }}"><i class="fas fa-fw fa-home"></i> Start</a>
+        <ul id="accordionVue" class="nav nav-sidebar nav-sidebar-dark flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('vue_start_index') }}"><i class="fas fa-fw fa-home"></i> Start</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#examples" aria-expanded="false" aria-controls="examples">
+                    <i class="far fa-fw fa-file-alt"></i> Examples <i class="fas fa-fw fa-angle-left"></i>
+                </a>
+                <ul id="examples" class="nav flex-column flex-nowrap collapse" aria-labelledby="headingExamples" data-parent="#accordionVue">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('vue_examples_album') }}"><i class="fas fa-fw fa-caret-right"></i> Album</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('vue_examples_browser') }}"><i class="fas fa-fw fa-caret-right"></i> Browser</a>
+                    </li>
+                </ul>
+            </li>
+            {#
             <li>
                 <a href="#" data-toggle="collapse" data-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
                     <i class="fas fa-fw fa-sitemap"></i> Dropdown
@@ -32,6 +46,7 @@
                     </li>
                 </ul>
             </li>
+            #}
         </ul>
     </div>
 </div>
