@@ -7,7 +7,7 @@
         </div>
         <ul id="accordionBootstrap" class="nav nav-sidebar nav-sidebar-dark flex-column">
             <li class="nav-item">
-                <a class="nav-link {{ app.request.get('_route') ==  'examples_bootstrap' ? 'active' }}" href="{{ path('examples_bootstrap') }}"><i class="fas fa-fw fa-home"></i> Start</a>
+                <a class="nav-link {{ app.request.get('_route') ==  'bootstrap_start_index' ? 'active' }}" href="{{ path('bootstrap_start_index') }}"><i class="fas fa-fw fa-home"></i> Start</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#components" aria-expanded="{{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'true' : 'false' }}" aria-controls="components">

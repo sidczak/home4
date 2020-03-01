@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BootstrapController extends AbstractController
 {
     /**
-     * @Route("/", name="examples_bootstrap")
+     * @Route("/", name="bootstrap_start_index")
      */
     public function index()
     {
