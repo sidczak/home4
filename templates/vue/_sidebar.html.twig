@@ -14,6 +14,9 @@
                 </a>
                 <ul id="components" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['vue_components_modal'] ? 'show' }}" aria-labelledby="headingComponents" data-parent="#accordionVue">
                     <li class="nav-item">
+                        <a class="nav-link disabled" href="#"><i class="fas fa-fw fa-caret-right"></i> Alert</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link {{ app.request.get('_route') ==  'vue_components_modal' ? 'active' }}" href="{{ path('vue_components_modal') }}"><i class="fas fa-fw fa-caret-right"></i> Modal</a>
                     </li>
                 </ul>

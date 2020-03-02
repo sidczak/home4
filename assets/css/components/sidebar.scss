@@ -30,6 +30,9 @@
                 background-color: rgba(255, 255, 255, 0.08) !important;
                 color: #fff !important;
             }
+            &.disabled {
+                color: rgba(255, 255, 255, 0.15);
+            }
         }
         > .nav-item > .nav-link {
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
