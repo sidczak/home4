@@ -67,4 +67,12 @@ class VueController extends AbstractController
     {
         return $this->render('vue/examples/scroll_progress.html.twig');
     }
+
+    /**
+     * @Route("/components/modal", name="vue_components_modal")
+     */
+    public function modalProgress()
+    {
+        return $this->render('vue/components/modal.html.twig');
+    }
 }

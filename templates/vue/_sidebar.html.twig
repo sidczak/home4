@@ -9,6 +9,16 @@
                 <a class="nav-link {{ app.request.get('_route') ==  'vue_start_index' ? 'active' }}" href="{{ path('vue_start_index') }}"><i class="fas fa-fw fa-home"></i> Start</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link collapsed {{ app.request.get('_route') in  ['vue_components_modal'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#components" aria-expanded="{{ app.request.get('_route') in  ['vue_components_modal'] ? 'true' : 'false' }}" aria-controls="components">
+                    <i class="far fa-fw fa-tools"></i> Components <i class="fas fa-fw fa-angle-left"></i>
+                </a>
+                <ul id="components" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['vue_components_modal'] ? 'show' }}" aria-labelledby="headingComponents" data-parent="#accordionVue">
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.request.get('_route') ==  'vue_components_modal' ? 'active' }}" href="{{ path('vue_components_modal') }}"><i class="fas fa-fw fa-caret-right"></i> Modal</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed {{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#examples" aria-expanded="{{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress'] ? 'true' : 'false' }}" aria-controls="examples">
                     <i class="far fa-fw fa-file-alt"></i> Examples <i class="fas fa-fw fa-angle-left"></i>
                 </a>
