@@ -13,7 +13,12 @@
                 <a class="nav-link collapsed {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#components" aria-expanded="{{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'true' : 'false' }}" aria-controls="components">
                     <i class="fas fa-fw fa-tools"></i> Components <i class="fas fa-fw fa-angle-left"></i>
                 </a>
-                <ul id="components" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['components_buttons', 'components_section'] ? 'show' }}" aria-labelledby="headingComponents" data-parent="#accordionBootstrap">
+                <ul id="components" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['components_carousel', 'components_buttons', 'components_section'] ? 'show' }}" aria-labelledby="headingComponents" data-parent="#accordionBootstrap">
+                    <li class="nav-item">
+                        <a href="{{ path('components_carousel') }}" class="nav-link {{ app.request.get('_route') ==  'components_carousel' ? 'active' }}">
+                            <i class="fas fa-fw fa-caret-right"></i> Carousel
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ path('components_buttons') }}" class="nav-link {{ app.request.get('_route') ==  'components_buttons' ? 'active' }}">
                             <i class="fas fa-fw fa-caret-right"></i> Buttons

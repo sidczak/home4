@@ -1,0 +1,10 @@
+.modal {
+    &-open {
+        > nav,
+        > header,
+        > section,
+        > footer {
+            filter: blur(3px);
+        }
+    }
+}

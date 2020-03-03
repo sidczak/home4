@@ -29,7 +29,7 @@
 @import '../../css/variables/color.scss';
 .modal-video {
     .modal-dialog {
-        padding: 50px 0;
+        // padding: 50px 0;
     }
     .modal-content {
         border: none;

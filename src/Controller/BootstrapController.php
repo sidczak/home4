@@ -33,6 +33,14 @@ class BootstrapController extends AbstractController
     {
         return $this->render('bootstrap/examples/pricing.html.twig');
     }
+
+    /**
+     * @Route("/components/carousel", name="components_carousel")
+     */
+    public function carousel()
+    {
+        return $this->render('bootstrap/components/carousel.html.twig');
+    }
     
     /**
      * @Route("/components/buttons", name="components_buttons")
