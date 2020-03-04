@@ -69,3 +69,14 @@ import svg4everybody from 'svg4everybody';
 svg4everybody();
 
 import main from './main';
+
+import hljs from 'highlight.js/lib/highlight';
+import php from 'highlight.js/lib/languages/php';
+import twig from 'highlight.js/lib/languages/twig';
+import javascript from 'highlight.js/lib/languages/javascript';
+
+hljs.registerLanguage('php', php);
+hljs.registerLanguage('twig', twig);
+hljs.registerLanguage('javascript', twig);
+
+hljs.initHighlightingOnLoad();
