@@ -1,32 +1,40 @@
-<div class="col-3 d-flex justify-content-center align-items-center bg-symfony sidebar-symfony">
+<div class="col-3 d-flex justify-content-center align-items-start bg-symfony sidebar-symfony">
     <div class="text-white section-py-80 w-100">
-        <div class="text-center">
+        <div class="text-center mb-5">
             <i class="fab fa-symfony fa-5x mb-3"></i>
             <h2>Symfony</h2>
         </div>
-        <ul id="accordionSymfony">
-            <li>
-                <a href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-home"></i> Start</a>
+        <ul id="accordionSymfony" class="nav nav-sidebar nav-sidebar-dark flex-column">
+            <li class="nav-item">
+                <a class="nav-link {{ app.request.get('_route') ==  'symfony_start_index' ? 'active' }}" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-home"></i> Start</a>
             </li>
-            <li>
-                <a href="#" data-toggle="collapse" data-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
-                    <i class="fas fa-fw fa-sitemap"></i> Dropdown
+            <li class="nav-item">
+                <a class="nav-link disabled" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-blog"></i> Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-shopping-cart"></i> Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
+                    <i class="fas fa-fw fa-sitemap"></i> Dropdown <i class="fas fa-fw fa-angle-left"></i>
                 </a>
-                <ul id="dropdown" class="collapse" aria-labelledby="headingDropdown" data-parent="#accordionSymfony">
-                    <li>
-                        <a href="#">Dropdown Second</a>
+                <ul id="dropdown" class="nav flex-column flex-nowrap collapse" aria-labelledby="headingDropdown" data-parent="#accordionSymfony">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Dropdown Second</a>
                     </li>
-                    <li>
-                        <a href="#">Dropdown Second</a>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Dropdown Second</a>
                     </li>
-                    <li>
-                        <a href="#" data-toggle="collapse" data-target="#dropdownThird" aria-expanded="false" aria-controls="dropdownThird">Dropdown Third</a>
-                        <ul id="dropdownThird" class="collapse" aria-labelledby="headingDropdownThird">
-                            <li>
-                                <a href="{{ path('examples_album') }}">Album</a>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dropdownThird" aria-expanded="false" aria-controls="dropdownThird">
+                            <i class="fas fa-fw fa-sitemap"></i> Dropdown Third <i class="fas fa-fw fa-angle-left"></i>
+                        </a>
+                        <ul id="dropdownThird" class="nav flex-column flex-nowrap collapse" aria-labelledby="headingDropdownThird">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Dropdown Third</a>
                             </li>
-                            <li>
-                                <a href="{{ path('examples_pricing') }}">Pricing</a>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Dropdown Third</a>
                             </li>
                         </ul>
                     </li>
