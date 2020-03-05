@@ -13,11 +13,11 @@ $font-family-sans-serif: $font-roboto;
 
 // Bootstrap Utility classes
 // bootstrap/utilities/background
-@include bg-gradient-variant('.bg-wet-asphalt', $wet-asphalt);
-@include bg-gradient-variant('.bg-midnight-blue', $midnight-blue);
-@include bg-gradient-variant('.bg-bootstrap', #6f5499);
-@include bg-gradient-variant('.bg-vue', #42b983);
-@include bg-gradient-variant('.bg-symfony', $wet-asphalt);
+@include bg-variant('.bg-wet-asphalt', $wet-asphalt, $ignore-warning: true);
+@include bg-variant('.bg-midnight-blue', $midnight-blue, $ignore-warning: true);
+@include bg-variant('.bg-bootstrap', #6f5499, $ignore-warning: true);
+@include bg-variant('.bg-vue', #42b983, $ignore-warning: true);
+@include bg-variant('.bg-symfony', $wet-asphalt, $ignore-warning: true);
 
 
 .btn-orange {

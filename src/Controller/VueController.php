@@ -42,8 +42,6 @@ class VueController extends AbstractController
         return $this->render('vue/examples/sound_card.html.twig');
     }
 
-    
-
     /**
      * @Route("/examples/resize", name="vue_examples_resize")
      */
@@ -66,6 +64,14 @@ class VueController extends AbstractController
     public function scrollProgress()
     {
         return $this->render('vue/examples/scroll_progress.html.twig');
+    }
+
+    /**
+     * @Route("/examples/zoom", name="vue_examples_zoom")
+     */
+    public function zoom()
+    {
+        return $this->render('vue/examples/zoom.html.twig');
     }
 
     /**

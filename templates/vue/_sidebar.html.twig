@@ -22,10 +22,10 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed {{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#examples" aria-expanded="{{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress'] ? 'true' : 'false' }}" aria-controls="examples">
+                <a class="nav-link collapsed {{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress', 'vue_examples_zoom'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#examples" aria-expanded="{{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress', 'vue_examples_zoom'] ? 'true' : 'false' }}" aria-controls="examples">
                     <i class="far fa-fw fa-file-alt"></i> Examples <i class="fas fa-fw fa-angle-left"></i>
                 </a>
-                <ul id="examples" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress'] ? 'show' }}" aria-labelledby="headingExamples" data-parent="#accordionVue">
+                <ul id="examples" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress', 'vue_examples_zoom'] ? 'show' }}" aria-labelledby="headingExamples" data-parent="#accordionVue">
                     <li class="nav-item">
                         <a class="nav-link {{ app.request.get('_route') ==  'vue_examples_album' ? 'active' }}" href="{{ path('vue_examples_album') }}"><i class="fas fa-fw fa-caret-right"></i> Album</a>
                     </li>
@@ -43,6 +43,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ app.request.get('_route') ==  'vue_examples_scroll_progress' ? 'active' }}" href="{{ path('vue_examples_scroll_progress') }}"><i class="fas fa-fw fa-caret-right"></i> Scroll progress</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.request.get('_route') ==  'vue_examples_zoom' ? 'active' }}" href="{{ path('vue_examples_zoom') }}"><i class="fas fa-fw fa-caret-right"></i> Zoom</a>
                     </li>
                 </ul>
             </li>
