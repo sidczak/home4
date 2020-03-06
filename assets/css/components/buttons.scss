@@ -17,8 +17,99 @@
     &-bw-2 {
         border-width: 2px;
     }
+    &.loading {
+        position: relative;
+        color: transparent !important;
+        &::after {
+            content:'';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #fff;
+            border-top-color: transparent !important;
+            border-radius: 50%;
+            top: 50%;
+            right: 50%;
+            margin-top: -10px;
+            margin-right: -10px;
+            animation: loading .5s linear infinite;
+        }
+        &:disabled,
+        &.disabled {
+            opacity: 0.9;
+        }
+    }
+    &-outline-primary {
+        &.loading::after {
+            border-color: $primary;
+        }
+    }
+    &-outline-secondary {
+        &.loading::after {
+            border-color: $secondary;
+        }
+    }
+    &-outline-success {
+        &.loading::after {
+            border-color: $success;
+        }
+    }
+    &-outline-info {
+        &.loading::after {
+            border-color: $info;
+        }
+    }
+    &-outline-warning {
+        &.loading::after {
+            border-color: $warning;
+        }
+    }
+    &-outline-danger {
+        &.loading::after {
+            border-color: $danger;
+        }
+    }
+    &-outline-light {
+        &.loading::after {
+            border-color: $light;
+        }
+    }
+    &-outline-dark {
+        &.loading::after {
+            border-color: $dark;
+        }
+    }
+    &-lg {
+        &.loading {
+            &::after {
+                width: 26px;
+                height: 26px;
+                margin-top: -13px;
+                margin-right: -13px;
+                border-width: 3px;
+            }
+        }
+    }
+    &-sm {
+        &.loading {
+            &::after {
+                width: 14px;
+                height: 14px;
+                margin-top: -7px;
+                margin-right: -7px;
+                border-width: 1px;
+            }
+        }
+    }
 }
-
+@keyframes loading{
+    0% { 
+        transform:rotate(0);
+    }
+    100% {
+        transform:rotate(360deg);
+    }
+}
 @mixin button-shades-variant($shades) {
     @each $name, $val in $shades {
         .btn-#{$name} {
@@ -42,6 +133,11 @@
         }
         .btn-outline-#{$name} {
             @include button-outline-variant($val);
+            &.loading {
+                &::after {
+                    border-color: $val;
+                }
+            }
         }
         .btn-outline-#{$name}:focus, 
         .btn-outline-#{$name}.focus {
@@ -52,7 +148,7 @@
             box-shadow: inset 0 3px 5px 0 rgba($val, 0.5);
         }
         .btn-outline-#{$name}:not(:disabled):not(.disabled):active,
-        .btn-outline-#{$name}:hover {
+        .btn-outline-#{$name}:not(:disabled):not(.disabled):hover {
             background-color: rgba($val, 0.1);
             color: $val;
         }

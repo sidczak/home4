@@ -1,5 +1,7 @@
 <template lang="pug">
 div
+    //- https://codepen.io/JavaScriptJunkie/pen/qBWrRyg
+    //- https://github.com/muhammederdem/mini-player
     b-card
         .card-picture
         b-card-text
