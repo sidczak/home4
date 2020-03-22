@@ -6,6 +6,19 @@ div
         .card-picture
         b-card-text
             | Some quick example text to build on the card title and make up the bulk of the card's content.
+            ul.list-inline
+                li.list-inline-item
+                    i.fas.fa-fw.fa-heart
+                li.list-inline-item
+                    i.fas.fa-fw.fa-play
+                li.list-inline-item
+                    i.fas.fa-fw.fa-pause
+                li.list-inline-item
+                    i.fas.fa-fw.fa-step-backward
+                li.list-inline-item
+                    i.fas.fa-fw.fa-step-forward
+                li.list-inline-item
+                    i.fas.fa-fw.fa-external-link-alt
         b-button(href="#" variant="wet-asphalt" class="px-5" size="lg" pill)
             | Play
 </template>

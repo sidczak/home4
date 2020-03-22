@@ -73,6 +73,14 @@ class VueController extends AbstractController
     {
         return $this->render('vue/examples/zoom.html.twig');
     }
+    
+    /**
+     * @Route("/examples/transitions", name="vue_examples_transitions")
+     */
+    public function transitions()
+    {
+        return $this->render('vue/examples/transitions.html.twig');
+    }
 
     /**
      * @Route("/components/modal", name="vue_components_modal")
