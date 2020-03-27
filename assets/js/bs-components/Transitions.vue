@@ -7,22 +7,19 @@
                         b-row
                             b-col
                                 b-button(size="lg" variant="emerald" class="mx-2" pill @click="show = !show")
-                                    | Modal Basic
-                                //- transition(name="fade")
-                                //-     p(v-if="show")
-                                //-         | Hello
-                        //- b-row
-                        //-     b-col
-                        //-         transition
-                        //-             b-button(size="lg" variant="emerald" class="mx-2" pill @key="show = !show")
-                        //-                 | {{ show ? 'Save' : 'Edit' }}
-                        //- b-row
-                        //-     b-col
-                        //-         transition(name="fade" mode="out-in")
-                        //-             b-button(size="lg" variant="emerald" class="mx-2" pill v-if="show" key="save")
-                        //-                 | Save
-                        //-             b-button(size="lg" variant="turquoise" class="mx-2" pill v-else key="edit")
-                        //-                 | Edit
+                                    | Transition Basic
+                                transition(name="fade" mode="in-out")
+                                    p(v-if="show")
+                                        | Hello
+
+                        b-row
+                            b-col.text-center
+                                h3 Fade
+                                transition(name="fade" mode="out-in")
+                                    b-button(size="lg" variant="emerald" class="mx-2" pill v-if="fade" key="save" @click="fade = !fade")
+                                        | Save
+                                    b-button(size="lg" variant="turquoise" class="mx-2" pill v-else key="edit" @click="fade = !fade")
+                                        | Edit
                         //- b-row
                         //-     b-col
                         //-         transition(name="fade")
@@ -30,32 +27,36 @@
                         //-                 | Save
                         //-             b-button(size="lg" variant="turquoise" class="mx-2" pill v-else key="edit")
                         //-                 | Edit
-                        b-row
-                            b-col(class="xxx")
-                                transition(name="slide-fade" mode="in-out")
-                                    b-button(size="lg" variant="emerald" class="mx-2" pill v-if="show" key="save")
-                                        | Save
-                                    b-button(size="lg" variant="turquoise" class="mx-2" pill v-else key="edit")
-                                        | Edit
                         //- b-row
-                        //-     b-col
-                        //-         transition(name="bounce" mode="out-in")
-                        //-             b-button(size="lg" variant="emerald" class="mx-2" pill v-if="show" key="save")
-                        //-                 | Save
-                        //-             b-button(size="lg" variant="turquoise" class="mx-2" pill v-else key="edit")
+                        //-     b-col.text-center
+                        //-         h3 Slide fade
+                        //-         transition(name="slide-fade" mode="in-out")
+                        //-             b-button(v-if="slideFade" size="lg" variant="emerald" pill key="save" @click="slideFade = !slideFade")
+                        //-                 | Slide fade
+                        //-             b-button(v-else size="lg" variant="turquoise" pill key="edit" @click="slideFade = !slideFade")
                         //-                 | Edit
+                        b-row
+                            b-col.text-center
+                                h3 Bounce
+                                transition(name="bounce" mode="out-in")
+                                    b-button(size="lg" variant="emerald" class="mx-2" pill key="save" @click="bounce = !bounce" v-if="bounce")
+                                        | Bounce
+                                    b-button(size="lg" variant="turquoise" class="mx-2" pill key="edit" @click="bounce = !bounce" v-else)
+                                        | Edit
 </template>
 
 <script>
-    export default {
-        name: "Transitions",
-        data () {
-            return {
-                show: true,
-                isEditing: true
-            }
+export default {
+    name: "Transitions",
+    data () {
+        return {
+            show: true,
+            fade: true,
+            slideFade: true,
+            bounce: true
         }
-    };
+    }
+};
 </script>
 
 <style lang="scss">
@@ -63,37 +64,42 @@
 .fade {
     &-enter-active,
     &-leave-active {
-      transition: opacity .5s;
+        transition: opacity .5s;
     }
     &-enter,
     &-leave-to {
-      opacity: 0;
+        opacity: 0;
     }
-}
-.xxx .btn {
-    position: absolute;
 }
 .slide-fade {
+    &-enter-active,
+    &-leave-active {
+        // position: absolute;
+    }
     &-enter-active {
-        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        position: absolute;
+        transition: all .8s ease;
     }
     &-leave-active {
-        transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+        position: absolute;
+        transition: all .8s ease-in-out;
     }
     &-enter {
-        transform: translateY(80px);
+        transform: translateX(10px);
         opacity: 0;
     }
     &-leave-to {
-        transform: translateY(-80px);
+        transform: translateX(-10px);
         opacity: 0;
     }
 }
-.bounce-enter-active {
-    animation: bounce-in .5s;
-}
-.bounce-leave-active {
-    animation: bounce-in .5s reverse;
+.bounce {
+    &-enter-active {
+        animation: bounce-in .5s;
+    }
+    &-leave-active {
+        animation: bounce-in .5s reverse;
+    }
 }
 @keyframes bounce-in {
     0% {
