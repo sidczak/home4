@@ -11,30 +11,22 @@
                                 transition(name="fade" mode="in-out")
                                     p(v-if="show")
                                         | Hello
-
                         b-row
                             b-col.text-center
                                 h3 Fade
                                 transition(name="fade" mode="out-in")
                                     b-button(size="lg" variant="emerald" class="mx-2" pill v-if="fade" key="save" @click="fade = !fade")
-                                        | Save
+                                        | Fade
                                     b-button(size="lg" variant="turquoise" class="mx-2" pill v-else key="edit" @click="fade = !fade")
                                         | Edit
-                        //- b-row
-                        //-     b-col
-                        //-         transition(name="fade")
-                        //-             b-button(size="lg" variant="emerald" class="mx-2" pill v-if="show" key="save")
-                        //-                 | Save
-                        //-             b-button(size="lg" variant="turquoise" class="mx-2" pill v-else key="edit")
-                        //-                 | Edit
-                        //- b-row
-                        //-     b-col.text-center
-                        //-         h3 Slide fade
-                        //-         transition(name="slide-fade" mode="in-out")
-                        //-             b-button(v-if="slideFade" size="lg" variant="emerald" pill key="save" @click="slideFade = !slideFade")
-                        //-                 | Slide fade
-                        //-             b-button(v-else size="lg" variant="turquoise" pill key="edit" @click="slideFade = !slideFade")
-                        //-                 | Edit
+                        b-row
+                            b-col.text-center
+                                h3 Slide fade
+                                transition(name="slide-fade" mode="out-in")
+                                    b-button(v-if="slideFade" size="lg" variant="emerald" pill key="save" @click="slideFade = !slideFade")
+                                        | Slide fade
+                                    b-button(v-else size="lg" variant="turquoise" pill key="edit" @click="slideFade = !slideFade")
+                                        | Edit
                         b-row
                             b-col.text-center
                                 h3 Bounce
@@ -72,25 +64,19 @@ export default {
     }
 }
 .slide-fade {
-    &-enter-active,
-    &-leave-active {
-        // position: absolute;
-    }
+    &-leave-active,
     &-enter-active {
-        position: absolute;
-        transition: all .8s ease;
-    }
-    &-leave-active {
-        position: absolute;
         transition: all .8s ease-in-out;
     }
-    &-enter {
-        transform: translateX(10px);
+    &-enter,
+    &-leave-to {
         opacity: 0;
     }
+    &-enter {
+        transform: translateX(100px);
+    }
     &-leave-to {
-        transform: translateX(-10px);
-        opacity: 0;
+        transform: translateX(-100px);
     }
 }
 .bounce {
