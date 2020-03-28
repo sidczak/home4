@@ -5,7 +5,7 @@
                 b-col.col-lg-12.d-flex.justify-content-center.align-items-center
                     div
                         b-row
-                            b-col
+                            b-col.text-center
                                 b-button(size="lg" variant="emerald" class="mx-2" pill @click="show = !show")
                                     | Transition Basic
                                 transition(name="fade" mode="in-out")
@@ -15,9 +15,9 @@
                             b-col.text-center
                                 h3 Fade
                                 transition(name="fade" mode="out-in")
-                                    b-button(size="lg" variant="emerald" class="mx-2" pill v-if="fade" key="save" @click="fade = !fade")
+                                    b-button(v-if="fade" size="lg" variant="emerald" class="mx-2" pill key="save" @click="fade = !fade")
                                         | Fade
-                                    b-button(size="lg" variant="turquoise" class="mx-2" pill v-else key="edit" @click="fade = !fade")
+                                    b-button(v-else size="lg" variant="turquoise" class="mx-2" pill key="edit" @click="fade = !fade")
                                         | Edit
                         b-row
                             b-col.text-center
@@ -31,10 +31,27 @@
                             b-col.text-center
                                 h3 Bounce
                                 transition(name="bounce" mode="out-in")
-                                    b-button(size="lg" variant="emerald" class="mx-2" pill key="save" @click="bounce = !bounce" v-if="bounce")
-                                        | Bounce
-                                    b-button(size="lg" variant="turquoise" class="mx-2" pill key="edit" @click="bounce = !bounce" v-else)
-                                        | Edit
+                                    b-button(size="lg" :variant="bounce ? 'emerald' : 'turquoise'" class="mx-2" pill :key="bounce ? 'Bounce' : 'Edit'" @click="bounce = !bounce")
+                                        | {{ bounce ? 'Bounce' : 'Edit' }}
+                        b-row
+                            b-col.text-center
+                                h3 Animated - lightSpeed
+                                //- mamy dwa typy "animation" i "transition", które mówią skąd zczytać czas
+                                transition(mode="out-in" appear
+                                    enter-active-class="animated lightSpeedIn" 
+                                    leave-active-class="animated lightSpeedOut"
+                                    type="animation")
+                                    b-button(size="lg" class="mx-2" pill 
+                                        :variant="animated ? 'emerald' : 'turquoise'" 
+                                        :key="animated ? 'Save' : 'Edit'" 
+                                        @click="animated = !animated")
+                                        | {{ animated ? 'Save' : 'Edit' }}
+                        //- b-row
+                        //-     b-col.text-center
+                        //-         h3 Bounce
+                        //-         transition(name="bounce" mode="out-in")
+                        //-             b-button(size="lg" :variant="{ 'emerald': docState === 'save' }" class="mx-2" pill :key="docState")
+                        //-                 | {{ buttonMessage }} {{ docState }}
 </template>
 
 <script>
@@ -45,9 +62,19 @@ export default {
             show: true,
             fade: true,
             slideFade: true,
-            bounce: true
+            bounce: true,
+            animated: true,
+            // docState: 'save',
         }
     }
+    // computed: {
+    //     buttonMessage: function () {
+    //         switch (this.docState) {
+    //             case 'edit': return 'Edit'
+    //             case 'save': return 'Save'
+    //         }
+    //     }
+    // }
 };
 </script>
 
@@ -66,7 +93,7 @@ export default {
 .slide-fade {
     &-leave-active,
     &-enter-active {
-        transition: all .8s ease-in-out;
+        transition: all .5s ease-in-out;
     }
     &-enter,
     &-leave-to {
