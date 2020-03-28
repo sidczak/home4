@@ -46,12 +46,19 @@
                                         :key="animated ? 'Save' : 'Edit'" 
                                         @click="animated = !animated")
                                         | {{ animated ? 'Save' : 'Edit' }}
-                        //- b-row
-                        //-     b-col.text-center
-                        //-         h3 Bounce
-                        //-         transition(name="bounce" mode="out-in")
-                        //-             b-button(size="lg" :variant="{ 'emerald': docState === 'save' }" class="mx-2" pill :key="docState")
-                        //-                 | {{ buttonMessage }} {{ docState }}
+                        b-row
+                            b-col.text-center
+                                h3 
+                                    | Switch 
+                                    select(v-model="docState")
+                                        option save
+                                        option edit
+                                        option cancel
+                                transition(name="bounce" mode="out-in")
+                                    b-button(size="lg" 
+                                        :variant="buttonVariant"
+                                        class="mx-2" pill :key="docState")
+                                        | {{ buttonMessage }}
 </template>
 
 <script>
@@ -64,17 +71,25 @@ export default {
             slideFade: true,
             bounce: true,
             animated: true,
-            // docState: 'save',
+            docState: 'save'
+        }
+    },
+    computed: {
+        buttonMessage: function () {
+            switch (this.docState) {
+                case 'edit': return 'Edit'
+                case 'save': return 'Save'
+                case 'cancel': return 'Cancel'
+            }
+        },
+        buttonVariant: function () {
+            switch (this.docState) {
+                case 'edit': return 'emerald'
+                case 'save': return 'turquoise'
+                case 'cancel': return 'wet-asphalt'
+            }
         }
     }
-    // computed: {
-    //     buttonMessage: function () {
-    //         switch (this.docState) {
-    //             case 'edit': return 'Edit'
-    //             case 'save': return 'Save'
-    //         }
-    //     }
-    // }
 };
 </script>
 
