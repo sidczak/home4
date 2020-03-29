@@ -38,7 +38,8 @@ import ScrollProgress from './bs-components/ScrollProgress.vue';
 import ConnectionTester from './bs-components/ConnectionTester.vue';
 import Modal from './bs-components/Modal.vue';
 import Zoom from './bs-components/Zoom.vue';
-import Transitions from './bs-components/Transitions.vue';
+import Transition from './bs-components/Transition.vue';
+import TransitionGroup from './bs-components/TransitionGroup.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -60,7 +61,8 @@ Vue.customElement('bs-scroll-progress', ScrollProgress);
 Vue.customElement('bs-connection-tester', ConnectionTester);
 Vue.customElement('bs-modal', Modal);
 Vue.customElement('bs-zoom', Zoom);
-Vue.customElement('bs-transitions', Transitions);
+Vue.customElement('bs-transition', Transition);
+Vue.customElement('bs-transition-group', TransitionGroup);
 
 
 const $ = require('jquery');

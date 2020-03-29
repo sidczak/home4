@@ -75,11 +75,19 @@ class VueController extends AbstractController
     }
     
     /**
-     * @Route("/examples/transitions", name="vue_examples_transitions")
+     * @Route("/examples/transition", name="vue_examples_transition")
      */
-    public function transitions()
+    public function transition()
     {
-        return $this->render('vue/examples/transitions.html.twig');
+        return $this->render('vue/examples/transition.html.twig');
+    }
+
+    /**
+     * @Route("/examples/transition-group", name="vue_examples_transition_group")
+     */
+    public function transitionGroup()
+    {
+        return $this->render('vue/examples/transition_group.html.twig');
     }
 
     /**
