@@ -20,14 +20,37 @@
                                         | Fade
                                     b-button(v-else size="lg" variant="turquoise" class="mx-2" pill key="edit" @click="fade = !fade")
                                         | Edit
+                        b-row
+                            b-col.text-center
+                                h3 Transition Group
+                                b-button(size="lg" variant="emerald" class="mx-2" pill @click="add")
+                                    | Add
+                                b-button(size="lg" variant="turquoise" class="mx-2" pill @click="remove")
+                                    | Remove
+                                transition-group(name="list" tag="ul" class="pagination")
+                                    li.page-link(v-for="item in items" :key="item")
+                                        | {{ item }} 
 </template>
 
 <script>
 export default {
-    name: "TransitionGroup",
+    name: "TransitionsGroup",
     data () {
         return {
-            fade: true
+            fade: true,
+            items: [1,2,3],
+            nextNum: 10
+        }
+    },
+    methods: {
+        randomIndex: function () {
+            return Math.floor(Math.random() * this.items.length)
+        },
+        add: function () {
+            this.items.splice(this.randomIndex(), 0, this.nextNum++)
+        },
+        remove: function () {
+            this.items.splice(this.randomIndex(), 1)
         }
     }
 };
@@ -37,6 +60,17 @@ export default {
 @import '../../css/variables/color.scss';
 .btn {
     width: 200px;
+}
+.list {
+    &-enter-active,
+    &-leave-active {
+        transition: all 1s;
+    }
+    &-enter, 
+    &-leave-to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
 }
 .fade {
     &-leave-active,
