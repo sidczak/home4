@@ -2,7 +2,7 @@
     section.d-flex.flex-shrink-0.section-py-80.section-min-h-100
         b-container(fluid)
             b-row.section-min-h-100
-                b-col.col-lg-12.d-flex.justify-content-center.xalign-items-center
+                b-col.col-lg-12.d-flex.justify-content-center
                     div
                         b-row
                             b-col.text-center
@@ -29,8 +29,8 @@
                                     | Remove
                                 b-button(size="lg" variant="turquoise" class="mx-2" pill @click="shuffle")
                                     | Shuffle
-                                transition-group(name="list-complete" tag="p")
-                                    span.list-complete-item(v-for="item in items" :key="item")
+                                transition-group(name="list-slide" tag="p")
+                                    span.list-slide-item(v-for="item in items" :key="item")
                                         | {{ item }}
                         b-row
                             b-col.text-center
@@ -41,8 +41,8 @@
                                     | Remove
                                 b-button(size="lg" variant="turquoise" class="mx-2" pill @click="shuffle")
                                     | Shuffle
-                                transition-group(name="fade-list" tag="ul")
-                                    li.fade-list-item(v-for="item in items" :key="item")
+                                transition-group(name="list-fade" tag="ul")
+                                    li.list-fade-item(v-for="item in items" :key="item")
                                         | {{ item }}
 </template>
 
@@ -79,7 +79,7 @@ export default {
 .btn {
     width: 200px;
 }
-.list-complete {
+.list-slide {
     &-item {
         transition: all 1s;
         display: inline-block;
@@ -89,15 +89,19 @@ export default {
     &-enter,
     &-leave-to {
         opacity: 0;
+    }
+    &-enter {
+        transform: translateY(-30px);
+    }
+    &-leave-to {
         transform: translateY(30px);
     }
     &-leave-active {
         position: absolute;
     }
 }
-.fade-list {
+.list-fade {
     &-item {
-        // display: inline-block;
         border: 1px solid red;
         width: 30px;
     }
