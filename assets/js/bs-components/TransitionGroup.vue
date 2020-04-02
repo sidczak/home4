@@ -2,7 +2,7 @@
     section.d-flex.flex-shrink-0.section-py-80.section-min-h-100
         b-container(fluid)
             b-row.section-min-h-100
-                b-col.col-lg-12.d-flex.justify-content-center.align-items-center
+                b-col.col-lg-12.d-flex.justify-content-center.xalign-items-center
                     div
                         b-row
                             b-col.text-center
@@ -27,18 +27,33 @@
                                     | Add
                                 b-button(size="lg" variant="turquoise" class="mx-2" pill @click="remove")
                                     | Remove
-                                transition-group(name="list" tag="ul" class="pagination")
-                                    li.page-link(v-for="item in items" :key="item")
-                                        | {{ item }} 
+                                b-button(size="lg" variant="turquoise" class="mx-2" pill @click="shuffle")
+                                    | Shuffle
+                                transition-group(name="list-complete" tag="p")
+                                    span.list-complete-item(v-for="item in items" :key="item")
+                                        | {{ item }}
+                        b-row
+                            b-col.text-center
+                                h3 Transition Group
+                                b-button(size="lg" variant="emerald" class="mx-2" pill @click="add")
+                                    | Add
+                                b-button(size="lg" variant="turquoise" class="mx-2" pill @click="remove")
+                                    | Remove
+                                b-button(size="lg" variant="turquoise" class="mx-2" pill @click="shuffle")
+                                    | Shuffle
+                                transition-group(name="fade-list" tag="ul")
+                                    li.fade-list-item(v-for="item in items" :key="item")
+                                        | {{ item }}
 </template>
 
 <script>
+var _ = require('lodash');
 export default {
     name: "TransitionsGroup",
     data () {
         return {
             fade: true,
-            items: [1,2,3],
+            items: [1,2,3,4,5,6,7,8,9],
             nextNum: 10
         }
     },
@@ -51,25 +66,54 @@ export default {
         },
         remove: function () {
             this.items.splice(this.randomIndex(), 1)
+        },
+        shuffle: function () {
+            this.items = _.shuffle(this.items)
         }
     }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../css/variables/color.scss';
 .btn {
     width: 200px;
 }
-.list {
+.list-complete {
+    &-item {
+        transition: all 1s;
+        display: inline-block;
+        border: 1px solid red;
+        width: 30px;
+    }
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    &-leave-active {
+        position: absolute;
+    }
+}
+.fade-list {
+    &-item {
+        // display: inline-block;
+        border: 1px solid red;
+        width: 30px;
+    }
     &-enter-active,
     &-leave-active {
-        transition: all 1s;
+        transition: opacity 1s;
     }
-    &-enter, 
+    &-leave-active {
+        position: absolute;
+    }
+    &-move {
+        transition: transform 1s;
+    }
+    &-enter,
     &-leave-to {
-      opacity: 0;
-      transform: translateY(30px);
+        opacity: 0;
     }
 }
 .fade {
