@@ -99,6 +99,7 @@ export default {
     }
     &-leave-active {
         position: absolute;
+        // transform: translate(-50%, 30px);
     }
 }
 .list-fade {
@@ -129,8 +130,11 @@ export default {
     &-enter {
         transform: translateX(200px);
     }
+    &-leave-to {
+        // transform: translateX(-200px); // nie będzie przerwy
+    }
     &-leave-active {
-        transform: translateX(-200px);
+        transform: translateX(-200px); // będzie parę px przerwy
         position: absolute;
     }
     &-enter,
