@@ -94,7 +94,8 @@ export default {
         transform: translateY(-30px);
     }
     &-leave-to {
-        transform: translateY(30px);
+        // transform: translateY(30px);
+        transform: translate(-50%, 30px);
     }
     &-leave-active {
         position: absolute;
