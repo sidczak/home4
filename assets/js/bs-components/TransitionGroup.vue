@@ -16,9 +16,9 @@
                             b-col.text-center
                                 h3 Fade
                                 transition(name="fadex" mode="in-out")
-                                    b-button(v-if="fade" size="lg" variant="emerald" class="mx-2" pill key="save" @click="fade = !fade")
+                                    b-button(v-if="fade" size="lg" variant="emerald" pill key="save" @click="fade = !fade")
                                         | Fade
-                                    b-button(v-else size="lg" variant="turquoise" class="mx-2" pill key="edit" @click="fade = !fade")
+                                    b-button(v-else size="lg" variant="turquoise" pill key="edit" @click="fade = !fade")
                                         | Edit
                         b-row
                             b-col.text-center
@@ -146,13 +146,19 @@ export default {
     &-leave-active,
     &-enter-active {
         transition: all .5s ease-in-out;
-        position: absolute;   
+        position: absolute;
     }
     &-enter {
         transform: translateX(200px);
-        position: absolute;
+    }
+    &-enter-active {
+        left: 50%;
+        margin-left: -100px;
     }
     &-leave-active {
+        z-index: -1;
+    }
+    &-leave-to {
         transform: translateX(-200px);
     }
     &-enter,
