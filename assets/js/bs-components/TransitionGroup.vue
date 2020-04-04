@@ -83,8 +83,12 @@ export default {
     &-item {
         transition: all 1s;
         display: inline-block;
-        border: 1px solid red;
-        width: 30px;
+        background-color: $midnight-blue;
+        border-radius: 5px;
+        padding: 2px 5px;
+        min-width: 40px;
+        margin: 10px;
+        color: #fff;
     }
     &-enter,
     &-leave-to {
@@ -95,7 +99,7 @@ export default {
     }
     &-leave-to {
         // transform: translateY(30px);
-        transform: translate(-50%, 30px);
+        transform: translate(calc(-50% - 10px), 30px);
     }
     &-leave-active {
         position: absolute;
