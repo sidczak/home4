@@ -41,7 +41,7 @@
                                     | Remove
                                 b-button(size="lg" variant="turquoise" class="mx-2" pill @click="shuffle")
                                     | Shuffle
-                                transition-group(name="list-fade" tag="ul")
+                                transition-group.list-unstyled(name="list-fade" tag="ul")
                                     li.list-fade-item(v-for="item in items" :key="item")
                                         | {{ item }}
 </template>
@@ -108,8 +108,11 @@ export default {
 }
 .list-fade {
     &-item {
-        border: 1px solid red;
-        width: 30px;
+        background-color: $midnight-blue;
+        width: 300px;
+        border-radius: 5px;
+        padding: 2px 5px;
+        color: #fff;
     }
     &-enter-active,
     &-leave-active {
