@@ -41,8 +41,24 @@
                                     | Remove
                                 b-button(size="lg" variant="turquoise" class="mx-2" pill @click="shuffle")
                                     | Shuffle
-                                transition-group.list-unstyled(name="list-fade" tag="ul")
+                                .clearfix
+                                transition-group.list-fade.list-unstyled.my-3(name="list-fade" tag="ul")
                                     li.list-fade-item(v-for="item in items" :key="item")
+                                        | {{ item }}
+                        b-row
+                            b-col.text-center
+                                h3 Transition Group - animation
+                                b-button(size="lg" variant="emerald" class="mx-2" pill @click="add")
+                                    | Add
+                                b-button(size="lg" variant="turquoise" class="mx-2" pill @click="remove")
+                                    | Remove
+                                b-button(size="lg" variant="turquoise" class="mx-2" pill @click="shuffle")
+                                    | Shuffle
+                                transition-group.list-unstyled.my-3( 
+                                    enter-active-class="animated fadeIn" 
+                                    leave-active-class="animated fadeOut"
+                                    type="animation" tag="ul")
+                                    li.list-fade-animation(v-for="item in items" :key="item")
                                         | {{ item }}
 </template>
 
@@ -107,12 +123,18 @@ export default {
     }
 }
 .list-fade {
-    &-item {
+    display: inline-block;
+    &-item,
+    &-animation {
         background-color: $midnight-blue;
         width: 300px;
         border-radius: 5px;
         padding: 2px 5px;
+        margin-top: 1px;
         color: #fff;
+    }
+    &-animation {
+        margin: 1px auto;
     }
     &-enter-active,
     &-leave-active {
