@@ -45,21 +45,21 @@
                                 transition-group.list-fade.list-unstyled.my-3(name="list-fade" tag="ul")
                                     li.list-fade-item(v-for="item in items" :key="item")
                                         | {{ item }}
-                        b-row
-                            b-col.text-center
-                                h3 Transition Group - animation
-                                b-button(size="lg" variant="emerald" class="mx-2" pill @click="add")
-                                    | Add
-                                b-button(size="lg" variant="turquoise" class="mx-2" pill @click="remove")
-                                    | Remove
-                                b-button(size="lg" variant="turquoise" class="mx-2" pill @click="shuffle")
-                                    | Shuffle
-                                transition-group.list-unstyled.my-3( 
-                                    enter-active-class="animated fadeIn" 
-                                    leave-active-class="animated fadeOut"
-                                    type="animation" tag="ul")
-                                    li.list-fade-animation(v-for="item in items" :key="item")
-                                        | {{ item }}
+                        //- b-row
+                        //-     b-col.text-center
+                        //-         h3 Transition Group - animation
+                        //-         b-button(size="lg" variant="emerald" class="mx-2" pill @click="add")
+                        //-             | Add
+                        //-         b-button(size="lg" variant="turquoise" class="mx-2" pill @click="remove")
+                        //-             | Remove
+                        //-         b-button(size="lg" variant="turquoise" class="mx-2" pill @click="shuffle")
+                        //-             | Shuffle
+                        //-         transition-group.list-unstyled.my-3( 
+                        //-             enter-active-class="animated fadeIn" 
+                        //-             leave-active-class="animated fadeOut"
+                        //-             type="animation" tag="ul")
+                        //-             li.list-fade-animation(v-for="item in items" :key="item")
+                        //-                 | {{ item }}
 </template>
 
 <script>
@@ -130,21 +130,20 @@ export default {
         width: 300px;
         border-radius: 5px;
         padding: 2px 5px;
-        margin-top: 1px;
+        margin: 5px;
         color: #fff;
     }
     &-animation {
         margin: 1px auto;
     }
     &-enter-active,
-    &-leave-active {
-        transition: opacity 1s;
+    &-leave-active,
+    &-move {
+        transition: 1s ease-in-out;
+        transition-property: opacity, transform;
     }
     &-leave-active {
         position: absolute;
-    }
-    &-move {
-        transition: transform 1s;
     }
     &-enter,
     &-leave-to {
@@ -195,4 +194,30 @@ export default {
         opacity: 0;
     }
 }
+
+// .list-enter-active,
+// .list-leave-active,
+// .list-move {
+//   transition: 500ms cubic-bezier(0.59, 0.12, 0.34, 0.95);
+//   transition-property: opacity, transform;
+// }
+
+// .list-enter {
+//   opacity: 0;
+//   transform: translateX(50px) scaleY(0.5);
+// }
+
+// .list-enter-to {
+//   transform: translateX(0) scaleY(1);
+// }
+
+// .list-leave-active {
+//   position: absolute;
+// }
+
+// .list-leave-to {
+//   opacity: 0;
+//   transform: scaleY(0);
+//   transform-origin: center top;
+// }
 </style>
