@@ -3,7 +3,8 @@ div
     //- https://codepen.io/JavaScriptJunkie/pen/qBWrRyg
     //- https://github.com/muhammederdem/mini-player
     b-card
-        .card-picture
+        transition(name="bounce" appear)
+            .card-picture(:class="picture" :key="picture")
         b-card-text
             | Some quick example text to build on the card title and make up the bulk of the card's content.
             ul.list-inline
@@ -19,7 +20,7 @@ div
                     i.fas.fa-fw.fa-step-forward
                 li.list-inline-item
                     i.fas.fa-fw.fa-external-link-alt
-        b-button(href="#" variant="wet-asphalt" class="px-5" size="lg" pill)
+        b-button(href="#" variant="wet-asphalt" class="px-5" size="lg" pill @click="next")
             | Play
 </template>
 <script>    
@@ -29,6 +30,18 @@ div
         },
         data () {
             return {
+                picture: null,
+                pictures: ['option1', 'option2', 'option3', 'option4', 'option5'],
+            }
+        },
+        created () {
+            const number = Math.floor(Math.random() * this.pictures.length)
+            this.picture = this.pictures[number]
+        },
+        methods: {
+            next: function () {
+                const number = Math.floor(Math.random() * this.pictures.length)
+                this.picture = this.pictures[number]
             }
         }
     };
@@ -69,6 +82,40 @@ div
             opacity: 0.9;
             z-index: -1;
         }
+        &.option1 {
+            background-image: url('../../../images/covers/1.jpg');
+        }
+        &.option2 {
+            background-image: url('../../../images/covers/2.jpg');
+        }
+        &.option3 {
+            background-image: url('../../../images/covers/3.jpg');
+        }
+        &.option4 {
+            background-image: url('../../../images/covers/4.jpg');
+        }
+        &.option5 {
+            background-image: url('../../../images/covers/5.jpg');
+        }
+    }
+}
+.bounce {
+    &-enter-active {
+        animation: bounce-in .5s;
+    }
+    &-leave-active {
+        animation: bounce-in .5s reverse;
+    }
+}
+@keyframes bounce-in {
+    0% {
+        transform: scale(.5);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
     }
 }
 </style>
