@@ -68,19 +68,26 @@ div
         margin-left: -100px;
         border-radius: 15px;
         box-shadow: 0px 10px 40px 0px rgba($silver-900, 0.9);
-        &:before {
+        &:before,
+        &:after {
             background: inherit;
             content: '';
+            display: block;
             position: absolute;
-            top: 30px;
             width: 100%;
             height: 100%;
             border-radius: 15px;
-            box-shadow: 0px 10px 40px 0px rgba($silver-900, 0.9);
+        }
+        &:before {
+            top: 30px;
             transform: scale(0.9);
             filter: blur(10px);
             opacity: 0.9;
-            z-index: -1;
+            z-index: 1;
+        }
+        &:after {
+            box-shadow: 0px 10px 40px 0px rgba($silver-900, 0.9);
+            z-index: 2;
         }
         &.option1 {
             background-image: url('../../../images/covers/1.jpg');
@@ -105,6 +112,14 @@ div
     }
     &-leave-active {
         animation: bounce-in .5s reverse;
+    }
+    &-enter-active,
+    &-leave-active {
+        transition: opacity .5s;
+    }
+    &-enter,
+    &-leave-to {
+        opacity: 0;
     }
 }
 @keyframes bounce-in {
