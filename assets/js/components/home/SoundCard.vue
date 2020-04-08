@@ -4,11 +4,11 @@ div
     //- https://github.com/muhammederdem/mini-player
     b-card
         transition(:name="transitionName" appear)
-            .card-picture(:class="picture" :key="picture")
-        b-card-text
-            | Some quick example text to build on the card title and make up the bulk of the card's content.
+            .card-picture(:class="currentTrack.picture" :key="index" v-if="index === currentTrackIndex" v-for="(track, index) in tracks")
+        b-card-text(v-if="currentTrack")
+            | {{ currentTrack.name }} - {{ currentTrack.artist }}
         ul.list-inline
-            li.list-inline-item
+            li.list-inline-item(:class="{'favorited': currentTrack.favorited}" @click="favorite")
                 i.fas.fa-fw.fa-heart
             li.list-inline-item
                 i.fas.fa-fw.fa-play
@@ -18,10 +18,12 @@ div
                 i.fas.fa-fw.fa-step-backward
             li.list-inline-item(@click="next")
                 i.fas.fa-fw.fa-step-forward
-            li.list-inline-item
+            a.list-inline-item(:href="currentTrack.url" target="_blank")
                 i.fas.fa-fw.fa-external-link-alt
-        b-button(href="#" variant="wet-asphalt" class="px-5" size="lg" pill @click="next")
-            | Play
+        ul.list-unstyled
+            li(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}")
+                i.fas.fa-fw.fa-caret-right(v-if="index === currentTrackIndex")
+                | {{ track.name }} - {{track.artist}}
 </template>
 <script>    
     export default {
@@ -30,26 +32,39 @@ div
         },
         data () {
             return {
-                picture: null,
-                pictures: ['option1', 'option2', 'option3', 'option4', 'option5'],
-                transitionName: null
+                transitionName: null,
+                tracks: require("../../data/tracks"),
+                currentTrack: null,
+                currentTrackIndex: 0
             }
         },
         created () {
             this.transitionName = 'card-out';
-            const number = Math.floor(Math.random() * this.pictures.length)
-            this.picture = this.pictures[number]
+            this.currentTrack = this.tracks[0]
         },
         methods: {
             next: function () {
                 this.transitionName = 'card-out';
-                const number = Math.floor(Math.random() * this.pictures.length)
-                this.picture = this.pictures[number]
+
+                if (this.currentTrackIndex < this.tracks.length - 1) {
+                    this.currentTrackIndex++;
+                } else {
+                    this.currentTrackIndex = 0;
+                }
+                this.currentTrack = this.tracks[this.currentTrackIndex];
             },
             prew: function () {
-                this.transitionName = 'card-in';
-                const number = Math.floor(Math.random() * this.pictures.length)
-                this.picture = this.pictures[number]
+                this.transitionName = 'card-in'
+
+                if (this.currentTrackIndex > 0) {
+                    this.currentTrackIndex--
+                } else {
+                    this.currentTrackIndex = this.tracks.length - 1
+                }
+                this.currentTrack = this.tracks[this.currentTrackIndex]
+            },
+            favorite() {
+                this.tracks[this.currentTrackIndex].favorited = !this.tracks[this.currentTrackIndex].favorited;
             }
         }
     };
@@ -112,6 +127,18 @@ div
         &.option5 {
             background-image: url('../../../images/covers/5.jpg');
         }
+        &.option6 {
+            background-image: url('../../../images/covers/6.jpg');
+        }
+        &.option7 {
+            background-image: url('../../../images/covers/7.jpg');
+        }
+        &.option8 {
+            background-image: url('../../../images/covers/8.jpg');
+        }
+        &.option9 {
+            background-image: url('../../../images/covers/9.jpg');
+        }
     }
     &-out,
     &-in {
@@ -126,7 +153,7 @@ div
     }
     &-out {
         &-enter {
-            transform: scale(1);
+            transform: scale(.5);
         }
         &-leave-to {
             transform: scale(1.5);
@@ -137,7 +164,7 @@ div
             transform: scale(1.5);
         }
         &-leave-to {
-            transform: scale(1);
+            transform: scale(.5);
         }
     }
     .list-inline {
@@ -150,10 +177,20 @@ div
             border-radius: 5px;
             transition: all .3s ease-in-out;
             cursor: pointer;
+            color: $wet-asphalt;
             &:hover {
                 background-color: $wet-asphalt;
                 color: #fff;
             }
+            &.favorited {
+                color: $red;
+            }
+        }
+    }
+    .list-unstyled {
+        .active {
+            background-color: $silver-100;
+            transition: all .3s ease-in-out;
         }
     }
 }
