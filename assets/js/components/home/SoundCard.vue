@@ -108,14 +108,14 @@ div
 }
 .bounce {
     &-enter-active {
-        animation: bounce-in .5s;
+        animation: bounce-in 1s;
     }
     &-leave-active {
-        animation: bounce-in .5s reverse;
+        animation: bounce-in 1s reverse;
     }
     &-enter-active,
     &-leave-active {
-        transition: opacity .5s;
+        transition: opacity 1s;
     }
     &-enter,
     &-leave-to {
@@ -124,7 +124,7 @@ div
 }
 @keyframes bounce-in {
     0% {
-        transform: scale(.5);
+        transform: scale(0);
     }
     50% {
         transform: scale(1.5);
