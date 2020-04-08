@@ -3,23 +3,23 @@ div
     //- https://codepen.io/JavaScriptJunkie/pen/qBWrRyg
     //- https://github.com/muhammederdem/mini-player
     b-card
-        transition(name="bounce" appear)
+        transition(:name="transitionName" appear)
             .card-picture(:class="picture" :key="picture")
         b-card-text
             | Some quick example text to build on the card title and make up the bulk of the card's content.
-            ul.list-inline
-                li.list-inline-item
-                    i.fas.fa-fw.fa-heart
-                li.list-inline-item
-                    i.fas.fa-fw.fa-play
-                li.list-inline-item
-                    i.fas.fa-fw.fa-pause
-                li.list-inline-item
-                    i.fas.fa-fw.fa-step-backward
-                li.list-inline-item
-                    i.fas.fa-fw.fa-step-forward
-                li.list-inline-item
-                    i.fas.fa-fw.fa-external-link-alt
+        ul.list-inline
+            li.list-inline-item
+                i.fas.fa-fw.fa-heart
+            li.list-inline-item
+                i.fas.fa-fw.fa-play
+            li.list-inline-item
+                i.fas.fa-fw.fa-pause
+            li.list-inline-item(@click="prew")
+                i.fas.fa-fw.fa-step-backward
+            li.list-inline-item(@click="next")
+                i.fas.fa-fw.fa-step-forward
+            li.list-inline-item
+                i.fas.fa-fw.fa-external-link-alt
         b-button(href="#" variant="wet-asphalt" class="px-5" size="lg" pill @click="next")
             | Play
 </template>
@@ -32,14 +32,22 @@ div
             return {
                 picture: null,
                 pictures: ['option1', 'option2', 'option3', 'option4', 'option5'],
+                transitionName: null
             }
         },
         created () {
+            this.transitionName = 'card-out';
             const number = Math.floor(Math.random() * this.pictures.length)
             this.picture = this.pictures[number]
         },
         methods: {
             next: function () {
+                this.transitionName = 'card-out';
+                const number = Math.floor(Math.random() * this.pictures.length)
+                this.picture = this.pictures[number]
+            },
+            prew: function () {
+                this.transitionName = 'card-in';
                 const number = Math.floor(Math.random() * this.pictures.length)
                 this.picture = this.pictures[number]
             }
@@ -105,32 +113,75 @@ div
             background-image: url('../../../images/covers/5.jpg');
         }
     }
+    &-out,
+    &-in {
+        &-leave-active,
+        &-enter-active {
+            transition: all .5s ease-in-out;
+        }
+        &-enter,
+        &-leave-to {
+            opacity: 0;
+        }
+    }
+    &-out {
+        &-enter {
+            transform: scale(1);
+        }
+        &-leave-to {
+            transform: scale(1.5);
+        }
+    }
+    &-in {
+        &-enter {
+            transform: scale(1.5);
+        }
+        &-leave-to {
+            transform: scale(1);
+        }
+    }
+    .list-inline {
+        background-color: $silver-100;
+        padding: 10px;
+        text-align: center;
+        border-radius: 15px;
+        &-item {
+            padding: 5px;
+            border-radius: 5px;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+            &:hover {
+                background-color: $wet-asphalt;
+                color: #fff;
+            }
+        }
+    }
 }
-.bounce {
-    &-enter-active {
-        animation: bounce-in 1s;
-    }
-    &-leave-active {
-        animation: bounce-in 1s reverse;
-    }
-    &-enter-active,
-    &-leave-active {
-        transition: opacity 1s;
-    }
-    &-enter,
-    &-leave-to {
-        opacity: 0;
-    }
-}
-@keyframes bounce-in {
-    0% {
-        transform: scale(0);
-    }
-    50% {
-        transform: scale(1.5);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+// .bounce {
+//     &-enter-active {
+//         animation: bounce-in 1s;
+//     }
+//     &-leave-active {
+//         animation: bounce-in 1s reverse;
+//     }
+//     &-enter-active,
+//     &-leave-active {
+//         transition: opacity 1s;
+//     }
+//     &-enter,
+//     &-leave-to {
+//         opacity: 0;
+//     }
+// }
+// @keyframes bounce-in {
+//     0% {
+//         transform: scale(0);
+//     }
+//     50% {
+//         transform: scale(1.5);
+//     }
+//     100% {
+//         transform: scale(1);
+//     }
+// }
 </style>
