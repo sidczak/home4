@@ -2,28 +2,32 @@
 div
     //- https://codepen.io/JavaScriptJunkie/pen/qBWrRyg
     //- https://github.com/muhammederdem/mini-player
-    b-card
+    b-card(v-if="currentTrack")
         transition(:name="transitionName" appear)
             .card-picture(:class="currentTrack.picture" :key="index" v-if="index === currentTrackIndex" v-for="(track, index) in tracks")
-        b-card-text(v-if="currentTrack")
-            | {{ currentTrack.name }} - {{ currentTrack.artist }}
+        transition(name="fade" mode="out-in" appear)
+            .card-album(:key="index" v-if="index === currentTrackIndex" v-for="(track, index) in tracks")
+                b-card-title(title-tag="h2")
+                    | {{ currentTrack.name }}
+                b-card-sub-title.mb-2(sub-title-tag="h4")
+                    | {{ currentTrack.artist }}
         ul.list-inline
             li.list-inline-item(:class="{'favorited': currentTrack.favorited}" @click="favorite")
                 i.fas.fa-fw.fa-heart
-            li.list-inline-item
-                i.fas.fa-fw.fa-play
-            li.list-inline-item
-                i.fas.fa-fw.fa-pause
+            li.list-inline-item(@click="play")
+                i.fas.fa-fw.fa-play(v-if="!isPlay")
+                i.fas.fa-fw.fa-pause(v-else)
             li.list-inline-item(@click="prew")
                 i.fas.fa-fw.fa-step-backward
             li.list-inline-item(@click="next")
                 i.fas.fa-fw.fa-step-forward
             a.list-inline-item(:href="currentTrack.url" target="_blank")
                 i.fas.fa-fw.fa-external-link-alt
-        ul.list-unstyled
-            li(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}")
-                i.fas.fa-fw.fa-caret-right(v-if="index === currentTrackIndex")
+        ul.card-list-track.list-unstyled
+            li.card-list-track-item(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}")
+                i.fas.fa-fw.fa-caret-right
                 | {{ track.name }} - {{track.artist}}
+                i.fas.fa-fw.fa-play.ml-2(v-if="index === currentTrackIndex")
 </template>
 <script>    
     export default {
@@ -32,6 +36,7 @@ div
         },
         data () {
             return {
+                isPlay: false,
                 transitionName: null,
                 tracks: require("../../data/tracks"),
                 currentTrack: null,
@@ -43,6 +48,9 @@ div
             this.currentTrack = this.tracks[0]
         },
         methods: {
+            play: function () {
+                this.isPlay = !this.isPlay
+            },
             next: function () {
                 this.transitionName = 'card-out';
 
@@ -167,6 +175,12 @@ div
             transform: scale(.5);
         }
     }
+    &-title {
+        color: $wet-asphalt;
+    }
+    &-subtitle {
+        color: $wet-asphalt-400 !important;
+    }
     .list-inline {
         background-color: $silver-100;
         padding: 10px;
@@ -187,11 +201,45 @@ div
             }
         }
     }
-    .list-unstyled {
-        .active {
-            background-color: $silver-100;
-            transition: all .3s ease-in-out;
+    &-list-track {
+        overflow: hidden;
+        &-item {
+            position: relative;
+            padding: 5px 0;
+            cursor: pointer;
+            transition: all .2s ease-in-out;
+            &:hover,
+            &.active {
+                padding-left: 15px;
+                color: $turquoise;
+                .fa-caret-right {
+                    left: -6px;
+                    opacity: 1;
+                }
+            }
+            .fa-caret-right {
+                position: absolute;
+                left: -15px;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+                color: $turquoise;
+                transition: all .2s ease-in-out;
+            }
+            .fa-play {
+                color: $turquoise;
+            }
         }
+    }
+}
+.fade {
+    &-enter-active,
+    &-leave-active {
+        transition: opacity .5s;
+    }
+    &-enter,
+    &-leave-to {
+        opacity: 0;
     }
 }
 // .bounce {
