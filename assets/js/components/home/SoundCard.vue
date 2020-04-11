@@ -24,9 +24,9 @@ div
             a.list-inline-item(:href="currentTrack.url" target="_blank")
                 i.fas.fa-fw.fa-external-link-alt
         ul.card-list-track.list-unstyled
-            li.card-list-track-item(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}")
+            li.card-list-track-item(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}" @click="current(index)")
                 i.fas.fa-fw.fa-caret-right
-                | {{ track.name }} - {{track.artist}}
+                | {{ track.name }} - {{track.artist}} {{index}} {{currentTrackIndex}}
                 transition(v-if="index === currentTrackIndex" name="bounce" mode="out-in" appear)
                     i.fas.fa-fw.fa-play.ml-2(v-if="!isPlay" key="play")
                     i.fas.fa-fw.fa-pause.ml-2(v-else key="pause")
@@ -71,6 +71,10 @@ div
                 } else {
                     this.currentTrackIndex = this.tracks.length - 1
                 }
+                this.currentTrack = this.tracks[this.currentTrackIndex]
+            },
+            current: function (index) {
+                this.currentTrackIndex = index
                 this.currentTrack = this.tracks[this.currentTrackIndex]
             },
             favorite() {
