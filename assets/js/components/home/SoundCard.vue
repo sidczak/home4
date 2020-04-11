@@ -26,7 +26,7 @@ div
         ul.card-list-track.list-unstyled
             li.card-list-track-item(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}" @click="index === currentTrackIndex ? play(): current(index)")
                 i.fas.fa-fw.fa-caret-right
-                | {{ track.name }} - {{track.artist}} {{index}} {{currentTrackIndex}}
+                | {{ track.name }} - {{track.artist}}
                 transition(v-if="index === currentTrackIndex" name="bounce" mode="out-in" appear)
                     i.fas.fa-fw.fa-play.ml-2(v-if="!isPlay" key="play")
                     i.fas.fa-fw.fa-pause.ml-2(v-else key="pause")
