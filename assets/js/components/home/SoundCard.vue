@@ -6,7 +6,7 @@ div
         transition(:name="transitionName" appear)
             .card-picture(:class="currentTrack.picture" :key="index" v-if="index === currentTrackIndex" v-for="(track, index) in tracks")
         transition(name="fade" mode="out-in" appear)
-            .card-album(:key="index" v-if="index === currentTrackIndex" v-for="(track, index) in tracks")
+            .card-album.text-center(:key="index" v-if="index === currentTrackIndex" v-for="(track, index) in tracks")
                 b-card-title(title-tag="h2")
                     | {{ currentTrack.name }}
                 b-card-sub-title.mb-2(sub-title-tag="h4")
@@ -27,7 +27,9 @@ div
             li.card-list-track-item(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}")
                 i.fas.fa-fw.fa-caret-right
                 | {{ track.name }} - {{track.artist}}
-                i.fas.fa-fw.fa-play.ml-2(v-if="index === currentTrackIndex")
+                transition(v-if="index === currentTrackIndex" name="bounce" mode="out-in" appear)
+                    i.fas.fa-fw.fa-play.ml-2(v-if="!isPlay" key="play")
+                    i.fas.fa-fw.fa-pause.ml-2(v-else key="pause")
 </template>
 <script>    
     export default {
@@ -185,7 +187,7 @@ div
         background-color: $silver-100;
         padding: 10px;
         text-align: center;
-        border-radius: 15px;
+        margin: 0 -1.25rem;
         &-item {
             padding: 5px;
             border-radius: 5px;
@@ -242,31 +244,31 @@ div
         opacity: 0;
     }
 }
-// .bounce {
-//     &-enter-active {
-//         animation: bounce-in 1s;
-//     }
-//     &-leave-active {
-//         animation: bounce-in 1s reverse;
-//     }
-//     &-enter-active,
-//     &-leave-active {
-//         transition: opacity 1s;
-//     }
-//     &-enter,
-//     &-leave-to {
-//         opacity: 0;
-//     }
-// }
-// @keyframes bounce-in {
-//     0% {
-//         transform: scale(0);
-//     }
-//     50% {
-//         transform: scale(1.5);
-//     }
-//     100% {
-//         transform: scale(1);
-//     }
-// }
+.bounce {
+    &-enter-active {
+        animation: bounce-in .5s;
+    }
+    &-leave-active {
+        animation: bounce-in .5s reverse;
+    }
+    &-enter-active,
+    &-leave-active {
+        transition: opacity .5s;
+    }
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+}
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 </style>
