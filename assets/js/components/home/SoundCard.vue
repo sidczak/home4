@@ -24,7 +24,7 @@ div
             a.list-inline-item(:href="currentTrack.url" target="_blank")
                 i.fas.fa-fw.fa-external-link-alt
         ul.card-list-track.list-unstyled
-            li.card-list-track-item(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}" @click="current(index)")
+            li.card-list-track-item(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}" @click="index === currentTrackIndex ? play(): current(index)")
                 i.fas.fa-fw.fa-caret-right
                 | {{ track.name }} - {{track.artist}} {{index}} {{currentTrackIndex}}
                 transition(v-if="index === currentTrackIndex" name="bounce" mode="out-in" appear)
