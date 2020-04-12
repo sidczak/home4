@@ -9,7 +9,7 @@ div
             .card-album.text-center(:key="index" v-if="index === currentTrackIndex" v-for="(track, index) in tracks")
                 b-card-title(title-tag="h2")
                     | {{ currentTrack.name }}
-                b-card-sub-title.mb-2(sub-title-tag="h4")
+                b-card-sub-title.mb-4(sub-title-tag="h4")
                     | {{ currentTrack.artist }}
         ul.list-inline
             li.list-inline-item(:class="{'favorited': currentTrack.favorited}" @click="favorite")
@@ -54,7 +54,7 @@ div
                 this.isPlay = !this.isPlay
             },
             next: function () {
-                this.transitionName = 'card-out';
+                this.transitionName = 'card-out'
 
                 if (this.currentTrackIndex < this.tracks.length - 1) {
                     this.currentTrackIndex++;
@@ -74,6 +74,11 @@ div
                 this.currentTrack = this.tracks[this.currentTrackIndex]
             },
             current: function (index) {
+                if (this.currentTrackIndex > index) {
+                    this.transitionName = 'card-in'
+                } else {
+                    this.transitionName = 'card-out'
+                }
                 this.currentTrackIndex = index
                 this.currentTrack = this.tracks[this.currentTrackIndex]
             },
@@ -191,7 +196,7 @@ div
         background-color: $silver-100;
         padding: 10px;
         text-align: center;
-        margin: 0 -1.25rem;
+        margin: 0 -1.25rem 1.25rem;
         &-item {
             padding: 5px;
             border-radius: 5px;
@@ -208,6 +213,7 @@ div
         }
     }
     &-list-track {
+        margin-bottom: 0;
         overflow: hidden;
         &-item {
             position: relative;
