@@ -21,15 +21,19 @@ div
                 i.fas.fa-fw.fa-step-backward
             li.list-inline-item(@click="next")
                 i.fas.fa-fw.fa-step-forward
+            li.list-inline-item(v-b-toggle.listTrack)
+                i.fas.fa-fw.fa-stream(v-if="visible")
+                i.fas.fa-fw.fa-stream.fa-rotate-90(v-else)
             a.list-inline-item(:href="currentTrack.url" target="_blank")
                 i.fas.fa-fw.fa-external-link-alt
-        ul.card-list-track.list-unstyled
-            li.card-list-track-item(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}" @click="index === currentTrackIndex ? play(): current(index)")
-                i.fas.fa-fw.fa-caret-right
-                | {{ track.name }} - {{track.artist}}
-                transition(v-if="index === currentTrackIndex" name="bounce" mode="out-in" appear)
-                    i.fas.fa-fw.fa-play.ml-2(v-if="!isPlay" key="play")
-                    i.fas.fa-fw.fa-pause.ml-2(v-else key="pause")
+        b-collapse(id="listTrack" v-model="visible")
+            ul.card-list-track.list-unstyled
+                li.card-list-track-item(v-for="(track, index) in tracks" :class="{'active': index === currentTrackIndex}" @click="index === currentTrackIndex ? play(): current(index)")
+                    i.fas.fa-fw.fa-caret-right
+                    | {{ track.name }} - {{track.artist}}
+                    transition(v-if="index === currentTrackIndex" name="bounce" mode="out-in" appear)
+                        i.fas.fa-fw.fa-play.ml-2(v-if="!isPlay" key="play")
+                        i.fas.fa-fw.fa-pause.ml-2(v-else key="pause")
 </template>
 <script>    
     export default {
@@ -42,7 +46,8 @@ div
                 transitionName: null,
                 tracks: require("../../data/tracks"),
                 currentTrack: null,
-                currentTrackIndex: 0
+                currentTrackIndex: 0,
+                visible: true
             }
         },
         created () {
