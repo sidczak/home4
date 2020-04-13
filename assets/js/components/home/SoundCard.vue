@@ -203,7 +203,7 @@ div
         text-align: center;
         margin: 0 -1.25rem 1.25rem;
         &-item {
-            padding: 5px;
+            padding: 13px 15px;
             border-radius: 5px;
             transition: all .3s ease-in-out;
             cursor: pointer;
