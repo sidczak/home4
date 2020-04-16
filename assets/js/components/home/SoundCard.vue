@@ -11,12 +11,12 @@ div
                     | {{ currentTrack.name }}
                 b-card-sub-title.mb-4(sub-title-tag="h4")
                     | {{ currentTrack.artist }}
-        ul.list-inline
+        ul.list-inline.d-flex.justify-content-center.align-items-center
             li.list-inline-item(:class="{'favorited': currentTrack.favorited}" @click="favorite")
                 i.fas.fa-fw.fa-heart
             li.list-inline-item(@click="play")
-                i.fas.fa-fw.fa-play(v-if="!isPlay")
-                i.fas.fa-fw.fa-pause(v-else)
+                i.far.fa-fw.fa-play-circle.fa-4x(v-if="!isPlay")
+                i.far.fa-fw.fa-pause-circle.fa-4x(v-else)
             li.list-inline-item(@click="prew")
                 i.fas.fa-fw.fa-step-backward
             li.list-inline-item(@click="next")
@@ -32,8 +32,8 @@ div
                     i.fas.fa-fw.fa-caret-right
                     | {{ track.name }} - {{track.artist}}
                     transition(v-if="index === currentTrackIndex" name="bounce" mode="out-in" appear)
-                        i.fas.fa-fw.fa-play.ml-2(v-if="!isPlay" key="play")
-                        i.fas.fa-fw.fa-pause.ml-2(v-else key="pause")
+                        i.fas.fa-fw.fa-play-circle.ml-2(v-if="!isPlay" key="play")
+                        i.fas.fa-fw.fa-pause-circle.ml-2(v-else key="pause")
 </template>
 <script>    
     export default {
