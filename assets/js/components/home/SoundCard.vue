@@ -207,10 +207,9 @@ div
             border-radius: 5px;
             transition: all .3s ease-in-out;
             cursor: pointer;
-            color: $wet-asphalt;
+            color: $silver-500;
             &:hover {
-                background-color: $wet-asphalt;
-                color: #fff;
+                color: $wet-asphalt;
             }
             &.favorited {
                 color: $red;
