@@ -12,11 +12,11 @@ div
                 b-card-sub-title.mb-4(sub-title-tag="h4")
                     | {{ currentTrack.artist }}
         ul.list-inline.d-flex.justify-content-center.align-items-center
+            li.list-inline-item.play(@click="play")
+                i.far.fa-play-circle.fa-4x(v-if="!isPlay")
+                i.far.fa-pause-circle.fa-4x(v-else)
             li.list-inline-item(:class="{'favorited': currentTrack.favorited}" @click="favorite")
                 i.fas.fa-fw.fa-heart
-            li.list-inline-item(@click="play")
-                i.far.fa-fw.fa-play-circle.fa-4x(v-if="!isPlay")
-                i.far.fa-fw.fa-pause-circle.fa-4x(v-else)
             li.list-inline-item(@click="prew")
                 i.fas.fa-fw.fa-step-backward
             li.list-inline-item(@click="next")
@@ -214,6 +214,16 @@ div
             }
             &.favorited {
                 color: $red;
+            }
+            &.play {
+                padding: 0 15px;
+                color: #fff;
+                i {
+                    text-shadow: 0px 5px 15px rgba($silver-500, 0.9);
+                }
+                &:hover {
+                    background-color: transparent;
+                }
             }
         }
     }
