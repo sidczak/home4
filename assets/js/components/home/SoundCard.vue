@@ -208,6 +208,7 @@ div
             transition: all .3s ease-in-out;
             cursor: pointer;
             color: $silver-500;
+            text-shadow: 1px 1px 1px rgba($wet-asphalt-900, 0.2);
             &:hover {
                 color: $wet-asphalt;
             }
@@ -216,10 +217,8 @@ div
             }
             &.play {
                 padding: 0 15px;
-                color: #fff;
-                i {
-                    text-shadow: 0px 5px 15px rgba($silver-500, 0.9);
-                }
+                color: rgba($turquoise, 0.8);
+                text-shadow: 1px 4px 6px $silver-100, 0 0 0 $wet-asphalt-900, 1px 4px 6px $silver-100;
                 &:hover {
                     background-color: transparent;
                 }
