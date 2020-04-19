@@ -67,12 +67,12 @@
             border-bottom-color: transparent;
             border-radius: 50%;
             transition: all .3s ease-in-out;
+            animation: spin 10s linear infinite;
         }
         &:hover:before {
             border-color: $turquoise;
             border-top-color: transparent;
             border-bottom-color: transparent;
-            animation: spin 10s linear infinite;
         }
         &-content {
             padding: 0 25px;
