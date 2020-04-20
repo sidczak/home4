@@ -7,7 +7,7 @@
                         i.fas.fa-fw.fa-tools
                         | Skills
             b-row
-                b-col.text-center(v-for="skill in skills")
+                b-col.text-center(v-for="(skill, index) in skills" :key="index")
                     .skill-circle.rounded-circle.d-flex.align-items-center.justify-content-center
                         .skill-circle-content
                             i.mb-2(:class="skill.icon")
