@@ -5,8 +5,19 @@
 {% block body %}
 <section class="d-flex flex-shrink-0 section-py-80 section-min-h-100 section--image section--image-about-me section--parallax"></section>
 <home-skill></home-skill>
-<home-timeline title="Education" icon="fa-graduation-cap"></home-timeline>
-<home-timeline title="Work Experience" icon="fa-briefcase"></home-timeline>
+<home-timeline is-section="true" title="Education" icon="fa-graduation-cap"></home-timeline>
+<section class="section-py-80 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <home-timeline title="Work Experience" icon="fa-briefcase"></home-timeline>
+            </div>
+            <div class="col-lg-6">
+                <home-timeline title="Work Experience" icon="fa-briefcase"></home-timeline>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="overflow-hidden flex-shrink-0">
     <div class="container">
         <div class="row">
