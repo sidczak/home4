@@ -1,17 +1,17 @@
 <template lang="pug">
-    section.d-flex.flex-shrink-0.align-items-center.section-py-80(v-if="isSection")
+    section.timeline.d-flex.flex-shrink-0.align-items-center.section-py-80(v-if="isSection")
         b-container
             b-row
                 b-col
-                    .timeline-circle.rounded-circle.d-flex.align-items-center.justify-content-center
+                    .timeline-circle.rounded-circle.d-flex.align-items-center.justify-content-center(:class="`${position}`")
                         .timeline-circle-content.text-center
                             i.mb-2.fas(:class="icon")
                             h5.mb-0 {{ title }}
-            .timeline-list
-                b-row.timeline-list-item(v-for="(skill, index) in skills" :key="index" :class="{'justify-content-start': index % 2 == 0, 'justify-content-end': index % 2 == 1 }")
-                    b-col.text-center(md="6" :class="{'text-md-right': index % 2 == 0, 'text-md-left': index % 2 == 1 }")
-                        .timeline-card(:class="{'odd': index % 2 == 0, 'even': index % 2 == 1 }")
-                            //- i.mb-2(:class="skill.icon")
+            .timeline-list(:class="`${position}`")
+                b-row.timeline-list-item(v-for="(skill, index) in skills" :key="index" :class="{'justify-content-start': index % 2 == 0 && position === 'center', 'justify-content-end': index % 2 == 1 && position === 'center'}")
+                    b-col(:class="{'col-md-6': position === 'center'}")
+                        .timeline-card
+                            //- i.timeline-icon(:class="skill.icon")
                             i.timeline-icon.far.fa-dot-circle
                             strong.timeline-date
                                 | {{ skill.date }}
@@ -19,24 +19,17 @@
                                 | {{ skill.title }}
                             h6
                                 | {{ skill.desc }}
-                                //- br
-                                //- b kierunek: 
-                                //- | {{ skill.kierunek }},<br/>
-                                //- b specjalność: 
-                                //- | {{ skill.specjalnosc }},<br/>
-                                //- b tytul: 
-                                //- | {{ skill.tytul }}
-    div(v-else)
+    .timeline(v-else)
         b-row
-            b-col.text-center
-                .timeline-circle.rounded-circle.d-flex.align-items-center.justify-content-center.m-0
+            b-col
+                .timeline-circle.rounded-circle.d-flex.align-items-center.justify-content-center(:class="`${position}`")
                     .timeline-circle-content.text-center
                         i.mb-2.fas(:class="icon")
                         h5.mb-0 {{ title }}
-        .timeline-list(class="left")
-            b-row.timeline-list-item(v-for="(skill, index) in skills" :key="index")
-                b-col
-                    .timeline-card.even
+        .timeline-list(:class="`${position}`")
+            b-row.timeline-list-item(v-for="(skill, index) in skills" :key="index" :class="{'justify-content-start': index % 2 == 0 && position === 'center', 'justify-content-end': index % 2 == 1 && position === 'center'}")
+                b-col(:class="{'col-md-6': position === 'center'}")
+                    .timeline-card
                         i.timeline-icon.far.fa-dot-circle
                         strong.timeline-date
                             | {{ skill.date }}
@@ -52,6 +45,11 @@
             isSection: {
                 type: Boolean,
                 default: false
+            },
+            position: {
+                type: String,
+                default: 'center',
+                validator: (value) => ['start', 'center', 'end'].indexOf(value) > -1,
             },
             title:  {
                 type: String,
@@ -121,6 +119,19 @@
         &-content {
             padding: 0 25px;
         }
+        &.start {
+            @media (min-width: 768px) {
+                margin: 0 auto 4px 0;
+            }
+        }
+        &.center {
+            margin: 0 auto 4px;
+        }
+        &.end {
+            @media (min-width: 768px) {
+                margin: 0 0 4px auto;
+            }
+        }
     }
     &-list {
         position: relative;
@@ -145,29 +156,76 @@
                 margin-bottom: 0;
             }
         }
-        &.left {
+        &.start {
             padding-left: 100px;
+            @media (max-width: 767px) {
+                padding-left: 0;
+            }
             &:before {
                 left: 100px;
+                transform: translateX(-50%);
             }
-
-        }
-    }
-    &-card {
-        &.odd {
-            padding-right: 15px;
-            .timeline-icon {
-                right: -12px;
-            }
-        }
-        &.even {
-            padding-left: 15px;
-            .timeline-icon {
-                left: -12px;
+            .timeline-card {
+                text-align: left;
+                padding-left: 15px;
+                .timeline-icon {
+                    left: -12px;
+                }
+                @media (max-width: 767px) {
+                    text-align: center;
+                    padding-left: 0;
+                }
             }
         }
-        @media (max-width: 767px) {
-            padding: 0;
+        &.center {
+            .justify-content-start {
+                .timeline-card {
+                    text-align: right;
+                    padding-right: 15px;
+                    @media (max-width: 767px) {
+                        text-align: center;
+                        padding-right: 0;
+                    }
+                    .timeline-icon {
+                        right: -12px;
+                    }
+                }
+            }
+            .justify-content-end {
+                .timeline-card {
+                    text-align: left;
+                    padding-left: 15px;
+                    @media (max-width: 767px) {
+                        text-align: center;
+                        padding-left: 0;
+                    }
+                    .timeline-icon {
+                        left: -12px;
+                    }
+                }
+            }
+        }
+        &.end {
+            padding-right: 100px;
+            @media (max-width: 767px) {
+                padding-right: 0;
+            }
+            &:before {
+                right: 100px;
+                left: auto;
+                transform: translateX(50%);
+            }
+            .timeline-card {
+                text-align: right;
+                padding-right: 15px;
+                .timeline-icon {
+                    right: -12px;
+                }
+                @media (max-width: 767px) {
+                    text-align: center;
+                    padding-right: 0;
+                }
+            }
         }
     }
     &-icon {
@@ -179,14 +237,8 @@
             display: none;
         }
     }
-
     &-date {
         color: $turquoise;
-    }
-}
-@keyframes spin{
-    100%{
-        transform:rotate(360deg);
     }
 }
 </style>
