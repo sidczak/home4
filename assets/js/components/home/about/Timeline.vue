@@ -58,48 +58,36 @@
             icon:  {
                 type: String,
                 default: null
+            },
+            skills: {
+                type: Array,
+                default: () => {
+                    return [
+                        {
+                            icon: "fab fa-symfony",
+                            date: "2007-2009",
+                            title: "Politechnika Łódzka",
+                            desc: "Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej",
+                            kierunek: "informatyka",
+                            specjalnosc: "Systemy Informatyczne w Zarządzaniu i Handlu Elektronicznym",
+                            tytul: "magister"
+                        },
+                        {
+                            icon: "fab fa-vuejs",
+                            date: "2003-2007",
+                            title: "Uniwersytet Kazimierza Wielkiego w Bydgoszczy",
+                            desc: "Wydział Matematyki Techniki i Nauk Przyrodniczych",
+                            kierunek: "informatyka",
+                            specjalnosc: "informatyka ogólna",
+                            tytul: "inżynier"
+                        }
+                    ]
+                }
             }
         },
         data () {
             return {
-                skills: [
-                    {
-                        icon: "fab fa-symfony",
-                        date: "2007-2009",
-                        title: "Politechnika Łódzka",
-                        desc: "Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej",
-                        kierunek: "informatyka",
-                        specjalnosc: "Systemy Informatyczne w Zarządzaniu i Handlu Elektronicznym",
-                        tytul: "magister"
-                    },
-                    {
-                        icon: "fab fa-vuejs",
-                        date: "2003-2007",
-                        title: "Uniwersytet Kazimierza Wielkiego w Bydgoszczy",
-                        desc: "Wydział Matematyki Techniki i Nauk Przyrodniczych",
-                        kierunek: "informatyka",
-                        specjalnosc: "informatyka ogólna",
-                        tytul: "inżynier"
-                    },
-                    {
-                        icon: "fab fa-symfony",
-                        date: "2007-2009",
-                        title: "Politechnika Łódzka",
-                        desc: "Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej",
-                        kierunek: "informatyka",
-                        specjalnosc: "Systemy Informatyczne w Zarządzaniu i Handlu Elektronicznym",
-                        tytul: "magister"
-                    },
-                    {
-                        icon: "fab fa-vuejs",
-                        date: "2007-2009",
-                        title: "Uniwersytet Kazimierza Wielkiego w Bydgoszczy",
-                        desc: "Wydział Matematyki Techniki i Nauk Przyrodniczych",
-                        kierunek: "informatyka",
-                        specjalnosc: "informatyka ogólna",
-                        tytul: "inżynier"
-                    }
-                ]
+                // skills: require("../../../data/skills")
             }
         }
     };
