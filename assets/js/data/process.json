@@ -1,0 +1,22 @@
+[
+    {
+        "date": "Step 1",
+        "title": "Planning",
+        "desc": "Duis vitae velit blandit, euismod lectus et, semper justo. Nulla egestas."
+    },
+    {
+        "date": "Step 2",
+        "title": "Developing",
+        "desc": "Phasellus et scelerisque justo, et ultrices sem imperdiet eu. Maecenas lacinia leo."
+    },
+    {
+        "date": "Step 3",
+        "title": "Testing",
+        "desc": "Nulla non interdum sem. Vestibulum is varius fermentum auctor praesent."
+    },
+    {
+        "date": "Step 4",
+        "title": "Delivering",
+        "desc": "Nunc et dictum dui, ac sodales sapien. Ut tincidunt gravida nisi, sit amet interdum."
+    }
+]

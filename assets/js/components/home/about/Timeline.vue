@@ -8,17 +8,17 @@
                             i.mb-2.fas(:class="icon")
                             h5.mb-0 {{ title }}
             .timeline-list(:class="`${position}`")
-                b-row.timeline-list-item(v-for="(skill, index) in skills" :key="index" :class="{'justify-content-start': index % 2 == 0 && position === 'center', 'justify-content-end': index % 2 == 1 && position === 'center'}")
+                b-row.timeline-list-item(v-for="(item, index) in items" :key="index" :class="{'justify-content-start': index % 2 == 0 && position === 'center', 'justify-content-end': index % 2 == 1 && position === 'center'}")
                     b-col(:class="{'col-md-6': position === 'center'}")
                         .timeline-card
-                            //- i.timeline-icon(:class="skill.icon")
+                            //- i.timeline-icon(:class="item.icon")
                             i.timeline-icon.far.fa-dot-circle
                             strong.timeline-date
-                                | {{ skill.date }}
+                                | {{ item.date }}
                             h5
-                                | {{ skill.title }}
+                                | {{ item.title }}
                             h6
-                                | {{ skill.desc }}
+                                | {{ item.desc }}
     .timeline(v-else)
         b-row
             b-col
@@ -27,16 +27,16 @@
                         i.mb-2.fas(:class="icon")
                         h5.mb-0 {{ title }}
         .timeline-list(:class="`${position}`")
-            b-row.timeline-list-item(v-for="(skill, index) in skills" :key="index" :class="{'justify-content-start': index % 2 == 0 && position === 'center', 'justify-content-end': index % 2 == 1 && position === 'center'}")
+            b-row.timeline-list-item(v-for="(item, index) in items" :key="index" :class="{'justify-content-start': index % 2 == 0 && position === 'center', 'justify-content-end': index % 2 == 1 && position === 'center'}")
                 b-col(:class="{'col-md-6': position === 'center'}")
                     .timeline-card
                         i.timeline-icon.far.fa-dot-circle
                         strong.timeline-date
-                            | {{ skill.date }}
+                            | {{ item.date }}
                         h5
-                            | {{ skill.title }}
+                            | {{ item.title }}
                         h6
-                            | {{ skill.desc }}
+                            | {{ item.desc }}
 </template>
 <script>    
     export default {
@@ -49,7 +49,7 @@
             position: {
                 type: String,
                 default: 'center',
-                validator: (value) => ['start', 'center', 'end'].indexOf(value) > -1,
+                validator: (value) => ['start', 'center', 'end'].indexOf(value) !== -1,
             },
             title:  {
                 type: String,
@@ -59,37 +59,52 @@
                 type: String,
                 default: null
             },
-            skills: {
+            timelineData: {
+                type: String,
+                default: 'education',
+                validator: (value) => ['education', 'experience', 'process'].indexOf(value) !== -1,
+            },
+            items: {
                 type: Array,
                 default: () => {
-                    return [
-                        {
-                            icon: "fab fa-symfony",
-                            date: "2007-2009",
-                            title: "Politechnika Łódzka",
-                            desc: "Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej",
-                            kierunek: "informatyka",
-                            specjalnosc: "Systemy Informatyczne w Zarządzaniu i Handlu Elektronicznym",
-                            tytul: "magister"
-                        },
-                        {
-                            icon: "fab fa-vuejs",
-                            date: "2003-2007",
-                            title: "Uniwersytet Kazimierza Wielkiego w Bydgoszczy",
-                            desc: "Wydział Matematyki Techniki i Nauk Przyrodniczych",
-                            kierunek: "informatyka",
-                            specjalnosc: "informatyka ogólna",
-                            tytul: "inżynier"
-                        }
-                    ]
+                    // return require("../../../data/education")
+                    // return require("../../../data/experience")
+                    // return require("../../../data/process")
+                    // [
+                    //     {
+                    //         icon: "fab fa-symfony",
+                    //         date: "2007-2009",
+                    //         title: "Politechnika Łódzka",
+                    //         desc: "Wydział Fizyki Technicznej, Informatyki i Matematyki Stosowanej",
+                    //         kierunek: "informatyka",
+                    //         specjalnosc: "Systemy Informatyczne w Zarządzaniu i Handlu Elektronicznym",
+                    //         tytul: "magister"
+                    //     },
+                    //     {
+                    //         icon: "fab fa-vuejs",
+                    //         date: "2003-2007",
+                    //         title: "Uniwersytet Kazimierza Wielkiego w Bydgoszczy",
+                    //         desc: "Wydział Matematyki Techniki i Nauk Przyrodniczych",
+                    //         kierunek: "informatyka",
+                    //         specjalnosc: "informatyka ogólna",
+                    //         tytul: "inżynier"
+                    //     }
+                    // ]
                 }
             }
         },
         data () {
             return {
-                // skills: require("../../../data/skills")
+                // items: require("../../../data/education")
             }
-        }
+        },
+        created () {
+            switch (this.timelineData) {
+                case 'education': return this.items = require("../../../data/education")
+                case 'experience': return this.items = require("../../../data/experience")
+                case 'process': return this.items = require("../../../data/process")
+            }
+        },
     };
 </script>
 <style lang="scss" scoped>

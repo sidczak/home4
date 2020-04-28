@@ -4,9 +4,8 @@
 
 {% block body %}
 <section class="d-flex flex-shrink-0 section-py-80 section-min-h-100 section--image section--image-about-me section--parallax"></section>
-{#:skills="{{('../../assets/js/data/skills')|json_encode()}}"#}
-{#<img class="img-fluid img-center" src="../../images/landing/new-webinar-room/attendee.png"/>#}
-<home-timeline is-section="true" title="Process" icon="fa-tools"></home-timeline>
+
+<home-timeline is-section="true" title="Process" icon="fa-tools" timeline-data="process"></home-timeline>
 
 <home-skill></home-skill>
 
@@ -14,15 +13,10 @@
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-lg-5">
-                <home-timeline title="Education" icon="fa-graduation-cap" position="end"></home-timeline>
+                <home-timeline title="Education" icon="fa-graduation-cap" position="end" timeline-data="education"></home-timeline>
             </div>
-            {#
-            <div class="col-lg-4 mt-5 mt-lg-0">
-                <home-timeline title="Work Experience" icon="fa-briefcase" position="center"></home-timeline>
-            </div>
-            #}
             <div class="col-lg-5 mt-5 mt-lg-0">
-                <home-timeline title="Work Experience" icon="fa-briefcase" position="start"></home-timeline>
+                <home-timeline title="Work Experience" icon="fa-briefcase" position="start" timeline-data="experience"></home-timeline>
             </div>
         </div>
     </div>
