@@ -1,10 +1,17 @@
 [
     {
-        "date": "2007-2009",
-        "title": "Clickmeeting"
+        "date": "05.2016",
+        "title": "ClickMeeting",
+        "desc": "Front-end developer"
     },
     {
-        "date": "2003-2007",
-        "title": "telekommedia"
+        "date": "02.2011 - 04.2016",
+        "title": "Telekommedia",
+        "desc": "Webmaster"
+    },
+    {
+        "date": "01.2010 - 06.2010",
+        "title": "SESCOM S.A.",
+        "desc": "Programista PHP"
     }
 ]
