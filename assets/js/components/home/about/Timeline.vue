@@ -137,26 +137,43 @@
         }
     }
     &-list {
-        position: relative;
-        &:before {
-            border-left: 2px solid $silver;
-            content: '';
-            position: absolute;
-            height: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            @media (max-width: 767px) {
-                content: none;
-            }
-        }
         &-item {
-            margin: 3rem 0;
+            position: relative;
+            padding-bottom: 3rem;
+            margin: 0;
             &:first-child {
-                margin-top: 0;
                 padding-top: 3rem;
+                &:before {
+                    content: '';
+                    top: 0;
+                    height: 3rem;
+                    border-color: $silver;
+                    @media (max-width: 767px) {
+                        content: none;
+                    }
+                }
+                &:after {
+                    top: 72px;
+                }
             }
             &:last-child {
-                margin-bottom: 0;
+                padding-bottom: 0;
+            }
+            &:after,
+            &:before {
+                border-left: 2px solid $silver;
+                content: '';
+                position: absolute;
+                bottom: 0;
+                top: 24px;
+                left: 50%;
+                transform: translateX(-50%);
+                @media (max-width: 767px) {
+                    content: none;
+                }
+            }
+            &:before {
+                content: none;
             }
         }
         &.start {
@@ -164,9 +181,12 @@
             @media (max-width: 767px) {
                 padding-left: 0;
             }
-            &:before {
-                left: 100px;
-                transform: translateX(-50%);
+            .timeline-list-item {
+                &:before,
+                &:after {
+                    left: 0;
+                    transform: translateX(-50%);
+                }
             }
             .timeline-card {
                 text-align: left;
@@ -213,10 +233,13 @@
             @media (max-width: 767px) {
                 padding-right: 0;
             }
-            &:before {
-                right: 100px;
-                left: auto;
-                transform: translateX(50%);
+            .timeline-list-item {
+                &:before,
+                &:after {
+                    right: 0;
+                    left: auto;
+                    transform: translateX(50%);
+                }
             }
             .timeline-card {
                 text-align: right;
@@ -232,8 +255,8 @@
         }
     }
     &-icon {
-        background: #fff;
-        border: 4px solid #fff;
+        background: transparent;
+        border: 4px solid transparent;
         position: absolute;
         top: 0;
         @media (max-width: 767px) {
