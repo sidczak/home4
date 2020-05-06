@@ -4,7 +4,8 @@
 
 {% block body %}
 <home-about-me></home-about-me>
-<!-- <section class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-h-100 
+{#
+<section class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-h-100 
 section--image section--image-about-me-ania">
     <div class="container">
         <div class="row">
@@ -18,7 +19,54 @@ section--image section--image-about-me-ania">
             </div>
         </div>
     </div>
-</section> -->
+</section>
+#}
+<section class="section-py-80">
+    <div class="container">
+        <div class="row justify-content-center mb-3">
+            <div class="col-md-6 text-center">
+                <h2>Tools - What Tools I Use</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center h-100">
+                    <div class="my-auto">
+                        <div class="card-body">
+                            <i class="fab fa-symfony fa-5x mb-3"></i>
+                            <h3 class="card-title">Symfony</h3>
+                            <a class="card-link" target="_blank" href="{{ path('symfony_start_index') }}">More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center h-100">
+                    <div class="my-auto">
+                        <div class="card-body">
+                            <i class="fab fa-vuejs fa-5x mb-3"></i>
+                            <h3 class="card-title">Vue</h3>
+                            <a class="card-link" target="_blank" href="{{ path('vue_start_index') }}">More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center h-100">
+                    <div class="my-auto">
+                        <div class="card-body">
+                            <i class="fab fa-bootstrap fa-5x mb-3"></i>
+                            <h3 class="card-title">Bootstrap</h3>
+                            <a class="card-link" target="_blank" href="{{ path('bootstrap_start_index') }}">More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{#
 <section class="overflow-hidden flex-shrink-0">
     <div class="container">
         <div class="row">
@@ -55,7 +103,7 @@ section--image section--image-about-me-ania">
         </div>
     </div>
 </section>
-
+#}
 {% endblock %}
 
 {% block javascripts %}{% endblock %}
