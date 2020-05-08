@@ -18,6 +18,7 @@ $font-family-sans-serif: $font-roboto;
 @include bg-variant('.bg-bootstrap', #6f5499, $ignore-warning: true);
 @include bg-variant('.bg-vue', #42b983, $ignore-warning: true);
 @include bg-variant('.bg-symfony', $wet-asphalt, $ignore-warning: true);
+@include bg-variant('.bg-silver-100', $silver-100, $ignore-warning: true);
 
 
 .btn-orange {

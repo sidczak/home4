@@ -4,7 +4,6 @@
     h2 {
         font-size: 5rem;
         font-weight: 800;
-        color: $silver-50;
         margin-bottom: 0;
         position: absolute;
         text-transform: uppercase;
@@ -16,9 +15,15 @@
         margin-bottom: 0;
         text-transform: capitalize;
     }
-    &-light {
+    &-white {
         h2 {
             color: #fff;
+        }
+    }
+    &-silver-100 {
+        h2 {
+            
+            color: $silver-100;
         }
     }
 }
