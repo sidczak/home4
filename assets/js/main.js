@@ -21,6 +21,7 @@ window.jQuery = $;
                 this.navbarHeader();
                 this.navbarBanner();
                 this.navbarScrollSlide();
+                this.modalEmbedClose();
             },
 
             navbarHeader: function () {
@@ -102,6 +103,36 @@ window.jQuery = $;
                     duration,
                     'easeInOutExpo'
                 );
+            },
+            modalEmbedClose: function () {
+                $('[data-target="#exampleModal"]').click(function () {
+                    var src = 'https://www.youtube.com/embed/jsQ7yKwDPZk?rel=0';
+                    $('#exampleModal iframe').attr('src', src);
+                });
+
+                $('#exampleModal').on('hidden.bs.modal', function () {
+                    $('#exampleModal iframe').removeAttr('src');
+                });
+
+                // $(document).ready(function() {
+
+                //     var $videoSrc;  
+                //     $('.video-btn').click(function() {
+                //         $videoSrc = $(this).data( "src" );
+                //     });
+                    
+                //     console.log($videoSrc);
+                      
+                //     $('#myModal').on('shown.bs.modal', function (e) {
+                        
+                //         $("#video").attr('src',$videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0" ); 
+                //     })
+
+                //     $('#myModal').on('hide.bs.modal', function (e) {
+                //         $("#video").attr('src',$videoSrc); 
+                //     }) 
+                  
+                // });
             }
         };
     }());

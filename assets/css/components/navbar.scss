@@ -1,9 +1,9 @@
-$navLink: #fff;
 $navLinkHover: #08c;
 .navbar {
     transition: 
         background .5s ease-in-out,
-        padding .5s ease-in-out;
+        padding .5s ease-in-out,
+        border-bottom .5s ease-in-out;
 
     &-brand:hover {
         animation-name: tada;
@@ -23,19 +23,20 @@ $navLinkHover: #08c;
             }
             &.bg-midnight-blue {
                 background-color: transparent !important;
-                background-color: rgba($midnight-blue, 0.5) !important;
+                // background-color: rgba($midnight-blue, 0.5) !important;
+                border-bottom: 1px solid rgba($white, 0.2);
             }
             .navbar-brand {
                 font-size: 2rem;
             }
             // &.navbar-dark .navbar-nav .nav-link {
-            //     color: $navLink;
+            //     color: $white;
             //     &:hover,
             //     &:focus {
             //         color: $navLinkHover;
             //     }
             //     &.disabled {
-            //         color: rgba($navLink, 0.25);
+            //         color: rgba($white, 0.25);
             //     }
             // }
         }
