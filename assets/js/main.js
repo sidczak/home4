@@ -105,9 +105,15 @@ window.jQuery = $;
                 );
             },
             modalEmbedClose: function () {
-                $('[data-target="#exampleModal"]').click(function () {
-                    var src = 'https://www.youtube.com/embed/jsQ7yKwDPZk?rel=0';
-                    $('#exampleModal iframe').attr('src', src);
+                // $('[data-target="#exampleModal"]').click(function () {
+                //     var src = 'https://www.youtube.com/embed/jsQ7yKwDPZk?rel=0';
+                //     $('#exampleModal iframe').attr('src', src);
+                // });
+
+
+                $('#exampleModal').on('hidden.bs.modal', function () {
+                    var videoSrc = $('#exampleModal iframe').data( "src" );
+                    $('#exampleModal iframe').attr('src', videoSrc);
                 });
 
                 $('#exampleModal').on('hidden.bs.modal', function () {
