@@ -105,7 +105,6 @@ window.jQuery = $;
                 );
             },
             modalEmbedClose: function () {
-
                 // var videoSrc;
                 // $('.btn-play').click(function () {
                 //     videoSrc = $(this).data( "src" );
@@ -116,9 +115,10 @@ window.jQuery = $;
                 //     $('#exampleModal iframe').attr('src', videoSrc);
                 // });
 
+                var videoSrc;
                 $('[data-target="#exampleModal"]').click(function () {
-                    var src = 'https://www.youtube.com/embed/jsQ7yKwDPZk?rel=0';
-                    $('#exampleModal iframe').attr('src', src);
+                    videoSrc = $(this).data( "src" );
+                    $('#exampleModal iframe').attr('src', videoSrc);
                 });
 
                 $('#exampleModal').on('hidden.bs.modal', function () {
