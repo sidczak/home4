@@ -21,7 +21,7 @@ window.jQuery = $;
                 this.navbarHeader();
                 this.navbarBanner();
                 this.navbarScrollSlide();
-                this.modalEmbedClose();
+                this.embedModal();
             },
 
             navbarHeader: function () {
@@ -104,25 +104,25 @@ window.jQuery = $;
                     'easeInOutExpo'
                 );
             },
-            modalEmbedClose: function () {
+            embedModal: function () {
                 // var videoSrc;
                 // $('.btn-play').click(function () {
                 //     videoSrc = $(this).data( "src" );
                 //     console.log(videoSrc);
                 // });
 
-                // $('#exampleModal').on('shown.bs.modal', function () {
-                //     $('#exampleModal iframe').attr('src', videoSrc);
+                // $('#videoModal').on('shown.bs.modal', function () {
+                //     $('#videoModal iframe').attr('src', videoSrc);
                 // });
 
                 var videoSrc;
-                $('[data-target="#exampleModal"]').click(function () {
+                $('[data-target="#videoModal"]').click(function () {
                     videoSrc = $(this).data( "src" );
-                    $('#exampleModal iframe').attr('src', videoSrc);
+                    $('#videoModal iframe').attr('src', videoSrc);
                 });
 
-                $('#exampleModal').on('hidden.bs.modal', function () {
-                    $('#exampleModal iframe').removeAttr('src');
+                $('#videoModal').on('hidden.bs.modal', function () {
+                    $('#videoModal iframe').removeAttr('src');
                 });
             }
         };
