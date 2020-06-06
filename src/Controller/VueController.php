@@ -93,8 +93,16 @@ class VueController extends AbstractController
     /**
      * @Route("/components/modal", name="vue_components_modal")
      */
-    public function modalProgress()
+    public function modal()
     {
         return $this->render('vue/components/modal.html.twig');
+    }
+
+    /**
+     * @Route("/components/map", name="vue_components_map")
+     */
+    public function map()
+    {
+        return $this->render('vue/components/map.html.twig');
     }
 }
