@@ -42,6 +42,7 @@ import Modal from './bs-components/Modal.vue';
 import Zoom from './bs-components/Zoom.vue';
 import Transition from './bs-components/Transition.vue';
 import TransitionGroup from './bs-components/TransitionGroup.vue';
+import Map from './bs-components/Map.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -67,6 +68,7 @@ Vue.customElement('bs-modal', Modal);
 Vue.customElement('bs-zoom', Zoom);
 Vue.customElement('bs-transition', Transition);
 Vue.customElement('bs-transition-group', TransitionGroup);
+Vue.customElement('bs-map', Map);
 
 
 const $ = require('jquery');
