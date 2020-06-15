@@ -23,13 +23,20 @@ export default {
             tap: !L.Browser.mobile
         }).setView([54.4056323, 18.5765012], 15);
 
-        // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        //Defauly
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(this.map);
+
+        // Free layer
+        // L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
         //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         // }).addTo(this.map);
 
-        L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=ZyTc09CjiOWhg45asVV3', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(this.map);
+        //Streets api.maptiler
+        // L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=ZyTc09CjiOWhg45asVV3', {
+        //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        // }).addTo(this.map);
 
         var myIcon = L.icon({
             iconUrl: require('../../images/browsers/chrome.png'),
