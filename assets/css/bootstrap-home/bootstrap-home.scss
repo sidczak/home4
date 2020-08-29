@@ -10,6 +10,7 @@ $font-family-sans-serif: $font-roboto;
 // Bootstrap Components
 // bootstrap/transitions
 @import "transitions";
+@import "shadows";
 
 // Bootstrap Utility classes
 // bootstrap/utilities/background
@@ -19,6 +20,8 @@ $font-family-sans-serif: $font-roboto;
 @include bg-variant('.bg-vue', #42b983, $ignore-warning: true);
 @include bg-variant('.bg-symfony', $wet-asphalt, $ignore-warning: true);
 @include bg-variant('.bg-silver-100', $silver-100, $ignore-warning: true);
+@include bg-variant('.bg-turquoise', $turquoise, $ignore-warning: true);
+
 
 
 .btn-orange {

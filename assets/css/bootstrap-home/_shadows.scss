@@ -1,0 +1,97 @@
+// flat
+// concave
+// convex
+// pressed
+.shadow {
+    &-turquoise {
+        &-flat {
+            &-45 {
+                background: $turquoise;
+                box-shadow: 10px -10px 20px #16a085, -10px 10px 20px #1ed8b3;
+            }
+            &-145 {
+                background: $turquoise;
+                box-shadow: 10px 10px 20px #16a085, -10px -10px 20px #1ed8b3;
+            }
+            &-225 {
+                background: $turquoise;
+                box-shadow: -10px 10px 20px #16a085, 10px -10px 20px #1ed8b3;
+            }
+            &-315 {
+                background: $turquoise;
+                box-shadow: -10px -10px 20px #16a085, 10px 10px 20px #1ed8b3;
+            }
+        }
+        &-pressed {
+            &-45 {
+                background: $turquoise;
+                box-shadow: inset 10px -10px 20px #16a085, inset -10px 10px 20px #1ed8b3;
+            }
+            &-145 {
+                background: $turquoise;
+                box-shadow: inset 10px 10px 20px #16a085, inset -10px -10px 20px #1ed8b3;
+            }
+            &-225 {
+                background: $turquoise;
+                box-shadow: inset -10px 10px 20px #16a085, inset 10px -10px 20px #1ed8b3;
+            }
+            &-315 {
+                background: $turquoise;
+                box-shadow: inset -10px -10px 20px #16a085, inset 10px 10px 20px #1ed8b3;
+            }
+        }
+        &-concave {
+            &-45 {
+                background: linear-gradient(45deg, #17a98c, #1cc9a7);
+                box-shadow: 10px -10px 20px #16a085, -10px 10px 20px #1ed8b3;
+            }
+            &-145 {
+                background: linear-gradient(145deg, #17a98c, #1cc9a7);
+                box-shadow: 10px 10px 20px #16a085, -10px -10px 20px #1ed8b3;
+            }
+            &-225 {
+                background: linear-gradient(225deg, #17a98c, #1cc9a7);
+                box-shadow: -10px 10px 20px #16a085, 10px -10px 20px #1ed8b3;
+            }
+            &-315 {
+                background: linear-gradient(315deg, #17a98c, #1cc9a7);
+                box-shadow:  -10px -10px 20px #16a085, 10px 10px 20px #1ed8b3;
+            }
+        }
+        &-convex {
+            &-45 {
+                background: linear-gradient(45deg, #1cc9a7, #17a98c);
+                box-shadow: 10px -10px 20px #16a085, -10px 10px 20px #1ed8b3;
+            }
+            &-145 {
+                background: linear-gradient(145deg, #1cc9a7, #17a98c);
+                box-shadow: 10px 10px 20px #16a085, -10px -10px 20px #1ed8b3;
+            }
+            &-225 {
+                background: linear-gradient(225deg, #1cc9a7, #17a98c);
+                box-shadow: -10px 10px 20px #16a085, 10px -10px 20px #1ed8b3;
+            }
+            &-315 {
+                background: linear-gradient(315deg, #1cc9a7, #17a98c);
+                box-shadow:  -10px -10px 20px #16a085, 10px 10px 20px #1ed8b3;
+            }
+        }
+    }
+    &-midnight-blue {
+        &-concave {
+            &-45 {
+                background: linear-gradient(45deg, #283848, #2f4256);
+            }
+            &-145 {
+                background: linear-gradient(145deg, #283848, #2f4256);
+                box-shadow:  10px 10px 20px #253544, -10px -10px 20px #33475c;
+            }
+            &-225 {
+                background: linear-gradient(225deg, #283848, #2f4256);
+            }
+            &-315 {
+                background: linear-gradient(315deg, #283848, #2f4256);
+            }
+        }
+    }
+}
