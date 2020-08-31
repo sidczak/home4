@@ -2,122 +2,122 @@
     &-turquoise {
         &-flat {
             background: $turquoise;
-            box-shadow: 10px 10px 20px darken($turquoise, 5%), -10px -10px 20px lighten($turquoise, 5%);
+            box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
             &-45 {
                 background: $turquoise;
-                box-shadow: 10px -10px 20px darken($turquoise, 5%), -10px 10px 20px lighten($turquoise, 5%);
+                box-shadow: 10px -10px 20px darken($turquoise, 4%), -10px 10px 20px lighten($turquoise, 4%);
             }
             &-145 {
                 background: $turquoise;
-                box-shadow: 10px 10px 20px darken($turquoise, 5%), -10px -10px 20px lighten($turquoise, 5%);
+                box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
             }
             &-225 {
                 background: $turquoise;
-                box-shadow: -10px 10px 20px darken($turquoise, 5%), 10px -10px 20px lighten($turquoise, 5%);
+                box-shadow: -10px 10px 20px darken($turquoise, 4%), 10px -10px 20px lighten($turquoise, 4%);
             }
             &-315 {
                 background: $turquoise;
-                box-shadow: -10px -10px 20px darken($turquoise, 5%), 10px 10px 20px lighten($turquoise, 5%);
+                box-shadow: -10px -10px 20px darken($turquoise, 4%), 10px 10px 20px lighten($turquoise, 4%);
             }
         }
         &-pressed {
             background: $turquoise;
-            box-shadow: inset 10px 10px 20px darken($turquoise, 5%), inset -10px -10px 20px lighten($turquoise, 5%);
+            box-shadow: inset 10px 10px 20px darken($turquoise, 4%), inset -10px -10px 20px lighten($turquoise, 4%);
             &-45 {
                 background: $turquoise;
-                box-shadow: inset 10px -10px 20px darken($turquoise, 5%), inset -10px 10px 20px lighten($turquoise, 5%);
+                box-shadow: inset 10px -10px 20px darken($turquoise, 4%), inset -10px 10px 20px lighten($turquoise, 4%);
             }
             &-145 {
                 background: $turquoise;
-                box-shadow: inset 10px 10px 20px darken($turquoise, 5%), inset -10px -10px 20px lighten($turquoise, 5%);
+                box-shadow: inset 10px 10px 20px darken($turquoise, 4%), inset -10px -10px 20px lighten($turquoise, 4%);
             }
             &-225 {
                 background: $turquoise;
-                box-shadow: inset -10px 10px 20px darken($turquoise, 5%), inset 10px -10px 20px lighten($turquoise, 5%);
+                box-shadow: inset -10px 10px 20px darken($turquoise, 4%), inset 10px -10px 20px lighten($turquoise, 4%);
             }
             &-315 {
                 background: $turquoise;
-                box-shadow: inset -10px -10px 20px darken($turquoise, 5%), inset 10px 10px 20px lighten($turquoise, 5%);
+                box-shadow: inset -10px -10px 20px darken($turquoise, 4%), inset 10px 10px 20px lighten($turquoise, 4%);
             }
         }
         &-concave {
-            background: linear-gradient(145deg, darken($turquoise, 4%), lighten($turquoise, 4%));
-            box-shadow: 10px 10px 20px darken($turquoise, 5%), -10px -10px 20px lighten($turquoise, 5%);
+            background: linear-gradient(145deg, darken($turquoise, 5%), lighten($turquoise, 5%));
+            box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
             &-45 {
-                background: linear-gradient(45deg, darken($turquoise, 4%), lighten($turquoise, 4%));
-                box-shadow: 10px -10px 20px darken($turquoise, 5%), -10px 10px 20px lighten($turquoise, 5%);
+                background: linear-gradient(45deg, darken($turquoise, 5%), lighten($turquoise, 5%));
+                box-shadow: 10px -10px 20px darken($turquoise, 4%), -10px 10px 20px lighten($turquoise, 4%);
             }
             &-145 {
-                background: linear-gradient(145deg, darken($turquoise, 4%), lighten($turquoise, 4%));
-                box-shadow: 10px 10px 20px darken($turquoise, 5%), -10px -10px 20px lighten($turquoise, 5%);
+                background: linear-gradient(145deg, darken($turquoise, 5%), lighten($turquoise, 5%));
+                box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
             }
             &-225 {
-                background: linear-gradient(225deg, darken($turquoise, 4%), lighten($turquoise, 4%));
-                box-shadow: -10px 10px 20px darken($turquoise, 5%), 10px -10px 20px lighten($turquoise, 5%);
+                background: linear-gradient(225deg, darken($turquoise, 5%), lighten($turquoise, 5%));
+                box-shadow: -10px 10px 20px darken($turquoise, 4%), 10px -10px 20px lighten($turquoise, 4%);
             }
             &-315 {
-                background: linear-gradient(315deg,darken($turquoise, 4%), lighten($turquoise, 4%));
-                box-shadow:  -10px -10px 20px darken($turquoise, 5%), 10px 10px 20px lighten($turquoise, 5%);
+                background: linear-gradient(315deg,darken($turquoise, 5%), lighten($turquoise, 5%));
+                box-shadow:  -10px -10px 20px darken($turquoise, 4%), 10px 10px 20px lighten($turquoise, 4%);
             }
         }
         &-convex {
-            background: linear-gradient(145deg, lighten($turquoise, 4%), darken($turquoise, 4%));
-            box-shadow: 10px 10px 20px darken($turquoise, 5%), -10px -10px 20px lighten($turquoise, 5%);
+            background: linear-gradient(145deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+            box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
             &-45 {
-                background: linear-gradient(45deg, lighten($turquoise, 4%), darken($turquoise, 4%));
-                box-shadow: 10px -10px 20px darken($turquoise, 5%), -10px 10px 20px lighten($turquoise, 5%);
+                background: linear-gradient(45deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+                box-shadow: 10px -10px 20px darken($turquoise, 4%), -10px 10px 20px lighten($turquoise, 4%);
             }
             &-145 {
-                background: linear-gradient(145deg, lighten($turquoise, 4%), darken($turquoise, 4%));
-                box-shadow: 10px 10px 20px darken($turquoise, 5%), -10px -10px 20px lighten($turquoise, 5%);
+                background: linear-gradient(145deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+                box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
             }
             &-225 {
-                background: linear-gradient(225deg, lighten($turquoise, 4%), darken($turquoise, 4%));
-                box-shadow: -10px 10px 20px darken($turquoise, 5%), 10px -10px 20px lighten($turquoise, 5%);
+                background: linear-gradient(225deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+                box-shadow: -10px 10px 20px darken($turquoise, 4%), 10px -10px 20px lighten($turquoise, 4%);
             }
             &-315 {
-                background: linear-gradient(315deg, lighten($turquoise, 4%), darken($turquoise, 4%));
-                box-shadow:  -10px -10px 20px darken($turquoise, 5%), 10px 10px 20px lighten($turquoise, 5%);
+                background: linear-gradient(315deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+                box-shadow:  -10px -10px 20px darken($turquoise, 4%), 10px 10px 20px lighten($turquoise, 4%);
             }
         }
     }
     &-midnight-blue {
         &-concave {
             &-45 {
-                background: linear-gradient(45deg, darken($midnight-blue, 4%), lighten($midnight-blue, 4%));
-                box-shadow: 10px -10px 20px darken($midnight-blue, 5%), -10px 10px 20px lighten($midnight-blue, 5%);
+                background: linear-gradient(45deg, darken($midnight-blue, 5%), lighten($midnight-blue, 5%));
+                box-shadow: 10px -10px 20px darken($midnight-blue, 4%), -10px 10px 20px lighten($midnight-blue, 4%);
             }
             &-145 {
-                background: linear-gradient(145deg, darken($midnight-blue, 4%), lighten($midnight-blue, 4%));
-                box-shadow: 10px 10px 20px darken($midnight-blue, 5%), -10px -10px 20px lighten($midnight-blue, 5%);
+                background: linear-gradient(145deg, darken($midnight-blue, 5%), lighten($midnight-blue, 5%));
+                box-shadow: 10px 10px 20px darken($midnight-blue, 4%), -10px -10px 20px lighten($midnight-blue, 4%);
             }
             &-225 {
-                background: linear-gradient(225deg, darken($midnight-blue, 4%), lighten($midnight-blue, 4%));
-                box-shadow: -10px 10px 20px darken($midnight-blue, 5%), 10px -10px 20px lighten($midnight-blue, 5%);
+                background: linear-gradient(225deg, darken($midnight-blue, 5%), lighten($midnight-blue, 5%));
+                box-shadow: -10px 10px 20px darken($midnight-blue, 4%), 10px -10px 20px lighten($midnight-blue, 4%);
             }
             &-315 {
-                background: linear-gradient(315deg, darken($midnight-blue, 4%), lighten($midnight-blue, 4%));
-                box-shadow:  -10px -10px 20px darken($midnight-blue, 5%), 10px 10px 20px lighten($midnight-blue, 5%);
+                background: linear-gradient(315deg, darken($midnight-blue, 5%), lighten($midnight-blue, 5%));
+                box-shadow:  -10px -10px 20px darken($midnight-blue, 4%), 10px 10px 20px lighten($midnight-blue, 4%);
             }
         }
         &-convex {
-            background: linear-gradient(145deg, lighten($midnight-blue, 4%), darken($midnight-blue, 4%));
-            box-shadow: 10px 10px 20px darken($midnight-blue, 5%), -10px -10px 20px lighten($midnight-blue, 5%);
+            background: linear-gradient(145deg, lighten($midnight-blue, 5%), darken($midnight-blue, 5%));
+            box-shadow: 10px 10px 20px darken($midnight-blue, 4%), -10px -10px 20px lighten($midnight-blue, 4%);
             &-45 {
-                background: linear-gradient(45deg, lighten($midnight-blue, 4%), darken($midnight-blue, 4%));
-                box-shadow: 10px -10px 20px darken($midnight-blue, 5%), -10px 10px 20px lighten($midnight-blue, 5%);
+                background: linear-gradient(45deg, lighten($midnight-blue, 5%), darken($midnight-blue, 5%));
+                box-shadow: 10px -10px 20px darken($midnight-blue, 4%), -10px 10px 20px lighten($midnight-blue, 4%);
             }
             &-145 {
-                background: linear-gradient(145deg, lighten($midnight-blue, 4%), darken($midnight-blue, 4%));
-                box-shadow: 10px 10px 20px darken($midnight-blue, 5%), -10px -10px 20px lighten($midnight-blue, 5%);
+                background: linear-gradient(145deg, lighten($midnight-blue, 5%), darken($midnight-blue, 5%));
+                box-shadow: 10px 10px 20px darken($midnight-blue, 4%), -10px -10px 20px lighten($midnight-blue, 4%);
             }
             &-225 {
-                background: linear-gradient(225deg, lighten($midnight-blue, 4%), darken($midnight-blue, 4%));
-                box-shadow: -10px 10px 20px darken($midnight-blue, 5%), 10px -10px 20px lighten($midnight-blue, 5%);
+                background: linear-gradient(225deg, lighten($midnight-blue, 5%), darken($midnight-blue, 5%));
+                box-shadow: -10px 10px 20px darken($midnight-blue, 4%), 10px -10px 20px lighten($midnight-blue, 4%);
             }
             &-315 {
-                background: linear-gradient(315deg, lighten($midnight-blue, 4%), darken($midnight-blue, 4%));
-                box-shadow:  -10px -10px 20px darken($midnight-blue, 5%), 10px 10px 20px lighten($midnight-blue, 5%);
+                background: linear-gradient(315deg, lighten($midnight-blue, 5%), darken($midnight-blue, 5%));
+                box-shadow:  -10px -10px 20px darken($midnight-blue, 4%), 10px 10px 20px lighten($midnight-blue, 4%);
             }
         }
     }
