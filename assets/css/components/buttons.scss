@@ -201,6 +201,20 @@ $peter-river-shades:
     "peter-river-900" $peter-river-900;
 @include button-shades-variant($peter-river-shades);
 
+$belize-hole-shades:
+    "belize-hole" $belize-hole,
+    "belize-hole-50" $belize-hole-50,
+    "belize-hole-100" $belize-hole-100,
+    "belize-hole-200" $belize-hole-200,
+    "belize-hole-300" $belize-hole-300,
+    "belize-hole-400" $belize-hole-400,
+    "belize-hole-500" $belize-hole-500,
+    "belize-hole-600" $belize-hole-600,
+    "belize-hole-700" $belize-hole-700,
+    "belize-hole-800" $belize-hole-800,
+    "belize-hole-900" $belize-hole-900;
+@include button-shades-variant($belize-hole-shades);
+
 $emerald-shades:
     "emerald" $emerald,
     "emerald-50" $emerald-50,

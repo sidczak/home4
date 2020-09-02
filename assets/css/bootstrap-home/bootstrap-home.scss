@@ -8,19 +8,24 @@ $font-family-sans-serif: $font-roboto;
 @import "~bootstrap-vue/src/index.scss";
 
 // Bootstrap Components
-// bootstrap/transitions
+// bootstrap/scss/transitions
 @import "transitions";
-@import "shadows";
+// bootstrap/scss/utilities/shadows
+@import "utilities/shadows";
 
 // Bootstrap Utility classes
 // bootstrap/utilities/background
+@include bg-variant('.bg-turquoise', $turquoise, $ignore-warning: true);
 @include bg-variant('.bg-wet-asphalt', $wet-asphalt, $ignore-warning: true);
 @include bg-variant('.bg-midnight-blue', $midnight-blue, $ignore-warning: true);
+
+@include bg-variant('.bg-clouds', $clouds, $ignore-warning: true);
+@include bg-variant('.bg-silver', $silver, $ignore-warning: true);
+@include bg-variant('.bg-silver-100', $silver-100, $ignore-warning: true);
+
 @include bg-variant('.bg-bootstrap', #6f5499, $ignore-warning: true);
 @include bg-variant('.bg-vue', #42b983, $ignore-warning: true);
 @include bg-variant('.bg-symfony', $wet-asphalt, $ignore-warning: true);
-@include bg-variant('.bg-silver-100', $silver-100, $ignore-warning: true);
-@include bg-variant('.bg-turquoise', $turquoise, $ignore-warning: true);
 
 
 
