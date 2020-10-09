@@ -12,10 +12,3 @@
 .was-validated .form-control:valid:focus {
     box-shadow: none;
 }
-
-.shadow-clouds-concave-145 {
-	.form-control {
-		background-color: $clouds;
-		border-color: darken($clouds, 8%);
-	}
-}
