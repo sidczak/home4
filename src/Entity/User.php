@@ -2,7 +2,10 @@
 
 namespace App\Entity;
 
-class User
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+
+class User implements UserInterface
 {
     private $id;
 
@@ -29,9 +32,17 @@ class User
         return $this;
     }
 
+    public function getUsername(): string
+    {
+        return (string) $this->email;
+    }
+
     public function getRoles(): ?array
     {
-        return $this->roles;
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
     public function setRoles(array $roles): self
@@ -51,5 +62,16 @@ class User
         $this->password = $password;
 
         return $this;
+    }
+
+    public function getSalt()
+    {
+        // not needed when using the "bcrypt" algorithm in security.yaml
+    }
+
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 }
