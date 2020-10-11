@@ -74,13 +74,18 @@
         <a class="nav-link disabled" href="#">Contact</a>
       </li>
       #}
-      <li class="nav-item">
-        {% if is_granted('ROLE_USER') %}
+      {% if is_granted('ROLE_USER') %}
+        <li class="nav-item">
           <a class="nav-link" href="{{ path('app_logout') }}">{{ 'Logout'|trans }}</a>
-        {% else %}
+        </li>
+      {% else %}
+        <li class="nav-item">
           <a class="nav-link" href="{{ path('app_login') }}">{{ 'Sign in'|trans }}</a>
-        {% endif %}
-      </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">{{ 'Register'|trans }}</a>
+        </li> 
+      {% endif %}
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="xnavbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang {{ app.request.locale|upper }}</a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="xnavbarDropdownMenuLink">
