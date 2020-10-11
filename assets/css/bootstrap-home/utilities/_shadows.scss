@@ -52,6 +52,13 @@
                     &-145 {
                         background: linear-gradient(145deg, darken($val, 5%), lighten($val, 5%));
                         box-shadow: 10px 10px 20px darken($val, 4%), -10px -10px 20px lighten($val, 4%);
+                        .form-control {
+                            background-color: $val;
+                            border-color: darken($val, 8%);
+                            &:focus {
+                                border-color: darken($val, 12%);
+                            }
+                        }
                     }
                     &-225 {
                         background: linear-gradient(225deg, darken($val, 5%), lighten($val, 5%));
