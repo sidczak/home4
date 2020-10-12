@@ -11,13 +11,10 @@
                     <div class="card-body">
                        <div class="title title-white d-flex justify-content-center align-items-center mb-4 mt-4">
                             <h2>FORM</h2>
-                            <h3>Login</h3>
+                            <h3>Log in</h3>
                         </div>
-
                         <form action="{{ path("fos_user_security_check") }}" method="post" class="{{error ? 'was-validated'}}" novalidate>
-                            {% if error %}
-                                    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                            {% endif %}
+
                             {% if csrf_token %}
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                             {% endif %}
@@ -28,7 +25,11 @@
                             <div class="form-group">
                                 <label for="password">{{ 'security.login.password'|trans }}</label>
                                 <input class="form-control" type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+                                {% if error %}
+                                    <small>{{ error.messageKey|trans(error.messageData, 'security') }}</small>
+                                {% endif %}
                             </div>
+
                             <div class="form-check mb-3">
                                 <input class="form-check-input" type="checkbox" id="remember_me" name="_remember_me" value="on" />
                                 <label class="form-check-label" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
