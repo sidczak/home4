@@ -14,7 +14,11 @@
                             <h3>Log in</h3>
                         </div>
                         <form action="{{ path("fos_user_security_check") }}" method="post" class="{{error ? 'was-validated'}}" novalidate>
-
+                            {% if error %}
+                                <div class="alert alert-danger">
+                                    <small>{{ error.messageKey|trans(error.messageData, 'security') }}</small>
+                                </div>
+                            {% endif %}
                             {% if csrf_token %}
                                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                             {% endif %}
@@ -25,9 +29,6 @@
                             <div class="form-group">
                                 <label for="password">{{ 'security.login.password'|trans }}</label>
                                 <input class="form-control" type="password" id="password" name="_password" required="required" autocomplete="current-password" />
-                                {% if error %}
-                                    <small>{{ error.messageKey|trans(error.messageData, 'security') }}</small>
-                                {% endif %}
                             </div>
 
                             <div class="form-check mb-3">
