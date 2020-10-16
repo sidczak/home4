@@ -26,6 +26,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ path('components_forms') }}" class="nav-link {{ app.request.get('_route') ==  'components_forms' ? 'active' }}">
+                            <i class="fas fa-fw fa-caret-right"></i> Forms
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ path('components_section') }}" class="nav-link {{ app.request.get('_route') ==  'components_section' ? 'active' }}">
                             <i class="fas fa-fw fa-caret-right"></i> Section
                         </a>
