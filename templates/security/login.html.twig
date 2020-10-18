@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row justify-content-center mb-3">
             <div class="col-lg-6">
-                <div class="card border-0 shadow-clouds-concave-145 py-3">
+                <div class="card border-0 shadow-clouds-concave-145 pt-3">
                     <div class="card-body">
                         <div class="title title-white d-flex justify-content-center align-items-center mb-4 mt-4">
                             <h2>FORM</h2>
@@ -49,11 +49,10 @@
                             {% endif %}
                         </form>
                     </div>
-                    {# <div class="card-footer">
-                        <small><a href="#">Forgot password?</a></small>
-                        <br/>
-                        <small><a href="#">Don't have an account? <b>Sign Up</b></a></small>
-                    </div> #}
+                    <div class="card-footer">
+                        <p class="mb-1 small"><a href="#">Forgot password?</a></p>
+                        <p class="mb-1 small"><a href="{{ path('app_register') }}">Don't have an account? <strong>Register</strong></a></p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -59,6 +59,16 @@
                                 border-color: darken($val, 12%);
                             }
                         }
+                        &.card {
+                            border-color: darken($val, 5%);
+                        }
+                        .card {
+                            &-header,
+                            &-footer {
+                                background-color: transparent;
+                                border-color: darken($val, 5%);
+                            }
+                        }
                     }
                     &-225 {
                         background: linear-gradient(225deg, darken($val, 5%), lighten($val, 5%));
