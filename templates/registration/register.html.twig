@@ -45,6 +45,7 @@
                             <div class="form-group">
                                 {{ form_label(registrationForm.email) }}
                                 {{ form_widget(registrationForm.email, { 'attr': {'class': 'form-control'} }) }}
+                                {# {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'pattern': '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$'}}) }} #}
                                 {# {{ form_errors(registrationForm.email) }} #}
                             </div>
                             <div class="form-group">
