@@ -20,7 +20,7 @@
                             {% endif %}
 
                             {% if app.user %}
-                                <div class="mb-3">
+                                <div class="mb-3 text-center">
                                     You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
                                 </div>
                             {% else %}
@@ -50,7 +50,7 @@
                         </form>
                     </div>
                     <div class="card-footer">
-                        <p class="mb-1 small"><a href="#">Forgot password?</a></p>
+                        <p class="mb-1 small"><a href="{{ path('app_remind') }}">Forgot password?</a></p>
                         <p class="mb-1 small"><a href="{{ path('app_register') }}">Don't have an account? <strong>Register</strong></a></p>
                     </div>
                 </div>
