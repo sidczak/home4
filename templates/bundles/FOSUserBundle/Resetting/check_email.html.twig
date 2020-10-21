@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{# {% extends "@FOSUser/layout.html.twig" %} #}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+<section class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-h-100 bg-clouds">
+    <div class="container">
+        <div class="row justify-content-center mb-3">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-clouds-concave-145 py-3">
+                    <div class="card-body text-center">
+
+						<p>{{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}</p>
+						<a class="btn btn-lg btn-pill btn-midnight-blue" href="{{ path('fos_user_security_login') }}">Log in</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
