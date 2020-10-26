@@ -257,6 +257,20 @@ $midnight-blue-shades:
     "midnight-blue-900" $midnight-blue-900;
 @include button-shades-variant($midnight-blue-shades);
 
+$clouds-shades:
+    "clouds" $clouds,
+    "clouds-50" $clouds-50,
+    "clouds-100" $clouds-100,
+    "clouds-200" $clouds-200,
+    "clouds-300" $clouds-300,
+    "clouds-400" $clouds-400,
+    "clouds-500" $clouds-500,
+    "clouds-600" $clouds-600,
+    "clouds-700" $clouds-700,
+    "clouds-800" $clouds-800,
+    "clouds-900" $clouds-900;
+@include button-shades-variant($clouds-shades);
+
 $silver-shades:
     "silver" $silver,
     "silver-50" $silver-50,
@@ -271,7 +285,8 @@ $silver-shades:
     "silver-900" $silver-900;
 @include button-shades-variant($silver-shades);
 
-$red-shades: 
+$red-shades:
+    "white" $white,
     "red" $red,
     "red-50" $red-50, 
     "red-100" $red-100,
