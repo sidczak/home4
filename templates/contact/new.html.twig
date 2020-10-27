@@ -8,7 +8,7 @@
 <section class="contact d-flex flex-shrink-0 section-min-h-100">
     <div class="container-fluid">
         <div class="row section-min-h-100">
-            <div class="col-lg-4 d-flex justify-content-center align-items-center bg-secondary">
+            <div class="col-lg-4 d-flex justify-content-center align-items-center shadow-turquoise-concave-145 shadow-none">
                 <div class="contact-info text-white section-py-80">
                     <h2>Contact info</h2>
                     <h3><i class="fas fa-fw fa-map-marker-alt"></i> Address</h3>
@@ -33,9 +33,12 @@
                     </a>
                 </div>
             </div>
-            <div class="col-lg-8 d-flex justify-content-center align-items-center">
-                <div class="contact-form section-py-80">
-                    <h2 class="text-center">Contact form</h2>
+            <div class="col-lg-8 d-flex justify-content-center align-items-center bg-clouds">
+                <div class="contact-form section-my-80 py-5 px-3 shadow-clouds-concave-145 rounded">
+                    <div class="title title-silver-100 d-flex justify-content-center align-items-center mb-4">
+                        <h2>Form</h2>
+                        <h3>Contact</h3>
+                    </div>
                     {% if app.session.flashbag.peek('message-sent')|length > 0 %}
                         {% for message in app.flashes('message-sent') %}
                             <div class="alert alert-success">
