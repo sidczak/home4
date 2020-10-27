@@ -35,10 +35,10 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/remind", name="app_remind")
+     * @Route("/reset", name="app_reset")
      */
-    public function remind()
+    public function reset()
     {
-        return $this->render('security/remind.html.twig');
+        return $this->render('security/reset.html.twig');
     }
 }
