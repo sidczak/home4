@@ -1,13 +1,13 @@
 {% form_theme form _self %}
  
 {% block form_errors %}
-{% spaceless %}
+{% apply spaceless %}
     {% if errors is defined and errors|length > 0 %}
         {% for error in errors %}
             <small class="invalid-feedback">{{ error.message }}</small>
         {% endfor %}
     {% endif %}
-{% endspaceless %}
+{% endapply %}
 {% endblock form_errors %}
 
 {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': form.vars.valid ? '' : 'was-validated' }} ) }}
