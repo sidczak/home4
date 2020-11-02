@@ -33,12 +33,4 @@ class SecurityController extends AbstractController
     {
         throw new \Exception('This method can be blank - it will be intercepted by the logout key on your firewall');
     }
-
-    /**
-     * @Route("/reset", name="app_reset")
-     */
-    public function reset()
-    {
-        return $this->render('security/reset.html.twig');
-    }
 }
