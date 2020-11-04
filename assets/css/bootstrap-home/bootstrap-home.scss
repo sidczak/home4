@@ -19,6 +19,10 @@ $font-family-sans-serif: $font-roboto;
 @include bg-variant('.bg-wet-asphalt', $wet-asphalt, $ignore-warning: true);
 @include bg-variant('.bg-midnight-blue', $midnight-blue, $ignore-warning: true);
 
+@include bg-variant('.bg-orange', $orange, $ignore-warning: true);
+@include bg-variant('.bg-alizarin', $alizarin, $ignore-warning: true);
+@include bg-variant('.bg-peter-river', $peter-river, $ignore-warning: true);
+
 @include bg-variant('.bg-clouds', $clouds, $ignore-warning: true);
 @include bg-variant('.bg-silver', $silver, $ignore-warning: true);
 @include bg-variant('.bg-silver-100', $silver-100, $ignore-warning: true);
