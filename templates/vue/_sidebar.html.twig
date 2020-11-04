@@ -26,10 +26,10 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed {{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress', 'vue_examples_zoom', 'vue_examples_transition', 'vue_examples_transition_group'] ? 'active' }}" href="#" data-toggle="collapse" data-target="#examples" aria-expanded="{{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress', 'vue_examples_zoom', 'vue_examples_transition', 'vue_examples_transition_group'] ? 'true' : 'false' }}" aria-controls="examples">
+                <a class="nav-link collapsed {{ currentRouteName starts with 'vue_examples_' ? 'active' }}" href="#" data-toggle="collapse" data-target="#examples" aria-expanded="{{ currentRouteName starts with 'vue_examples_' ? 'true' : 'false' }}" aria-controls="examples">
                     <i class="far fa-fw fa-file-alt"></i> Examples <i class="fas fa-fw fa-angle-left"></i>
                 </a>
-                <ul id="examples" class="nav flex-column flex-nowrap collapse {{ app.request.get('_route') in  ['vue_examples_album', 'vue_examples_browser', 'vue_examples_sound_card', 'vue_examples_resize', 'vue_examples_scroll', 'vue_examples_scroll_progress', 'vue_examples_zoom', 'vue_examples_transition', 'vue_examples_transition_group'] ? 'show' }}" aria-labelledby="headingExamples" data-parent="#accordionVue">
+                <ul id="examples" class="nav flex-column flex-nowrap collapse {{ currentRouteName starts with 'vue_examples_' ? 'show' }}" aria-labelledby="headingExamples" data-parent="#accordionVue">
                     <li class="nav-item">
                         <a class="nav-link {{ app.request.get('_route') ==  'vue_examples_album' ? 'active' }}" href="{{ path('vue_examples_album') }}"><i class="fas fa-fw fa-caret-right"></i> Album</a>
                     </li>
@@ -56,6 +56,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ app.request.get('_route') ==  'vue_examples_transition_group' ? 'active' }}" href="{{ path('vue_examples_transition_group') }}"><i class="fas fa-fw fa-caret-right"></i> Transition group</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ app.request.get('_route') ==  'vue_examples_waves' ? 'active' }}" href="{{ path('vue_examples_waves') }}"><i class="fas fa-fw fa-caret-right"></i> Waves</a>
                     </li>
                 </ul>
             </li>

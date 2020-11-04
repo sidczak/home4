@@ -91,6 +91,14 @@ class VueController extends AbstractController
     }
 
     /**
+     * @Route("/examples/waves", name="vue_examples_waves")
+     */
+    public function waves()
+    {
+        return $this->render('vue/examples/waves.html.twig');
+    }
+
+    /**
      * @Route("/components/modal", name="vue_components_modal")
      */
     public function modal()
