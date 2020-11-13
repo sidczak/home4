@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Reset your password{% endblock %}
 
@@ -9,4 +9,35 @@
         {{ form_row(resetForm.plainPassword) }}
         <button class="btn btn-primary">Reset password</button>
     {{ form_end(resetForm) }}
+{% endblock %} #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+<section class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-h-100 bg-clouds">
+    <div class="container">
+        <div class="row justify-content-center mb-3">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-clouds-concave-145 pt-3">
+                    <div class="card-body">
+                        <div class="title title-white d-flex justify-content-center align-items-center mb-4 mt-4">
+                            <h2>FORM</h2>
+                            <h3>Reset</h3>
+                        </div>
+                        {{ form_start(resetForm) }}
+                            {{ form_row(resetForm.plainPassword) }}
+                            <button class="btn btn-primary">Reset password</button>
+                        {{ form_end(resetForm) }}
+                    </div>
+                    <div class="card-footer">
+                        <p class="mb-1 small"><a href="{{ path('app_login') }}">Already have an account? <strong>Log In</strong></a></p>
+                        <p class="mb-1 small"><a href="{{ path('app_register') }}">Don't have an account? <strong>Register</strong></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
