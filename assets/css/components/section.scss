@@ -42,7 +42,7 @@
             opacity: .5;
         }
         &-start {
-            background-image: url("../../images/welcome/start.jpg");
+            background-image: url("../../images/welcome/home-background.jpg");
             &-blog {
                 background-image: url("../../images/welcome/start-blog.jpg");
             }
@@ -144,7 +144,7 @@
         &-basic {
             &::before {
                 background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
-                opacity: .75;
+                opacity: .5;
             }
         }
         &-start {
