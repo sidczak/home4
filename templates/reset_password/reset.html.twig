@@ -15,6 +15,19 @@
 
 {% block title %}Reset your password{% endblock %}
 
+{% form_theme resetForm _self %}
+ 
+{% block form_errors %}
+{% apply spaceless %}
+    {% if errors is defined and errors|length > 0 %}
+        {% for error in errors %}
+            <div>{{ error.message }}</div>
+            {# <small class="invalid-feedback">{{ error.message }}</small> #}
+        {% endfor %}
+    {% endif %}
+{% endapply %}
+{% endblock form_errors %}
+
 {% block body %}
 <section class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-h-100 bg-clouds">
     <div class="container">
@@ -26,9 +39,33 @@
                             <h2>FORM</h2>
                             <h3>Reset</h3>
                         </div>
-                        {{ form_start(resetForm) }}
-                            {{ form_row(resetForm.plainPassword) }}
-                            <button class="btn btn-primary">Reset password</button>
+                        {{ form_start(resetForm, {'attr': {'novalidate': 'novalidate' }}) }}
+                        {# {{ form_start(resetForm, {'attr': {'novalidate': 'novalidate', 'class': resetForm.vars.valid ? '' : 'was-validated' }} ) }} #}
+
+                            {# {{ form_row(resetForm.plainPassword) }} #}
+
+                            {% if not resetForm.vars.valid %}
+                                <div class="alert alert-danger">
+                                    {{ form_errors(resetForm.plainPassword.first) }}
+                                    {{ form_errors(resetForm.plainPassword.second) }}
+                                </div>
+                            {% endif %}
+                            
+                            <div class="form-group">
+                                {{ form_label(resetForm.plainPassword.first) }}
+                                {{ form_widget(resetForm.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+                                {# {{ form_errors(resetForm.plainPassword.first) }} #}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form_label(resetForm.plainPassword.second) }}
+                                {{ form_widget(resetForm.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+                                {# {{ form_errors(resetForm.plainPassword.second) }} #}
+                            </div>
+
+                            <div class="text-center">
+                                <button class="btn btn-primary">Reset password</button>
+                            </div>
                         {{ form_end(resetForm) }}
                     </div>
                     <div class="card-footer">
