@@ -5,6 +5,11 @@ $navLinkHover: #08c;
         padding .5s ease-in-out,
         border-bottom .5s ease-in-out;
 
+    &-brand {
+        font-weight: 600;
+        font-style: italic;
+    }
+    
     &-brand:hover {
         animation-name: tada;
         animation-duration: 1s;

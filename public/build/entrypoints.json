@@ -1,8 +1,16 @@
 {
   "entrypoints": {
     "js/home": {
+      "css": [
+        "/build/js/home.css"
+      ],
       "js": [
         "/build/js/home.js"
+      ]
+    },
+    "css/home": {
+      "css": [
+        "/build/css/home.css"
       ]
     }
   }
