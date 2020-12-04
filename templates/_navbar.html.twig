@@ -6,13 +6,14 @@
   {% if app.request.get('_route') in  ['examples_banner'] %}
     {{ include('_navbarBanner.html.twig') }}
   {% endif %}
-  <a class="navbar-brand" href="{{ path('homepage') }}"><i class="fas fa-camera-retro"></i> FrontCode</a>
+  <a class="navbar-brand" href="{{ path('homepage') }}"><i class="fas fa-laptop-code"></i>{# <i class="fas fa-camera-retro"></i> #} FrontCode</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      {#
       <li class="nav-item {{ app.request.get('_route') ==  'homepage' ? 'active' }}">
         <a class="nav-link" href="{{ path('homepage') }}">Start <span class="sr-only">(current)</span></a>
       </li>
@@ -22,6 +23,7 @@
       <li class="nav-item {{ app.request.get('_route') ==  'about_me' ? 'active' }}">
         <a class="nav-link" href="{{ path('about_me') }}">About Me</a>
       </li>
+      #}
       {#
       <li class="nav-item {{ app.request.get('_route') ==  'vuetify_start_index' ? 'active' }}">
         <a class="nav-link" href="{{ path('vuetify_start_index') }}">Vuetify</a>
@@ -59,9 +61,7 @@
         </div>
       </li>
       #}
-      <li class="nav-item {{ app.request.get('_route') ==  'contact_new' ? 'active' }}">
-        <a class="nav-link" href="{{ path('contact_new') }}">Contact</a>
-      </li>
+      
       {#
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
@@ -70,17 +70,20 @@
     </ul>
     <ul class="navbar-nav my-lg-0">
       {% if is_granted('ROLE_USER') %}
-        <li class="nav-item">
+        <li class="nav-item {{ app.request.get('_route') ==  'app_logout' ? 'active' }}">
           <a class="nav-link" href="{{ path('app_logout') }}">{{ 'Logout'|trans }}</a>
         </li>
       {% else %}
-        <li class="nav-item">
+        <li class="nav-item {{ app.request.get('_route') ==  'app_login' ? 'active' }}">
           <a class="nav-link" href="{{ path('app_login') }}">{{ 'Log in'|trans }}</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ app.request.get('_route') ==  'app_register' ? 'active' }}">
           <a class="nav-link" href="{{ path('app_register') }}">{{ 'Register'|trans }}</a>
         </li> 
       {% endif %}
+      <li class="nav-item {{ app.request.get('_route') ==  'contact_new' ? 'active' }}">
+        <a class="nav-link" href="{{ path('contact_new') }}">Contact</a>
+      </li>
       {#
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Contact</a>
