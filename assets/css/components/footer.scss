@@ -1,6 +1,13 @@
 .footer {
     &__main {
         background-color: $midnight-blue-500;
+        h4 {
+        	font-weight: 600;
+        	font-style: italic;
+        }
+        a {
+        	color: #fff;
+        }
     }
     &__copyright {
         background-color: darken($midnight-blue-500, 1%);
