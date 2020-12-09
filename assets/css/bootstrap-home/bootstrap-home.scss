@@ -10,8 +10,9 @@ $font-family-sans-serif: $font-roboto;
 // Bootstrap Components
 // bootstrap/scss/transitions
 @import "transitions";
-// bootstrap/scss/utilities/shadows
+// bootstrap/scss/utilities
 @import "utilities/shadows";
+@import "utilities/text";
 
 // Bootstrap Utility classes
 // bootstrap/utilities/background
