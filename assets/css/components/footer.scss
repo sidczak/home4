@@ -2,17 +2,19 @@
     &__main {
         background-color: $midnight-blue-500;
         h4 {
-        	font-weight: 600;
-        	font-style: italic;
+            font-weight: 600;
+            font-style: italic;
         }
         a {
-        	color: #fff;
+            color: #fff;
         }
     }
     &__copyright {
         background-color: darken($midnight-blue-500, 1%);
     }
-    .fas {
-        color: #8dc153;
+    .d-flex {
+        .fas {
+            color: #8dc153;
+        }
     }
 }
