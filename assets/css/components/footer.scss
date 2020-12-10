@@ -8,13 +8,20 @@
         a {
             color: #fff;
         }
+        .form-control {
+            background-color: $midnight-blue-500; 
+            border-color: lighten($midnight-blue-500, 5%)
+        }
     }
     &__copyright {
         background-color: darken($midnight-blue-500, 1%);
+        p {
+            color: lighten($midnight-blue-500, 5%);
+        }
     }
     .d-flex {
         .fas {
-            color: #8dc153;
+            color: $turquoise;
         }
     }
 }

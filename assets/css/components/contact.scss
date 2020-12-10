@@ -1,6 +1,9 @@
 .contact {
     &-info {
         text-align: center;
+        a {
+        	color: #fff;
+        }
     }
     &-form {
         max-width: 540px;

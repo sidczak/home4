@@ -1,3 +1,32 @@
-.text-turquoise { color: $turquoise !important; }
-.text-wet-asphalt { color: $wet-asphalt !important; }
-.text-midnight-blue { color: $midnight-blue !important; }
+@mixin text-variant($colors) {
+    @each $name, $val in $colors {
+        .text {
+            &-#{$name} {
+                color: $val !important;
+            }
+        }
+    }
+}
+
+$text-colors:
+    "turquoise" $turquoise,
+    "green-sea" $green-sea,
+    "emerald" $emerald,
+    "nephritis" $nephritis,
+    "peter-river" $peter-river,
+    "belize-hole" $belize-hole,
+    "amethyst" $amethyst,
+    "wisteria" $wisteria,
+    "wet-asphalt" $wet-asphalt,
+    "midnight-blue" $midnight-blue,
+    "sunflower" $sunflower,
+    "orange" $orange,
+    "carrot" $carrot,
+    "pumpkin" $pumpkin,
+    "alizarin" $alizarin,
+    "pomegranate" $pomegranate,
+    "clouds" $clouds,
+    "silver" $silver,
+    "concrete" $concrete,
+    "asbestos" $asbestos;
+@include text-variant($text-colors);
