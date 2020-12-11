@@ -9,6 +9,11 @@
             .card-header {
                 margin-bottom: -1px;
                 .card-link {
+                    display: block;
+                    border: none;
+                    padding-left: 0;
+                    padding-right: 0;
+                    text-align: left;
                     color: $turquoise;
                     .fa-plus-square:before {
                         content: "\F146";
@@ -31,6 +36,11 @@
     .card {
         .card-header {
             .card-link {
+                display: block;
+                border: none;
+                padding-left: 0;
+                padding-right: 0;
+                text-align: left;
                 color: $turquoise;
                 .fa-plus-square:before {
                     content: "\F146";
