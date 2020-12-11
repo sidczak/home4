@@ -1,0 +1,29 @@
+.accordion {
+    &-space {
+        .card {
+            margin-top: 1.25rem;
+            overflow: hidden;
+            &:first-child {
+                margin-top: 0;
+            }
+            .card-header {
+                margin-bottom: -1px;
+                .card-link {
+                    color: $turquoise;
+                    .fa-plus-square:before {
+                        content: "\F146";
+                    }
+                    &.collapsed {
+                        color: $midnight-blue;
+                        &:hover {
+                            color: $turquoise;
+                        }
+                        .fa-plus-square:before {
+                            content: "\F0FE";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
