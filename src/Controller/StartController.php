@@ -30,4 +30,12 @@ class StartController extends AbstractController
     {
         return $this->render('start/sitemap.html.twig');
     }
+
+    /**
+     * @Route("/faq", name="start_faq")
+     */
+    public function faq()
+    {
+        return $this->render('start/faq.html.twig');
+    }
 }
