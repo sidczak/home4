@@ -12,7 +12,9 @@
         .shadow {
             &-#{$name} {
                 box-shadow: 10px 10px 20px darken($val, 4%), -10px -10px 20px lighten($val, 4%) !important;
-                &-sm {}
+                &-sm {
+                    box-shadow: 5px 5px 10px darken($val, 4%), -5px -5px 10px lighten($val, 4%) !important;
+                }
                 &-lg {}
             }
         }

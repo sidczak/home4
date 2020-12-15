@@ -1,8 +1,12 @@
 .card {
     &-columns {
         &-portfolio {
+            column-gap: 30px;
+            margin-top: -15px;
+            margin-bottom: -15px;
             .card {
-                margin-bottom: 1.5rem;
+                margin-top: 15px;
+                margin-bottom: 15px;
             }
             @include media-breakpoint-only(sm) {
                 column-count: 1;
