@@ -46,4 +46,12 @@ class StartController extends AbstractController
     {
         return $this->render('start/portfolio.html.twig');
     }
+
+    /**
+     * @Route("/blog", name="start_blog")
+     */
+    public function blog()
+    {
+        return $this->render('start/blog.html.twig');
+    }
 }

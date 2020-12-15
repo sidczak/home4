@@ -92,6 +92,10 @@
                                 border-color: darken($val, 5%);
                             }
                         }
+                        .list-group-item {
+                            background-color: transparent;
+                            border-color: darken($val, 5%);
+                        }
                     }
                     &-225 {
                         background: linear-gradient(225deg, darken($val, 5%), lighten($val, 5%));

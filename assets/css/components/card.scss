@@ -1,6 +1,7 @@
 .card {
     &-columns {
-        &-portfolio {
+        &-portfolio,
+        &-blog {
             column-gap: 30px;
             margin-top: -15px;
             margin-bottom: -15px;
