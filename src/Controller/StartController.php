@@ -54,4 +54,12 @@ class StartController extends AbstractController
     {
         return $this->render('start/blog.html.twig');
     }
+
+    /**
+     * @Route("/pricing", name="start_pricing")
+     */
+    public function pricing()
+    {
+        return $this->render('start/pricing.html.twig');
+    }
 }

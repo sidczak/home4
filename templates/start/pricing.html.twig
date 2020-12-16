@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+{% block title %}Pricing{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+<section class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-h-100 bg-clouds">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 mb-5">
+                <div class="title title-white d-flex justify-content-center align-items-center mb-4">
+                    <h2>Pricing</h2>
+                    <h3>price list</h3>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-clouds-concave-145 border-0 h-100">
+                    <div class="card-header text-center">
+                        <h4 class="my-0 font-weight-bold">Basic</h4>
+                    </div>
+                    <h1 class="card-title pricing-card-title text-center my-4">$10 <small class="text-muted">/ mo</small></h1>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item border-top">10 users included</li>
+                        <li class="list-group-item">2 GB of storage</li>
+                        <li class="list-group-item">Email support</li>
+                        <li class="list-group-item">Help center access</li>
+                    </ul>
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <div class="text-center mt-4">
+                            <a class="btn btn-pill btn-midnight-blue px-5 shadow-clouds" href="#">More</a>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-turquoise-concave-145 shadow-clouds-lg border-0 h-100">
+                    <div class="card-header text-center text-white">
+                        <h4 class="my-0 font-weight-bold">Standard</h4>
+                    </div>
+                    <img class="card-img-top" src="{{ asset('images/portfolio/1.jpg') }}" alt="Card image cap">
+                    <div class="card-body text-white">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <div class="text-center mt-4">
+                            <a class="btn btn-pill btn-midnight-blue px-5 shadow-turquoise" href="#">More</a>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-white">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-clouds-concave-145 border-0 h-100">
+                    <div class="card-header text-center">
+                        <h4 class="my-0 font-weight-bold">Premium</h4>
+                    </div>
+                    <img class="card-img-top" src="{{ asset('images/portfolio/1.jpg') }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-top">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item border-bottom-0">Vestibulum at eros</li>
+                    </ul>
+                    <div class="card-footer">
+                        <small>Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

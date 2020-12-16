@@ -15,7 +15,9 @@
                 &-sm {
                     box-shadow: 5px 5px 10px darken($val, 4%), -5px -5px 10px lighten($val, 4%) !important;
                 }
-                &-lg {}
+                &-lg {
+                    box-shadow: 15px 15px 25px darken($val, 4%), -15px -15px 25px lighten($val, 4%) !important;
+                }
             }
         }
     }
@@ -85,6 +87,10 @@
                         &.card {
                             border-color: darken($val, 5%);
                         }
+                        .border-top { border-top-color: darken($val, 5%) !important; }
+                        .border-right { border-right-color: darken($val, 5%) !important; }
+                        .border-bottom { border-bottom-color: darken($val, 5%) !important; }
+                        .border-left { border-left-color: darken($val, 5%) !important; }
                         .card {
                             &-header,
                             &-footer {
