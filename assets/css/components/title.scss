@@ -22,8 +22,12 @@
     }
     &-silver-100 {
         h2 {
-            
             color: $silver-100;
+        }
+    }
+    &-transparent-5 {
+        h2 {
+            color: rgba(255, 255, 255, 0.05);
         }
     }
 }
