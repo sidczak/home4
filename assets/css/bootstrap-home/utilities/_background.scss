@@ -1,0 +1,190 @@
+// https://neumorphism.io
+@mixin background-variant($colors) {
+    @each $name, $val in $colors {
+        .bg {
+            &-#{$name} {
+                &-flat {
+                    background: $val;
+                    &-45,
+                    &-145,
+                    &-225,
+                    &-315 {
+                        background: $val;
+                    }
+                }
+                &-pressed {
+                    background: $val;
+                    &-45,
+                    &-145,
+                    &-225,
+                    &-315 {
+                        background: $val;
+                    }
+                }
+                &-concave {
+                    background: linear-gradient(145deg, darken($val, 5%), lighten($val, 5%));
+                    &-45 {
+                        background: linear-gradient(45deg, darken($val, 5%), lighten($val, 5%));
+                    }
+                    &-145 {
+                        background: linear-gradient(145deg, darken($val, 5%), lighten($val, 5%));
+                        .form-control {
+                            background-color: $val;
+                            border-color: darken($val, 8%);
+                            &:focus {
+                                border-color: darken($val, 12%);
+                            }
+                        }
+                        &.card {
+                            border-color: darken($val, 5%);
+                        }
+                        .border-top { border-top-color: darken($val, 5%) !important; }
+                        .border-right { border-right-color: darken($val, 5%) !important; }
+                        .border-bottom { border-bottom-color: darken($val, 5%) !important; }
+                        .border-left { border-left-color: darken($val, 5%) !important; }
+                        .card {
+                            &-header,
+                            &-footer {
+                                background-color: transparent;
+                                border-color: darken($val, 5%);
+                            }
+                        }
+                        .list-group-item {
+                            background-color: transparent;
+                            border-color: darken($val, 5%);
+                        }
+                    }
+                    &-225 {
+                        background: linear-gradient(225deg, darken($val, 5%), lighten($val, 5%));
+                    }
+                    &-315 {
+                        background: linear-gradient(315deg,darken($val, 5%), lighten($val, 5%));
+                    }
+                }
+                &-convex {
+                    background: linear-gradient(145deg, lighten($val, 5%), darken($val, 5%));
+                    box-shadow: 10px 10px 20px darken($val, 4%), -10px -10px 20px lighten($val, 4%);
+                    &-45 {
+                        background: linear-gradient(45deg, lighten($val, 5%), darken($val, 5%));
+                    }
+                    &-145 {
+                        background: linear-gradient(145deg, lighten($val, 5%), darken($val, 5%));
+                    }
+                    &-225 {
+                        background: linear-gradient(225deg, lighten($val, 5%), darken($val, 5%));
+                    }
+                    &-315 {
+                        background: linear-gradient(315deg, lighten($val, 5%), darken($val, 5%));
+                    }
+                }
+            }
+        }
+    }
+}
+
+$shadow-colors:
+    "turquoise" $turquoise,
+    "green-sea" $green-sea,
+    "emerald" $emerald,
+    "nephritis" $nephritis,
+    "peter-river" $peter-river,
+    "belize-hole" $belize-hole,
+    "amethyst" $amethyst,
+    "wisteria" $wisteria,
+    "wet-asphalt" $wet-asphalt,
+    "midnight-blue" $midnight-blue,
+    "sunflower" $sunflower,
+    "orange" $orange,
+    "carrot" $carrot,
+    "pumpkin" $pumpkin,
+    "alizarin" $alizarin,
+    "pomegranate" $pomegranate,
+    "clouds" $clouds,
+    "silver" $silver,
+    "concrete" $concrete,
+    "asbestos" $asbestos;
+@include background-variant($shadow-colors);
+// .bg {
+//     &-turquoise {
+//         &-flat {
+//             background: $turquoise;
+//             box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
+//             &-45 {
+//                 background: $turquoise;
+//                 box-shadow: 10px -10px 20px darken($turquoise, 4%), -10px 10px 20px lighten($turquoise, 4%);
+//             }
+//             &-145 {
+//                 background: $turquoise;
+//                 box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
+//             }
+//             &-225 {
+//                 background: $turquoise;
+//                 box-shadow: -10px 10px 20px darken($turquoise, 4%), 10px -10px 20px lighten($turquoise, 4%);
+//             }
+//             &-315 {
+//                 background: $turquoise;
+//                 box-shadow: -10px -10px 20px darken($turquoise, 4%), 10px 10px 20px lighten($turquoise, 4%);
+//             }
+//         }
+//         &-pressed {
+//             background: $turquoise;
+//             box-shadow: inset 10px 10px 20px darken($turquoise, 4%), inset -10px -10px 20px lighten($turquoise, 4%);
+//             &-45 {
+//                 background: $turquoise;
+//                 box-shadow: inset 10px -10px 20px darken($turquoise, 4%), inset -10px 10px 20px lighten($turquoise, 4%);
+//             }
+//             &-145 {
+//                 background: $turquoise;
+//                 box-shadow: inset 10px 10px 20px darken($turquoise, 4%), inset -10px -10px 20px lighten($turquoise, 4%);
+//             }
+//             &-225 {
+//                 background: $turquoise;
+//                 box-shadow: inset -10px 10px 20px darken($turquoise, 4%), inset 10px -10px 20px lighten($turquoise, 4%);
+//             }
+//             &-315 {
+//                 background: $turquoise;
+//                 box-shadow: inset -10px -10px 20px darken($turquoise, 4%), inset 10px 10px 20px lighten($turquoise, 4%);
+//             }
+//         }
+//         &-concave {
+//             background: linear-gradient(145deg, darken($turquoise, 5%), lighten($turquoise, 5%));
+//             box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
+//             &-45 {
+//                 background: linear-gradient(45deg, darken($turquoise, 5%), lighten($turquoise, 5%));
+//                 box-shadow: 10px -10px 20px darken($turquoise, 4%), -10px 10px 20px lighten($turquoise, 4%);
+//             }
+//             &-145 {
+//                 background: linear-gradient(145deg, darken($turquoise, 5%), lighten($turquoise, 5%));
+//                 box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
+//             }
+//             &-225 {
+//                 background: linear-gradient(225deg, darken($turquoise, 5%), lighten($turquoise, 5%));
+//                 box-shadow: -10px 10px 20px darken($turquoise, 4%), 10px -10px 20px lighten($turquoise, 4%);
+//             }
+//             &-315 {
+//                 background: linear-gradient(315deg,darken($turquoise, 5%), lighten($turquoise, 5%));
+//                 box-shadow:  -10px -10px 20px darken($turquoise, 4%), 10px 10px 20px lighten($turquoise, 4%);
+//             }
+//         }
+//         &-convex {
+//             background: linear-gradient(145deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+//             box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
+//             &-45 {
+//                 background: linear-gradient(45deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+//                 box-shadow: 10px -10px 20px darken($turquoise, 4%), -10px 10px 20px lighten($turquoise, 4%);
+//             }
+//             &-145 {
+//                 background: linear-gradient(145deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+//                 box-shadow: 10px 10px 20px darken($turquoise, 4%), -10px -10px 20px lighten($turquoise, 4%);
+//             }
+//             &-225 {
+//                 background: linear-gradient(225deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+//                 box-shadow: -10px 10px 20px darken($turquoise, 4%), 10px -10px 20px lighten($turquoise, 4%);
+//             }
+//             &-315 {
+//                 background: linear-gradient(315deg, lighten($turquoise, 5%), darken($turquoise, 5%));
+//                 box-shadow:  -10px -10px 20px darken($turquoise, 4%), 10px 10px 20px lighten($turquoise, 4%);
+//             }
+//         }
+//     }
+// }
