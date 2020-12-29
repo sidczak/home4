@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+{% block title %}Blog{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+<section class="section-pb-80 section-pt-152 bg-clouds">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <div class="title title-white d-flex justify-content-center align-items-center mb-4">
+                    <h2>Blog</h2>
+                    <h3>Post detail</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Project description</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
+                <img class="img-fluid rounded shadow-clouds my-5 mx-auto d-block" src="{{ asset('images/portfolio/1.jpg') }}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
+
+                <h3>Comments (4)</h3>
+                <div class="media">
+                    <img class="img-fluid rounded-circle mr-3" src="{{ asset('images/profiles/1.jpg')|imagine_filter('media_thumbnail_small') }}">
+                    <div class="media-body">
+                        <h5 class="mt-0">Media heading</h5>
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    </div>
+                </div>
+                <div class="media">
+                    <img class="img-fluid rounded-circle mr-3" src="{{ asset('images/profiles/2.jpg')|imagine_filter('media_thumbnail_small') }}">
+                    <div class="media-body">
+                        <h5 class="mt-0">Media heading</h5>
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+
+                        <div class="media mt-3">
+                            <a class="mr-3" href="#">
+                                <img class="img-fluid rounded-circle mr-3" src="{{ asset('images/profiles/3.jpg')|imagine_filter('media_thumbnail_small') }}">
+                            </a>
+                            <div class="media-body">
+                                <h5 class="mt-0">Media heading</h5>
+                                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <img class="img-fluid rounded-circle mr-3" src="{{ asset('images/profiles/4.jpg')|imagine_filter('media_thumbnail_small') }}">
+                    <div class="media-body">
+                        <h5 class="mt-0">Media heading</h5>
+                        <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h4 class="text-uppercase">Info</h4>
+                <ul class="list-unstyled mb-4">
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-map-marker-alt text-turquoise mr-2"></i> 
+                            <span>Company name</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="far fa-fw fa-calendar-alt text-turquoise mr-2"></i> 
+                            <span>September 2020</span>
+                        </div>
+                    </li>
+                </ul>
+                <h4 class="text-uppercase">Services</h4>
+                <ul class="list-unstyled mb-4">
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-check text-turquoise mr-2"></i>
+                            <span>Webdesign</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-check text-turquoise mr-2"></i> 
+                            <span>HTML/CSS</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-check text-turquoise mr-2"></i> 
+                            <span>Marketing</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-check text-turquoise mr-2"></i> 
+                            <span>Identity</span>
+                        </div>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-turquoise btn-pill btn-lg btn-block" href="#">Show project</a>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

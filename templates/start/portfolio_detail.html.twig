@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+{% block title %}Portfolio{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+<section class="section-pb-80 section-pt-152 bg-clouds">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <div class="title title-white d-flex justify-content-center align-items-center mb-4">
+                    <h2>Portolio</h2>
+                    <h3>Project detail</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Project description</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
+                <img class="img-fluid rounded shadow-clouds my-5 mx-auto d-block" src="{{ asset('images/portfolio/1.jpg') }}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
+            </div>
+            <div class="col-md-3">
+                <h4 class="text-uppercase">Info</h4>
+                <ul class="list-unstyled mb-4">
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-map-marker-alt text-turquoise mr-2"></i> 
+                            <span>Company name</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="far fa-fw fa-calendar-alt text-turquoise mr-2"></i> 
+                            <span>September 2020</span>
+                        </div>
+                    </li>
+                </ul>
+                <h4 class="text-uppercase">Services</h4>
+                <ul class="list-unstyled mb-4">
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-check text-turquoise mr-2"></i>
+                            <span>Webdesign</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-check text-turquoise mr-2"></i> 
+                            <span>HTML/CSS</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-check text-turquoise mr-2"></i> 
+                            <span>Marketing</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-fw fa-check text-turquoise mr-2"></i> 
+                            <span>Identity</span>
+                        </div>
+                    </li>
+                </ul>
+                <a class="btn btn-outline-turquoise btn-pill btn-lg btn-block" href="#">Show project</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
