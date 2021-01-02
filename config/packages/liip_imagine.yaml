@@ -11,6 +11,13 @@ liip_imagine:
                     size:          [300, 300]
                     mode:          outbound
                     allow_upscale: true
+        media_thumbnail_165:
+            quality: 100
+            filters:
+                thumbnail:
+                    size:          [165, 165]
+                    mode:          outbound
+                    allow_upscale: true
         media_thumbnail_small:
             quality: 100
             filters:
