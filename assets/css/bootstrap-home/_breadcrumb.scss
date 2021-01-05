@@ -6,4 +6,57 @@
 		    content: "\F105";
 		}
 	}
+	&-light {
+		.breadcrumb-item {
+			a {
+				color: rgba(0, 0, 0, 0.8);
+			}
+			& + .breadcrumb-item::before,
+			&.active {
+				color: rgba(0, 0, 0, 0.3);
+			}
+		}
+	}
+	&-dark {
+		.breadcrumb-item {
+			a {
+				color: rgba(255, 255, 255, 0.8);
+			}
+			& + .breadcrumb-item::before,
+			&.active {
+				color: rgba(255, 255, 255, 0.3);
+			}
+		}
+	}
+	&-midnight-blue {
+		.breadcrumb-item {
+			a {
+				color: $midnight-blue;
+			}
+			& + .breadcrumb-item::before,
+			&.active {
+				color: rgba($midnight-blue, 0.3);
+			}
+		}
+
+	}
+	&-turquoise {
+		.breadcrumb-item {
+			a {
+				color: $turquoise;
+			}
+			& + .breadcrumb-item::before,
+			&.active {
+				color: rgba($turquoise, 0.3);
+			}
+		}
+		&-light {
+			.breadcrumb-item {
+				& + .breadcrumb-item::before,
+				&.active {
+					color: rgba(0, 0, 0, 0.3);
+				}
+			}
+		}
+	}
 }

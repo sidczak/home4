@@ -215,6 +215,20 @@ $belize-hole-shades:
     "belize-hole-900" $belize-hole-900;
 @include button-shades-variant($belize-hole-shades);
 
+$amethyst-shades:
+    "amethyst" $amethyst,
+    "amethyst-50" $amethyst-50,
+    "amethyst-100" $amethyst-100,
+    "amethyst-200" $amethyst-200,
+    "amethyst-300" $amethyst-300,
+    "amethyst-400" $amethyst-400,
+    "amethyst-500" $amethyst-500,
+    "amethyst-600" $amethyst-600,
+    "amethyst-700" $amethyst-700,
+    "amethyst-800" $amethyst-800,
+    "amethyst-900" $amethyst-900;
+@include button-shades-variant($amethyst-shades);
+
 $emerald-shades:
     "emerald" $emerald,
     "emerald-50" $emerald-50,

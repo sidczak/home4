@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-12 mb-5">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb-angle-right justify-content-center bg-transparent text-uppercase small">
+                    <ol class="breadcrumb breadcrumb-angle-right breadcrumb-light justify-content-center bg-transparent text-uppercase small">
                         <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Home</a></li>
                         <li class="breadcrumb-item"><a href="{{ path('start_blog') }}">Blog</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Post detail</li>
@@ -21,17 +21,36 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <h2>Project description</h2>
-                <ul class="list-inline">
-                    <li class="list-inline-item"><i class="far fa-fw fa-calendar-alt text-turquoise mr-2"></i>April 14, 2020</li>
-                    <li class="list-inline-item text-silver">|</li>
-                    <li class="list-inline-item"><i class="fas fa-fw fa-user text-turquoise mr-2"></i>John Doe</li>
-                    <li class="list-inline-item text-silver">|</li>
-                    <li class="list-inline-item">
-                        <a href="#"><i class="fas fa-fw fa-comments text-turquoise mr-2"></i>12 comments</a>
-                    </li>
-                </ul>
+                <div class="d-flex flex-wrap justify-content-between align-items-center">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><i class="far fa-fw fa-calendar-alt text-turquoise mr-2"></i>April 14, 2020</li>
+                        <li class="list-inline-item text-silver">|</li>
+                        <li class="list-inline-item"><i class="fas fa-fw fa-user text-turquoise mr-2"></i>John Doe</li>
+                        <li class="list-inline-item text-silver">|</li>
+                        <li class="list-inline-item">
+                            <a href="#"><i class="fas fa-fw fa-comments text-turquoise mr-2"></i>12 comments</a>
+                        </li>
+                    </ul>
+                    <ul class="d-flex flex-row flex-wrap justify-content-center list-unstyled">
+                        <li>
+                            <a class="btn btn-outline-peter-river btn-pill btn-sm px-3 m-1" href="#">
+                                <i class="fab fa-fw fa-twitter"></i> Tweet
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn btn-outline-wet-asphalt btn-pill btn-sm px-3 m-1" href="#">
+                                <i class="fab fa-fw fa-facebook-f"></i> Share
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn btn-outline-alizarin btn-pill btn-sm px-3 m-1" href="#">
+                                <i class="fab fa-fw fa-google-plus-g"></i> Share
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
                 <img class="img-fluid rounded shadow-clouds my-5 mx-auto d-block" src="{{ asset('images/portfolio/1.jpg') }}">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu justo vitae odio rhoncus pulvinar. Morbi ac congue orci. Nulla tristique ultrices purus vel egestas. Aliquam viverra volutpat facilisis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin commodo sit amet eros non dapibus. Aenean vitae fermentum diam.</p>
@@ -99,7 +118,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <h4 class="text-uppercase">Info</h4>
                 <ul class="list-unstyled mb-4">
                     <li>
@@ -142,6 +161,10 @@
                         </div>
                     </li>
                 </ul>
+                <h4 class="text-uppercase">Tag cloud</h4>
+                <a class="btn btn-outline-wet-asphalt btn-pill btn-sm px-3 mb-1" href="#">Symfony</a>
+                <a class="btn btn-outline-turquoise btn-pill btn-sm px-3 mb-1" href="#">Vue</a>
+                <a class="btn btn-outline-amethyst btn-pill btn-sm px-3 mb-1" href="#">Bootstrap</a>
             </div>
         </div>
     </div>
