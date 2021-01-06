@@ -43,6 +43,7 @@ import Zoom from './bs-components/Zoom.vue';
 import Waves from './bs-components/Waves.vue';
 import Transition from './bs-components/Transition.vue';
 import TransitionGroup from './bs-components/TransitionGroup.vue';
+import Rotate from './bs-components/Rotate.vue';
 import Map from './bs-components/Map.vue';
 
 // Vue.config.ignoredElements = [
@@ -70,6 +71,7 @@ Vue.customElement('bs-zoom', Zoom);
 Vue.customElement('bs-waves', Waves);
 Vue.customElement('bs-transition', Transition);
 Vue.customElement('bs-transition-group', TransitionGroup);
+Vue.customElement('bs-rotate', Rotate);
 Vue.customElement('bs-map', Map);
 
 
