@@ -30,6 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+    //&-body // width: 300px - usztywnić żeby tekst nie skakał
     &-container {
         perspective: 1200px;
         min-height: 400px;
