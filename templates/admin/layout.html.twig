@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}Start{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block navigation %}
+    {{ parent() }}
+    {{ include('_navbarDashboard.html.twig') }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            {% block sidebar %}
+                {{ include('_sidebar.html.twig') }}
+            {% endblock %}
+            <div class="col-md-9 col-lg-10">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
