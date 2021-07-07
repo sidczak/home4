@@ -1,0 +1,45 @@
+<nav id="sidebarMenu" class="col-lg-3 bg-midnight-blue d-lg-block collapse">
+    <div class="text-white section-py-80 w-100">
+        <div class="text-center mb-5">
+            <i class="fas fa-user-shield fa-5x mb-3"></i>
+            <h2>Admin</h2>
+        </div>
+        <ul id="accordionSymfony" class="nav nav-sidebar nav-sidebar-dark flex-column">
+            <li class="nav-item">
+                <a class="nav-link {{ app.request.get('_route') ==  'admin_dashboard' ? 'active' }}" href="{{ path('admin_dashboard') }}"><i class="fas fa-fw fa-home"></i> Start</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-blog"></i> Blog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-shopping-cart"></i> Shop</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
+                    <i class="fas fa-fw fa-sitemap"></i> Dropdown <i class="fas fa-fw fa-angle-left"></i>
+                </a>
+                <ul id="dropdown" class="nav flex-column flex-nowrap collapse" aria-labelledby="headingDropdown" data-parent="#accordionSymfony">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Dropdown Second</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Dropdown Second</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dropdownThird" aria-expanded="false" aria-controls="dropdownThird">
+                            <i class="fas fa-fw fa-sitemap"></i> Dropdown Third <i class="fas fa-fw fa-angle-left"></i>
+                        </a>
+                        <ul id="dropdownThird" class="nav flex-column flex-nowrap collapse" aria-labelledby="headingDropdownThird">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Dropdown Third</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Dropdown Third</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

@@ -9,7 +9,9 @@
             {% block sidebar_bs %}
                 {{ include('symfony/_sidebar.html.twig') }}
             {% endblock %}
-            {% block content_symfony %}{% endblock %}
+            <div class="col col-lg-9 d-flex justify-content-center align-items-center p-0">
+                {% block content_symfony %}{% endblock %}
+            </div>
         </div>
     </div>
 </section>
