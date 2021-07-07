@@ -9,11 +9,62 @@
                 <a class="nav-link {{ app.request.get('_route') ==  'symfony_start_index' ? 'active' }}" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-home"></i> Start</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dropdown2" aria-expanded="false" aria-controls="dropdown2">
+                    <i class="fas fa-fw fa-blog"></i> Jobeet <i class="fas fa-fw fa-angle-left"></i>
+                </a>
+                <ul id="dropdown2" class="nav flex-column flex-nowrap collapse" aria-labelledby="headingDropdown" data-parent="#accordionSymfony">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 1: Starting up the Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 2: The Project</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 3: The Data Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 4: The Controller and the View</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 5: The Routing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 6: More with the Entity</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 7: Playing with the Category Page</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 8: The Forms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 9: Console Commands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 10: The Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 11: The User</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 12: The API</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 13: The Mailer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"><i class="fas fa-fw fa-caret-right"></i> Day 14: Translations</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link disabled" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-blog"></i> Blog</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-shopping-cart"></i> Shop</a>
             </li>
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#dropdown" aria-expanded="false" aria-controls="dropdown">
                     <i class="fas fa-fw fa-sitemap"></i> Dropdown <i class="fas fa-fw fa-angle-left"></i>
@@ -40,6 +91,7 @@
                     </li>
                 </ul>
             </li>
+
         </ul>
     </div>
 </nav>

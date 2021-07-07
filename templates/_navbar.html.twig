@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg flex-wrap px-sm-4 
 {{ currentRouteName starts with 'admin_' ? '' : 'fixed-top'}}
 {#{{ app.request.get('_project') in  ['bootstrap', 'vue'] ? 'bg-' ~ app.request.get('_project') : 'bg-midnight-blue' }}#}
-{{ app.request.get('_project') in  ['bootstrap', 'vue'] ? 'navbar-light bg-white shadow offset-3' : 'navbar-dark bg-midnight-blue' }}
+{{ app.request.get('_project') in  ['bootstrap', 'vue'] ? 'navbar-light bg-white shadow' : 'navbar-dark bg-midnight-blue' }}
 {{ app.request.get('_route') in  ['homepage', 'examples_banner', 'new_webinar_room', 'about_me', 'about_ania'] ? 'navbar-transparent' }} 
 {{ app.request.get('_route') in  ['examples_banner'] ? 'navbar-banner-show' }}">
   {% if app.request.get('_route') in  ['examples_banner'] %}
@@ -10,6 +10,11 @@
   {% endif %}
   {% if currentRouteName starts with 'symfony_' %}
     <button class="navbar-toggler d-lg-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarSymfonyMenu" aria-controls="sidebarSymfonyMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-ellipsis-v"></i>
+    </button>
+  {% endif %}
+  {% if app.request.get('_project') == 'vue' %}
+    <button class="navbar-toggler d-lg-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarVueMenu" aria-controls="sidebarVueMenu" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fas fa-ellipsis-v"></i>
     </button>
   {% endif %}
