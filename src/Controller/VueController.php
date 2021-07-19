@@ -107,6 +107,14 @@ class VueController extends AbstractController
     }
 
     /**
+     * @Route("/examples/calculator", name="vue_examples_calculator")
+     */
+    public function calculator()
+    {
+        return $this->render('vue/examples/calculator.html.twig');
+    }
+
+    /**
      * @Route("/components/modal", name="vue_components_modal")
      */
     public function modal()
