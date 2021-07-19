@@ -99,6 +99,14 @@ class VueController extends AbstractController
     }
 
     /**
+     * @Route("/examples/clock", name="vue_examples_clock")
+     */
+    public function clock()
+    {
+        return $this->render('vue/examples/clock.html.twig');
+    }
+
+    /**
      * @Route("/components/modal", name="vue_components_modal")
      */
     public function modal()

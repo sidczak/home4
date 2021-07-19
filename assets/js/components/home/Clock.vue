@@ -1,0 +1,180 @@
+<template lang="pug">
+    .clock
+        - for (var i = 0; i < 6; i++)
+            .steps
+        .brand {{ appTitle }}
+        .display {{ hour }} {{ mins }} {{ secs }}
+        .hour(v-bind:style="{transform: 'rotate(' + hourDeg + ')'}") 
+        .min(v-bind:style="{transform: 'rotate(' + minsDeg + ')'}")
+        .sec(v-bind:style="{transform: 'rotate(' + secsDeg + ')'}")
+
+</template>
+
+<script>
+export default {
+    name: "Clock",
+    data: function() {
+        return {
+            appTitle: ' FrontCode',
+            hour: '--',
+            hourDeg: '0deg',
+            mins: '--',
+            minsDeg: '0deg',
+            secs: '--',
+            secsDeg: '0deg'
+        };
+    },
+    created(){
+        this.updateClock();
+    },
+    methods: {
+        updateClock(){
+            var ctx = this;
+            setInterval(function() {
+                var date = new Date(), 
+                    hour = date.getHours(),
+                    min = date.getMinutes(),
+                    sec = date.getSeconds();
+                    
+                // Set Display
+                ctx.hour = (hour < 10) ? '0' + hour : hour;
+                ctx.mins = (min < 10) ? '0' + min : min;
+                ctx.secs = (sec < 10) ? '0' + sec : sec;
+                    
+                // Set Analog
+                var analogHour = (hour > 12) ? hour - 12 : hour,
+                    analogMins = min,
+                    analogSecs = sec;
+                    
+                    ctx.hourDeg = (analogHour * 30) + 'deg';
+                    ctx.minsDeg = (analogMins / 60 * 360) + 'deg';
+                    ctx.secsDeg = (analogSecs / 60 * 360) + 'deg';
+            }, 1000);  
+        } 
+    }
+};
+</script>
+
+<style lang="scss" scoped>
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Asap|Libre+Barcode+39+Text');
+$font-display: 'Libre Barcode 39 Text', cursive;
+
+// COLORS
+$white: #fff;
+$black: #000;
+$background: #A7A3FF;
+$clock-col: #C9CFFF;
+$accent-col: #E1F2EA;
+
+.clock{
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  &::before{
+    z-index: 3;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    background: $clock-col;
+    border-radius: 50%;
+  }
+  .steps{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -2px;
+    height: 100%;
+    width: 4px;
+    &::before, &::after{
+      content: '';
+      position: absolute;
+      left: -3px;
+      width: 10px;
+      height: 10px;
+      background: rgba($clock-col, .7);
+      border-radius: 50%;
+    }
+    &::before{
+      top: .5rem;
+    }
+    &::after{
+      bottom: .5rem;
+    }
+    &:nth-child(1){
+      &::before, &::after{
+        background: $accent-col;
+      }
+    }
+    &:nth-child(2){ transform: rotate(30deg); }
+    &:nth-child(3){ transform: rotate(60deg); }
+    &:nth-child(4){ 
+      transform: rotate(90deg);
+      &::before, &::after{
+        background: $accent-col;
+      }
+    }
+    &:nth-child(5){ transform: rotate(120deg); }
+    &:nth-child(6){ transform: rotate(150deg); }
+  }
+  .brand{
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: .85em;
+    opacity: .5;
+  }
+  .display{
+    position: absolute;
+    top: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: $font-display;
+    font-size: 2.6em;
+    opacity: .5;
+  }
+  .hour,
+  .min,
+  .sec{
+    z-index: 2;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    height: 40%;
+    width: 4px;
+    margin-left: -2px;
+    background: $accent-col;
+    transform-origin: bottom center;
+    border-radius: 3px 3px 0 0;
+  }
+  .hour{
+    height: 30%;
+  }
+  .sec{
+    z-index: 1;
+    height: 46%;
+    background: $clock-col;
+  }
+}
+
+// RESPONSIVE
+@media screen and (max-width: 480px){
+  .clock{
+    width: 300px;
+    height: 300px;
+    .brand{
+      bottom: 3rem; 
+    }
+    .display{
+      top: 4.5rem;
+      font-size: 2.2em;
+    }
+  }
+}
+</style>
