@@ -107,6 +107,14 @@ class VueController extends AbstractController
     }
 
     /**
+     * @Route("/examples/ripple", name="vue_examples_ripple")
+     */
+    public function ripple()
+    {
+        return $this->render('vue/examples/ripple.html.twig');
+    }
+
+    /**
      * @Route("/examples/calculator", name="vue_examples_calculator")
      */
     public function calculator()

@@ -1,0 +1,20 @@
+{% extends 'vue/layout.html.twig' %}
+{% block title %}Ripple{% endblock %}
+{% block stylesheets %}{% endblock %}
+
+{% block content_vue %}
+<div class="col p-0">
+	<section class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-vh-100 bg-light">
+	    <div class="container">
+	        <div class="row justify-content-center">
+	            <div class="col-md-6 text-center">
+	                <home-ripple text="I'm a ripple button"></home-ripple>
+	                <home-ripple text="Button"></home-ripple>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+</div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

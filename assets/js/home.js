@@ -47,6 +47,7 @@ import Rotate from './bs-components/Rotate.vue';
 import Map from './bs-components/Map.vue';
 import Clock from './components/home/Clock.vue';
 import Calculator from './components/home/Calculator.vue';
+import Ripple from './components/home/Ripple.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -63,6 +64,7 @@ Vue.customElement('home-timeline', HomeTimeline);
 Vue.customElement('home-sound-card', SoundCard);
 Vue.customElement('home-clock', Clock);
 Vue.customElement('home-calculator', Calculator);
+Vue.customElement('home-ripple', Ripple);
 Vue.customElement('cm-webinar-flywheel', WebinarFlywheel);
 Vue.customElement('cm-homepage', Homepage);
 Vue.customElement('bs-album', Album);
