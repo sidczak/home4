@@ -137,4 +137,12 @@ class VueController extends AbstractController
     {
         return $this->render('vue/components/map.html.twig');
     }
+    
+    /**
+     * @Route("/components/hamburger", name="vue_components_hamburger")
+     */
+    public function hamburger()
+    {
+        return $this->render('vue/components/hamburger.html.twig');
+    }
 }

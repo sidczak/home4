@@ -17,6 +17,14 @@ $navLinkHover: #08c;
         // animation-iteration-count: infinite;
         // animation-fill-mode: both;
     }
+    &-dark {
+        .navbar-toggler {
+            &:hover,
+            &:focus {
+                border-color: rgba(255, 255, 255, 0.75);
+            }
+        }
+    }
         
     @include media-breakpoint-up(lg) {
         &-transparent {
