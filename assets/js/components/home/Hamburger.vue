@@ -14,7 +14,7 @@ export default {
     props: {
         hamburgerBg: {
             type: String,
-            default: 'turquoise',
+            default: '',
             validator: (value) => ['turquoise', 'white'].indexOf(value) > -1,
         },
         option: {
@@ -38,6 +38,25 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../css/variables/color.scss';
+.navbar-dark {
+    .hamburger {
+        span {
+            background-color: #fff;
+        }
+    }
+}
+.navbar-light {
+    .hamburger {
+        span {
+            background-color: #000;
+        }
+    }
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg .hamburger {
+        display: none;
+    }
+}
 .hamburger {
     width: 52px;
     height: 40px;
@@ -53,6 +72,7 @@ export default {
         background-color: $white;
     }
     span {
+        background-color: $turquoise;
         display: block;
         position: absolute;
         height: 8px;
