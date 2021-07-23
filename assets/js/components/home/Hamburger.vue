@@ -1,5 +1,5 @@
 <template lang="pug">
-    div.hamburger(@click="toggle" :class="['hamburger-bg-' + hamburgerBg, 'hamburger-' + option, { 'open': isOpen }]")
+    div.hamburger(@click="toggle" :class="[hamburgerBg ? 'hamburger-bg-' + hamburgerBg : '', 'hamburger-' + option, { 'open': isOpen }]")
         span
         span
         span
@@ -41,14 +41,20 @@ export default {
 .navbar-dark {
     .hamburger {
         span {
-            background-color: #fff;
+            background-color: #7c7c7c;
+        }
+        &:hover span {
+            background-color: #dddddd;
         }
     }
 }
 .navbar-light {
     .hamburger {
         span {
-            background-color: #000;
+            background-color: #8e8e8e;
+        }
+        &:hover span {
+            background-color: #424242;
         }
     }
 }
@@ -66,10 +72,10 @@ export default {
     transition: .5s ease-in-out;
     cursor: pointer;
     &-bg-turquoise span{
-        background-color: $turquoise;
+        background-color: $turquoise !important;
     }
     &-bg-white span{
-        background-color: $white;
+        background-color: $white !important;
     }
     span {
         background-color: $turquoise;
