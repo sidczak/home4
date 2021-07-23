@@ -64,8 +64,8 @@ export default {
     }
 }
 .hamburger {
-    width: 52px;
-    height: 40px;
+    width: 40px;
+    height: 38px;
     position: relative;
     margin: auto;
     transform: rotate(0deg);
@@ -81,7 +81,7 @@ export default {
         background-color: $turquoise;
         display: block;
         position: absolute;
-        height: 8px;
+        height: 6px;
         width: 100%;
         border-radius: 9px;
         opacity: 1;
@@ -92,13 +92,13 @@ export default {
     &-option1 {
         span {
             &:nth-child(1) {
-                top: 0px;
+                top: 3px;
             }
             &:nth-child(2) {
                 top: 15px;
             }
             &:nth-child(3) {
-                top: 30px;
+                top: 27px;
             }
         }
         &.open {
@@ -130,11 +130,11 @@ export default {
                 border-radius: 9px 0 0 9px;
             }
             &:nth-child(1),
-            &:nth-child(2) {top: 0px;}
+            &:nth-child(2) {top: 3px;}
             &:nth-child(3),
             &:nth-child(4) {top: 15px;}
             &:nth-child(5),
-            &:nth-child(6) {top: 30px;}
+            &:nth-child(6) {top: 27px;}
         }
         &.open {
             span {
@@ -176,14 +176,14 @@ export default {
     &-option3 {
         span {
             &:nth-child(1) {
-                top: 0px;
+                top: 3px;
             }
             &:nth-child(2),
             &:nth-child(3) {
                 top: 15px;
             }
             &:nth-child(4) {
-                top: 30px;
+                top: 27px;
             }
         }
         &.open {
@@ -210,7 +210,7 @@ export default {
     &-option4 {
         span {
             &:nth-child(1) {
-                top: 0px;
+                top: 3px;
                 transform-origin: left center;
             }
 
@@ -220,7 +220,7 @@ export default {
             }
 
             &:nth-child(3) {
-                top: 30px;
+                top: 27px;
                 transform-origin: left center;
             }
         }
@@ -228,8 +228,8 @@ export default {
             span {
                 &:nth-child(1) {
                     transform: rotate(45deg);
-                    top: -3px;
-                    left: 8px;
+                    top: 1px;
+                    left: 7px;
                 }
 
                 &:nth-child(2) {
@@ -239,8 +239,8 @@ export default {
 
                 &:nth-child(3) {
                     transform: rotate(-45deg);
-                    top: 33px;
-                    left: 8px;
+                    top: 29px;
+                    left: 7px;
                 }
             }
         }
