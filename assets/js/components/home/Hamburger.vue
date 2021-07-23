@@ -3,6 +3,9 @@
         span
         span
         span
+        span(v-if="['option2', 'option3'].includes(option)")
+        span(v-if="option === 'option2'")
+        span(v-if="option === 'option2'")
 </template>
 
 <script>
@@ -16,14 +19,13 @@ export default {
         },
         option: {
             type: String,
-            default: 'option1',
-            validator: (value) => ['option1', 'option4'].indexOf(value) > -1,
+            default: 'option3',
+            validator: (value) => ['option1', 'option2','option3', 'option4'].indexOf(value) > -1,
         },
     },
     data: function() {
         return {
             isOpen: false,
-
         };
     },
     methods: {
@@ -51,7 +53,6 @@ export default {
         background-color: $white;
     }
     span {
-        
         display: block;
         position: absolute;
         height: 8px;
@@ -87,6 +88,95 @@ export default {
                 &:nth-child(3) {
                     top: 15px;
                     transform: rotate(-135deg);
+                }
+            }
+        }
+    }
+    &-option2 {
+        span {
+            width: 50%;
+            &:nth-child(even) {
+                left: 50%;
+                border-radius: 0 9px 9px 0;
+            }
+            &:nth-child(odd) {
+                left:0px;
+                border-radius: 9px 0 0 9px;
+            }
+            &:nth-child(1),
+            &:nth-child(2) {top: 0px;}
+            &:nth-child(3),
+            &:nth-child(4) {top: 15px;}
+            &:nth-child(5),
+            &:nth-child(6) {top: 30px;}
+        }
+        &.open {
+            span {
+                &:nth-child(1),
+                &:nth-child(6) {
+                    transform: rotate(45deg);
+                }
+                &:nth-child(2),
+                &:nth-child(5) {
+                    transform: rotate(-45deg);
+                }
+                &:nth-child(1) {
+                    left: 5px;
+                    top: 7px;
+                }
+                &:nth-child(2) {
+                    left: calc(50% - 5px);
+                    top: 7px;
+                }
+                &:nth-child(3) {
+                    left: -50%;
+                    opacity: 0;
+                }
+                &:nth-child(4) {
+                    left: 100%;
+                    opacity: 0;
+                }
+                &:nth-child(5) {
+                    left: 5px;
+                    top: 24px;
+                }
+                &:nth-child(6) {
+                    left: calc(50% - 5px);
+                    top: 24px;
+                }
+            }
+        }
+    }
+    &-option3 {
+        span {
+            &:nth-child(1) {
+                top: 0px;
+            }
+            &:nth-child(2),
+            &:nth-child(3) {
+                top: 15px;
+            }
+            &:nth-child(4) {
+                top: 30px;
+            }
+        }
+        &.open {
+            span {
+                &:nth-child(1) {
+                    top: 18px;
+                    width: 0%;
+                    left: 50%;
+                }
+                &:nth-child(2) {
+                    transform: rotate(45deg);
+                }
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                }
+                &:nth-child(4) {
+                    top: 18px;
+                    width: 0%;
+                    left: 50%;
                 }
             }
         }
@@ -130,112 +220,4 @@ export default {
         }
     }
 }
-
-
-// /* Icon 2 */
-// #nav-icon2 span {
-//   display: block;
-//   position: absolute;
-//   height: 9px;
-//   width: 50%;
-//   background: $turquoise;
-//   opacity: 1;
-//   transform: rotate(0deg);
-//   transition: .25s ease-in-out;
-// }
-
-// #nav-icon2 span:nth-child(even) {
-//   left: 50%;
-//   border-radius: 0 9px 9px 0;
-// }
-
-// #nav-icon2 span:nth-child(odd) {
-//   left:0px;
-//   border-radius: 9px 0 0 9px;
-// }
-
-// #nav-icon2 span:nth-child(1), #nav-icon2 span:nth-child(2) {
-//   top: 0px;
-// }
-
-// #nav-icon2 span:nth-child(3), #nav-icon2 span:nth-child(4) {
-//   top: 18px;
-// }
-
-// #nav-icon2 span:nth-child(5), #nav-icon2 span:nth-child(6) {
-//   top: 36px;
-// }
-
-// #nav-icon2.open span:nth-child(1),#nav-icon2.open span:nth-child(6) {
-//   transform: rotate(45deg);
-// }
-
-// #nav-icon2.open span:nth-child(2),#nav-icon2.open span:nth-child(5) {
-//   transform: rotate(-45deg);
-// }
-
-// #nav-icon2.open span:nth-child(1) {
-//   left: 5px;
-//   top: 7px;
-// }
-
-// #nav-icon2.open span:nth-child(2) {
-//   left: calc(50% - 5px);
-//   top: 7px;
-// }
-
-// #nav-icon2.open span:nth-child(3) {
-//   left: -50%;
-//   opacity: 0;
-// }
-
-// #nav-icon2.open span:nth-child(4) {
-//   left: 100%;
-//   opacity: 0;
-// }
-
-// #nav-icon2.open span:nth-child(5) {
-//   left: 5px;
-//   top: 29px;
-// }
-
-// #nav-icon2.open span:nth-child(6) {
-//   left: calc(50% - 5px);
-//   top: 29px;
-// }
-
-// /* Icon 3 */
-// #nav-icon3 span:nth-child(1) {
-//   top: 0px;
-// }
-
-// #nav-icon3 span:nth-child(2),#nav-icon3 span:nth-child(3) {
-//   top: 18px;
-// }
-
-// #nav-icon3 span:nth-child(4) {
-//   top: 36px;
-// }
-
-// #nav-icon3.open span:nth-child(1) {
-//   top: 18px;
-//   width: 0%;
-//   left: 50%;
-// }
-
-// #nav-icon3.open span:nth-child(2) {
-//   transform: rotate(45deg);
-// }
-
-// #nav-icon3.open span:nth-child(3) {
-//   transform: rotate(-45deg);
-// }
-
-// #nav-icon3.open span:nth-child(4) {
-//   top: 18px;
-//   width: 0%;
-//   left: 50%;
-// }
-
-
 </style>
