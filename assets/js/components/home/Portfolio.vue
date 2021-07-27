@@ -18,10 +18,9 @@
                             a.btn.btn-pill.btn-sm.px-3.btn-white(href="#" @click="filter('Marketing')") Marketing
             b-row
                 b-col.col-lg-12
-                    transition-group.card-columns(name="list-slide" tag="div")
-                        b-card(v-for="(item, index) in filteredItems" :key="item" no-body :img-src="require('../../../images/covers/'+ item.id +'.jpg')")
-                            //- | {{ item.id }}
-                            //- b-img(:src="require('../../../images/covers/'+ item.id +'.jpg')" fluid rounded)
+                    transition-group(name="list-slide" tag="b-row")
+                        b-col.list-slide-item(v-for="(item, index) in filteredItems" :key="item" lg="3" md="4" sm="6")
+                            b-card.bg-clouds-concave-145.shadow-clouds-sm.border-0.mb-4(no-body :img-src="require('../../../images/covers/'+ item.id +'.jpg')")
 </template>
 
 <script>
@@ -39,7 +38,10 @@ export default {
                 { id: 6, tags: ['all', 'Identity'] },
                 { id: 7, tags: ['all', 'Marketing'] },
                 { id: 8, tags: ['all', 'Webdesign'] },
-                { id: 9, tags: ['all', 'Webdesign'] }
+                // { id: 9, tags: ['all', 'Webdesign'] },
+                // { id: 10, tags: ['all', 'Webdesign'] },
+                // { id: 11, tags: ['all', 'Webdesign'] },
+                // { id: 12, tags: ['all', 'Webdesign'] }
             ],
             currentTag: 'all',
         }
@@ -65,10 +67,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../../css/variables/color.scss';
-.card {
-    transition: all 1s;
-}
+
 .list-slide {
+    &-item {
+        transition: all 1s;
+    }
     &-enter,
     &-leave-to {
         opacity: 0;
