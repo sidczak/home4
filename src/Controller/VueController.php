@@ -145,4 +145,12 @@ class VueController extends AbstractController
     {
         return $this->render('vue/components/hamburger.html.twig');
     }
+
+    /**
+     * @Route("/components/portfolio", name="vue_components_portfolio")
+     */
+    public function portfolio()
+    {
+        return $this->render('vue/components/portfolio.html.twig');
+    }
 }

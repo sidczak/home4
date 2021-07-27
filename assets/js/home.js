@@ -49,6 +49,7 @@ import Clock from './components/home/Clock.vue';
 import Calculator from './components/home/Calculator.vue';
 import Ripple from './components/home/Ripple.vue';
 import Hamburger from './components/home/Hamburger.vue';
+import Portfolio from './components/home/Portfolio.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -67,6 +68,7 @@ Vue.customElement('home-clock', Clock);
 Vue.customElement('home-calculator', Calculator);
 Vue.customElement('home-ripple', Ripple);
 Vue.customElement('home-hamburger', Hamburger);
+Vue.customElement('home-portfolio', Portfolio);
 Vue.customElement('cm-webinar-flywheel', WebinarFlywheel);
 Vue.customElement('cm-homepage', Homepage);
 Vue.customElement('bs-album', Album);
