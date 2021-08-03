@@ -153,4 +153,12 @@ class VueController extends AbstractController
     {
         return $this->render('vue/components/portfolio.html.twig');
     }
+
+    /**
+     * @Route("/components/circle", name="vue_components_circle")
+     */
+    public function circle()
+    {
+        return $this->render('vue/components/circle.html.twig');
+    }
 }
