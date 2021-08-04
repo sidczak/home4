@@ -30,7 +30,7 @@ div
                 :cy='radius'
             )
     .range-slider.text-center
-        input.range-slider__range.mt-5(v-model='isProgress' type='range' :style="{ backgroundImage: `linear-gradient(90deg, ${this.customColor} ${this.isProgress}%, #cacfd2 ${this.isProgress}%)` }")
+        input.range-slider__range.mt-5(v-model='isProgress' type='range' :style="{'--color-range': customColor, backgroundImage: `linear-gradient(90deg, ${this.customColor} ${this.isProgress}%, #cacfd2 ${this.isProgress}%)` }")
         .range-slider__value {{isProgress}}
 
     ul.nav.justify-content-center.align-items-center.my-3
@@ -117,7 +117,6 @@ export default {
 @import '../../../css/variables/color.scss';
 
 $range-handle-color: $wet-asphalt !default;
-$range-handle-color-hover: $carrot !default;
 $range-handle-size: 20px !default;
 $range-label-color: $wet-asphalt !default;
 $range-label-width: 60px !default;
@@ -172,12 +171,12 @@ $range-label-width: 60px !default;
         transition: background .15s ease-in-out;
 
         &:hover {
-            background: $range-handle-color-hover;
+            background: var(--color-range);
         }
     }
 
     &:active::-webkit-slider-thumb {
-        background: $range-handle-color-hover;
+        background: var(--color-range);
     }
 
     &::-moz-range-thumb {
@@ -190,12 +189,12 @@ $range-label-width: 60px !default;
         transition: background .15s ease-in-out;
 
         &:hover {
-            background: $range-handle-color-hover;
+            background: var(--color-range);
         }
     }
 
     &:active::-moz-range-thumb {
-        background: $range-handle-color-hover;
+        background: var(--color-range);
     }
 }
 
