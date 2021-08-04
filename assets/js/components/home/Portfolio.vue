@@ -21,7 +21,7 @@
             b-row
                 b-col.col-lg-12
                     transition-group.justify-content-center(name="list-slide" tag="b-row")
-                        b-col.list-slide-item(v-for="(item, index) in filteredItems" :key="item" lg="3" md="4" sm="6")
+                        b-col.list-slide-item(v-for="(item, index) in filteredItems" :key="item.id" lg="3" md="4" sm="6")
                             b-card.shadow-clouds-sm.border-0.mb-4(no-body :img-src="require('../../../images/covers/'+ item.id +'.jpg')")
                             //- b-card.shadow-clouds-sm.border-0.mb-4(no-body :img-src="require('../../../../public/images/portfolio/'+ item.id +'.jpg')")
                             //- b-card.text-center.shadow-clouds-sm.border-0.mb-4(:class="item.bg ? 'bg-'+ item.bg +'-concave-145 text-white' : 'bg-clouds-concave-145'")

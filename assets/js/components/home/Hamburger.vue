@@ -14,13 +14,13 @@ export default {
     props: {
         hamburgerBg: {
             type: String,
-            default: '',
-            validator: (value) => ['turquoise', 'white'].indexOf(value) > -1,
+            default: 'turquoise',
+            validator: (value) => ['turquoise', 'peter-river','white'].indexOf(value) > -1,
         },
         option: {
             type: String,
             default: 'option3',
-            validator: (value) => ['option1', 'option2','option3', 'option4'].indexOf(value) > -1,
+            validator: (value) => ['option1', 'option2', 'option3', 'option4'].indexOf(value) > -1,
         },
     },
     data: function() {
@@ -71,10 +71,13 @@ export default {
     transform: rotate(0deg);
     transition: .5s ease-in-out;
     cursor: pointer;
-    &-bg-turquoise span{
+    &-bg-turquoise span {
         background-color: $turquoise !important;
     }
-    &-bg-white span{
+    &-bg-peter-river span {
+        background-color: $peter-river !important;
+    }
+    &-bg-white span {
         background-color: $white !important;
     }
     span {

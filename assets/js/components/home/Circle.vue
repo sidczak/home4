@@ -1,8 +1,8 @@
 <template lang="pug">
 //- https://codepen.io/SynCap/pen/MMYwRr
 div
-    .progress-ring(
-        :data-progress='progress'
+    .isProgress-ring(
+        :data-isProgress='isProgress'
         :class='{"show-digits": digitsVisible}'
         :style='{"--height": 2*radius + "px","--color": customColor}')
         svg(
@@ -28,7 +28,7 @@ div
                 :cx='radius'
                 :cy='radius'
             )
-    input.ctrl.mt-5(v-model='progress' type='range')
+    input.ctrl.mt-5(v-model='isProgress' type='range')
     ul.nav.justify-content-center.align-items-center.my-3
         li.nav-item.m-1
             a.btn.btn-pill.btn-sm.px-3.btn-turquoise(href="javascript:void(0)" @click='setProgress(0)') 0
@@ -49,9 +49,9 @@ div
         li.nav-item.m-1
             a.btn.btn-pill.btn-sm.px-3.btn-turquoise(href="javascript:void(0)" @click='setProgress(100)') 100
     div.my-3.text-center
-        b-button.mx-1(variant="peter-river" @click="setColor('#3498db')") peter river
-        b-button.mx-1(variant="turquoise" @click="setColor('#1abc9c')") turquoise
-        b-button.mx-1(variant="emerald" @click="setColor('#2ecc71')") emerald
+        b-button.btn-pill.mx-1(variant="peter-river" @click="setColor('#3498db')") peter river
+        b-button.btn-pill.mx-1(variant="turquoise" @click="setColor('#1abc9c')") turquoise
+        b-button.btn-pill.mx-1(variant="emerald" @click="setColor('#2ecc71')") emerald
     div.my-3.text-center
         button.btn.btn-pill.btn-wet-asphalt.mx-1(@click="autoDemo") Auto
         button.btn.btn-pill.btn-wet-asphalt.mx-1(@click="digitsVisible = !digitsVisible") Digits
@@ -59,13 +59,12 @@ div
 
 <script>
 export default {
-    name: "Circle",
+    name: "CircleProgress",
     props: {
         radius: {type: Number, default: 150},
-        progress: {type: Number, default: 30},
         stroke: {type: Number, default: 25},
-        customColor: {type: String, default: '#1abc9c'},
-        digitsVisible: {type: Boolean, default: true},
+        digits: {type: Boolean, default: true},
+        progress: {type: Number, default: 30},
     },
     data() {
         const normalizedRadius = this.radius - this.stroke/2;
@@ -73,7 +72,10 @@ export default {
         return {
             normalizedRadius,
             circumference,
-            interval: null
+            interval: null,
+            customColor: '#1abc9c',
+            isProgress: this.progress,
+            digitsVisible: this.digits
         };
     },
     // mounted() {
@@ -81,24 +83,23 @@ export default {
     // },
     computed: {
         strokeDashoffset() {
-            return this.circumference - this.progress / 100 * this.circumference;
+            return this.circumference - this.isProgress / 100 * this.circumference;
         }
     },
     methods: {
         setProgress(value) {
-            this.progress = value;
+            this.isProgress = value;
         },
         setColor(value) {
             this.customColor = value;
         },
         autoDemo(){
-            this.progress = 0;
-            console.log(this.interval);
+            this.isProgress = 0;
             clearInterval(this.interval);
             this.interval = setInterval(() => {
-                this.progress += 5;
-                if (this.progress >= 100) {
-                    this.progress = 100;
+                this.isProgress += 5;
+                if (this.isProgress >= 100) {
+                    this.isProgress = 100;
                     clearInterval(this.interval);
                 }
             }, 500);
@@ -108,13 +109,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../../css/variables/color.scss';
-
 .ctrl{
     width: 100%;
     margin: 1em auto;
 }
-.progress-ring {
+.isProgress-ring {
     position: relative;
     font-weight: 500;
     font-size: calc( var(--height) * .35);
@@ -124,7 +123,7 @@ export default {
     display: block;
     margin: auto;
     &.show-digits:before {
-        content: attr(data-progress);
+        content: attr(data-isProgress);
         position: absolute;
         left: 50%;
         top: 50%;
