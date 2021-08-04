@@ -28,7 +28,10 @@ div
                 :cx='radius'
                 :cy='radius'
             )
-    input.ctrl.mt-5(v-model='isProgress' type='range')
+    .range-slider.text-center
+        input.range-slider__range.mt-5(v-model='isProgress' type='range' :style="{ backgroundImage: `linear-gradient(90deg, ${this.customColor} ${this.isProgress}%, #cacfd2 ${this.isProgress}%)` }")
+        .range-slider__value {{isProgress}}
+
     ul.nav.justify-content-center.align-items-center.my-3
         li.nav-item.m-1
             a.btn.btn-pill.btn-sm.px-3.btn-turquoise(href="javascript:void(0)" @click='setProgress(0)') 0
@@ -48,11 +51,11 @@ div
             a.btn.btn-pill.btn-sm.px-3.btn-turquoise(href="javascript:void(0)" @click='setProgress(95)') 95
         li.nav-item.m-1
             a.btn.btn-pill.btn-sm.px-3.btn-turquoise(href="javascript:void(0)" @click='setProgress(100)') 100
-    div.my-3.text-center
+    .my-3.text-center
         b-button.btn-pill.mx-1(variant="peter-river" @click="setColor('#3498db')") peter river
         b-button.btn-pill.mx-1(variant="turquoise" @click="setColor('#1abc9c')") turquoise
         b-button.btn-pill.mx-1(variant="emerald" @click="setColor('#2ecc71')") emerald
-    div.my-3.text-center
+    .my-3.text-center
         button.btn.btn-pill.btn-wet-asphalt.mx-1(@click="autoDemo") Auto
         button.btn.btn-pill.btn-wet-asphalt.mx-1(@click="digitsVisible = !digitsVisible") Digits
 </template>
@@ -64,6 +67,7 @@ export default {
         radius: {type: Number, default: 150},
         stroke: {type: Number, default: 25},
         digits: {type: Boolean, default: true},
+        color: {type: String, default: "#1abc9c"},
         progress: {type: Number, default: 30},
     },
     data() {
@@ -73,7 +77,7 @@ export default {
             normalizedRadius,
             circumference,
             interval: null,
-            customColor: '#1abc9c',
+            customColor: this.color,
             isProgress: this.progress,
             digitsVisible: this.digits
         };
@@ -132,8 +136,127 @@ export default {
     circle {
         fill: transparent;
         transition: stroke-dashoffset 0.5s;
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
         transform-origin: 50% 50%;
     }
+}
+
+@import '../../../css/variables/color.scss';
+// Base Colors
+$shade-10: $wet-asphalt !default;
+$shade-1: #d7dcdf !default;
+$shade-0: #fff !default;
+$teal: #1abc9c !default;
+
+// Range Slider
+$range-handle-color: $shade-10 !default;
+$range-handle-color-hover: $teal !default;
+$range-handle-size: 20px !default;
+
+$range-track-color: $shade-1 !default;
+$range-track-height: 10px !default;
+
+$range-label-color: $shade-10 !default;
+$range-label-width: 60px !default;
+
+.range-slider {
+  margin: 60px 0;
+  width: 100%;
+}
+
+.range-slider__range {
+  -webkit-appearance: none;
+  width: calc(100% - (#{$range-label-width + 13px}));
+  height: $range-track-height;
+  border-radius: 5px;
+  background: $range-track-color;
+  outline: none;
+  padding: 0;
+  margin: 0;
+
+  // Range Handle
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: $range-handle-size;
+    height: $range-handle-size;
+    border-radius: 50%;
+    background: $range-handle-color;
+    cursor: pointer;
+    transition: background .15s ease-in-out;
+
+    &:hover {
+      background: $range-handle-color-hover;
+    }
+  }
+
+  &:active::-webkit-slider-thumb {
+    background: $range-handle-color-hover;
+  }
+
+  &::-moz-range-thumb {
+    width: $range-handle-size;
+    height: $range-handle-size;
+    border: 0;
+    border-radius: 50%;
+    background: $range-handle-color;
+    cursor: pointer;
+    transition: background .15s ease-in-out;
+
+    &:hover {
+      background: $range-handle-color-hover;
+    }
+  }
+
+  &:active::-moz-range-thumb {
+    background: $range-handle-color-hover;
+  }
+  
+  // Focus state
+  &:focus {
+    
+    &::-webkit-slider-thumb {
+      box-shadow: 0 0 0 3px $shade-0,
+                  0 0 0 6px $teal;
+    }
+  }
+}
+
+
+// Range Label
+.range-slider__value {
+  display: inline-block;
+  position: relative;
+  width: $range-label-width;
+  color: $shade-0;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 3px;
+  background: $range-label-color;
+  padding: 5px 10px;
+  margin-left: 8px;
+
+  &:after {
+    position: absolute;
+    top: 8px;
+    left: -7px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-right: 7px solid $range-label-color;
+    border-bottom: 7px solid transparent;
+    content: '';
+  }
+}
+
+
+// Firefox Overrides
+::-moz-range-track {
+    background: $range-track-color;
+    border: 0;
+}
+
+input::-moz-focus-inner,
+input::-moz-focus-outer { 
+  border: 0; 
 }
 </style>
