@@ -161,4 +161,12 @@ class VueController extends AbstractController
     {
         return $this->render('vue/components/circle.html.twig');
     }
+
+    /**
+     * @Route("/components/sidebar", name="vue_components_sidebar")
+     */
+    public function sidebar()
+    {
+        return $this->render('vue/components/sidebar.html.twig');
+    }
 }

@@ -52,6 +52,7 @@ import Ripple from './components/home/Ripple.vue';
 import Hamburger from './components/home/Hamburger.vue';
 import Portfolio from './components/home/Portfolio.vue';
 import Circle from './components/home/Circle.vue';
+import Sidebar from './components/home/Sidebar.vue';
 
 // Vue.config.ignoredElements = [
 //   'example-component'
@@ -73,6 +74,7 @@ Vue.customElement('home-ripple', Ripple);
 Vue.customElement('home-hamburger', Hamburger);
 Vue.customElement('home-portfolio', Portfolio);
 Vue.customElement('home-circle', Circle);
+Vue.customElement('home-sidebar', Sidebar);
 Vue.customElement('cm-webinar-flywheel', WebinarFlywheel);
 Vue.customElement('cm-homepage', Homepage);
 Vue.customElement('bs-album', Album);
