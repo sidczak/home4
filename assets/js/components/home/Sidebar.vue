@@ -16,8 +16,8 @@ b-row
                     a.nav-link.active(v-else href="#" v-b-tooltip.hover.right title="Start")
                         i.fas.fa-fw.fa-home.mr-1
                 li.nav-item.dropdown.dropright
-                    a.nav-link.dropdown-toggle(href="#" id="navbarDropdownComponents" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-                        i.fas.fa-fw.fa-tools.mr-1
+                    a.nav-link.dropdown-toggle(href="#" id="navbarDropdownComponents" data-toggle="dropdown")
+                        i.fas.fa-fw.fa-puzzle-piece.mr-1
                         span(:class="{'d-none': show}") Components
                     div.dropdown-menu(aria-labelledby="navbarDropdownComponents")
                             h6.dropdown-header
@@ -35,7 +35,7 @@ b-row
                             a.dropdown-item(href="#")
                                 | Circle Progress
                 li.nav-item.dropdown.dropright
-                    a.nav-link.dropdown-toggle(href="#" id="navbarDropdownExamples" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+                    a.nav-link.dropdown-toggle(href="#" id="navbarDropdownExamples" data-toggle="dropdown")
                         i.fas.fa-fw.fa-tools.mr-1
                         span(:class="{'d-none': show}") Examples
                     div.dropdown-menu(aria-labelledby="navbarDropdownExamples")
@@ -48,16 +48,16 @@ b-row
             ul.navbar-nav.flex-column.mt-auto(:class="{'w-100': !show}")
                 li.nav-item
                     a.nav-link(v-if="!show" href="#")
-                        i.fas.fa-fw.fa-tools.mr-1
-                        | Portfolio
-                    a.nav-link(v-else href="#" v-b-tooltip.hover.right title="Portfolio")
-                        i.fas.fa-fw.fa-tools.mr-1
+                        i.fas.fa-fw.fa-project-diagram.mr-1
+                        | Project
+                    a.nav-link(v-else href="#" v-b-tooltip.hover.right title="Project")
+                        i.fas.fa-fw.fa-project-diagram.mr-1
                 li.nav-item
                     a.nav-link(v-if="!show" href="#")
-                        i.fas.fa-fw.fa-tools.mr-1
-                        | Circle Progress
-                    a.nav-link(v-else href="#" v-b-tooltip.hover.right title="Circle Progress")
-                        i.fas.fa-fw.fa-tools.mr-1
+                        i.far.fa-fw.fa-address-card.mr-1
+                        | Contact
+                    a.nav-link(v-else href="#" v-b-tooltip.hover.right title="Contact")
+                        i.far.fa-fw.fa-address-card.mr-1
     b-col
         nav.navbar.flex-column.navbar-light.bg-clouds-concave-145.shadow-clouds.h-100.d-inline-flex(:class="{'navbar-expand': show}")
             a.navbar-brand.mr-0(href="#")
@@ -132,4 +132,9 @@ export default {
     bottom: 0;
     z-index: 1030;
 }
+// .dropdown.narrow:hover {
+//     .dropdown-menu {
+//         display: block;
+//     }
+// }
 </style>
