@@ -129,6 +129,7 @@ export default {
     bottom: 0;
     z-index: 1030;
 }
+
 .dropdown.dropdown-hover:hover {
     & > .dropdown-menu {
         display: block;
