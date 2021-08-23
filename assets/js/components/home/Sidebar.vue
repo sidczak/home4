@@ -66,6 +66,28 @@ nav.navbar.flex-column.h-100.d-inline-flex(:class="[position, bg, navbar, {'navb
                                     | Dropdown Third
                                 a.dropdown-item(href="#")
                                     | Dropdown Third
+        li.nav-item.dropdown.dropright.dropdown-hover(v-if="show")
+            a.nav-link.dropdown-toggle(href="#" id="navbarDropdownSitemap")
+                i.fas.fa-fw.fa-sitemap.mr-1
+                span(:class="{'d-none': show}") Dropdown
+            div.dropdown-menu(aria-labelledby="navbarDropdownSitemap")
+                    h6.dropdown-header
+                        |  Second
+                    a.dropdown-item(href="#")
+                        | Dropdown Second
+                    a.dropdown-item(href="#")
+                        | Dropdown Second
+                    a.dropdown.dropdown-item.dropdown-hover(href="#" id="navbarDropdownSitemap2")
+                        i.fas.fa-fw.fa-sitemap.mr-1
+                        | Dropdown
+                        i.fas.fa-fw.fa-caret-right
+                        div.dropdown-menu(aria-labelledby="navbarDropdownSitemap2")
+                                h6.dropdown-header
+                                    |  Third
+                                a.dropdown-item(href="#")
+                                    | Dropdown Third
+                                a.dropdown-item(href="#")
+                                    | Dropdown Third
     ul.navbar-nav.flex-column.mt-auto(:class="{'w-100': !show}")
         li.nav-item
             a.nav-link(v-if="!show" href="#")
@@ -107,9 +129,9 @@ export default {
     bottom: 0;
     z-index: 1030;
 }
-// .dropdown.narrow:hover {
-//     .dropdown-menu {
-//         display: block;
-//     }
-// }
+.dropdown.dropdown-hover:hover {
+    & > .dropdown-menu {
+        display: block;
+    }
+}
 </style>
