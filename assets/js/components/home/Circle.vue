@@ -19,7 +19,7 @@ div
                 :cy='radius'
             )
             circle(
-                :stroke='customColor'
+                :stroke="'url(#GradientColor' + gradientId + ')'"
                 fill='transparent'
                 stroke-linecap='round'
                 :stroke-dasharray='circumference + \' \' + circumference'
@@ -29,6 +29,10 @@ div
                 :cx='radius'
                 :cy='radius'
             )
+            defs
+                linearGradient(:id="'GradientColor' + gradientId")
+                    stop(offset="0%" :stop-color="gradientColor")
+                    stop(offset="100%" :stop-color="customColor")
     .range-slider.text-center
         input.range-slider__range.mt-5(v-model='isProgress' type='range' :style="{'--color-range': customColor, backgroundImage: `linear-gradient(90deg, ${this.customColor} ${this.isProgress}%, #cacfd2 ${this.isProgress}%)` }")
         .range-slider__value {{isProgress}}
@@ -69,6 +73,7 @@ export default {
         stroke: {type: Number, default: 25},
         digits: {type: Boolean, default: true},
         color: {type: String, default: "#1abc9c"},
+        gradient: {type: String, default: ""},
         progress: {type: Number, default: 30},
     },
     data() {
@@ -79,13 +84,18 @@ export default {
             circumference,
             interval: null,
             customColor: this.color,
+            gradientColor: this.gradient ? this.gradient : this.color,
             isProgress: this.progress,
-            digitsVisible: this.digits
+            digitsVisible: this.digits,
+            gradientId: null
         };
     },
     // mounted() {
     //     this.autoDemo();
     // },
+    created () {
+        this.gradientId = Math.floor(Math.random() * 100000)
+    },
     computed: {
         strokeDashoffset() {
             return this.circumference - this.isProgress / 100 * this.circumference;
