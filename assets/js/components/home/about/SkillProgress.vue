@@ -5,7 +5,7 @@
         transition(name="bounce" mode="out-in")
             h3.skill-progress-value.mb-2(v-if="isProgress > 0" key="progress")
                 | {{isProgress}}%
-            i.skill-progress-icon.mb-2(v-else key="skill" :class="icon")
+            i.skill-progress-icon.mb-2(v-else :class="icon" key="skill")
         h5.m-0.text-uppercase
             | {{skill}}
     svg(:height="radius * 2" :width="radius * 2")

@@ -30,7 +30,7 @@ div
                 :cy='radius'
             )
             defs
-                linearGradient(:id="'GradientColor' + gradientId")
+                linearGradient(:id="'GradientColor' + gradientId" :gradientTransform="'rotate(' + rotateGrad + ')'")
                     stop(offset="0%" :stop-color="gradientColor")
                     stop(offset="100%" :stop-color="customColor")
     .range-slider.text-center
@@ -75,6 +75,7 @@ export default {
         color: {type: String, default: "#1abc9c"},
         gradient: {type: String, default: ""},
         progress: {type: Number, default: 30},
+        rotate: {type: Number, default: 0},
     },
     data() {
         const normalizedRadius = this.radius - this.stroke/2;
@@ -87,7 +88,8 @@ export default {
             gradientColor: this.gradient ? this.gradient : this.color,
             isProgress: this.progress,
             digitsVisible: this.digits,
-            gradientId: null
+            gradientId: null,
+            rotateGrad: this.rotate
         };
     },
     // mounted() {
