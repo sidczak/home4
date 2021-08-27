@@ -5,7 +5,9 @@ div
     .progress-ring(
         :data-isProgress='isProgress'
         :class='{"show-digits": digitsVisible}'
-        :style='{"--height": 2*radius + "px","--color": customColor}')
+        :style='{"--height": 2*radius + "px","--color": customColor}'
+        @mouseover="countdown" 
+        @mouseleave="countup")
         svg(
             :height='radius * 2'
             :width='radius * 2')
@@ -89,7 +91,10 @@ export default {
             isProgress: this.progress,
             digitsVisible: this.digits,
             gradientId: null,
-            rotateGrad: this.rotate
+            rotateGrad: this.rotate,
+            timeoutDown: null,
+            timeoutUp: null,
+            limit: this.progress
         };
     },
     // mounted() {
@@ -120,6 +125,20 @@ export default {
                     clearInterval(this.interval);
                 }
             }, 500);
+        },
+        countdown: function() {
+            if(this.isProgress > 0) {
+                clearTimeout(this.timeoutUp);
+                this.isProgress--;
+                this.timeoutDown = setTimeout(this.countdown, 10);
+            }
+        },
+        countup() {
+            if(this.isProgress < this.limit) {
+                clearTimeout(this.timeoutDown);
+                this.isProgress++;
+                this.timeoutUp = setTimeout(this.countup, 10);
+            }
         }
     }
 };
