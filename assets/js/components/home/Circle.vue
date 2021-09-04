@@ -114,6 +114,10 @@ export default {
         },
         setColor(value) {
             this.customColor = value;
+
+            if(!this.gradient) {
+                this.gradientColor = value;
+            }
         },
         autoDemo(){
             this.isProgress = 0;
