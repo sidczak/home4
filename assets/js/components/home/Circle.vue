@@ -165,6 +165,8 @@ $range-label-width: 60px !default;
     color: var(--color);
     display: block;
     margin: auto;
+    border-radius: 50%;
+    overflow: hidden;
     &.show-digits:before {
         content: attr(data-isProgress);
         position: absolute;
