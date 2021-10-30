@@ -60,21 +60,21 @@ class BlogPost
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, options={"default"="publish"})
      */
     private $statusPost = 'publish';
 
     /**
      * @var bool
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default"="1"})
      */
     private $showComment = true;
 
     /**
      * @var bool
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default"="1"})
      */
     private $enableComment = true;
 
@@ -115,7 +115,7 @@ class BlogPost
     private $comments;
 
     /**
-     * @var Category
+     * @var \BlogCategory
      *
      * @ORM\ManyToOne(targetEntity="BlogCategory", inversedBy="posts")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
@@ -126,7 +126,14 @@ class BlogPost
      * @var Tag[]|ArrayCollection
      *
      * @ORM\ManyToMany(targetEntity="BlogTag", inversedBy="posts" cascade={"persist"})
-     * @ORM\JoinTable(name="blog_post_tag")
+     * @ORM\JoinTable(name="blog_post_tag",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="post_id", referencedColumnName="id")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="tag_id", referencedColumnName="id")
+     *   }
+     * )
      */
     private $tags;
 

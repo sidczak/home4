@@ -52,7 +52,7 @@ class BlogCategory
     /**
      * @var bool
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default"="1"})
      */
     private $isActive = true;
 

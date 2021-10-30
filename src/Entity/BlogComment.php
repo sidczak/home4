@@ -51,7 +51,7 @@ class BlogComment
     /**
      * @var bool
      *
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", options={"default"="1"})
      */
     private $isApproved = true;
 
@@ -63,7 +63,7 @@ class BlogComment
     private $publishedAt;
 
     /**
-     * @var Post
+     * @var \BlogPost
      *
      * @ORM\ManyToOne(targetEntity="BlogPost", inversedBy="comments")
      * @ORM\JoinColumn(name="post_id", referencedColumnName="id", nullable=false)

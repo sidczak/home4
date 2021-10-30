@@ -29,12 +29,12 @@ class BlogImage
     /**
      * @var int
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", options={"default"="1"})
      */
     private $rank = 1;
 
     /**
-     * @var Post
+     * @var \BlogPost
      *
      * @ORM\ManyToOne(targetEntity="BlogPost", inversedBy="images")
      * @ORM\JoinColumn(name="post_id", referencedColumnName="id", nullable=false)
