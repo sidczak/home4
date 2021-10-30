@@ -1,0 +1,36 @@
+App\Entity\Blog\BlogCategory:
+  type: entity
+  #repositoryClass: App\Repository\BlogCategoryRepository
+  table: blog_category
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 100
+    slug:
+      type: string
+      length: 255
+      unique: true
+    description:
+      type: string
+      length: 255
+    image:
+      type: string
+      length: 100
+    is_active:
+      type: boolean
+      options:
+        default: true
+  oneToMany:
+    posts:
+      targetEntity: BlogPost
+      mappedBy: category
+      cascade: [ remove ]
+#  manyToMany:
+#    products:
+#      targetEntity: Product
+#      mappedBy: categories
+#      #cascade: [ persist ]

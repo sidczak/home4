@@ -1,0 +1,26 @@
+App\Entity\Blog\BlogTag:
+  type: entity
+  #repositoryClass: App\Repository\BlogTagRepository
+  table: blog_tag
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 50
+      unique: true
+    slug:
+      type: string
+      length: 50
+      unique: true
+    description:
+      type: string
+      length: 255
+      nullable: true
+  manyToMany:
+    posts:
+      targetEntity: BlogPost
+      mappedBy: tags
+      #cascade: [ persist ]
