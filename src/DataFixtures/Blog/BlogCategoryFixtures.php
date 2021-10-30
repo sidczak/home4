@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataFixtures;
+namespace App\DataFixtures\Blog;
 
 use App\Entity\Blog\BlogCategory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
