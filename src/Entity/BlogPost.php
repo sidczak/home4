@@ -103,7 +103,7 @@ class BlogPost
      * @var Image[]|ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="BlogImage", mappedBy="post", orphanRemoval=true, cascade={"persist"})
-     * @OrderBy({"rank" = "ASC"})
+     * @ORM\OrderBy({"rank" = "ASC"})
      */
     private $images;
 
@@ -125,7 +125,7 @@ class BlogPost
     /**
      * @var Tag[]|ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="BlogTag", inversedBy="posts" cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="BlogTag", inversedBy="posts", cascade={"persist"})
      * @ORM\JoinTable(name="blog_post_tag",
      *   joinColumns={
      *     @ORM\JoinColumn(name="post_id", referencedColumnName="id")
