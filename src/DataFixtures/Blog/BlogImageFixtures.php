@@ -4,9 +4,10 @@ namespace App\DataFixtures\Blog;
 
 use App\Entity\Blog\BlogImage;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class BlogImageFixtures extends Fixture
+class BlogImageFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -36,5 +37,15 @@ class BlogImageFixtures extends Fixture
         $manager->persist($img_blog_4);
 
         $manager->flush();
+    }
+    
+    /**
+     * @return array
+     */
+    public function getDependencies(): array
+    {
+        return [
+            BlogPostFixtures::class,
+        ];
     }
 }

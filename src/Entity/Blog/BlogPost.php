@@ -379,17 +379,18 @@ class BlogPost
     }
 
     /**
-     * @ORM\PrePersist
+     * @ORM\PrePersist()
      */
-    public function setPublishedAtValue()
+    public function prePersist()
     {
-        $this->publishedAt = new \DateTime();
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
     }
 
     /**
-     * @ORM\PreUpdate
+     * @ORM\PreUpdate()
      */
-    public function setUpdatedAtValue()
+    public function preUpdate()
     {
         $this->updatedAt = new \DateTime();
     }

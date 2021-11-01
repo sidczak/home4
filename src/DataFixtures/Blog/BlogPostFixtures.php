@@ -4,9 +4,10 @@ namespace App\DataFixtures\Blog;
 
 use App\Entity\Blog\BlogPost;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class BlogPostFixtures extends Fixture
+class BlogPostFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -34,7 +35,7 @@ class BlogPostFixtures extends Fixture
         $post_shop->setViewsPost(5);
         $post_shop->addTag($manager->merge($this->getReference('tag-html'))); //manyToMany
         $post_shop->addTag($manager->merge($this->getReference('tag-php'))); //manyToMany
-        $post_shop->addTag($manager->merge($this->getReference('tag-ajax'))); //manyToMany
+        // $post_shop->addTag($manager->merge($this->getReference('tag-ajax'))); //manyToMany
         $post_shop->setPublishedAt(new \DateTime('now - 1 days'));
             
         $manager->persist($post_blog);
@@ -44,5 +45,16 @@ class BlogPostFixtures extends Fixture
 
         $this->addReference('post-blog', $post_blog);
         $this->addReference('post-shop', $post_shop);
+    }
+
+    /**
+     * @return array
+     */
+    public function getDependencies(): array
+    {
+        return [
+            BlogCategoryFixtures::class,
+            BlogTagFixtures::class,
+        ];
     }
 }

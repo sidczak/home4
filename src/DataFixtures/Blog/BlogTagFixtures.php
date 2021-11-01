@@ -22,14 +22,20 @@ class BlogTagFixtures extends Fixture
 	    $jquery->setName('jQuery');
 	    $jquery->setDescription('Description jQuery');
 
+        $php = new BlogTag();
+	    $php->setName('PHP');
+	    $php->setDescription('Description PHP');
+
 	    $manager->persist($html);
         $manager->persist($css);
 	    $manager->persist($jquery);
+	    $manager->persist($php);
 
         $manager->flush();
 
         $this->addReference('tag-html', $html);
 	    $this->addReference('tag-css', $css);
 	    $this->addReference('tag-jquery', $jquery);
+	    $this->addReference('tag-php', $php);
     }
 }

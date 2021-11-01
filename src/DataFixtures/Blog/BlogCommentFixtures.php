@@ -4,9 +4,10 @@ namespace App\DataFixtures\Blog;
 
 use App\Entity\Blog\BlogComment;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class BlogCommentFixtures extends Fixture
+class BlogCommentFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -31,5 +32,15 @@ class BlogCommentFixtures extends Fixture
 
         $this->addReference('comment-blog', $comment_blog);
         $this->addReference('comment-shop', $comment_shop);
+    }
+
+    /**
+     * @return array
+     */
+    public function getDependencies(): array
+    {
+        return [
+            BlogPostFixtures::class,
+        ];
     }
 }
