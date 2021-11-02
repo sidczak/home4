@@ -3,6 +3,7 @@
 namespace App\DataFixtures\Blog;
 
 use App\Entity\Blog\BlogTag;
+// use App\Utils\Slugger;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -46,6 +47,17 @@ class BlogTagFixtures extends Fixture
         $manager->persist($symfony);
         $manager->persist($bootstrap);
 
+        foreach ($this->getTagData() as $index => $name) {
+            $tag = new BlogTag();
+            $tag->setName($name);
+            $tag->setDescription('Description '.$name);
+
+            $manager->persist($tag);
+
+            //zmiana referencji na tag-symgony-4
+            $this->addReference('tag-'.preg_replace('/\s+/', '-', mb_strtolower(trim(strip_tags($name)), 'UTF-8')), $tag);
+        }
+
         $manager->flush();
 
         $this->addReference('tag-html', $html);
@@ -55,5 +67,14 @@ class BlogTagFixtures extends Fixture
         $this->addReference('tag-ajax', $ajax);
         $this->addReference('tag-symfony', $symfony);
         $this->addReference('tag-bootstrap', $bootstrap);
+    }
+
+    private function getTagData(): array
+    {
+        return [
+            'Symfony 4',
+            'Vue',
+            'Bootstrap 4',
+        ];
     }
 }

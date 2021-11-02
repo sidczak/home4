@@ -25,6 +25,7 @@ class UserFixtures extends Fixture
             $admin,
             'adminpass'
         ));
+        $admin->setIsVerified(1);
 
         $user = new User();
         $user->setEmail('user@example.com');
@@ -33,10 +34,30 @@ class UserFixtures extends Fixture
             $user,
             'userpass'
         ));
+        $user->setIsVerified(1);
 
         $manager->persist($admin);
         $manager->persist($user);
 
+        foreach ($this->getUserData() as [$password, $email, $roles]) {
+            $sample = new User();
+            $sample->setEmail($email);
+            $sample->setRoles($roles);
+            $sample->setPassword($this->passwordEncoder->encodePassword($sample, $password));
+
+            $manager->persist($sample);
+        }
+
         $manager->flush();
+    }
+
+    private function getUserData(): array
+    {
+        return [
+            // $userData = [$password, $email, $roles];
+            ['kitten', 'jane_admin@symfony.com', ['ROLE_ADMIN']],
+            ['kitten', 'tom_admin@symfony.com', ['ROLE_ADMIN']],
+            ['kitten', 'john_user@symfony.com', ['ROLE_USER']],
+        ];
     }
 }
