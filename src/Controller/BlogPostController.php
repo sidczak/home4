@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\BlogPost;
 use App\Form\BlogPostType;
+use App\Repository\BlogPostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,16 +18,23 @@ class BlogPostController extends AbstractController
     /**
      * @Route("/", name="blog_post_index", methods={"GET"})
      */
-    public function index(): Response
+    public function index(BlogPostRepository $blogPostRepository): Response
     {
-        $blogPosts = $this->getDoctrine()
-            ->getRepository(BlogPost::class)
-            ->findAll();
-
         return $this->render('blog_post/index.html.twig', [
-            'blog_posts' => $blogPosts,
+            'blog_posts' => $blogPostRepository->findAll(),
         ]);
     }
+    
+    // public function index(): Response
+    // {
+    //     $blogPosts = $this->getDoctrine()
+    //         ->getRepository(BlogPost::class)
+    //         ->findAll();
+
+    //     return $this->render('blog_post/index.html.twig', [
+    //         'blog_posts' => $blogPosts,
+    //     ]);
+    // }
 
     /**
      * @Route("/new", name="blog_post_new", methods={"GET","POST"})
