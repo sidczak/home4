@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataFixtures\Blog;
+namespace App\DataFixtures;
 
 use App\Entity\Blog\BlogTag;
 // use App\Utils\Slugger;

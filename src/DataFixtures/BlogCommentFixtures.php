@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataFixtures\Blog;
+namespace App\DataFixtures;
 
 use App\Entity\Blog\BlogComment;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -13,6 +13,7 @@ class BlogCommentFixtures extends Fixture implements DependentFixtureInterface
     {
         $comment_blog = new BlogComment();
         $comment_blog->setPost($manager->merge($this->getReference('post-blog')));
+        $comment_blog->setUser($manager->merge($this->getReference('user-user')));
         $comment_blog->setUsername('admin');
         $comment_blog->setAuthorEmail('admin@symfony.com');
         $comment_blog->setWebsite('www.demo.pl');
@@ -21,6 +22,7 @@ class BlogCommentFixtures extends Fixture implements DependentFixtureInterface
         
         $comment_shop = new BlogComment();
         $comment_shop->setPost($manager->merge($this->getReference('post-shop')));
+        $comment_shop->setUser($manager->merge($this->getReference('user-user')));
         $comment_shop->setUsername('journalist');
         $comment_shop->setAuthorEmail('journalist@symfony.com');
         $comment_shop->setContent('Bootstrap is the most widely used frontend framework right now.');
@@ -32,6 +34,7 @@ class BlogCommentFixtures extends Fixture implements DependentFixtureInterface
 
             $comment = new BlogComment();
             $comment->setPost($manager->merge($this->getReference('post-post'.rand(0, 30)))); //mamy 30 postów dlatego rand(0, 30)
+            $comment->setUser($manager->merge($this->getReference('user-user')));
             
             $surfer = $this->getRandomSurfer();
             $comment->setUsername($surfer['username']);
@@ -59,6 +62,7 @@ class BlogCommentFixtures extends Fixture implements DependentFixtureInterface
     {
         return [
             BlogPostFixtures::class,
+            UserFixtures::class,
         ];
     }
 

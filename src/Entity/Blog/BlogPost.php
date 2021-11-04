@@ -2,6 +2,7 @@
 
 namespace App\Entity\Blog;
 
+use App\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -114,6 +115,14 @@ class BlogPost
      * @ORM\OneToMany(targetEntity="BlogComment", mappedBy="post", orphanRemoval=true, cascade={"persist"})
      */
     private $comments;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     /**
      * @var \BlogCategory
@@ -393,5 +402,17 @@ class BlogPost
     public function preUpdate()
     {
         $this->updatedAt = new \DateTime();
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }

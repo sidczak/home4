@@ -49,6 +49,9 @@ class UserFixtures extends Fixture
         }
 
         $manager->flush();
+
+        $this->addReference('user-admin', $admin);
+        $this->addReference('user-user', $user);
     }
 
     private function getUserData(): array

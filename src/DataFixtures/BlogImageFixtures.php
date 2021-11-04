@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataFixtures\Blog;
+namespace App\DataFixtures;
 
 use App\Entity\Blog\BlogImage;
 use Doctrine\Bundle\FixturesBundle\Fixture;

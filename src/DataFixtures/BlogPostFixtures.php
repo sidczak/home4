@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DataFixtures\Blog;
+namespace App\DataFixtures;
 
 use App\Entity\Blog\BlogPost;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -13,6 +13,7 @@ class BlogPostFixtures extends Fixture implements DependentFixtureInterface
     {
         $post_blog = new BlogPost();
         $post_blog->setCategory($manager->merge($this->getReference('category-blog'))); //manyToOne
+        $post_blog->setUser($manager->merge($this->getReference('user-admin'))); //manyToOne
         $post_blog->setTitle('Learn the Bootstrap Grid in <b>15 Minutes</b>');
         // $post_blog->setExcerpt($this->getPostExcerpt());
         // $post_blog->setContent($this->getPostContent());
@@ -26,6 +27,7 @@ class BlogPostFixtures extends Fixture implements DependentFixtureInterface
             
         $post_shop = new BlogPost();
         $post_shop->setCategory($manager->merge($this->getReference('category-shop'))); //manyToOne
+        $post_shop->setUser($manager->merge($this->getReference('user-admin'))); //manyToOne
         $post_shop->setTitle('How to Control <b>YouTube Video Player</b> with jQuery');
         // $post_shop->setExcerpt($this->getPostExcerpt());
         // $post_shop->setContent($this->getPostContent());
@@ -45,6 +47,7 @@ class BlogPostFixtures extends Fixture implements DependentFixtureInterface
             $post = new BlogPost();
             
             $post->setCategory($this->getRandomCategory($manager)); //manyToOne
+            $post->setUser($manager->merge($this->getReference('user-admin'))); //manyToOne
             $post->setTitle($this->getRandomTitle($i));
             $post->setExcerpt($this->getPostExcerpt());
             $post->setContent($this->getPostContent());
@@ -74,6 +77,7 @@ class BlogPostFixtures extends Fixture implements DependentFixtureInterface
         return [
             BlogCategoryFixtures::class,
             BlogTagFixtures::class,
+            UserFixtures::class,
         ];
     }
     

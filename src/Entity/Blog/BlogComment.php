@@ -2,6 +2,7 @@
 
 namespace App\Entity\Blog;
 
+use App\Entity\User;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -61,6 +62,14 @@ class BlogComment
      * @ORM\Column(type="datetime")
      */
     private $publishedAt;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
 
     /**
      * @var \BlogPost
@@ -165,5 +174,17 @@ class BlogComment
     public function setPublishedAtValue()
     {
         $this->publishedAt = new \DateTime();
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }
