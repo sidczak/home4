@@ -64,6 +64,11 @@ class BlogCategory
      */
     private $posts;
 
+    public function __toString()
+    {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->posts = new ArrayCollection();

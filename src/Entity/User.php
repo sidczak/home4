@@ -41,6 +41,11 @@ class User implements UserInterface
      */
     private $isVerified = false;
 
+    public function __toString()
+    {
+        return $this->email;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
