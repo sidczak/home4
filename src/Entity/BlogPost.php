@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="App\Repository\BlogPostRepository")
  * @ORM\Table(name="blog_post")
  * @ORM\HasLifecycleCallbacks()
  */
