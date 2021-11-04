@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Blog\BlogCategory;
+use App\Entity\BlogCategory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 

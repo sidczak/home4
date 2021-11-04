@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Blog\BlogComment;
+use App\Entity\BlogComment;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
