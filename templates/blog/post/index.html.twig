@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BlogPost index{% endblock %}
+
+{% block body %}
+
+<section class="section-pb-80 section-pt-152 bg-clouds">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-5">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-angle-right breadcrumb-light justify-content-center bg-transparent text-uppercase small">
+                        <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Start</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                    </ol>
+                </nav>
+                <div class="title title-white d-flex justify-content-center align-items-center mb-4">
+                    <h2>Blog</h2>
+                    <h3>my posts</h3>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="row">    
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h2>Post list</h2>
+            </div>
+            <ul class="breadcrumb">
+                <li><a href="{# {{ path('blog_homepage') }} #}">Start</a></li>
+                <li class="active">Blog</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+        {% for blog_post in blog_posts %}
+            <h2><a href="{{ path('blog_post_show', {'id': blog_post.id}) }}">{{ blog_post.title|title|raw }}</a></h2>
+            <p>
+                <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
+                <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
+            </p>
+            <p>
+                {{ blog_post.excerpt|raw|slice(0, 300) }}
+                {{ blog_post.excerpt|length > 300 ? '[...]' : ''}}
+                {#{{ blog_post.excerpt|length > 300 ? blog_post.excerpt|raw|slice(0,300) ~ '[...]' : blog_post.excerpt|raw }}#}
+            </p>
+            <a class="btn btn-primary" href="{# {{ path('post_show', { 'id': blog_post.id }) }} #}">Read More <i class="fa fa-angle-right"></i></a>
+            <hr/>
+        {% endfor %} 
+        </div>
+        <div class="col-md-4">            
+            {{ include('blog/_sidebar.html.twig') }}
+        </div>
+    </div>
+</div>
+
+
+    </div>
+</section>
+{#     <h1>BlogPost index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Slug</th>
+                <th>Excerpt</th>
+                <th>Content</th>
+                <th>AuthorEmail</th>
+                <th>StatusPost</th>
+                <th>ShowComment</th>
+                <th>EnableComment</th>
+                <th>ViewsPost</th>
+                <th>PublishedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for blog_post in blog_posts %}
+            <tr>
+                <td>{{ blog_post.id }}</td>
+                <td>{{ blog_post.title }}</td>
+                <td>{{ blog_post.slug }}</td>
+                <td>{{ blog_post.excerpt }}</td>
+                <td>{{ blog_post.content }}</td>
+                <td>{{ blog_post.authorEmail }}</td>
+                <td>{{ blog_post.statusPost }}</td>
+                <td>{{ blog_post.showComment ? 'Yes' : 'No' }}</td>
+                <td>{{ blog_post.enableComment ? 'Yes' : 'No' }}</td>
+                <td>{{ blog_post.viewsPost }}</td>
+                <td>{{ blog_post.publishedAt ? blog_post.publishedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ blog_post.updatedAt ? blog_post.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('blog_post_show', {'id': blog_post.id}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> #}
+
+{% endblock %}

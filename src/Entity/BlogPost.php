@@ -3,10 +3,10 @@
 namespace App\Entity;
 
 use App\Entity\User;
+use App\Utils\Blog as Blog;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BlogPostRepository")
@@ -33,7 +33,6 @@ class BlogPost
 
     /**
      * @var string
-     * @Gedmo\Slug(fields={"title"})
      * @ORM\Column(type="string", length=255, unique=true)
      */
     private $slug;
@@ -394,6 +393,14 @@ class BlogPost
     {
         $this->createdAt = new \DateTime();
         $this->updatedAt = new \DateTime();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setSlugValue()
+    {
+        $this->slug = Blog::slugify($this->getTitle());
     }
 
     /**
