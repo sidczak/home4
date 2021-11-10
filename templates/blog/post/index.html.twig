@@ -28,7 +28,7 @@
                 <h2>Post list</h2>
             </div>
             <ul class="breadcrumb">
-                <li><a href="{# {{ path('blog_homepage') }} #}">Start</a></li>
+                <li><a href="{{ path('homepage') }}">Start</a></li>
                 <li class="active">Blog</li>
             </ul>
         </div>
@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col-md-8">
         {% for blog_post in blog_posts %}
-            <h2><a href="{{ path('blog_post_show', {'id': blog_post.id}) }}">{{ blog_post.title|title|raw }}</a></h2>
+            <h2><a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}">{{ blog_post.title|title|raw }}</a></h2>
             <p>
                 <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
                 <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
@@ -46,7 +46,7 @@
                 {{ blog_post.excerpt|length > 300 ? '[...]' : ''}}
                 {#{{ blog_post.excerpt|length > 300 ? blog_post.excerpt|raw|slice(0,300) ~ '[...]' : blog_post.excerpt|raw }}#}
             </p>
-            <a class="btn btn-primary" href="{# {{ path('post_show', { 'id': blog_post.id }) }} #}">Read More <i class="fa fa-angle-right"></i></a>
+            <a class="btn btn-primary" href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}">Read More <i class="fa fa-angle-right"></i></a>
             <hr/>
         {% endfor %} 
         </div>

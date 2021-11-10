@@ -28,8 +28,8 @@
         <div class="col-lg-12">
 
             <ul class="breadcrumb">
-                <li><a href="{# {{ path('blog_homepage') }} #}">Start</a></li>
-                <li><a href="{# {{ path('post') }} #}">Blog</a></li>
+                <li><a href="{{ path('homepage') }}">Start</a></li>
+                <li><a href="{{ path('blog_post_index') }}">Blog</a></li>
                 <li><a href="{# {{ path('blog_category', { 'slug': blog_post.category.slug }) }} #}">{{ blog_post.category }}</a></li>
                 <li class="active">{{ blog_post.title|title|raw }}</li>
             </ul>
