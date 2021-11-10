@@ -23,45 +23,38 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card bg-clouds-concave-145 shadow-clouds-sm border-0 mb-5">
+                    {# <img class="card-img-top" src="{{ asset('images/portfolio/1.jpg') }}" alt="Card image cap"> #}
+                    <div class="card-body">
+                        <h3 class="card-title">{{ blog_post.title|title|raw }}</h3>
+                        <small class="card-text">
+                            <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
+                            <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
+                        </small>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-sm btn-pill btn-primary" href="https://twitter.com/intent/tweet?url={{ app.request.getUri }}&text={{ blog_post.title|raw }}" target="_blank" title="Tweet this on Twitter"><i class="fab fa-fw fa-twitter"></i> Tweet</a>
+                        <a class="btn btn-pill btn-sm btn-primary" href="https://facebook.com/sharer.php?u={{ app.request.getUri }}&t={{ blog_post.title|raw }}" target="_blank" title="Share this on Facebook"><i class="fab fa-fw fa-facebook-f"></i> Share</a>
+                        <a class="btn btn-pill btn-sm btn-primary" href="https://plus.google.com/share?url={{ app.request.getUri }}" target="_blank" title="Post this to Google+"><i class="fab fa-fw fa-google-plus-g"></i> Share</a>
+                    </div>
+                </div>
 
-    <div class="row">    
-        <div class="col-lg-12">
 
-            <ul class="breadcrumb">
-                <li><a href="{{ path('homepage') }}">Start</a></li>
-                <li><a href="{{ path('blog_post_index') }}">Blog</a></li>
-                <li><a href="{# {{ path('blog_category', { 'slug': blog_post.category.slug }) }} #}">{{ blog_post.category }}</a></li>
-                <li class="active">{{ blog_post.title|title|raw }}</li>
-            </ul>
-            <div class="page-header">
-                <h2>{{ blog_post.title|title|raw }}</h2>
-                <p class="float-right">
-                    <a class="btn btn-sm btn-primary" href="https://twitter.com/intent/tweet?url={{ app.request.getUri }}&text={{ blog_post.title|raw }}" target="_blank" title="Tweet this on Twitter"><i class="fab fa-fw fa-twitter"></i> Tweet</a>
-                    <a class="btn btn-sm btn-primary" href="https://facebook.com/sharer.php?u={{ app.request.getUri }}&t={{ blog_post.title|raw }}" target="_blank" title="Share this on Facebook"><i class="fab fa-fw fa-facebook-f"></i> Share</a>
-                    <a class="btn btn-sm btn-primary" href="https://plus.google.com/share?url={{ app.request.getUri }}" target="_blank" title="Post this to Google+"><i class="fab fa-fw fa-google-plus-g"></i> Share</a>
+                <p>
+                    {{ blog_post.excerpt|raw }}
                 </p>
                 <p>
-                    <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
-                    <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
+                    {{ blog_post.content|raw }}
                 </p>
+                <a href="{{ path('blog_post_index') }}">Back to the list</a>
+
+            </div>
+            <div class="col-md-4">
+                {{ include('blog/_sidebar.html.twig') }}
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <p>
-                {{ blog_post.excerpt|raw }}
-            </p>
-            <p>
-                {{ blog_post.content|raw }}
-            </p>
-            <a href="{{ path('blog_post_index') }}">Back to the list</a>
-
-        </div>
-        <div class="col-md-4">
-            {{ include('blog/_sidebar.html.twig') }}
-        </div>
-    </div>
 
     </div>
 </section>

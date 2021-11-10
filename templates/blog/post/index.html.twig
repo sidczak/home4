@@ -20,43 +20,34 @@
                 </div>
             </div>
         </div>
-
-
-    <div class="row">    
-        <div class="col-lg-12">
-            <div class="page-header">
-                <h2>Post list</h2>
+        <div class="row">
+            <div class="col-md-8">
+            {% for blog_post in blog_posts|slice(0, 5) %}
+                <div class="card bg-clouds-concave-145 shadow-clouds-sm border-0 mb-5">
+                    {# <img class="card-img-top" src="{{ asset('images/portfolio/1.jpg') }}" alt="Card image cap"> #}
+                    <div class="card-body">
+                        <h3 class="card-title">{{ blog_post.title|title|raw }}</h3>
+                        <small class="card-text">
+                            <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
+                            <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
+                        </small>
+                        <p class="card-text">
+                            {{ blog_post.excerpt|raw|slice(0, 300) }}
+                            {{ blog_post.excerpt|length > 300 ? '[...]' : ''}}
+                            {#{{ blog_post.excerpt|length > 300 ? blog_post.excerpt|raw|slice(0,300) ~ '[...]' : blog_post.excerpt|raw }}#}
+                        </p>
+                        {# <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="btn btn-sm btn-pill btn-midnight-blue">Read More</a> #}
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="card-link">Read More</a>
+                    </div>
+                </div>
+            {% endfor %} 
             </div>
-            <ul class="breadcrumb">
-                <li><a href="{{ path('homepage') }}">Start</a></li>
-                <li class="active">Blog</li>
-            </ul>
+            <div class="col-md-4">            
+                {{ include('blog/_sidebar.html.twig') }}
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-        {% for blog_post in blog_posts %}
-            <h2><a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}">{{ blog_post.title|title|raw }}</a></h2>
-            <p>
-                <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
-                <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
-            </p>
-            <p>
-                {{ blog_post.excerpt|raw|slice(0, 300) }}
-                {{ blog_post.excerpt|length > 300 ? '[...]' : ''}}
-                {#{{ blog_post.excerpt|length > 300 ? blog_post.excerpt|raw|slice(0,300) ~ '[...]' : blog_post.excerpt|raw }}#}
-            </p>
-            <a class="btn btn-primary" href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}">Read More <i class="fa fa-angle-right"></i></a>
-            <hr/>
-        {% endfor %} 
-        </div>
-        <div class="col-md-4">            
-            {{ include('blog/_sidebar.html.twig') }}
-        </div>
-    </div>
-</div>
-
-
     </div>
 </section>
 {#     <h1>BlogPost index</h1>
