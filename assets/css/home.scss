@@ -3,7 +3,11 @@
 @import "fonts/font-roboto";
 //@import "./fonts/webwingscz";
 
+// Variables
 @import "variables/color";
+
+// Mixins
+@import "mixins/scrollbars";
 
 //SOURCES BOOTSTRAP
 @import "bootstrap-home/bootstrap-home";
