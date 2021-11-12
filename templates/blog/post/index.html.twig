@@ -1,55 +1,53 @@
-{% extends 'base.html.twig' %}
+{% extends 'blog/layout.html.twig' %}
+{% block title %}Start{% endblock %}
+{% block stylesheets %}{% endblock %}
 
-{% block title %}BlogPost index{% endblock %}
-
-{% block body %}
-
-<section class="section-pb-80 section-pt-152 bg-clouds">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 mb-5">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb-angle-right breadcrumb-light justify-content-center bg-transparent text-uppercase small">
-                        <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Start</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Blog</li>
-                    </ol>
-                </nav>
-                <div class="title title-white d-flex justify-content-center align-items-center mb-4">
-                    <h2>Blog</h2>
-                    <h3>my posts</h3>
+{% block content_blog %}
+<div class="col p-0 bg-clouds">
+    <section class="section-pb-80 section-pt-152">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrumb-angle-right breadcrumb-light justify-content-center bg-transparent text-uppercase small">
+                            <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Start</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                        </ol>
+                    </nav>
+                    <div class="title title-white d-flex justify-content-center align-items-center mb-4">
+                        <h2>Blog</h2>
+                        <h3>my posts</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                {% for blog_post in blog_posts|slice(0, 5) %}
+                    <div class="card bg-clouds-concave-145 shadow-clouds-sm border-0 mb-5">
+                        {# <img class="card-img-top" src="{{ asset('images/portfolio/1.jpg') }}" alt="Card image cap"> #}
+                        <div class="card-body">
+                            <h3 class="card-title">{{ blog_post.title|title|raw }}</h3>
+                            <small class="card-text">
+                                <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
+                                <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
+                            </small>
+                            <p class="card-text">
+                                {{ blog_post.excerpt|raw|slice(0, 300) }}
+                                {{ blog_post.excerpt|length > 300 ? '[...]' : ''}}
+                                {#{{ blog_post.excerpt|length > 300 ? blog_post.excerpt|raw|slice(0,300) ~ '[...]' : blog_post.excerpt|raw }}#}
+                            </p>
+                            {# <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="btn btn-sm btn-pill btn-midnight-blue">Read More</a> #}
+                        </div>
+                        <div class="card-footer d-flex justify-content-end">
+                            <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="btn btn-sm btn-pill btn-midnight-blue">Read More</a>
+                        </div>
+                    </div>
+                {% endfor %} 
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-8">
-            {% for blog_post in blog_posts|slice(0, 5) %}
-                <div class="card bg-clouds-concave-145 shadow-clouds-sm border-0 mb-5">
-                    {# <img class="card-img-top" src="{{ asset('images/portfolio/1.jpg') }}" alt="Card image cap"> #}
-                    <div class="card-body">
-                        <h3 class="card-title">{{ blog_post.title|title|raw }}</h3>
-                        <small class="card-text">
-                            <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
-                            <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
-                        </small>
-                        <p class="card-text">
-                            {{ blog_post.excerpt|raw|slice(0, 300) }}
-                            {{ blog_post.excerpt|length > 300 ? '[...]' : ''}}
-                            {#{{ blog_post.excerpt|length > 300 ? blog_post.excerpt|raw|slice(0,300) ~ '[...]' : blog_post.excerpt|raw }}#}
-                        </p>
-                        {# <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="btn btn-sm btn-pill btn-midnight-blue">Read More</a> #}
-                    </div>
-                    <div class="card-footer d-flex justify-content-between">
-                        <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="card-link">Read More</a>
-                    </div>
-                </div>
-            {% endfor %} 
-            </div>
-            <div class="col-md-4">            
-                {{ include('blog/_sidebar.html.twig') }}
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+</div>
 {#     <h1>BlogPost index</h1>
 
     <table class="table">
@@ -98,3 +96,4 @@
     </table> #}
 
 {% endblock %}
+{% block javascripts %}{% endblock %}

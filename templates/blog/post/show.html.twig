@@ -1,63 +1,61 @@
-{% extends 'base.html.twig' %}
+{% extends 'blog/layout.html.twig' %}
+{% block title %}Start{% endblock %}
+{% block stylesheets %}{% endblock %}
 
-{% block title %}BlogPost{% endblock %}
-
-{% block body %}
-
-<section class="section-pb-80 section-pt-152 bg-clouds">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 mb-5">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb breadcrumb-angle-right breadcrumb-light justify-content-center bg-transparent text-uppercase small">
-                        <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ path('blog_post_index') }}">Blog</a></li>
-                        <li class="breadcrumb-item"><a href="{# {{ path('blog_category', { 'slug': blog_post.category.slug }) }} #}">{{ blog_post.category }}</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{ blog_post.title|title|raw }}</li>
-                    </ol>
-                </nav>
-                <div class="title title-white d-flex justify-content-center align-items-center mb-4">
-                    <h2>Blog</h2>
-                    <h3>Post detail</h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8">
-                <div class="card bg-clouds-concave-145 shadow-clouds-sm border-0 mb-5">
-                    {# <img class="card-img-top" src="{{ asset('images/portfolio/1.jpg') }}" alt="Card image cap"> #}
-                    <div class="card-body">
-                        <h3 class="card-title">{{ blog_post.title|title|raw }}</h3>
-                        <small class="card-text">
-                            <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
-                            <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
-                        </small>
-                    </div>
-                    <div class="card-footer">
-                        <a class="btn btn-sm btn-pill btn-primary" href="https://twitter.com/intent/tweet?url={{ app.request.getUri }}&text={{ blog_post.title|raw }}" target="_blank" title="Tweet this on Twitter"><i class="fab fa-fw fa-twitter"></i> Tweet</a>
-                        <a class="btn btn-pill btn-sm btn-primary" href="https://facebook.com/sharer.php?u={{ app.request.getUri }}&t={{ blog_post.title|raw }}" target="_blank" title="Share this on Facebook"><i class="fab fa-fw fa-facebook-f"></i> Share</a>
-                        <a class="btn btn-pill btn-sm btn-primary" href="https://plus.google.com/share?url={{ app.request.getUri }}" target="_blank" title="Post this to Google+"><i class="fab fa-fw fa-google-plus-g"></i> Share</a>
+{% block content_blog %}
+<div class="col p-0 bg-clouds">
+    <section class="section-pb-80 section-pt-152">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-5">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb breadcrumb-angle-right breadcrumb-light justify-content-center bg-transparent text-uppercase small">
+                            <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ path('blog_post_index') }}">Blog</a></li>
+                            <li class="breadcrumb-item"><a href="{# {{ path('blog_category', { 'slug': blog_post.category.slug }) }} #}">{{ blog_post.category }}</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{ blog_post.title|title|raw }}</li>
+                        </ol>
+                    </nav>
+                    <div class="title title-white d-flex justify-content-center align-items-center mb-4">
+                        <h2>Blog</h2>
+                        <h3>Post detail</h3>
                     </div>
                 </div>
-
-
-                <p>
-                    {{ blog_post.excerpt|raw }}
-                </p>
-                <p>
-                    {{ blog_post.content|raw }}
-                </p>
-                <a href="{{ path('blog_post_index') }}">Back to the list</a>
-
             </div>
-            <div class="col-md-4">
-                {{ include('blog/_sidebar.html.twig') }}
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card bg-clouds-concave-145 shadow-clouds-sm border-0 mb-5">
+                        {# <img class="card-img-top" src="{{ asset('images/portfolio/1.jpg') }}" alt="Card image cap"> #}
+                        <div class="card-body">
+                            <h3 class="card-title">{{ blog_post.title|title|raw }}</h3>
+                            <small class="card-text">
+                                <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
+                                <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
+                            </small>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a class="btn btn-sm btn-pill btn-primary" href="https://twitter.com/intent/tweet?url={{ app.request.getUri }}&text={{ blog_post.title|raw }}" target="_blank" title="Tweet this on Twitter"><i class="fab fa-fw fa-twitter"></i> Tweet</a>
+                            <a class="btn btn-pill btn-sm btn-primary" href="https://facebook.com/sharer.php?u={{ app.request.getUri }}&t={{ blog_post.title|raw }}" target="_blank" title="Share this on Facebook"><i class="fab fa-fw fa-facebook-f"></i> Share</a>
+                            <a class="btn btn-pill btn-sm btn-primary" href="https://plus.google.com/share?url={{ app.request.getUri }}" target="_blank" title="Post this to Google+"><i class="fab fa-fw fa-google-plus-g"></i> Share</a>
+                        </div>
+                    </div>
+
+
+                    <p>
+                        {{ blog_post.excerpt|raw }}
+                    </p>
+                    <p>
+                        {{ blog_post.content|raw }}
+                    </p>
+                    <a href="{{ path('blog_post_index') }}">Back to the list</a>
+
+                </div>
             </div>
+
         </div>
-
-    </div>
-</section>
+    </section>
+</div>
 {#     <h1>BlogPost</h1>
 
     <table class="table">
