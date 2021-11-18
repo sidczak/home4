@@ -1,4 +1,4 @@
-<nav id="sidebarVueMenu" class="col-lg-3 bg-vue sidebar-vue d-lg-block collapse">
+<nav id="sidebarVueMenu" class="col-lg-3 bg-turquoise d-lg-block collapse">
     <div class="text-white section-py-80 w-100">
         <div class="text-center mb-5">
             <i class="fas fa-blog fa-5x mb-3"></i>
@@ -6,6 +6,11 @@
         </div>
         <div class="page-header">
             <h4><i class="fa fa-fw fa-share-alt"></i> {{'Categories'|upper}}</h4>
+            <p>
+                {% for category in categories %}
+                    <a href="#" class="btn btn-sm btn-pill btn-midnight-blue">{{ category.name }}</a>
+                {% endfor %}
+            </p>
         </div>
         <div class="page-header">
             <h4><i class="fa fa-fw fa-tags"></i> {{'Tags'|upper}}</h4>
