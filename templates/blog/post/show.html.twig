@@ -12,7 +12,8 @@
                         <ol class="breadcrumb breadcrumb-angle-right breadcrumb-light justify-content-center bg-transparent text-uppercase small">
                             <li class="breadcrumb-item"><a href="{{ path('homepage') }}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ path('blog_post_index') }}">Blog</a></li>
-                            <li class="breadcrumb-item"><a href="{# {{ path('blog_category', { 'slug': blog_post.category.slug }) }} #}">{{ blog_post.category }}</a></li>
+                            {# <li class="breadcrumb-item"><a href="{{ path('blog_category_show', { 'slug': blog_post.category.slug }) }}">{{ blog_post.category }}</a></li> #}
+                            <li class="breadcrumb-item"><a href="{{ path('blog_category_show', { 'id': blog_post.category.id, 'category_slug': blog_post.category.slug }) }}">{{ blog_post.category }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">{{ blog_post.title|title|raw }}</li>
                         </ol>
                     </nav>

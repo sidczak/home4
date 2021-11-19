@@ -8,7 +8,7 @@
             <h4><i class="fa fa-fw fa-share-alt"></i> {{'Categories'|upper}}</h4>
             <p>
                 {% for category in categories %}
-                    <a href="#" class="btn btn-sm btn-pill btn-midnight-blue">{{ category.name }}</a>
+                    <a href="{{ path('blog_category_show', {'id': category.id, 'category_slug': category.slug }) }}" class="btn btn-sm btn-pill btn-midnight-blue">{{ category.name }}</a>
                 {% endfor %}
             </p>
         </div>

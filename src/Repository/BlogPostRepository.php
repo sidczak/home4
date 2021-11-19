@@ -19,6 +19,24 @@ class BlogPostRepository extends ServiceEntityRepository
         parent::__construct($registry, BlogPost::class);
     }
 
+    /**
+     * @param int|null $categoryId
+     *
+     * @return Job[]
+     */
+    public function findPostsWithCategory(int $categoryId = null)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.publishedAt', 'DESC');
+
+        if ($categoryId) {
+            $qb->andWhere('p.category = :categoryId')
+                ->setParameter('categoryId', $categoryId);
+        }
+
+        return $qb->getQuery()->getResult();
+    }
+
     // /**
     //  * @return BlogPost[] Returns an array of BlogPost objects
     //  */
