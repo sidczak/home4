@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row section-min-h-100">
             {% block sidebar_blog %}
-                {{ include('blog/_sidebar.html.twig', { 'categories': blog_categories }) }}
+                {{ include('blog/_sidebar.html.twig', { 'categories': blog_categories, 'tags': blog_tags }) }}
             {% endblock %}
             {% block content_blog %}{% endblock %}
         </div>

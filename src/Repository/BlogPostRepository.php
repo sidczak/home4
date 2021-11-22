@@ -22,7 +22,7 @@ class BlogPostRepository extends ServiceEntityRepository
     /**
      * @param int|null $categoryId
      *
-     * @return Job[]
+     * @return BlogPost[]
      */
     public function findPostsWithCategory(int $categoryId = null)
     {

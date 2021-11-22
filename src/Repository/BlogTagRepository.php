@@ -2,39 +2,39 @@
 
 namespace App\Repository;
 
-use App\Entity\BlogCategory;
+use App\Entity\BlogTag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method BlogCategory|null find($id, $lockMode = null, $lockVersion = null)
- * @method BlogCategory|null findOneBy(array $criteria, array $orderBy = null)
- * @method BlogCategory[]    findAll()
- * @method BlogCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method BlogTag|null find($id, $lockMode = null, $lockVersion = null)
+ * @method BlogTag|null findOneBy(array $criteria, array $orderBy = null)
+ * @method BlogTag[]    findAll()
+ * @method BlogTag[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BlogCategoryRepository extends ServiceEntityRepository
+class BlogTagRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, BlogCategory::class);
+        parent::__construct($registry, BlogTag::class);
     }
 
     /**
-     * @return BlogCategory[]
+     * @return BlogTag[]
      */
-    public function findCategoryWithPosts()
+    public function findTagWithPosts()
     {
-        return $this->createQueryBuilder('c')
-            // ->select('c')
-            ->innerJoin('c.posts', 'p')
-            // ->where('p.category = c.id')
-            ->orderBy('c.name', 'ASC')
+        return $this->createQueryBuilder('t')
+            // ->select('t')
+            ->innerJoin('t.posts', 'pt')
+            // ->innerJoin('pt.tags', 'p')
+            ->orderBy('t.name', 'ASC')
             ->getQuery()
             ->getResult();
     }
 
     // /**
-    //  * @return BlogCategory[] Returns an array of BlogCategory objects
+    //  * @return BlogTag[] Returns an array of BlogTag objects
     //  */
     /*
     public function findByExampleField($value)
@@ -51,7 +51,7 @@ class BlogCategoryRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?BlogCategory
+    public function findOneBySomeField($value): ?BlogTag
     {
         return $this->createQueryBuilder('b')
             ->andWhere('b.exampleField = :val')
@@ -61,6 +61,4 @@ class BlogCategoryRepository extends ServiceEntityRepository
         ;
     }
     */
-
-
 }
