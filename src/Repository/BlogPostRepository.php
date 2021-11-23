@@ -19,6 +19,16 @@ class BlogPostRepository extends ServiceEntityRepository
         parent::__construct($registry, BlogPost::class);
     }
 
+    public function findLatest()
+    {
+        return $this->createQueryBuilder('p')
+            ->addSelect('pt')
+            ->innerJoin('p.tags', 'pt')
+            ->orderBy('p.publishedAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     /**
      * @param int|null $categoryId
      *
@@ -34,6 +44,25 @@ class BlogPostRepository extends ServiceEntityRepository
                 ->setParameter('categoryId', $categoryId);
         }
 
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
+     * @param int|null $tagId
+     *
+     * @return BlogPost[]
+     */
+    public function findPostsWithTag(int $tagId = null)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.publishedAt', 'DESC');
+
+        if ($tagId) {
+            $qb->innerJoin('p.tags', 'pt')
+                ->andWhere('pt.id = :tagId')
+                ->setParameter('tagId', $tagId);
+        }
+        
         return $qb->getQuery()->getResult();
     }
 

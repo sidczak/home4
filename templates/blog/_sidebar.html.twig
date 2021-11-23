@@ -16,7 +16,7 @@
             <h4><i class="fa fa-fw fa-tags"></i> {{'Tags'|upper}}</h4>
             <p>
                 {% for tag in tags %}
-                    <a href="#" class="btn btn-sm btn-pill btn-midnight-blue">{{ tag.name }}</a>
+                    <a href="{{ path('blog_tag_show', {'id': tag.id}) }}" class="btn btn-sm btn-pill btn-midnight-blue">{{ tag.name }}</a>
                 {% endfor %}
             </p>
         </div>

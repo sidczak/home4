@@ -21,7 +21,7 @@ class BlogPostController extends AbstractController
      */
     public function index(BlogPostRepository $blogPostRepository, BlogCategoryRepository $blogCategoryRepository, BlogTagRepository $blogTagRepository): Response
     {
-        $blogPosts = $blogPostRepository->findAll();
+        $blogPosts = $blogPostRepository->findLatest();
         $blogCategories = $blogCategoryRepository->findCategoryWithPosts();
         $blogTags = $blogTagRepository->findTagWithPosts();
 
