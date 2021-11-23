@@ -37,6 +37,8 @@ class BlogPostRepository extends ServiceEntityRepository
     public function findPostsWithCategory(int $categoryId = null)
     {
         $qb = $this->createQueryBuilder('p')
+            ->addSelect('pt')
+            ->innerJoin('p.tags', 'pt')
             ->orderBy('p.publishedAt', 'DESC');
 
         if ($categoryId) {

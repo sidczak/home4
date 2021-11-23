@@ -39,7 +39,7 @@
                             {% if not blog_post.tags.empty %}
                                 <p>
                                     {% for tag in blog_post.tags %}
-                                        <a href="{# {{ path('blog_index', {'tag': tag.name == app.request.query.get('tag') ? null : tag.name}) }} #}"
+                                        <a href="{{ path('blog_tag_show', {'id': tag.id, 'tag_slug': tag.slug}) }}"
                                            class="badge badge-{{ tag.name == app.request.query.get('tag') ? 'success' : 'primary' }}"
                                         >
                                             <i class="fa fa-tag"></i> {{ tag.name }} 

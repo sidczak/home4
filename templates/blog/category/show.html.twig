@@ -39,7 +39,17 @@
                                 {{ blog_post.excerpt|length > 300 ? '[...]' : ''}}
                                 {#{{ blog_post.excerpt|length > 300 ? blog_post.excerpt|raw|slice(0,300) ~ '[...]' : blog_post.excerpt|raw }}#}
                             </p>
-                            {# <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="btn btn-sm btn-pill btn-midnight-blue">Read More</a> #}
+                            {% if not blog_post.tags.empty %}
+                                <p>
+                                    {% for tag in blog_post.tags %}
+                                        <a href="{{ path('blog_tag_show', {'id': tag.id, 'tag_slug': tag.slug}) }}"
+                                           class="badge badge-{{ tag.name == app.request.query.get('tag') ? 'success' : 'primary' }}"
+                                        >
+                                            <i class="fa fa-tag"></i> {{ tag.name }} 
+                                        </a>
+                                    {% endfor %}
+                                </p>
+                            {% endif %}
                         </div>
                         <div class="card-footer d-flex justify-content-end">
                             <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="btn btn-sm btn-pill btn-midnight-blue">Read More</a>
