@@ -22,8 +22,9 @@ class BlogPostRepository extends ServiceEntityRepository
     public function findLatest()
     {
         return $this->createQueryBuilder('p')
-            ->addSelect('pt')
+            ->addSelect('pt', 'i')
             ->innerJoin('p.tags', 'pt')
+            ->innerJoin('p.images', 'i')
             ->orderBy('p.publishedAt', 'DESC')
             ->getQuery()
             ->getResult();
@@ -37,8 +38,9 @@ class BlogPostRepository extends ServiceEntityRepository
     public function findPostsWithCategory(int $categoryId = null)
     {
         $qb = $this->createQueryBuilder('p')
-            ->addSelect('pt')
+            ->addSelect('pt', 'i')
             ->innerJoin('p.tags', 'pt')
+            ->innerJoin('p.images', 'i')
             ->orderBy('p.publishedAt', 'DESC');
 
         if ($categoryId) {
@@ -57,6 +59,8 @@ class BlogPostRepository extends ServiceEntityRepository
     public function findPostsWithTag(int $tagId = null)
     {
         $qb = $this->createQueryBuilder('p')
+            ->addSelect('i')
+            ->innerJoin('p.images', 'i')
             ->orderBy('p.publishedAt', 'DESC');
 
         if ($tagId) {
