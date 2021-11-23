@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogTagController extends AbstractController
 {
     /**
-     * @Route("/{id}", name="blog_tag_show", methods={"GET"})
+     * @Route("/{id}/{tag_slug}", name="blog_tag_show", methods={"GET"})
      */
     public function show(BlogTag $blogTag, BlogTagRepository $blogTagRepository, BlogCategoryRepository $blogCategoryRepository, BlogPostRepository $blogPostRepository): Response
     {
