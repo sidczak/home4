@@ -1,6 +1,6 @@
 <div class="card bg-clouds-concave-145 shadow-clouds-sm border-0 mb-5">
     {% for image in blog_post.images|slice(0,1) %}
-        <img class="img-responsive" src="{{ asset('images/blog/') }}{{ image.image }}" alt="{{ blog_post.title|raw }}"><br/>
+        <img class="card-img-top" src="{{ asset('images/blog/') }}{{ image.image }}" alt="{{ blog_post.title|raw }}"><br/>
     {% endfor %}
     <div class="card-body">
         <h3 class="card-title">{{ blog_post.title|title|raw }}</h3>
