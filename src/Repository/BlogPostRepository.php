@@ -59,7 +59,7 @@ class BlogPostRepository extends ServiceEntityRepository
     public function findPostsWithTag(int $tagId = null)
     {
         $qb = $this->createQueryBuilder('p')
-            ->addSelect('i')
+            ->addSelect('pt', 'i')
             ->innerJoin('p.images', 'i')
             ->orderBy('p.publishedAt', 'DESC');
 

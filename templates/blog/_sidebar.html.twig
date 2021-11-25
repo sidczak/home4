@@ -24,10 +24,20 @@
             <h4><i class="fas fa-fw fa-archive"></i> {{'Archives'|upper}}</h4>
         </div>
         <div class="page-header">
-            <h4>{{'Recent Posts'|upper}}</h4>
+            <h4>{{'Recently added posts'|upper}}</h4>
         </div>
-        <div class="page-header">
-            <h4>{{'Calendar'|upper}}</h4>
-        </div>
+        {% if app.session.get('recently_viewed_posts') %}
+            <div class="page-header">
+                <h4 class="text-white">{{'Recently viewed posts'|upper}}</h4>
+            </div>
+            {% for blog_post in app.session.get('recently_viewed_posts') %}
+                <div class="card bg-turquoise-concave-145 shadow-turquoise-sm border-0 mb-3">
+                    <div class="card-body">
+                        <h6 class="card-title mb-0"><a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category, 'title': blog_post.slug }) }}" class="text-white">{{ blog_post.title|raw }}</a></h6>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+
     </div>
 </nav>
