@@ -23,6 +23,11 @@
       <i class="fas fa-ellipsis-v"></i>
     </button>
   {% endif %}
+  {% if currentRouteName starts with 'blog_' %}
+    <button class="navbar-toggler d-lg-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarBlogMenu" aria-controls="sidebarBlogMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-ellipsis-v"></i>
+    </button>
+  {% endif %}
   <a class="navbar-brand" href="{{ path('homepage') }}"><i class="fas fa-laptop-code"></i>{# <i class="fas fa-camera-retro"></i> #} FrontCode</a>
   <home-hamburger hamburger-bg="turquoise" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></home-hamburger>
   {# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
