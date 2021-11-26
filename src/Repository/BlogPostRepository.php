@@ -60,13 +60,13 @@ class BlogPostRepository extends ServiceEntityRepository
     {
         $qb = $this->createQueryBuilder('p')
             ->addSelect('pt', 'i')
+            ->innerJoin('p.tags', 'pt')
             ->innerJoin('p.images', 'i')
             ->orderBy('p.publishedAt', 'DESC');
 
         if ($tagId) {
-            $qb->innerJoin('p.tags', 'pt')
-                ->andWhere('pt.id = :tagId')
-                ->setParameter('tagId', $tagId);
+            $qb->andWhere(':tag MEMBER OF p.tags')
+                ->setParameter('tag', $tagId);
         }
         
         return $qb->getQuery()->getResult();
