@@ -6,6 +6,7 @@
 parameters:
     locale: 'en'
     locales: ['en', 'pl', 'ru']
+    max_blog_posts_on_page: 10
 
 services:
     # default configuration for services in *this* file

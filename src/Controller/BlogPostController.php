@@ -28,7 +28,7 @@ class BlogPostController extends AbstractController
         $blogPosts = $paginator->paginate(
             $blogPostRepository->findLatest(),
             $page, // page
-            8 // elements per page
+             $this->getParameter('max_blog_posts_on_page') // elements per page
         );
         $blogCategories = $blogCategoryRepository->findCategoryWithPosts();
         $blogTags = $blogTagRepository->findTagWithPosts();
