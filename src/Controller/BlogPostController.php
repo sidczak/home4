@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("/blog/post")
@@ -18,12 +19,17 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class BlogPostController extends AbstractController
 {
     /**
-     * @Route("/", name="blog_post_index", methods={"GET"})
+     * @Route("/{page}", name="blog_post_index", methods={"GET"}, defaults={"page": 1}, requirements={"page" = "\d+"})
      */
-    public function index(BlogPostRepository $blogPostRepository, BlogCategoryRepository $blogCategoryRepository, BlogTagRepository $blogTagRepository): Response
+    public function index(BlogPostRepository $blogPostRepository, BlogCategoryRepository $blogCategoryRepository, BlogTagRepository $blogTagRepository, PaginatorInterface $paginator, int $page): Response
     {
         // $blogPosts = $blogPostRepository->findAll();
-        $blogPosts = $blogPostRepository->findLatest();
+        // $blogPosts = $blogPostRepository->findLatest();
+        $blogPosts = $paginator->paginate(
+            $blogPostRepository->findLatest(),
+            $page, // page
+            8 // elements per page
+        );
         $blogCategories = $blogCategoryRepository->findCategoryWithPosts();
         $blogTags = $blogTagRepository->findTagWithPosts();
         // $recent_posts = $blogPostRepository->findBy(array(), array(), 5);

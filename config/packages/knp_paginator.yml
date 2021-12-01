@@ -1,0 +1,5 @@
+knp_paginator:
+    template:
+        #pagination: "@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig"
+        pagination: "blog/_pagination.htm.twig"
+
