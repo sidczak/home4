@@ -21,14 +21,18 @@ class BlogPostController extends AbstractController
     /**
      * @Route("/{page}", name="blog_post_index", methods={"GET"}, defaults={"page": 1}, requirements={"page" = "\d+"})
      */
-    public function index(BlogPostRepository $blogPostRepository, BlogCategoryRepository $blogCategoryRepository, BlogTagRepository $blogTagRepository, PaginatorInterface $paginator, int $page): Response
+    public function index(
+        BlogPostRepository $blogPostRepository, 
+        BlogCategoryRepository $blogCategoryRepository, 
+        BlogTagRepository $blogTagRepository, 
+        PaginatorInterface $paginator, int $page): Response
     {
         // $blogPosts = $blogPostRepository->findAll();
         // $blogPosts = $blogPostRepository->findLatest();
         $blogPosts = $paginator->paginate(
             $blogPostRepository->findLatest(),
             $page, // page
-             $this->getParameter('max_blog_posts_on_page') // elements per page
+            $this->getParameter('max_blog_posts_on_page') // elements per page
         );
         $blogCategories = $blogCategoryRepository->findCategoryWithPosts();
         $blogTags = $blogTagRepository->findTagWithPosts();
@@ -56,7 +60,10 @@ class BlogPostController extends AbstractController
     /**
      * @Route("/{id}/{category}/{title}/show", name="blog_post_show", methods={"GET"})
      */
-    public function show(BlogPost $blogPost, BlogCategoryRepository $blogCategoryRepository, BlogTagRepository $blogTagRepository): Response
+    public function show(
+        BlogPost $blogPost, 
+        BlogCategoryRepository $blogCategoryRepository, 
+        BlogTagRepository $blogTagRepository): Response
     {
 
         $blogCategories = $blogCategoryRepository->findCategoryWithPosts();
