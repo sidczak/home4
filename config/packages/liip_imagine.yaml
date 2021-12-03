@@ -25,6 +25,13 @@ liip_imagine:
                     size:          [64, 64]
                     mode:          outbound
                     allow_upscale: true
+        blog_post_600x400:
+            quality: 100
+            filters:
+                thumbnail:
+                    size:          [600, 400]
+                    mode:          outbound
+                    allow_upscale: true
         my_thumb:
             quality: 75
             filters:

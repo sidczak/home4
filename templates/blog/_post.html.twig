@@ -1,35 +1,41 @@
 <div class="card bg-clouds-concave-145 shadow-clouds-sm border-0 mb-5">
-{#     {% for image in blog_post.images|slice(0,1) %}
-        <img class="card-img-top" src="{{ asset('images/blog/') }}{{ image.image }}" alt="{{ blog_post.title|raw }}"><br/>
-    {% endfor %} #}
-    <div class="card-body">
-        <h3 class="card-title">{{ blog_post.title|title|raw }}</h3>
-        <small class="card-text">
-            <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
-            <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
-        </small>
-        <p class="card-text">
-            {{ blog_post.excerpt|raw|slice(0, 300) }}
-            {{ blog_post.excerpt|length > 300 ? '[...]' : ''}}
-            {#{{ blog_post.excerpt|length > 300 ? blog_post.excerpt|raw|slice(0,300) ~ '[...]' : blog_post.excerpt|raw }}#}
-        </p>
-        {% if not blog_post.tags.empty %}
-            <p>
-                {% for tag in blog_post.tags %}
-                    {% if blog_tag.name is defined %}
-                        <a href="{{ path('blog_tag_show', {'id': tag.id, 'tag_slug': tag.slug}) }}" class="badge badge-{{ tag.name == blog_tag.name ? 'success' : 'primary' }}">
-                            <i class="fa fa-tag"></i> {{ tag.name }}
-                        </a>
-                    {% else %}
-                        <a href="{{ path('blog_tag_show', {'id': tag.id, 'tag_slug': tag.slug}) }}" class="badge badge-primary">
-                            <i class="fa fa-tag"></i> {{ tag.name }}
-                        </a>
-                    {% endif %}
-                {% endfor %}
-            </p>
-        {% endif %}
-    </div>
-    <div class="card-footer d-flex justify-content-end">
-        <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="btn btn-sm btn-pill btn-midnight-blue">Read More</a>
+    <div class="row no-gutters">
+        <div class="col-md-6 align-self-center">
+            {% for image in blog_post.images|slice(0,1) %}
+                <img class="card-img-left img-fluid" src="{{ asset('images/blog/')|imagine_filter('blog_post_600x400') }}{{ image.image }}" alt="{{ blog_post.title|raw }}"><br/>
+            {% endfor %}
+        </div>
+        <div class="col-md-6 d-flex flex-column">
+            <div class="card-body">
+                <h3 class="card-title">{{ blog_post.title|title|raw }}</h3>
+                <small class="card-text">
+                    <i class="fa fa-calendar"></i> <a href="#">{% if blog_post.publishedat %}{{ blog_post.publishedat|date('l, F j, Y') }}{% endif %}</a> | 
+                    <i class="fa fa-user"></i> <a href="#">{{ blog_post.authoremail }}</a>
+                </small>
+                <p class="card-text">
+                    {{ blog_post.excerpt|raw|slice(0, 250) }}
+                    {{ blog_post.excerpt|length > 250 ? '[...]' : ''}}
+                    {#{{ blog_post.excerpt|length > 300 ? blog_post.excerpt|raw|slice(0,300) ~ '[...]' : blog_post.excerpt|raw }}#}
+                </p>
+                {% if not blog_post.tags.empty %}
+                    <p>
+                        {% for tag in blog_post.tags %}
+                            {% if blog_tag.name is defined %}
+                                <a href="{{ path('blog_tag_show', {'id': tag.id, 'tag_slug': tag.slug}) }}" class="badge badge-{{ tag.name == blog_tag.name ? 'success' : 'primary' }}">
+                                    <i class="fa fa-tag"></i> {{ tag.name }}
+                                </a>
+                            {% else %}
+                                <a href="{{ path('blog_tag_show', {'id': tag.id, 'tag_slug': tag.slug}) }}" class="badge badge-primary">
+                                    <i class="fa fa-tag"></i> {{ tag.name }}
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    </p>
+                {% endif %}
+            </div>
+            <div class="card-footer d-flex justify-content-end">
+                <a href="{{ path('blog_post_show', { 'id': blog_post.id, 'category': blog_post.category.slug, 'title': blog_post.slug }) }}" class="btn btn-sm btn-pill btn-midnight-blue">Read More</a>
+            </div>
+        </div>
     </div>
 </div>
