@@ -36,6 +36,15 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link text-capitalize" href="#">Landing page</a>
+      </li>
+      <li class="nav-item {{ currentRouteName starts with 'blog_' ? 'active' }}">
+        <a class="nav-link text-capitalize" href="{{ path('blog_post_index') }}">Blog demo</a>
+      </li>
+      {# <li class="nav-item {{ currentRouteName starts with 'shop_' ? 'active' }}">
+        <a class="nav-link" href="{{ path('blog_post_index') }}">Shop Tutorials</a>
+      </li> #}
       {#
       <li class="nav-item {{ app.request.get('_route') ==  'homepage' ? 'active' }}">
         <a class="nav-link" href="{{ path('homepage') }}">Start <span class="sr-only">(current)</span></a>
