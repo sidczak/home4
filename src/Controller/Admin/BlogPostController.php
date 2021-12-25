@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @Route("admin/blog/post")
@@ -16,12 +17,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogPostController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_blog_post_index", methods={"GET"})
+     * @Route("/{page}", name="admin_blog_post_index", methods={"GET"}, defaults={"page": 1}, requirements={"page" = "\d+"})
      */
-    public function index(BlogPostRepository $blogPostRepository): Response
+    public function index(
+        BlogPostRepository $blogPostRepository, 
+        PaginatorInterface $paginator, int $page): Response
     {
+        
+        $blogPosts = $paginator->paginate(
+            $blogPostRepository->findAll(),
+            $page,
+            $this->getParameter('max_blog_posts_on_page')
+        );
         return $this->render('admin/blog/post/index.html.twig', [
-            'blog_posts' => $blogPostRepository->findAll(),
+            'blog_posts' => $blogPosts,
         ]);
     }
 
