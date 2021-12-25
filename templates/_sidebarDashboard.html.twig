@@ -1,3 +1,4 @@
+{% set currentRouteName = app.request.get('_route') %}
 <nav id="sidebarMenu" class="col-lg-3 bg-midnight-blue d-lg-block collapse">
     <div class="text-white section-py-80 w-100">
         <div class="text-center mb-5">
@@ -9,7 +10,17 @@
                 <a class="nav-link {{ app.request.get('_route') ==  'admin_dashboard' ? 'active' }}" href="{{ path('admin_dashboard') }}"><i class="fas fa-fw fa-home"></i> Start</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-blog"></i> Blog</a>
+                <a class="nav-link collapsed {{ currentRouteName starts with 'admin_blog_post_' ? 'active' }}" href="#" data-toggle="collapse" data-target="#dropdown-blog" aria-expanded="{{ currentRouteName starts with 'admin_blog_post_' ? 'true' : 'false' }}" aria-controls="dropdown-blog">
+                    <i class="fas fa-fw fa-blog"></i> Blog <i class="fas fa-fw fa-angle-left"></i>
+                </a>
+                <ul id="dropdown-blog" class="nav flex-column flex-nowrap collapse {{ currentRouteName starts with 'admin_blog_post_' ? 'show' }}" aria-labelledby="headingDropdown" data-parent="#accordionSymfony">
+                    <li class="nav-item">
+                        <a href="{{ path('admin_blog_post_index') }}" class="nav-link {{ app.request.get('_route') ==  'admin_blog_post_index' ? 'active' }}"><i class="fas fa-fw fa-caret-right"></i> Post</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled"><i class="fas fa-fw fa-caret-right"></i> Category</a>
+                    </li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="{{ path('symfony_start_index') }}"><i class="fas fa-fw fa-shopping-cart"></i> Shop</a>
