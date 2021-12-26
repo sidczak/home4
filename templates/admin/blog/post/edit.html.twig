@@ -3,11 +3,21 @@
 {% block title %}Edit BlogPost{% endblock %}
 
 {% block content %}
-    <h1>Edit BlogPost</h1>
+    <section class="section-py-80 h-100 bg-clouds">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-5">
+                        <h1 class="mb-0">Edit BlogPost</h1>
+                        <div>
+                            <a href="{{ path('admin_blog_post_index') }}" class="btn btn-pill btn-lg btn-midnight-blue px-5">Back to list</a>
+                        </div>
+                    </div>
+                    {{ include('admin/blog/post/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('admin/blog/post/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('admin_blog_post_index') }}">back to list</a>
-
-    {{ include('admin/blog/post/_delete_form.html.twig') }}
+    				{{ include('admin/blog/post/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

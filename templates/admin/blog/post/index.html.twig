@@ -3,7 +3,6 @@
 {% block title %}BlogPost index{% endblock %}
 
 {% block content %}
-
     <section class="section-py-80 h-100 bg-clouds">
         <div class="container">
             <div class="row">
@@ -42,7 +41,14 @@
                             <p>no records found</p>
                         {% endfor %}
                     </div>
-{#}
+                </div>
+                <div class="col-12 mt-5">
+                    {{ knp_pagination_render(blog_posts) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{#
     <table class="table">
         <thead>
             <tr>
@@ -90,12 +96,4 @@
     </table>
     <a href="{{ path('admin_blog_post_new') }}">Create new</a>
 #}
-
-                </div>
-                <div class="col-12 mt-5">
-                    {{ knp_pagination_render(blog_posts) }}
-                </div>
-            </div>
-        </div>
-    </section>
 {% endblock %}

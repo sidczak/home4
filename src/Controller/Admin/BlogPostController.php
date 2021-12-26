@@ -48,7 +48,7 @@ class BlogPostController extends AbstractController
             $entityManager->persist($blogPost);
             $entityManager->flush();
 
-            return $this->redirectToRoute('blog_post_index');
+            return $this->redirectToRoute('admin_blog_post_index');
         }
 
         return $this->render('admin/blog/post/new.html.twig', [
@@ -58,7 +58,7 @@ class BlogPostController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_blog_post_show", methods={"GET"})
+     * @Route("/{id}/show", name="admin_blog_post_show", methods={"GET"})
      */
     public function show(BlogPost $blogPost): Response
     {
@@ -78,7 +78,7 @@ class BlogPostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('blog_post_index');
+            return $this->redirectToRoute('admin_blog_post_index');
         }
 
         return $this->render('admin/blog/post/edit.html.twig', [
@@ -98,6 +98,6 @@ class BlogPostController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('blog_post_index');
+        return $this->redirectToRoute('admin_blog_post_index');
     }
 }
