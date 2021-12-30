@@ -187,6 +187,20 @@ $alizarin-shades:
     "alizarin-900" $alizarin-900;
 @include button-shades-variant($alizarin-shades);
 
+$pomegranate-shades:
+    "pomegranate" $pomegranate,
+    "pomegranate-50" $pomegranate-50,
+    "pomegranate-100" $pomegranate-100,
+    "pomegranate-200" $pomegranate-200,
+    "pomegranate-300" $pomegranate-300,
+    "pomegranate-400" $pomegranate-400,
+    "pomegranate-500" $pomegranate-500,
+    "pomegranate-600" $pomegranate-600,
+    "pomegranate-700" $pomegranate-700,
+    "pomegranate-800" $pomegranate-800,
+    "pomegranate-900" $pomegranate-900;
+@include button-shades-variant($pomegranate-shades);
+
 $peter-river-shades:
     "peter-river" $peter-river,
     "peter-river-50" $peter-river-50,
