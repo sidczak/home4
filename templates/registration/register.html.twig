@@ -2,7 +2,7 @@
 
 {% block title %}Register{% endblock %}
 
-{% form_theme registrationForm _self %}
+{# {% form_theme registrationForm _self %}
  
 {% block form_errors %}
 {% apply spaceless %}
@@ -12,7 +12,7 @@
         {% endfor %}
     {% endif %}
 {% endapply %}
-{% endblock form_errors %}
+{% endblock form_errors %} #}
 
 {% block body %}
 <section class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-h-100 bg-clouds">
@@ -30,45 +30,50 @@
                             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
                         {% endfor %}
 
-                        {# {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate', 'class': registrationForm.vars.valid ? '' : 'was-validated' }} ) }} #}
-                        {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate' }} ) }}
+                        {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate', 'class': registrationForm.vars.valid ? '' : 'was-validated' }} ) }}
+                        {# {{ form_start(registrationForm, {'attr': {'novalidate': 'novalidate' }} ) }} #}
 
-                            {% if not registrationForm.vars.valid %}
+                            {# {% if not registrationForm.vars.valid %}
                                 <div class="alert alert-danger">
                                     {{ form_errors(registrationForm.email) }}
                                     {{ form_errors(registrationForm.plainPassword.first) }}
                                     {{ form_errors(registrationForm.plainPassword.second) }}
                                     {{ form_errors(registrationForm.agreeTerms) }}
                                 </div>
-                            {% endif %}
+                            {% endif %} #}
 
                             {# {{ dump(registrationForm.email.vars.valid) }}
                             {{ dump(registrationForm.plainPassword.vars.valid) }}
                             {{ dump(registrationForm.agreeTerms.vars.valid) }} #}
 
-                            <div class="form-group">
+                            {# <div class="form-group">
                                 {{ form_label(registrationForm.email) }}
-                                {{ form_widget(registrationForm.email, { 'attr': {'class': 'form-control'} }) }}
-                                {# {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'pattern': '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$'}}) }} #}
-                                {# {{ form_errors(registrationForm.email) }} #}
+                                {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'pattern': '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$'}}) }}
+                                {{ form_errors(registrationForm.email) }}
                             </div>
                             <div class="form-group">
                                 {{ form_label(registrationForm.plainPassword.first) }}
                                 {{ form_widget(registrationForm.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
-                                {# {{ form_errors(registrationForm.plainPassword.first) }} #}
+                                {{ form_errors(registrationForm.plainPassword.first) }}
                             </div>
                             <div class="form-group">
                                 {{ form_label(registrationForm.plainPassword.second) }}
                                 {{ form_widget(registrationForm.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
-                                {# {{ form_errors(registrationForm.plainPassword.second) }} #}
+                                {{ form_errors(registrationForm.plainPassword.second) }}
                             </div>
                             <div class="form-group">
                                 <div class="custom-control custom-checkbox">
                                 {{ form_widget(registrationForm.agreeTerms, { 'attr': {'class': 'custom-control-input'} }) }}
                                 {{ form_label(registrationForm.agreeTerms, null, { 'label_attr': {'class': 'custom-control-label'} }) }}
-                                {# {{ form_errors(registrationForm.agreeTerms) }} #}
+                                {{ form_errors(registrationForm.agreeTerms) }}
                                 </div>
-                            </div>
+                            </div> #}
+
+                            {{ form_row(registrationForm.email) }}
+                            {# {{ form_row(registrationForm.email, {'attr': {'pattern': '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$'}}) }} #}
+                            {{ form_row(registrationForm.plainPassword.first) }}
+                            {{ form_row(registrationForm.plainPassword.second) }}
+                            {{ form_row(registrationForm.agreeTerms, {label_attr: {class: 'checkbox-custom'} }) }}
 
                             <div class="text-center">
                                 <button type="submit" class="btn btn-lg btn-pill btn-midnight-blue px-5">Register</button>
