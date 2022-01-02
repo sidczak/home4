@@ -24,18 +24,17 @@
 
 {% block title %}Reset your password{% endblock %}
 
-{% form_theme requestForm _self %}
+{# {% form_theme requestForm _self %}
  
 {% block form_errors %}
 {% apply spaceless %}
     {% if errors is defined and errors|length > 0 %}
         {% for error in errors %}
             <div>{{ error.message }}</div>
-            {# <small class="invalid-feedback">{{ error.message }}</small> #}
         {% endfor %}
     {% endif %}
 {% endapply %}
-{% endblock form_errors %}
+{% endblock form_errors %} #}
 
 {% block body %}
 <section class="d-flex flex-shrink-0 align-items-center section-pb-80 section-pt-152 section-min-h-100 bg-clouds">
@@ -53,21 +52,21 @@
                             <div class="alert alert-danger" role="alert">{{ flashError }}</div>
                         {% endfor %}
 
-                        {{ form_start(requestForm, {'attr': {'novalidate': 'novalidate' }}) }}
-                        {# {{ form_start(requestForm, {'attr': {'novalidate': 'novalidate', 'class': requestForm.vars.valid ? '' : 'was-validated' }} ) }} #}
+                        {# {{ form_start(requestForm, {'attr': {'novalidate': 'novalidate' }}) }} #}
+                        {{ form_start(requestForm, {'attr': {'novalidate': 'novalidate', 'class': requestForm.vars.valid ? '' : 'was-validated' }} ) }}
 
-                           {% if not requestForm.vars.valid %}
+                            {# {% if not requestForm.vars.valid %}
                                 <div class="alert alert-danger">
                                     {{ form_errors(requestForm.email) }}
                                 </div>
-                            {% endif %}
+                            {% endif %} #}
 
-                            {# {{ form_row(requestForm.email) }} #}
-                            <div class="form-group">
+                            {{ form_row(requestForm.email) }}
+                            {# <div class="form-group">
                                 {{ form_label(requestForm.email) }}
                                 {{ form_widget(requestForm.email, { 'attr': {'class': 'form-control'} }) }}
-                                {# {{ form_errors(requestForm.email) }} #}
-                            </div>
+                                {{ form_errors(requestForm.email) }}
+                            </div> #}
 
                             <p class="text-center small">Enter your email address and we we will send you a link to reset your password.</p>
                             <div class="text-center">
