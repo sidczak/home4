@@ -391,7 +391,7 @@ class BlogPost
      */
     public function prePersist()
     {
-        $this->createdAt = new \DateTime();
+        $this->publishedAt = new \DateTime();
         $this->updatedAt = new \DateTime();
     }
 

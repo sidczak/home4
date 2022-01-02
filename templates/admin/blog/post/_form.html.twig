@@ -1,4 +1,83 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
+{# walidacja dla trzeciego typu formularza #}
+{# {% form_theme form _self %}
+{% block form_errors %}
+{% apply spaceless %}
+    {% if errors is defined and errors|length > 0 %}
+        {% for error in errors %}
+            <small class="invalid-feedback">{{ error.message }}</small>
+        {% endfor %}
+    {% endif %}
+{% endapply %}
+{% endblock form_errors %} #}
+
+{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': form.vars.valid ? '' : 'was-validated' }} ) }}
+{# {{ form_start(form) }} #}
+    {# pierwszy typ formlarza #}
+    {# {{ form_widget(form) }} #}
+
+    {# drugi typ formlarza wymaga podłączenia templatki w config/packages/twig.yaml -> form_themes: ['blog/_bootstrap_4_layout.htm.twig']#}
+    {{ form_row(form.title) }}
+    {{ form_row(form.excerpt) }}
+    {{ form_row(form.content) }}
+    {{ form_row(form.authorEmail) }}
+    {{ form_row(form.statusPost) }}
+    {{ form_row(form.showComment, {label_attr: {class: 'switch-custom'} }) }}
+    {{ form_row(form.enableComment, {label_attr: {class: 'switch-custom'} }) }}
+    {{ form_row(form.user) }}
+    {{ form_row(form.category, {label_attr: {class: 'radio-custom'} }) }}
+    {{ form_row(form.tags, {label_attr: {class: 'checkbox-custom'} }) }}
+
+    {# trzeci typ formlarza #}
+
+{#     <div class="form-group">
+        {{ form_label(form.title) }}
+        {{ form_widget(form.title, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.title) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.excerpt) }}
+        {{ form_widget(form.excerpt, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.excerpt) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.content) }}
+        {{ form_widget(form.content, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.content) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.authorEmail) }}
+        {{ form_widget(form.authorEmail, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.authorEmail) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.statusPost) }}
+        {{ form_widget(form.statusPost, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.statusPost) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.showComment) }}
+        {{ form_widget(form.showComment) }}
+        {{ form_errors(form.showComment) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.enableComment) }}
+        {{ form_widget(form.enableComment) }}
+        {{ form_errors(form.enableComment) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.user) }}
+        {{ form_widget(form.user, { 'attr': {'class': 'form-control'} }) }}
+        {{ form_errors(form.user) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.category) }}
+        {{ form_widget(form.category) }}
+        {{ form_errors(form.category) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.tags) }}
+        {{ form_widget(form.tags) }}
+        {{ form_errors(form.tags) }}
+    </div> #}
     <button class="btn btn-pill btn-midnight-blue px-5">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

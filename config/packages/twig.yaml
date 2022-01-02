@@ -5,3 +5,5 @@ twig:
     globals:
         locales: '%locales%'
     #form_themes: ['bootstrap_4_layout.html.twig']
+    form_themes: ['blog/_bootstrap_4_layout.htm.twig']
+
