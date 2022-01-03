@@ -39,6 +39,7 @@ class BlogPostType extends AbstractType
             // ->add('tags')
 
             ->add('title', TextType::class, [
+                'empty_data' => '',
                 'constraints' => [
                     new NotBlank(),
                     new Length(['max' => 255]),
@@ -51,11 +52,13 @@ class BlogPostType extends AbstractType
                 ]
             ])
             ->add('content', TextareaType::class, [
+                'empty_data' => '',
                 'constraints' => [
                     new NotBlank(),
                 ]
             ])
             ->add('authorEmail', EmailType::class, [
+                'empty_data' => '',
                 'constraints' => [
                     new NotBlank(),
                     new Email()
@@ -68,7 +71,7 @@ class BlogPostType extends AbstractType
                     'Expect' => 'expect', 
                     'Draft' => 'draft',
                 ),
-                'expanded' => false,
+                'expanded' => true,
                 'constraints' => [
                     new NotBlank(),
                 ]
