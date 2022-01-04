@@ -81,5 +81,13 @@ class BootstrapController extends AbstractController
     {
         return $this->render('bootstrap/components/forms_custom.html.twig');
     }
+
+    /**
+     * @Route("/components/custom-forms-validation", name="components_forms_custom_validation")
+     */
+    public function formsCustomValidation()
+    {
+        return $this->render('bootstrap/components/forms_custom_validation.html.twig');
+    }
     
 }
