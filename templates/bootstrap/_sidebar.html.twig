@@ -26,8 +26,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('components_forms') }}" class="nav-link {{ app.request.get('_route') ==  'components_forms' ? 'active' }}">
-                            <i class="fas fa-fw fa-caret-right"></i> Forms
+                        <a href="{{ path('components_forms_basic') }}" class="nav-link {{ app.request.get('_route') ==  'components_forms_basic' ? 'active' }}">
+                            <i class="fas fa-fw fa-caret-right"></i> Basic forms
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('components_forms_custom') }}" class="nav-link {{ app.request.get('_route') ==  'components_forms_custom' ? 'active' }}">
+                            <i class="fas fa-fw fa-caret-right"></i> Custom forms
                         </a>
                     </li>
                     <li class="nav-item">

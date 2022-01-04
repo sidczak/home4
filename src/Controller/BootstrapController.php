@@ -67,10 +67,19 @@ class BootstrapController extends AbstractController
     }
 
     /**
-     * @Route("/components/forms", name="components_forms")
+     * @Route("/components/basic-forms", name="components_forms_basic")
      */
-    public function forms()
+    public function formsBasic()
     {
-        return $this->render('bootstrap/components/forms.html.twig');
+        return $this->render('bootstrap/components/forms_basic.html.twig');
     }
+
+    /**
+     * @Route("/components/custom-forms", name="components_forms_custom")
+     */
+    public function formsCustom()
+    {
+        return $this->render('bootstrap/components/forms_custom.html.twig');
+    }
+    
 }
