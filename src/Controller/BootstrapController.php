@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\BasicValidators;
+use App\Form\BasicValidatorsType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -85,9 +89,23 @@ class BootstrapController extends AbstractController
     /**
      * @Route("/components/custom-forms-validation", name="components_forms_custom_validation")
      */
-    public function formsCustomValidation()
+    public function formsCustomValidation(Request $request): Response
     {
-        return $this->render('bootstrap/components/forms_custom_validation.html.twig');
+
+        $basicValidators = new BasicValidators();
+        $form = $this->createForm(BasicValidatorsType::class, $basicValidators);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            return $this->redirectToRoute('components_forms_custom_validation');
+        }
+
+        return $this->render('bootstrap/components/forms_custom_validation.html.twig', [
+            'form' => $form->createView(),
+        ]);
+
+
     }
     
 }
