@@ -15,9 +15,9 @@
                         </div>
 
                         <form method="post" novalidate class="{{error ? 'was-validated'}}">
-                            {% if error %}
+                            {# {% if error %}
                                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-                            {% endif %}
+                            {% endif %} #}
 
                             {% if app.user %}
                                 <div class="mb-3 text-center">
@@ -26,13 +26,13 @@
                             {% else %}
                                 <div class="form-group">
                                     <label for="inputEmail">Email
-                                        {# {% if error %}
+                                        {% if error %}
                                             <span class="invalid-feedback d-block">
                                                 <span class="d-block">
                                                     <span class="form-error-message">{{ error.messageKey|trans(error.messageData, 'security') }}</span>
                                                 </span>
                                             </span>
-                                        {% endif %} #}
+                                        {% endif %}
                                     </label>
                                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
                                 </div>
