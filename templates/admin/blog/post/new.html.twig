@@ -2,6 +2,47 @@
 
 {% block title %}New BlogPost{% endblock %}
 
+{# walidacja dla trzeciego typu formularza #}
+{# {% form_theme form _self %}
+
+{% block form_errors %}
+{% apply spaceless %}
+    {% if errors is defined and errors|length > 0 %}
+        {% for error in errors %}
+            <small class="invalid-feedback">{{ error.message }}</small>
+        {% endfor %}
+    {% endif %}
+{% endapply %}
+{% endblock form_errors %}
+
+{% block choice_widget_expanded %}
+{% apply spaceless %}
+    <div {{ block('widget_container_attributes') }} class="is-invalid">
+    {% for child in form %}
+        {{ form_widget(child) }}
+    {% endfor %}
+    </div>
+{% endapply %}
+{% endblock choice_widget_expanded %}
+
+{% block checkbox_widget %}
+{% apply spaceless %}
+    <div class="custom-control custom-checkbox custom-control-inline">
+        <input class="custom-control-input" id="{{ id }}" type="checkbox" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        <label class="custom-control-label" for="{{ id }}">{{ label|trans({}, translation_domain) }}</label>
+    </div>
+{% endapply %}
+{% endblock checkbox_widget %}
+
+{% block radio_widget %}
+{% apply spaceless %}
+    <div class="custom-control custom-radio custom-control-inline">
+        <input class="custom-control-input" id="{{ id }}" type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+        <label class="custom-control-label" for="{{ id }}">{{ label|trans({}, translation_domain) }}</label>
+    </div>
+{% endapply %}
+{% endblock radio_widget %} #}
+
 {% block content %}
     <section class="section-py-80 h-100 bg-clouds">
         <div class="container">
