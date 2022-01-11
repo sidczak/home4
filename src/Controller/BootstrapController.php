@@ -104,6 +104,26 @@ class BootstrapController extends AbstractController
         return $this->render('bootstrap/components/forms_custom_validation.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/components/custom-forms-validation-horizontal", name="components_forms_custom_validation_horizontal")
+     */
+    public function formsCustomValidationHorizontal(Request $request): Response
+    {
+
+        $basicValidators = new BasicValidators();
+        $form = $this->createForm(BasicValidatorsType::class, $basicValidators);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            return $this->redirectToRoute('components_forms_custom_validation_horizontal');
+        }
+
+        return $this->render('bootstrap/components/forms_custom_validation_horizontal.html.twig', [
+            'form' => $form->createView(),
+        ]);
 
 
     }

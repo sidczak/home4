@@ -41,6 +41,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ path('components_forms_custom_validation_horizontal') }}" class="nav-link {{ app.request.get('_route') ==  'components_forms_custom_validation_horizontal' ? 'active' }}">
+                            <i class="fas fa-fw fa-caret-right"></i> Custom forms validation horizontal
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ path('components_section') }}" class="nav-link {{ app.request.get('_route') ==  'components_section' ? 'active' }}">
                             <i class="fas fa-fw fa-caret-right"></i> Section
                         </a>
