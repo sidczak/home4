@@ -100,4 +100,57 @@ class BlogPostController extends AbstractController
 
         return $this->redirectToRoute('admin_blog_post_index');
     }
+
+    /**
+     * @Route("/{id}/remove", name="admin_blog_post_remove")
+     */
+    public function remove(Request $request, BlogPost $blogPost): Response
+    {
+        if (!$blogPost->getId()) {
+            return $this->respondNotFound();
+        }
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($blogPost);
+        $entityManager->flush();
+        
+        return $this->redirectToRoute('admin_blog_post_index');
+    }
+
+
+    /**
+     * @Route("/{id}/showcomment", name="admin_blog_post_showcomment")
+     */
+    public function showComment(Request $request, BlogPost $blogPost): Response
+    {
+        if (!$blogPost->getId()) {
+            return $this->respondNotFound();
+        }
+        
+        $blogPost->getShowComment() ? $blogPost->setShowComment(false) : $blogPost->setShowComment(true);
+        
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($blogPost);
+        $entityManager->flush();
+        
+        return $this->redirectToRoute('admin_blog_post_index');
+    }
+
+    /**
+     * @Route("/{id}/enablecomment", name="admin_blog_post_enablecomment")
+     */
+    public function enableComment(Request $request, BlogPost $blogPost): Response
+    {
+        if (!$blogPost->getId()) {
+            return $this->respondNotFound();
+        }
+        
+        $blogPost->getEnableComment() ? $blogPost->setEnableComment(false) : $blogPost->setEnableComment(true);
+        
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($blogPost);
+        $entityManager->flush();
+        
+        return $this->redirectToRoute('admin_blog_post_index');
+    }
 }

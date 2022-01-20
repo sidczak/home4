@@ -35,6 +35,17 @@
                                     <div class="card-body">
                                         {{ blog_post.excerpt }}
                                     </div>
+                                    <div class="card-body text-center">
+                                        <a class="btn btn-sm px-3 btn-pill {{ blog_post.showComment ? 'btn-turquoise' : 'btn-pomegranate' }}" href="{{ path('admin_blog_post_showcomment', {'id': blog_post.id}) }}">
+                                            <i class="fas fa-fw {{ blog_post.showComment ? 'fa-check' : 'fa-times' }}"></i> show comment
+                                        </a>
+
+                                        <a class="btn btn-sm px-3 btn-pill {{ blog_post.enableComment ? 'btn-turquoise' : 'btn-pomegranate' }}" href="{{ path('admin_blog_post_enablecomment', {'id': blog_post.id}) }}">
+                                            <i class="fas fa-fw {{ blog_post.enableComment ? 'fa-check' : 'fa-times' }}"></i> enable comment
+                                        </a>
+
+                                        <a href="{{ path('admin_blog_post_remove', {'id': blog_post.id}) }}" class="btn btn-sm px-3 btn-pill btn-pomegranate" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">delete</a>
+                                    </div>
                                 </div>
                             </div>
                         {% else %}
