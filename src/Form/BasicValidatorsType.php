@@ -6,7 +6,11 @@ use App\Entity\BasicValidators;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,6 +24,32 @@ class BasicValidatorsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $builder->add('firstName', TextType::class, [
+            'empty_data' => '',
+            'attr' => array(
+                'class' => 'form-control',
+                'placeholder' => 'First name'
+            ),
+            'constraints' => [
+                new NotBlank([
+                    'message' => "The first name is required and can't be empty"
+                ]),
+            ]
+        ]);
+
+        $builder->add('lastName', TextType::class, [
+            'empty_data' => '',
+            // 'attr' => array(
+            //     'class' => 'form-control',
+            //     'placeholder' => 'Last name'
+            // ),
+            'constraints' => [
+                new NotBlank([
+                    'message' => "The last name is required and can't be empty"
+                ]),
+            ]
+        ]);
+
         $builder
             ->add('username', TextType::class, [
                 'empty_data' => '',
@@ -38,6 +68,19 @@ class BasicValidatorsType extends AbstractType
                 ],
                 'help' => 'Make sure to add a valid email',
             ])
+            ->add('website', UrlType::class, [
+                'constraints' => [
+                    new Length(['max' => 255]),
+                ]
+            ])
+            ->add('password', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'invalid_message' => 'The password and its confirm password are not the same',
+                'options' => ['attr' => ['class' => 'password-field']],
+                'required' => true,
+                'first_options'  => ['label' => 'Password'],
+                'second_options' => ['label' => 'Repeat Password'],
+            ])
             ->add('gender', ChoiceType::class, [
                 'choices' => array(
                     'Male' => 'M', 
@@ -51,6 +94,8 @@ class BasicValidatorsType extends AbstractType
                     ]),
                 ]
             ])
+            ->add('age')
+            ->add('birthday')
             ->add('internetBrowsers', ChoiceType::class, [
                 'choices' => array(
                     '-- Select a internet browsers --' => '',
