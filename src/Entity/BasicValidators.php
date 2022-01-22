@@ -28,9 +28,9 @@ class BasicValidators
 
     private $languages;
 
-    // private $programmingLanguages;
+    private $programmingLanguages;
 
-    // private $comment;
+    private $comment;
 
     public function getFirstName(): ?string
     {
@@ -116,24 +116,24 @@ class BasicValidators
         return $this;
     }
 
-    public function getAge(): ?string
+    public function getAge(): ?int
     {
         return $this->age;
     }
 
-    public function setAge(string $age): self
+    public function setAge(?int $age): self
     {
         $this->age = $age;
 
         return $this;
     }
 
-    public function getBirthday(): ?string
+    public function getBirthday(): ?\DateTimeInterface
     {
         return $this->birthday;
     }
 
-    public function setBirthday(string $birthday): self
+    public function setBirthday(\DateTimeInterface $publishedAt): self
     {
         $this->birthday = $birthday;
 
@@ -172,6 +172,30 @@ class BasicValidators
     public function setLanguages(array $languages): self
     {
         $this->languages = $languages;
+
+        return $this;
+    }
+
+    public function getProgrammingLanguages(): ?array
+    {
+        return $this->programmingLanguages;
+    }
+
+    public function setProgrammingLanguages(array $programmingLanguages): self
+    {
+        $this->programmingLanguages = $programmingLanguages;
+
+        return $this;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    public function setComment(string $comment): self
+    {
+        $this->comment = $comment;
 
         return $this;
     }

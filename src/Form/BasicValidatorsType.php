@@ -95,6 +95,19 @@ class BasicValidatorsType extends AbstractType
                 ]
             ])
             ->add('age')
+            // ->add('age', NumberType::class, [
+            //     'constraints' => [
+            //         new NotBlank([
+            //             'message' => "The age is required and can't be empty"
+            //         ]),
+            //         new Assert\Count([
+            //             'min'        => 18,
+            //             'max'        => 100,
+            //             'minMessage' => 'Please enter a value greater than or equal to {{ limit }}',
+            //             'maxMessage' => 'Please enter a value less than or equal to {{ limit }}',
+            //         ]),
+            //     ]
+            // ])
             ->add('birthday')
             ->add('internetBrowsers', ChoiceType::class, [
                 'choices' => array(
@@ -155,7 +168,45 @@ class BasicValidatorsType extends AbstractType
                     ]),
                 ]
             ])
-
+            ->add('programmingLanguages', ChoiceType::class, [
+                'choices' => array(
+                    'net'        => '.Net',
+                    'java'       => 'Java',
+                    'c_c++'      => 'C/C++',
+                    'php'        => 'PHP',
+                    'perl'       => 'Perl',
+                    'ruby'       => 'Ruby',
+                    'python'     => 'Python',
+                    'javascript' => 'Javascript'
+                ),
+                'required' => true,
+                'expanded' => true,
+                'multiple' => true,
+                'constraints' => [
+                    new NotBlank([
+                        'message' => "The programming languages is required and can't be empty",
+                    ]),
+                    new Assert\Count([
+                        'min' => 2,
+                        'max' => 4,
+                        'minMessage' => 'Please choose 2 - 4 programming languages you are good at',
+                        'maxMessage' => 'Please choose 2 - 4 programming languages you are good at',
+                    ]),
+                ]
+            ])
+            ->add('comment', TextareaType::class, [
+                'constraints' => [
+                    new NotBlank([
+                        'message' => "The comment is required and can't be empty",
+                    ]),
+                    new Assert\Length([
+                        'min' => 10,
+                        'max' => 100,
+                        'minMessage' => 'The comment must have at least {{ limit }} characters long',
+                        'maxMessage' => 'The comment must be less than {{ limit }} characters long',
+                    ]),
+                ]
+            ])
         ;
     }
 
