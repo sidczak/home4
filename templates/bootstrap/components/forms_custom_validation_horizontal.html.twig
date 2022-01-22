@@ -97,6 +97,7 @@
                                 {{ form_label(form.email, '', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
                                 <div class="col-sm-10 align-self-center">
                                     {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+                                    {{ form_help(form.email) }}
                                     {{ form_errors(form.email) }}
                                 </div>
                             </div>
@@ -145,6 +146,7 @@
                                 {{ form_label(form.birthday, '', {'label_attr': {'class': 'col-sm-2 col-form-label'}}) }}
                                 <div class="col-sm-10 align-self-center">
                                     {{ form_widget(form.birthday) }}
+                                    {{ form_help(form.birthday) }}
                                     {{ form_errors(form.birthday) }}
                                 </div>
                             </div>

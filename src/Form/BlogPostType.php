@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -80,7 +81,14 @@ class BlogPostType extends AbstractType
             ->add('showComment')
             ->add('enableComment')
             // ->add('viewsPost')
-            // ->add('publishedAt')
+            ->add('publishedAt', DateTimeType::class, [
+                'widget' => 'single_text',
+                'required' => true,
+                'empty_data' => null,
+                'invalid_message' => 'The published is not valid',
+                // 'data' => new \DateTime(),
+                // 'help' => 'The required date format (YYYY/MM/DD)',
+            ])
             // ->add('updatedAt')
             ->add('user')
             ->add('category', EntityType::class, [

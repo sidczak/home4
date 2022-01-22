@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -94,21 +96,27 @@ class BasicValidatorsType extends AbstractType
                     ]),
                 ]
             ])
-            ->add('age')
-            // ->add('age', NumberType::class, [
-            //     'constraints' => [
-            //         new NotBlank([
-            //             'message' => "The age is required and can't be empty"
-            //         ]),
-            //         new Assert\Count([
-            //             'min'        => 18,
-            //             'max'        => 100,
-            //             'minMessage' => 'Please enter a value greater than or equal to {{ limit }}',
-            //             'maxMessage' => 'Please enter a value less than or equal to {{ limit }}',
-            //         ]),
-            //     ]
-            // ])
-            ->add('birthday')
+            ->add('age', IntegerType::class, [
+                'attr' => [
+                    'min'        => 18,
+                    'max'        => 100,
+                    // 'minMessage' => 'Please enter a value greater than or equal to {{ limit }}',
+                    // 'maxMessage' => 'Please enter a value less than or equal to {{ limit }}',
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => "The age is required and can't be empty"
+                    ]),
+                ],
+            ])
+            ->add('birthday', DateType::class, [
+                'widget' => 'single_text',
+                'required' => true,
+                'empty_data' => null,
+                'invalid_message' => 'The birthday is not valid',
+                // "data" => new \DateTime(),
+                // 'help' => 'The required date format (YYYY/MM/DD)',
+            ])
             ->add('internetBrowsers', ChoiceType::class, [
                 'choices' => array(
                     '-- Select a internet browsers --' => '',
@@ -195,6 +203,7 @@ class BasicValidatorsType extends AbstractType
                 ]
             ])
             ->add('comment', TextareaType::class, [
+                'attr' => array('rows' => '3'),
                 'constraints' => [
                     new NotBlank([
                         'message' => "The comment is required and can't be empty",
