@@ -54,6 +54,28 @@
                             <a href="{{ path('admin_blog_post_index') }}" class="btn btn-pill btn-lg btn-midnight-blue px-5">Back to list</a>
                         </div>
                     </div>
+
+                    <div class="row mb-5">
+                        {% if blog_post.images is empty %}
+                            <p>No images</p>
+                        {% else %}   
+                            {% for image in blog_post.images %}
+                                {% if image.image is empty %}
+                                    <div class="col">
+                                        <p>No images</p>
+                                    </div>
+                                {% else %}
+                                    <div class="col-md-3">
+                                        <img class="img-fluid" src="{{ asset('images/blog/') }}{{ image.image }}" alt="{{ blog_post.title|raw }}">
+                                       <div class="text-center">
+                                            <a class="btn btn-sm btn-pill btn-pomegranate px-3 my-1" href="{{ path('admin_blog_post_remove_image', { 'img': image.id, 'id': blog_post.id }) }}" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">delete</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    
                     {{ include('admin/blog/post/_form.html.twig', {'button_label': 'Update'}) }}
 
     				{{ include('admin/blog/post/_delete_form.html.twig') }}

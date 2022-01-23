@@ -5,6 +5,8 @@
 {% block content %}
     <section class="section-py-80 h-100 bg-clouds">
         <div class="container">
+
+
             <div class="row">
                 <div class="col">
                     <div class="d-flex flex-wrap justify-content-between align-items-center mb-5">
@@ -14,6 +16,25 @@
                             <a href="{{ path('admin_blog_post_edit', {'id': blog_post.id}) }}" class="btn btn-pill btn-lg btn-midnight-blue px-5">Edit</a>
                         </div>
                     </div>
+
+                    <div class="row mb-5">
+                        {% if blog_post.images is empty %}
+                            <p>No images</p>
+                        {% else %}   
+                            {% for image in blog_post.images %}
+                                {% if image.image is empty %}
+                                    <div class="col">
+                                        <p>No images</p>
+                                    </div>
+                                {% else %}
+                                    <div class="col-3">
+                                        <img class="img-fluid" src="{{ asset('images/blog/') }}{{ image.image }}" alt="{{ blog_post.title|raw }}">
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    
                     <table class="table">
                         <tbody>
                             <tr>

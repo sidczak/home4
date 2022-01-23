@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\BlogPost;
+use App\Entity\BlogImage;
 use App\Form\BlogPostType;
 use App\Repository\BlogPostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * @Route("admin/blog/post")
@@ -107,7 +109,7 @@ class BlogPostController extends AbstractController
     public function remove(Request $request, BlogPost $blogPost): Response
     {
         if (!$blogPost->getId()) {
-            return $this->respondNotFound();
+            throw $this->createNotFoundException('The post does not exist');
         }
 
         $entityManager = $this->getDoctrine()->getManager();
@@ -124,7 +126,7 @@ class BlogPostController extends AbstractController
     public function showComment(Request $request, BlogPost $blogPost): Response
     {
         if (!$blogPost->getId()) {
-            return $this->respondNotFound();
+            throw $this->createNotFoundException('The post does not exist');
         }
         
         $blogPost->getShowComment() ? $blogPost->setShowComment(false) : $blogPost->setShowComment(true);
@@ -142,7 +144,7 @@ class BlogPostController extends AbstractController
     public function enableComment(Request $request, BlogPost $blogPost): Response
     {
         if (!$blogPost->getId()) {
-            return $this->respondNotFound();
+            throw $this->createNotFoundException('The post does not exist');
         }
         
         $blogPost->getEnableComment() ? $blogPost->setEnableComment(false) : $blogPost->setEnableComment(true);
@@ -152,5 +154,32 @@ class BlogPostController extends AbstractController
         $entityManager->flush();
         
         return $this->redirectToRoute('admin_blog_post_index');
+    }
+
+    /**
+     * @Route("/{id}/{img}/remove-image", name="admin_blog_post_remove_image", methods={"GET"})
+     * src/Controller/Admin/BlogImageController.php <- ta metoda do przenisienia
+     */
+    public function removeImage(int $id, int $img): Response
+    {
+        $image = $this->getDoctrine()
+            ->getRepository(BlogImage::class)
+            ->find($img);
+
+        if (!$image) {
+            throw $this->createNotFoundException('The image does not exist');
+        }
+
+        $file = $this->getParameter('project_dir') . '/public/images/blog/' . $image->getImage();
+
+        if (file_exists($file)) {
+            unlink($file);
+        }
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($image);
+        $entityManager->flush();
+        
+        return $this->redirect($this->generateUrl('admin_blog_post_edit', ['id' => $id]));
     }
 }

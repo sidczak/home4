@@ -7,6 +7,7 @@ parameters:
     locale: 'en'
     locales: ['en', 'pl', 'ru']
     max_blog_posts_on_page: 10
+    project_dir: '%kernel.project_dir%'
 
 services:
     # default configuration for services in *this* file
