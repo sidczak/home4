@@ -21,6 +21,7 @@ window.jQuery = $;
                 this.navbarHeader();
                 this.navbarBanner();
                 this.navbarScrollSlide();
+                this.inputFile();
                 this.embedModal();
             },
 
@@ -103,6 +104,14 @@ window.jQuery = $;
                     duration,
                     'easeInOutExpo'
                 );
+            },
+            inputFile: function () {
+                $('.custom-file-input').on('change', function(event) {
+                    var inputFile = event.currentTarget;
+                    $(inputFile).parent()
+                        .find('.custom-file-label')
+                        .html(inputFile.files[0].name);
+                });
             },
             embedModal: function () {
                 // var videoSrc;
