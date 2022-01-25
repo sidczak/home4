@@ -146,6 +146,11 @@ class BlogPost
      */
     private $tags;
 
+    /**
+     * @var string
+     */
+    private $file;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -419,6 +424,18 @@ class BlogPost
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(string $file): self
+    {
+        $this->file = $file;
 
         return $this;
     }
