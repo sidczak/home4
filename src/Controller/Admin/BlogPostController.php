@@ -49,7 +49,7 @@ class BlogPostController extends AbstractController
 
             $entityManager = $this->getDoctrine()->getManager();
 
-            $imageFiles = $form->get('files')->getData();
+            $imageFiles = $form->get('images')->getData();
             if ($imageFiles) {
 
                 foreach ($imageFiles as $file) 
@@ -114,7 +114,7 @@ class BlogPostController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
 
              /** @var UploadedFile|null $imageFile */
-            $imageFiles = $form->get('files')->getData();
+            $imageFiles = $form->get('images')->getData();
             if ($imageFiles) {
 
                 foreach ($imageFiles as $file) 

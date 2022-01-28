@@ -40,8 +40,8 @@ class BlogPostType extends AbstractType
             // ->add('category')
             // ->add('tags')
 
-            ->add('files', FileType::class, [
-                'attr' => ['placeholder' => 'Choose file'],
+            ->add('images', FileType::class, [
+                'attr' => ['placeholder' => 'Choose images'],
                 'multiple' => true,
                 'mapped' => false,
                 'required' => false, // pole opcjonalne

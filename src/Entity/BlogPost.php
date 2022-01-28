@@ -146,11 +146,6 @@ class BlogPost
      */
     private $tags;
 
-    /**
-     * @var array
-     */
-    private $files = [];
-
     public function __construct()
     {
         $this->images = new ArrayCollection();
@@ -427,17 +422,4 @@ class BlogPost
 
         return $this;
     }
-
-    public function getFiles(): ?array
-    {
-        return $this->files;
-    }
-
-    public function setFiles(array $files): self
-    {
-        $this->files = $files;
-
-        return $this;
-    }
-
 }
