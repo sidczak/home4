@@ -19,7 +19,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Image;
 
 class BlogPostType extends AbstractType
 {
@@ -41,13 +40,11 @@ class BlogPostType extends AbstractType
             // ->add('category')
             // ->add('tags')
 
-            ->add('file', FileType::class, [
+            ->add('files', FileType::class, [
                 'attr' => ['placeholder' => 'Choose file'],
-                'required' => false,
-                'empty_data' => '',
-                'constraints' => [
-                    new Image(),
-                ]
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false, // pole opcjonalne
             ])
 
             ->add('title', TextType::class, [

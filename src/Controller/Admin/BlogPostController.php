@@ -6,21 +6,17 @@ use App\Entity\BlogPost;
 use App\Entity\BlogImage;
 use App\Form\BlogPostType;
 use App\Repository\BlogPostRepository;
-// use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\File\File;
-
 /**
  * @Route("admin/blog/post")
  */
-class BlogPostController extends Controller
+class BlogPostController extends AbstractController
 {
     /**
      * @Route("/{page}", name="admin_blog_post_index", methods={"GET"}, defaults={"page": 1}, requirements={"page" = "\d+"})
@@ -53,20 +49,34 @@ class BlogPostController extends Controller
 
             $entityManager = $this->getDoctrine()->getManager();
 
-             /** @var UploadedFile|null $imageFile */
-            $imageFile = $form->get('file')->getData();
-            if ($imageFile instanceof UploadedFile) {
-                $fileName = \bin2hex(\random_bytes(10)) . '.' . $imageFile->guessExtension();
-                // moves the file to the directory where brochures are stored
-                $imageFile->move(
-                    $this->getParameter('project_dir') . '/public/images/blog/',
-                    $fileName
-                );
+            $imageFiles = $form->get('files')->getData();
+            if ($imageFiles) {
 
-                $blogImage = new BlogImage();
-                $blogImage->setImage($fileName);
-                $blogImage->setPost($blogPost);
-                $entityManager->persist($blogImage);
+                foreach ($imageFiles as $file) 
+                {
+                    $fileName = \bin2hex(\random_bytes(10)) . '.' . $file->guessExtension();
+
+                    $file->move(
+                        $this->getParameter('project_dir') . '/public/images/blog/',
+                        $fileName
+                    );
+
+                    $blogImage = new BlogImage();
+                    $blogImage->setImage($fileName);
+                    $blogImage->setPost($blogPost);
+                    $entityManager->persist($blogImage);
+                }
+                // $fileName = \bin2hex(\random_bytes(10)) . '.' . $imageFile->guessExtension();
+                // // moves the file to the directory where brochures are stored
+                // $imageFile->move(
+                //     $this->getParameter('project_dir') . '/public/images/blog/',
+                //     $fileName
+                // );
+
+                // $blogImage = new BlogImage();
+                // $blogImage->setImage($fileName);
+                // $blogImage->setPost($blogPost);
+                // $entityManager->persist($blogImage);
             }
 
             $entityManager->persist($blogPost);
@@ -104,19 +114,35 @@ class BlogPostController extends Controller
             $entityManager = $this->getDoctrine()->getManager();
 
              /** @var UploadedFile|null $imageFile */
-            $imageFile = $form->get('file')->getData();
-            if ($imageFile instanceof UploadedFile) {
-                $fileName = \bin2hex(\random_bytes(10)) . '.' . $imageFile->guessExtension();
-                // moves the file to the directory where brochures are stored
-                $imageFile->move(
-                    $this->getParameter('project_dir') . '/public/images/blog/',
-                    $fileName
-                );
+            $imageFiles = $form->get('files')->getData();
+            if ($imageFiles) {
 
-                $blogImage = new BlogImage();
-                $blogImage->setImage($fileName);
-                $blogImage->setPost($blogPost);
-                $entityManager->persist($blogImage);
+                foreach ($imageFiles as $file) 
+                {
+                    $fileName = \bin2hex(\random_bytes(10)) . '.' . $file->guessExtension();
+
+                    $file->move(
+                        $this->getParameter('project_dir') . '/public/images/blog/',
+                        $fileName
+                    );
+
+                    $blogImage = new BlogImage();
+                    $blogImage->setImage($fileName);
+                    $blogImage->setPost($blogPost);
+                    $entityManager->persist($blogImage);
+                }
+
+                // $fileName = \bin2hex(\random_bytes(10)) . '.' . $imageFile->guessExtension();
+                // // moves the file to the directory where brochures are stored
+                // $imageFile->move(
+                //     $this->getParameter('project_dir') . '/public/images/blog/',
+                //     $fileName
+                // );
+
+                // $blogImage = new BlogImage();
+                // $blogImage->setImage($fileName);
+                // $blogImage->setPost($blogPost);
+                // $entityManager->persist($blogImage);
             }
 
             $entityManager->flush();

@@ -147,9 +147,9 @@ class BlogPost
     private $tags;
 
     /**
-     * @var string
+     * @var array
      */
-    private $file;
+    private $files = [];
 
     public function __construct()
     {
@@ -428,15 +428,16 @@ class BlogPost
         return $this;
     }
 
-    public function getFile(): ?string
+    public function getFiles(): ?array
     {
-        return $this->file;
+        return $this->files;
     }
 
-    public function setFile(string $file): self
+    public function setFiles(array $files): self
     {
-        $this->file = $file;
+        $this->files = $files;
 
         return $this;
     }
+
 }

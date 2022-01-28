@@ -21,7 +21,8 @@ window.jQuery = $;
                 this.navbarHeader();
                 this.navbarBanner();
                 this.navbarScrollSlide();
-                this.inputFile();
+                // this.inputFile();
+                this.inputFiles();
                 this.embedModal();
             },
 
@@ -111,6 +112,15 @@ window.jQuery = $;
                     $(inputFile).parent()
                         .find('.custom-file-label')
                         .html(inputFile.files[0].name);
+                });
+            },
+            inputFiles: function () {
+                $('.custom-file-input').on('change', function(event) {
+                    const inputFile = event.currentTarget;
+                    const numFiles = inputFile.files.length;
+                    $(inputFile).parent()
+                        .find('.custom-file-label')
+                        .html(numFiles > 1 ? numFiles + ' files selected' : inputFile.files[0].name);
                 });
             },
             embedModal: function () {
