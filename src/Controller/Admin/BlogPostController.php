@@ -268,7 +268,7 @@ class BlogPostController extends AbstractController
      * @Route("/{id}/{img}/remove-image", name="admin_blog_post_remove_image", methods={"GET"})
      * src/Controller/Admin/BlogImageController.php <- ta metoda do przenisienia
      */
-    public function removeImage(int $id, int $img): Response
+    public function removeImage(int $id, int $img, BlogImageRepository $blogImageRepository): Response
     {
         $image = $this->getDoctrine()
             ->getRepository(BlogImage::class)
@@ -286,6 +286,16 @@ class BlogPostController extends AbstractController
 
         $entityManager = $this->getDoctrine()->getManager();
         $entityManager->remove($image);
+        $entityManager->flush();
+
+        $images = $blogImageRepository->updateRank($id);
+        if ($images) {
+            $rank = 0;
+            foreach ($images as $image) {
+                $image->setRank(++$rank);
+                $entityManager->persist($image);
+            }
+        }
         $entityManager->flush();
         
         return $this->redirect($this->generateUrl('admin_blog_post_edit', ['id' => $id]));

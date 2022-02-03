@@ -28,6 +28,21 @@ class BlogImageRepository extends ServiceEntityRepository
             ->getQuery()
             ->getSingleResult();
     }
+    
+    /**
+     * @param int|null $postId
+     *
+     * @return BlogImage[]
+     */
+    public function updateRank(int $postId = null)
+    {
+        return $this->createQueryBuilder('i')
+            ->where('i.post = :postId')
+            ->setParameter('postId', $postId)
+            ->orderBy('i.rank', 'ASC')
+        	->getQuery()
+        	->getResult();
+    }
 
     // /**
     //  * @return BlogImage[] Returns an array of BlogImage objects
