@@ -6,6 +6,7 @@ use App\Entity\BlogPost;
 use App\Entity\BlogImage;
 use App\Form\BlogPostType;
 use App\Repository\BlogPostRepository;
+use App\Repository\BlogImageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,7 +40,7 @@ class BlogPostController extends AbstractController
     /**
      * @Route("/new", name="admin_blog_post_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, BlogImageRepository $blogImageRepository): Response
     {
         $blogPost = new BlogPost();
         $form = $this->createForm(BlogPostType::class, $blogPost);
@@ -67,18 +68,18 @@ class BlogPostController extends AbstractController
                     $blogImage->setImage($fileName);
                     $blogImage->setPost($blogPost);
 
-                    $image = $this->getDoctrine()
-                        ->getRepository(BlogImage::class);
+                    // $image = $this->getDoctrine()
+                    //     ->getRepository(BlogImage::class);
 
-                    $query = $image->createQueryBuilder('i')
-                        ->select('MAX(i.rank) as rank')
-                        ->where('i.post = :postId')
-                        ->setParameter('postId', $blogPost)
-                        ->getQuery();
+                    // $query = $image->createQueryBuilder('i')
+                    //     ->select('MAX(i.rank) as rank')
+                    //     ->where('i.post = :postId')
+                    //     ->setParameter('postId', $blogPost)
+                    //     ->getQuery();
                 
-                    $rank = $query->getSingleResult();
+                    // $rank = $query->getSingleResult();
 
-                    // $rank = $em->getRepository('BlogAdminBundle:Image')->getMaxRank($id);
+                    $rank = $blogImageRepository->getMaxRank($blogPost);
 
                     if ($rank) {
                         $blogImage->setRank($rank['rank'] + 1);
@@ -125,7 +126,7 @@ class BlogPostController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_blog_post_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, BlogPost $blogPost): Response
+    public function edit(Request $request, BlogPost $blogPost, BlogImageRepository $blogImageRepository): Response
     {
         $form = $this->createForm(BlogPostType::class, $blogPost);
         $form->handleRequest($request);
@@ -151,18 +152,18 @@ class BlogPostController extends AbstractController
                     $blogImage->setImage($fileName);
                     $blogImage->setPost($blogPost);
 
-                    $image = $this->getDoctrine()
-                        ->getRepository(BlogImage::class);
+                    // $image = $this->getDoctrine()
+                    //     ->getRepository(BlogImage::class);
 
-                    $query = $image->createQueryBuilder('i')
-                        ->select('MAX(i.rank) as rank')
-                        ->where('i.post = :postId')
-                        ->setParameter('postId', $blogPost)
-                        ->getQuery();
+                    // $query = $image->createQueryBuilder('i')
+                    //     ->select('MAX(i.rank) as rank')
+                    //     ->where('i.post = :postId')
+                    //     ->setParameter('postId', $blogPost)
+                    //     ->getQuery();
                 
-                    $rank = $query->getSingleResult();
+                    // $rank = $query->getSingleResult();
 
-                    // $rank = $em->getRepository('BlogAdminBundle:Image')->getMaxRank($id);
+                    $rank = $blogImageRepository->getMaxRank($blogPost);
 
                     if ($rank) {
                         $blogImage->setRank($rank['rank'] + 1);

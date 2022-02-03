@@ -19,15 +19,14 @@ class BlogImageRepository extends ServiceEntityRepository
         parent::__construct($registry, BlogImage::class);
     }
 
-    public function getMaxRank($postId): ?BlogImage
+    public function getMaxRank($postId)
     {
-        return $this->createQueryBuilder('i')
-        	->select('MAX(i.rank) as rank');
+        $qb = $this->createQueryBuilder('i')
+        	->select('MAX(i.rank) as rank')
             ->where('i.post = :postId')
-            ->setParameter('postId', $postId)
-            ->getQuery()
-            ->getSingleResult()
-        ;
+            ->setParameter('postId', $postId);
+
+        return $qb->getQuery()->getSingleResult();
     }
 
     // /**
