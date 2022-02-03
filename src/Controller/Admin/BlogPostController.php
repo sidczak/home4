@@ -48,6 +48,8 @@ class BlogPostController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($blogPost);
+            $entityManager->flush();
 
             $imageFiles = $form->get('images')->getData();
             if ($imageFiles) {
@@ -64,7 +66,26 @@ class BlogPostController extends AbstractController
                     $blogImage = new BlogImage();
                     $blogImage->setImage($fileName);
                     $blogImage->setPost($blogPost);
+
+                    $image = $this->getDoctrine()
+                        ->getRepository(BlogImage::class);
+
+                    $query = $image->createQueryBuilder('i')
+                        ->select('MAX(i.rank) as rank')
+                        ->where('i.post = :postId')
+                        ->setParameter('postId', $blogPost)
+                        ->getQuery();
+                
+                    $rank = $query->getSingleResult();
+
+                    // $rank = $em->getRepository('BlogAdminBundle:Image')->getMaxRank($id);
+
+                    if ($rank) {
+                        $blogImage->setRank($rank['rank'] + 1);
+                    }
+
                     $entityManager->persist($blogImage);
+                    $entityManager->flush();
                 }
                 // $fileName = \bin2hex(\random_bytes(10)) . '.' . $imageFile->guessExtension();
                 // // moves the file to the directory where brochures are stored
@@ -79,8 +100,8 @@ class BlogPostController extends AbstractController
                 // $entityManager->persist($blogImage);
             }
 
-            $entityManager->persist($blogPost);
-            $entityManager->flush();
+            // $entityManager->persist($blogPost);
+            // $entityManager->flush();
 
             return $this->redirectToRoute('admin_blog_post_index');
         }
@@ -129,7 +150,26 @@ class BlogPostController extends AbstractController
                     $blogImage = new BlogImage();
                     $blogImage->setImage($fileName);
                     $blogImage->setPost($blogPost);
+
+                    $image = $this->getDoctrine()
+                        ->getRepository(BlogImage::class);
+
+                    $query = $image->createQueryBuilder('i')
+                        ->select('MAX(i.rank) as rank')
+                        ->where('i.post = :postId')
+                        ->setParameter('postId', $blogPost)
+                        ->getQuery();
+                
+                    $rank = $query->getSingleResult();
+
+                    // $rank = $em->getRepository('BlogAdminBundle:Image')->getMaxRank($id);
+
+                    if ($rank) {
+                        $blogImage->setRank($rank['rank'] + 1);
+                    }
+
                     $entityManager->persist($blogImage);
+                    $entityManager->flush();
                 }
 
                 // $fileName = \bin2hex(\random_bytes(10)) . '.' . $imageFile->guessExtension();
@@ -145,7 +185,7 @@ class BlogPostController extends AbstractController
                 // $entityManager->persist($blogImage);
             }
 
-            $entityManager->flush();
+            // $entityManager->flush();
 
             return $this->redirectToRoute('admin_blog_post_index');
         }
