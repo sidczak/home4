@@ -194,6 +194,7 @@ class BlogPostController extends AbstractController
         return $this->render('admin/blog/post/edit.html.twig', [
             'blog_post' => $blogPost,
             'form' => $form->createView(),
+            'max_rank' => $blogImageRepository->getMaxRank($blogPost),
         ]);
     }
 
@@ -296,6 +297,86 @@ class BlogPostController extends AbstractController
                 $entityManager->persist($image);
             }
         }
+        $entityManager->flush();
+        
+        return $this->redirect($this->generateUrl('admin_blog_post_edit', ['id' => $id]));
+    }
+
+    /**
+     * @Route("/{id}/{img}/up-image", name="admin_blog_post_up_image", methods={"GET"})
+     * src/Controller/Admin/BlogImageController.php <- ta metoda do przenisienia
+     */
+    public function upImage(int $id, int $img): Response
+    {
+
+        $entity = $this->getDoctrine()
+            ->getRepository(BlogImage::class)
+            ->find($img);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('The image does not exist');
+        }
+
+        $rank = $entity->getRank();
+
+        $repository = $this->getDoctrine()
+            ->getRepository(BlogImage::class);
+
+        $query = $repository->createQueryBuilder('i')
+            ->where('i.rank = :rank')
+            ->setParameter('rank', $rank - 1)
+            ->andWhere('i.post = :post_id')
+            ->setParameter('post_id', $id)
+            ->getQuery();
+
+        $image = $query->getSingleResult();
+        $image->setRank($rank);
+
+        $entity->setRank($rank - 1);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($entity);
+        $entityManager->persist($image);
+        $entityManager->flush();
+        
+        return $this->redirect($this->generateUrl('admin_blog_post_edit', ['id' => $id]));
+    }
+
+    /**
+     * @Route("/{id}/{img}/down-image", name="admin_blog_post_down_image", methods={"GET"})
+     * src/Controller/Admin/BlogImageController.php <- ta metoda do przenisienia
+     */
+    public function downImage(int $id, int $img): Response
+    {
+
+        $entity = $this->getDoctrine()
+            ->getRepository(BlogImage::class)
+            ->find($img);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('The image does not exist');
+        }
+
+        $rank = $entity->getRank();
+
+        $repository = $this->getDoctrine()
+            ->getRepository(BlogImage::class);
+
+        $query = $repository->createQueryBuilder('i')
+            ->where('i.rank = :rank')
+            ->setParameter('rank', $rank + 1)
+            ->andWhere('i.post = :post_id')
+            ->setParameter('post_id', $id)
+            ->getQuery();
+
+        $image = $query->getSingleResult();
+        $image->setRank($rank);
+
+        $entity->setRank($rank + 1);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($entity);
+        $entityManager->persist($image);
         $entityManager->flush();
         
         return $this->redirect($this->generateUrl('admin_blog_post_edit', ['id' => $id]));

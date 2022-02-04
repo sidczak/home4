@@ -67,8 +67,16 @@
                                 {% else %}
                                     <div class="col-md-3">
                                         <img class="img-fluid" src="{{ asset('images/blog/') }}{{ image.image }}" alt="{{ blog_post.title|raw }}">
-                                       <div class="text-center">
-                                            <a class="btn btn-sm btn-pill btn-pomegranate px-3 my-1" href="{{ path('admin_blog_post_remove_image', { 'img': image.id, 'id': blog_post.id }) }}" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">delete</a>
+                                        <div class="text-center my-1">
+                                            {% if image.rank > 1 %}
+                                                <a class="btn btn-sm btn-pill btn-midnight-blue" href="{{ path('admin_blog_post_up_image', { 'img': image.id, 'id': blog_post.id }) }}"><i class="fa fa-chevron-up"></i></a>
+                                            {% endif %}
+
+                                            {% if image.rank < max_rank.rank %}
+                                                <a class="btn btn-sm btn-pill btn-midnight-blue" href="{{ path('admin_blog_post_down_image', { 'img': image.id, 'id': blog_post.id }) }}"><i class="fa fa-chevron-down"></i></a>
+                                            {% endif %}
+                                            
+                                            <a class="btn btn-sm btn-pill btn-pomegranate px-3" href="{{ path('admin_blog_post_remove_image', { 'img': image.id, 'id': blog_post.id }) }}" onclick="if(!confirm('{% trans %}Are you sure?{% endtrans %}')) { return false; }">delete</a>
                                         </div>
                                     </div>
                                 {% endif %}
