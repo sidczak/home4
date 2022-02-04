@@ -44,6 +44,17 @@ class BlogImageRepository extends ServiceEntityRepository
         	->getResult();
     }
 
+    public function findImageWithWhichChange(int $rank, int $postId)
+    {
+        return $this->createQueryBuilder('i')
+            ->where('i.rank = :rank')
+            ->setParameter('rank', $rank)
+            ->andWhere('i.post = :postId')
+            ->setParameter('postId', $postId)
+            ->getQuery()
+            ->getSingleResult();
+    }
+
     // /**
     //  * @return BlogImage[] Returns an array of BlogImage objects
     //  */
