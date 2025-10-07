@@ -29,7 +29,7 @@ class BlogImage
     /**
      * @var int
      *
-     * @ORM\Column(type="integer", options={"default"="1"})
+     * @ORM\Column(type="integer", options={"default"="1"}, name="sort_rank")
      */
     private $rank = 1;
 

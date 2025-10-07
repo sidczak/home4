@@ -58,15 +58,18 @@ class BlogImageFixtures extends Fixture implements DependentFixtureInterface
         foreach (range(0, 30) as $i) { //mamy 30 postów dlatego rand(0, 30)
                          
             $random_image = $this->getRandomImage();
-            
-            if ($random_image) {
-                $img = new BlogImage();
 
-                $post = $this->getReference('post-post'.$i);
-                $img->setPost($manager->merge($post));
-                $img->setImage($random_image);
-                $img->setRank(1);
+            if ($random_image === null) {
+                continue; // pole image jest NOT NULL → pomijamy tę iterację
             }
+
+            $img = new BlogImage();
+
+            $post = $this->getReference('post-post'.$i);
+            
+            $img->setPost($manager->merge($post));
+            $img->setImage($random_image);
+            $img->setRank(1);
             /*
             switch ($post->getCategory()) {
                 case $this->getReference('category-blog'):

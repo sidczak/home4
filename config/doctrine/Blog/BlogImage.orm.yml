@@ -11,6 +11,7 @@ App\Entity\Blog\BlogImage:
       type: string
       length: 255
     rank:
+      column: sort_rank
       type: integer
       options:
         default: 1
