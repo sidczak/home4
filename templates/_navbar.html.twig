@@ -28,7 +28,7 @@
       <i class="fas fa-ellipsis-v"></i>
     </button>
   {% endif %}
-  <a class="navbar-brand" href="{{ path('homepage') }}"><i class="fas fa-laptop-code"></i>{# <i class="fas fa-camera-retro"></i> #} FrontCode</a>
+  <a class="navbar-brand" href="{{ path('homepage') }}"><i class="fas fa-laptop-code"></i>{# <i class="fas fa-camera-retro"></i> #} FactoryCode</a>
   <home-hamburger hamburger-bg="turquoise" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></home-hamburger>
   {# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -36,9 +36,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
+      {# <li class="nav-item">
         <a class="nav-link text-capitalize" href="#">Landing page</a>
-      </li>
+      </li> #}
       <li class="nav-item {{ currentRouteName starts with 'blog_' ? 'active' }}">
         <a class="nav-link text-capitalize" href="{{ path('blog_post_index') }}">Blog demo</a>
       </li>
